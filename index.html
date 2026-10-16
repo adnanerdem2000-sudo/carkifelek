@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Çarkıfelek Stüdyo</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#1a0b3d">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@500;700;800;900&display=swap">
 <link rel="stylesheet" href="style.css">
@@ -27,9 +31,10 @@
     <div class="top-stats">
       <div class="stat"><span class="stat-k">TUR</span><span class="stat-v" id="roundLabel">–</span></div>
       <div class="stat"><span class="stat-k">SIRADA</span><span class="stat-v" id="activeLabel">–</span></div>
-      <div class="stat"><span class="stat-k">TOPLAM</span><span class="stat-v" id="activeTotal">0</span></div>
+      <div class="stat"><span class="stat-k" id="activeTotalK">TOPLAM</span><span class="stat-v" id="activeTotal">0</span></div>
     </div>
     <div class="top-actions">
+      <button class="room-chip" id="roomChip" type="button" hidden aria-label="Oda bilgisi"><i class="net-dot" id="netDot"></i><span id="roomChipCode">-----</span></button>
       <button class="icon-btn" id="btnSound" type="button" aria-label="Sesi aç/kapat" title="Ses">🔊</button>
       <button class="icon-btn" id="btnSettings" type="button" aria-label="Ayarlar" title="Ayarlar">⚙️</button>
       <button class="icon-btn" id="btnMenu" type="button" aria-label="Ana menü" title="Ana menü">☰</button>
@@ -37,7 +42,10 @@
   </header>
 
   <main class="stage">
-    <!-- ORTA: ÇARK + PANO -->
+    <!-- TELEFON: yatay yarışmacı şeridi -->
+    <div class="pstrip" id="pstrip" aria-label="Yarışmacılar"></div>
+
+    <!-- ÇARK -->
     <section class="wheel-zone" aria-label="Çark">
       <div class="wheel-wrap" id="wheelWrap">
         <div class="wheel-bulbs" id="wheelBulbs" aria-hidden="true"></div>
@@ -48,6 +56,7 @@
       <div class="wheel-result" id="wheelResult" aria-live="polite">Çarkı çevirerek başla</div>
     </section>
 
+    <!-- PANO -->
     <section class="board-zone" aria-label="Bulmaca">
       <div class="board-frame">
         <div class="board-head">
@@ -60,44 +69,46 @@
           <span id="livesInfo" hidden></span>
         </div>
       </div>
+    </section>
 
+    <!-- KONTROLLER + HARFLER -->
+    <section class="play-zone" aria-label="Hamleler">
+      <div class="turn-banner" id="turnBanner" hidden></div>
       <div class="controls">
         <button class="btn btn-spin" id="btnSpin" type="button">🎡 ÇARKI ÇEVİR</button>
         <button class="btn btn-vowel" id="btnVowel" type="button">🔤 ÜNLÜ AL <small id="vowelCost">200</small></button>
-        <button class="btn btn-solve" id="btnSolve" type="button">💡 CEVABI TAHMİN ET</button>
+        <button class="btn btn-solve" id="btnSolve" type="button">💡 TAHMİN ET</button>
       </div>
       <div class="hint-line" id="hintLine">Çarkı çevir, ardından bir ünsüz seç.</div>
-      <!-- ALT: HARFLER + TAHMİN -->
-      <section class="letters-zone" aria-label="Harf seçimi">
-        <div class="keyboard" id="keyboard"></div>
-        <form class="solve-form" id="solveForm" autocomplete="off" hidden>
-          <input id="solveInput" type="text" placeholder="Cevabı yaz…" aria-label="Cevap tahmini" maxlength="60">
-          <button class="btn btn-solve" type="submit">GÖNDER</button>
-          <button class="btn btn-ghost" type="button" id="solveCancel">VAZGEÇ</button>
-        </form>
-      </section>
+      <form class="solve-form" id="solveForm" autocomplete="off" hidden>
+        <input id="solveInput" type="text" placeholder="Cevabı yaz…" aria-label="Cevap tahmini" maxlength="60" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="send">
+        <button class="btn btn-solve" type="submit">GÖNDER</button>
+        <button class="btn btn-ghost" type="button" id="solveCancel">VAZGEÇ</button>
+      </form>
+      <div class="keyboard" id="keyboard" aria-label="Harf seçimi"></div>
     </section>
 
     <!-- YAN PANEL -->
     <aside class="side" aria-label="Oyuncular ve ipuçları">
-      <div class="panel">
+      <div class="panel players-panel">
         <h2 class="panel-title">YARIŞMACILAR</h2>
         <div id="players" class="players"></div>
       </div>
       <div class="panel">
-        <h2 class="panel-title">İPUÇLARI</h2>
+        <h2 class="panel-title">İPUÇLARIN</h2>
         <div id="clues" class="clues"><p class="muted">Marketten alınan ipuçları burada görünür. Market her el bittiğinde açılır.</p></div>
       </div>
     </aside>
   </main>
-
-
 
   <section class="log-zone panel" aria-label="Oyun günlüğü">
     <h2 class="panel-title">OYUN GÜNLÜĞÜ</h2>
     <ol class="log" id="log"></ol>
   </section>
 </div>
+
+<!-- BAĞLANTI UYARISI -->
+<div class="net-toast" id="netToast" hidden></div>
 
 <!-- BİLDİRİM -->
 <div class="banner" id="banner" aria-live="assertive"></div>
@@ -106,31 +117,81 @@
 <div class="overlay" id="menu">
   <div class="modal menu-modal">
     <div class="menu-logo"><span class="logo-main big">ÇARKIFELEK</span><span class="logo-sub">STÜDYO · CANLI YAYIN</span></div>
-    <div class="menu-section">
-      <h3>YARIŞMACI SAYISI</h3>
-      <div class="seg" id="segPlayers">
-        <button type="button" data-v="1">Tek oyunculu</button>
-        <button type="button" data-v="2" class="on">İki oyunculu</button>
-        <button type="button" data-v="3">Üç oyunculu yarışma</button>
+    <div class="mode-tabs" role="tablist">
+      <button type="button" role="tab" data-tab="online" id="tabBtnOnline">🌐 Arkadaşlarla online</button>
+      <button type="button" role="tab" data-tab="local" id="tabBtnLocal">📱 Bu cihazda</button>
+    </div>
+
+    <section id="tabOnline" class="tab-pane">
+      <label class="field"><span>Adın</span><input id="onName" maxlength="16" autocomplete="nickname" placeholder="Örn. Adnan"></label>
+      <div class="online-grid">
+        <div class="on-card host">
+          <h3>Oda kur</h3>
+          <p>Sana bir oda kodu verilir. Kodu ya da linki arkadaşlarına gönder; 2–4 kişi oynanır.</p>
+          <button class="btn btn-spin" id="btnHost" type="button">🎙 ODA KUR</button>
+        </div>
+        <div class="on-card join">
+          <h3>Odaya katıl</h3>
+          <input id="joinCode" class="code-input" maxlength="5" placeholder="KOD" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-label="Oda kodu">
+          <button class="btn btn-solve" id="btnJoin" type="button">🚪 KATIL</button>
+        </div>
       </div>
-    </div>
-    <div class="menu-section">
-      <h3>YARIŞMA SÜRESİ</h3>
-      <div class="seg" id="segLength">
-        <button type="button" data-v="quick">Hızlı oyun · 3 tur</button>
-        <button type="button" data-v="std" class="on">Standart · 5 tur</button>
-        <button type="button" data-v="long">Uzun yarışma · 8 tur</button>
+      <p class="net-msg" id="netMsg" role="status"></p>
+    </section>
+
+    <section id="tabLocal" class="tab-pane" hidden>
+      <div class="menu-section">
+        <h3>YARIŞMACI SAYISI</h3>
+        <div class="seg" id="segPlayers">
+          <button type="button" data-v="1">Tek oyunculu</button>
+          <button type="button" data-v="2" class="on">İki oyunculu</button>
+          <button type="button" data-v="3">Üç oyunculu</button>
+          <button type="button" data-v="4">Dört oyunculu</button>
+        </div>
       </div>
-    </div>
-    <div class="menu-section">
-      <h3>İSİMLER</h3>
-      <div class="names" id="names"></div>
-    </div>
-    <div class="menu-actions">
-      <button class="btn btn-spin" id="btnStart" type="button">▶ YARIŞMAYI BAŞLAT</button>
-      <button class="btn btn-ghost" id="btnQuick" type="button">⚡ HIZLI OYUN (tek kişi, 3 tur)</button>
-    </div>
+      <div class="menu-section">
+        <h3>YARIŞMA SÜRESİ</h3>
+        <div class="seg" id="segLength">
+          <button type="button" data-v="quick">Hızlı · 3 tur</button>
+          <button type="button" data-v="std" class="on">Standart · 5 tur</button>
+          <button type="button" data-v="long">Uzun · 8 tur</button>
+        </div>
+      </div>
+      <div class="menu-section">
+        <h3>İSİMLER</h3>
+        <div class="names" id="names"></div>
+      </div>
+      <div class="menu-actions">
+        <button class="btn btn-spin" id="btnStart" type="button">▶ YARIŞMAYI BAŞLAT</button>
+        <button class="btn btn-ghost" id="btnQuick" type="button">⚡ HIZLI OYUN (tek kişi, 3 tur)</button>
+      </div>
+    </section>
     <p class="menu-foot" id="poolInfo"></p>
+  </div>
+</div>
+
+<!-- ONLINE LOBİ -->
+<div class="overlay" id="lobby" hidden>
+  <div class="modal lobby-modal">
+    <p class="lobby-k">ODA KODU</p>
+    <div class="room-code" id="roomCode">-----</div>
+    <div class="share-row">
+      <input id="shareLink" readonly aria-label="Davet linki">
+      <button class="btn btn-vowel" id="btnShare" type="button">📤 Paylaş</button>
+      <button class="btn btn-ghost" id="btnCopy" type="button">Kopyala</button>
+    </div>
+    <h3 class="lobby-h">YARIŞMACILAR <span id="lobbyCount">1/4</span></h3>
+    <div class="lobby-players" id="lobbyPlayers"></div>
+    <div id="lobbyHost">
+      <div class="seg" id="segLobbyLength">
+        <button type="button" data-v="quick">Hızlı · 3 tur</button>
+        <button type="button" data-v="std" class="on">Standart · 5 tur</button>
+        <button type="button" data-v="long">Uzun · 8 tur</button>
+      </div>
+      <button class="btn btn-spin lobby-start" id="btnLobbyStart" type="button">▶ YARIŞMAYI BAŞLAT</button>
+    </div>
+    <p class="lobby-wait" id="lobbyWait">Oda kurucusunun yarışmayı başlatması bekleniyor…</p>
+    <div class="modal-actions"><button class="btn btn-ghost" id="btnLeave" type="button">Odadan çık</button></div>
   </div>
 </div>
 
@@ -173,6 +234,8 @@
       <div class="market-grid" id="marketGrid"></div>
       <div class="market-floor" aria-hidden="true"></div>
       <div class="modal-actions">
+        <span class="ready-info" id="readyInfo"></span>
+        <button class="btn btn-ghost" id="btnMarketForce" type="button" hidden>Beklemeden başlat</button>
         <button class="btn btn-spin" id="btnMarketDone" type="button">SONRAKİ TURA GEÇ ▶</button>
       </div>
     </div>
@@ -206,6 +269,7 @@
   <div class="modal">
     <h2 class="modal-title">BÜYÜK FİNAL</h2>
     <div id="goBody"></div>
+    <p class="muted" id="goWait" style="text-align:center" hidden>Oda kurucusu yeni bir yarışma başlatabilir.</p>
     <div class="modal-actions wrap">
       <button class="btn btn-ghost" id="goMenu" type="button">Ana menü</button>
       <button class="btn btn-spin" id="goAgain" type="button">Aynı ekiple yeniden oyna</button>

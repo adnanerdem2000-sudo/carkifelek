@@ -1,15 +1,14 @@
 /* =========================================================================
-   ÇARKIFELEK STÜDYO — oyun motoru (Vanilla JS)
+   ÇARKIFELEK STÜDYO — oyun motoru (Vanilla JS, dış kütüphane yok)
    Bölümler:
-     1. Yardımcılar ve Türkçe harf işlemleri
-     2. Bulmaca havuzu, sızıntı denetimi, geçmiş (localStorage) ve seçim
-     3. Ses motoru (Web Audio API)
-     4. Çark (çizim, dönüş, açı → dilim eşlemesi)
-     5. Efektler (parçacık, konfeti, bildirim)
-     6. Merkezi oyun durumu ve akış
-     7. Market ve ipucu üretimi
-     8. Arayüz çizimi
-     9. Menü / ayarlar bağlantıları
+     1-5  Yardımcılar, bulmaca havuzu, ses, çark, efektler
+     ipucu üretimi ve ürün görselleri
+     6    Sabitler ve ayarlar
+     7    Küçük MQTT istemcisi (WebSocket)
+     8    Ağ katmanı: oda kur / katıl / yeniden bağlan
+     9    Oyun motoru (tek doğru durum, yalnızca yöneten cihazda)
+     10   Kurucu (host)   11 Katılımcı (client)
+     12   Arayüz          13 Menü, lobi, ayarlar
    ========================================================================= */
 (() => {
 'use strict';
@@ -281,17 +280,18 @@ const Wheel = {
     ctx.beginPath(); ctx.arc(c, c, R, 0, Math.PI * 2); ctx.fillStyle = hl; ctx.fill();
   },
   apply() { this.canvas.style.transform = `rotate(${this.rot}deg)`; },
-  spin() {
+  // Kurucunun hesapladığı açıdan açıya, herkes aynı süre ve eğriyle çevirir (rAF arka planda durursa setTimeout güvencesi var)
+  animate(from, to, dur) {
+    this.animToken = (this.animToken || 0) + 1;
+    const tok = this.animToken;
     return new Promise(resolve => {
-      const target = randInt(0, SLICES.length - 1);
-      const from = this.rot;
-      const to = this.targetRotation(from, target, randInt(4, 6), rand(-1, 1));
-      const dur = rand(4300, 6600) * (G.settings.anim === 'low' ? .75 : 1);
       const t0 = performance.now();
-      let lastPeg = Math.floor(from / SLICE_DEG);
+      let lastPeg = Math.floor(from / SLICE_DEG), done = false;
       this.spinning = true;
+      const finish = () => { if (done || tok !== this.animToken) return; done = true; this.rot = to; this.apply(); this.spinning = false; resolve(this.indexAt(to)); };
       const frame = now => {
-        const t = clamp((now - t0) / dur, 0, 1);
+        if (done || tok !== this.animToken) return;
+        const t = clamp((now - t0) / Math.max(1, dur), 0, 1);
         this.rot = from + (to - from) * this.ease(t);
         this.apply();
         const peg = Math.floor(this.rot / SLICE_DEG);
@@ -300,17 +300,13 @@ const Wheel = {
           Sound.tick(this.speedAt(t));
           const p = $('pointer'); p.classList.remove('flick'); void p.offsetWidth; p.classList.add('flick');
         }
-        if (t < 1) requestAnimationFrame(frame);
-        else {
-          this.rot = to; this.apply(); this.spinning = false;
-          const landed = this.indexAt(this.rot);
-          if (landed !== target) console.error('Çark uyuşmazlığı', landed, target); // tasarım gereği olmamalı
-          resolve(landed);                                                          // gerçek açıdan okunan dilim esas alınır
-        }
+        if (t < 1) requestAnimationFrame(frame); else finish();
       };
       requestAnimationFrame(frame);
+      setTimeout(finish, dur + 400);
     });
-  }
+  },
+  stop() { this.animToken = (this.animToken || 0) + 1; this.spinning = false; }
 };
 function shade(hex, amt) {
   const n = parseInt(hex.slice(1), 16); let r = n >> 16, g = (n >> 8) & 255, b = n & 255;
@@ -355,305 +351,7 @@ function banner(text, cls = '') {
 function flash(kind) { document.body.classList.remove('flash-good', 'flash-bad'); void document.body.offsetWidth; document.body.classList.add('flash-' + kind); setTimeout(() => document.body.classList.remove('flash-' + kind), 950); }
 function centerOf(el) { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; }
 
-/* ------------------------------------------------------------------ 6 */
-const COLORS = ['#19e3d0', '#ff3fa4', '#ffe14a'];
-const MODES = { quick: { rounds: 3, vowelCost: 100, label: 'Hızlı oyun' }, std: { rounds: 5, vowelCost: 200, label: 'Standart' }, long: { rounds: 8, vowelCost: 250, label: 'Uzun yarışma' } };
-const SOLO_LIVES = 5;
 
-const defaultSettings = { volume: 70, sound: true, music: true, anim: 'normal', rounds: 0, clueMode: 'auto' };
-// Merkezi oyun durumu: tüm puanlar ve tur bilgisi yalnızca burada tutulur
-const G = {
-  settings: Object.assign({}, defaultSettings, store.get('cf.settings.v1', {})),
-  setup: { count: 2, length: 'std', names: ['Ayşe', 'Mehmet', 'Zeynep'] },
-  phase: 'menu',          // menu | idle | spinning | pickConsonant | pickVowel | solving | revealing | roundOver | market | over
-  players: [], cur: 0, round: 0, rounds: 5, vowelCost: 200,
-  puzzle: null, revealed: new Set(), guessed: new Set(), wheelValue: 0,
-  roundDone: false, misses: 0, lives: SOLO_LIVES, roundToken: 0,
-  sessionUsed: new Set(), lastCat: null, recentCats: [], catUse: {}, adapt: 0,
-  nextPuzzle: null, market: null, clues: [], log: [], final: false, spinning: false, history: []
-};
-
-function newPlayers() {
-  return G.setup.names.slice(0, G.setup.count).map((n, i) => ({
-    id: i, name: (n || '').trim().slice(0, 16) || `Yarışmacı ${i + 1}`, color: COLORS[i],
-    total: 0, hand: 0, coupons: 0, bought: [], solved: 0, correctLetters: 0, wrong: 0
-  }));
-}
-
-function startGame() {
-  Sound.init();
-  const mode = MODES[G.setup.length];
-  G.players = newPlayers();
-  G.rounds = +G.settings.rounds || mode.rounds;
-  G.vowelCost = mode.vowelCost;
-  G.round = 0; G.cur = 0; G.clues = []; G.log = []; G.adapt = 0; G.catUse = {}; G.recentCats = []; G.lastCat = null; G.history = [];
-  G.sessionUsed = new Set(); G.nextPuzzle = null; G.market = null;
-  hide('menu'); hide('gameOver'); hide('roundEnd'); hide('market');
-  $('log').innerHTML = '';
-  addLog(`Yarışma başladı: ${G.players.map(p => p.name).join(', ')} · ${G.rounds} tur · ${mode.label}`, 'gold');
-  startRound(choosePuzzle(1, G.rounds));
-}
-
-function startRound(puzzle) {
-  G.round++;
-  G.roundToken++;
-  G.puzzle = puzzle;
-  G.sessionUsed.add(puzzle.key); History.mark(puzzle);
-  G.lastCat = puzzle.cat; G.recentCats = [puzzle.cat, ...G.recentCats].slice(0, 3); G.catUse[puzzle.cat] = (G.catUse[puzzle.cat] || 0) + 1;
-  G.revealed = new Set(); G.guessed = new Set(); G.wheelValue = 0;
-  G.roundDone = false; G.misses = 0; G.lives = SOLO_LIVES; G.market = null; G.nextPuzzle = null;
-  G.players.forEach(p => { p.hand = 0; });
-  G.cur = (G.round - 1) % G.players.length;               // her turu farklı yarışmacı açar
-  [...puzzle.a].forEach((ch, i) => { if (!isLetter(ch)) G.revealed.add(i); });
-  // Satın alınmış ipuçları yalnızca bu bulmacaya bağlıdır; eski bulmacaya ait olanlar düşer
-  G.clues = G.clues.filter(c => c.puzzleKey === puzzle.key);
-  if (G.settings.clueMode === 'auto') G.clues.forEach(c => { c.opened = true; });
-  G.final = G.round === G.rounds && G.rounds > 1;
-  document.body.classList.toggle('final', G.final);
-  Sound.updateMusic();
-  G.phase = 'idle';
-  addLog(`${G.round}. tur · Kategori: ${puzzle.cat}`, 'gold');
-  if (G.clues.length) addLog(`${G.clues.length} satın alınmış ipucu bu bulmacada geçerli.`);
-  renderAll(true);
-  setHint(`${curP().name} başlıyor: çarkı çevir, ünlü al ya da cevabı tahmin et.`);
-  $('wheelResult').textContent = 'Çarkı çevir!';
-  banner(G.final ? 'SON TUR!' : `${G.round}. TUR`, G.final ? 'pink' : '');
-  if (G.final) FX.confetti(60);
-}
-
-const curP = () => G.players[G.cur];
-const hiddenLetters = () => { const s = new Set(); [...G.puzzle.a].forEach((ch, i) => { if (!G.revealed.has(i)) s.add(ch); }); return s; };
-const consonantsLeft = () => ALPHABET.concat(EXTRA_KEYS).some(l => !VOWELS.has(l) && !G.guessed.has(l) && hiddenLetters().has(l));
-const unguessedConsonantKeys = () => ALPHABET.concat(EXTRA_KEYS).some(l => !VOWELS.has(l) && !G.guessed.has(l));
-const vowelsLeft = () => [...VOWELS].some(v => !G.guessed.has(v));
-
-function nextPlayer(reason) {
-  G.wheelValue = 0;
-  if (G.players.length === 1) {
-    G.lives--;
-    if (reason) addLog(`${reason} · kalan hak: ${G.lives}`, 'bad');
-    if (G.lives <= 0) { finishRound(null, 'Hata hakkın bitti'); return; }
-  } else {
-    G.misses++;
-    if (G.misses >= G.players.length * 6) { finishRound(null, 'Kimse çözemedi'); return; }
-    G.cur = (G.cur + 1) % G.players.length;
-    addLog(`Sıra ${curP().name} adlı yarışmacıda.`);
-  }
-  G.phase = 'idle';
-  setHint(`Sıra ${curP().name}: çarkı çevir, ünlü al ya da cevabı tahmin et.`);
-  renderAll();
-}
-
-async function doSpin() {
-  if (G.phase !== 'idle' || Wheel.spinning || G.roundDone) return;
-  Sound.init();
-  if (!consonantsLeft()) {
-    banner('ÜNSÜZ KALMADI', 'pink');
-    setHint('Panoda yalnızca ünlü harfler kaldı: ünlü al ya da cevabı tahmin et.');
-    return;
-  }
-  const token = G.roundToken, who = G.cur;
-  G.phase = 'spinning'; G.spinning = true; document.body.classList.add('spinning'); Sound.updateMusic();
-  $('wheelResult').textContent = 'Çark dönüyor…';
-  renderAll();
-  const idx = await Wheel.spin();
-  G.spinning = false; document.body.classList.remove('spinning'); Sound.updateMusic();
-  if (token !== G.roundToken || who !== G.cur || G.phase !== 'spinning') return; // tur sıfırlandıysa sonucu yok say
-  const sl = SLICES[idx], p = G.players[who];
-  const ww = $('wheelWrap'); ww.classList.remove('flash'); void ww.offsetWidth; ww.classList.add('flash');
-  Sound.stop();
-  G.lastSlice = sl;
-  if (sl.kind === 'val') {
-    G.wheelValue = sl.v; G.phase = 'pickConsonant';
-    $('wheelResult').textContent = `${fmt(sl.v)} PUAN`;
-    banner(`${fmt(sl.v)} PUAN`);
-    addLog(`${p.name} çarkı çevirdi: ${fmt(sl.v)} puan.`);
-    setHint('Bir ünsüz seç. Her geçiş bu puanı kazandırır.');
-  } else if (sl.kind === 'pass') {
-    $('wheelResult').textContent = 'PAS ✋';
-    banner('PAS!', 'pink'); Sound.bad();
-    addLog(`${p.name}: PAS geldi.`, 'bad');
-    nextPlayer('PAS');
-    return;
-  } else if (sl.kind === 'bankrupt') {
-    const lost = p.hand;
-    p.hand = 0;
-    $('wheelResult').textContent = 'İFLAS 💀';
-    banner('İFLAS!', 'bad'); flash('bad'); Sound.bankrupt();
-    addLog(`${p.name} İFLAS etti${lost ? `, ${fmt(lost)} el puanı kayboldu` : ''}.`, 'bad');
-    nextPlayer('İFLAS');
-    return;
-  }
-  renderAll();
-}
-
-function startVowel() {
-  if (G.roundDone) return;
-  if (G.phase === 'pickVowel') { G.phase = 'idle'; renderAll(); setHint('Ünlü alımı iptal edildi.'); return; }
-  if (G.phase !== 'idle') return;
-  const p = curP();
-  if (!vowelsLeft()) { setHint('Denenecek ünlü kalmadı.'); return; }
-  if (!p.coupons && p.hand < G.vowelCost) { setHint(`Ünlü almak için el puanın en az ${G.vowelCost} olmalı.`); Sound.bad(); return; }
-  G.phase = 'pickVowel';
-  setHint(p.coupons ? 'Ünlü kuponun kullanılacak: bir ünlü seç (iptal için butona tekrar bas).' : `Bir ünlü seç: ${G.vowelCost} puan düşülecek (iptal için butona tekrar bas).`);
-  renderAll();
-}
-
-async function chooseLetter(L) {
-  if (G.roundDone || G.guessed.has(L)) return;
-  const vowel = VOWELS.has(L);
-  const p = curP(), who = G.cur, token = G.roundToken;
-  if (G.phase === 'pickConsonant') { if (vowel) { setHint('Çark puanıyla yalnızca ünsüz seçilebilir. Ünlüler satın alınır.'); return; } }
-  else if (G.phase === 'pickVowel') { if (!vowel) { setHint('Şu an bir ünlü seçmelisin.'); return; } }
-  else return;
-  Sound.init();
-  G.guessed.add(L);
-  const positions = [...G.puzzle.a].map((ch, i) => ch === L ? i : -1).filter(i => i >= 0 && !G.revealed.has(i));
-  const count = positions.length;
-  let gain = 0;
-  if (vowel) {
-    if (p.coupons > 0) { p.coupons--; addLog(`${p.name} ünlü kuponu kullandı (${L}).`); }
-    else p.hand -= G.vowelCost;
-  } else if (count) {
-    gain = G.wheelValue * count;
-  }
-  G.phase = 'revealing';
-  renderAll();
-  showBoard();
-  if (count) {
-    p.correctLetters++;
-    await revealPositions(positions, token);
-    if (token !== G.roundToken || who !== G.cur) return;
-    if (gain) {
-      p.hand += gain;
-      banner(`+${fmt(gain)} PUAN!`, 'good');
-      FX.burst(...centerOf($('board')), gain >= 1000 ? 70 : 35);
-      if (gain >= 1000) FX.confetti(70);
-    }
-    flash('good'); pulse('board', 'good');
-    addLog(`${p.name}: "${L}" ${count} kez var${gain ? ` → +${fmt(gain)}` : ''}.`, 'good');
-    G.wheelValue = 0;
-    if (allRevealed()) { finishRound(who, 'Bütün harfler açıldı'); return; }
-    G.phase = 'idle';
-    setHint(consonantsLeft() ? 'Tekrar çevir, ünlü al ya da cevabı tahmin et.' : 'Ünsüz kalmadı: ünlü al ya da tahmin et.');
-    renderAll();
-  } else {
-    p.wrong++;
-    Sound.bad(); flash('bad'); pulse('board', 'bad');
-    banner(`"${L}" YOK`, 'bad');
-    addLog(`${p.name}: "${L}" bulmacada yok.`, 'bad');
-    nextPlayer(`"${L}" yok`);
-  }
-}
-
-async function revealPositions(positions, token) {
-  const delay = G.settings.anim === 'low' ? 120 : 330;
-  for (const i of positions) {
-    if (token !== G.roundToken) return;
-    const t = document.querySelector(`.tile[data-i="${i}"]`);
-    if (t) { t.classList.add('pending'); await sleep(delay * .5); }
-    G.revealed.add(i);
-    if (t) { t.classList.remove('pending'); t.classList.add('open', 'light'); t.textContent = G.puzzle.a[i]; }
-    Sound.good();
-    await sleep(delay * .5);
-  }
-}
-const allRevealed = () => [...G.puzzle.a].every((ch, i) => G.revealed.has(i));
-
-function openSolve() {
-  if (G.roundDone || !['idle', 'pickConsonant'].includes(G.phase)) return;
-  G.prevPhase = G.phase; G.phase = 'solving';
-  $('solveForm').hidden = false; $('solveInput').value = ''; $('solveInput').focus();
-  setHint('Cevabı yaz ve gönder. Yanlış tahminde sıra geçer.');
-  renderAll();
-}
-function cancelSolve() { if (G.phase !== 'solving') return; G.phase = G.prevPhase === 'pickConsonant' ? 'pickConsonant' : 'idle'; $('solveForm').hidden = true; setHint(G.phase === 'pickConsonant' ? 'Bir ünsüz seç.' : 'Çarkı çevir, ünlü al ya da cevabı tahmin et.'); renderAll(); }
-async function submitSolve(text) {
-  if (G.phase !== 'solving' || G.roundDone) return;
-  const guess = lettersOnly(text);
-  if (!guess) { setHint('Önce bir tahmin yaz.'); return; }
-  $('solveForm').hidden = true;
-  const p = curP(), who = G.cur;
-  if (guess === G.puzzle.key) {
-    const rest = [...G.puzzle.a].map((ch, i) => i).filter(i => !G.revealed.has(i));
-    G.phase = 'revealing'; renderAll();
-    const token = G.roundToken;
-    for (const i of rest) { G.revealed.add(i); const t = document.querySelector(`.tile[data-i="${i}"]`); if (t) { t.classList.add('open', 'light'); t.textContent = G.puzzle.a[i]; } }
-    if (token === G.roundToken) finishRound(who, 'Doğru tahmin');
-  } else {
-    p.wrong++;
-    Sound.bad(); flash('bad'); banner('YANLIŞ CEVAP', 'bad');
-    addLog(`${p.name} yanlış tahmin etti: "${up(text.trim()).slice(0, 40)}".`, 'bad');
-    G.phase = 'idle';
-    nextPlayer('Yanlış tahmin');
-  }
-}
-
-// Turu kapatır; puanlar bir defa ve yalnızca kazanana kesinleşir
-function finishRound(winnerIdx, why) {
-  if (G.roundDone) return;
-  G.roundDone = true; G.phase = 'roundOver';
-  G.puzzle.a.split('').forEach((ch, i) => G.revealed.add(i));
-  const reward = G.puzzle.d * 250;
-  let summary;
-  if (winnerIdx != null) {
-    const w = G.players[winnerIdx];
-    const banked = w.hand + reward;
-    w.total += banked; w.solved++;
-    summary = { winner: w, banked, hand: w.hand, reward };
-    addLog(`${w.name} bulmacayı çözdü! ${fmt(w.hand)} el puanı + ${fmt(reward)} çözüm ödülü = ${fmt(banked)} kesinleşti.`, 'good');
-    Sound.solve(); setTimeout(() => Sound.fanfare(), 700);
-    FX.confetti(180); flash('good');
-    banner(`${w.name.toLocaleUpperCase(TR)} ÇÖZDÜ!`, 'good');
-    // performansa göre zorluk ayarı: hızlı çözüm zorluğu artırır, zorlanma azaltır
-    G.adapt = clamp(G.adapt + (G.misses <= G.players.length ? .35 : G.misses > G.players.length * 3 ? -.3 : .05), -.8, .8);
-  } else {
-    summary = { winner: null };
-    addLog(`Tur çözülemeden bitti (${why}). El puanları kesinleşmedi.`, 'bad');
-    Sound.bankrupt(); banner('TUR BİTTİ', 'bad');
-    G.adapt = clamp(G.adapt - .4, -.8, .8);
-  }
-  G.history.push({ round: G.round, cat: G.puzzle.cat, answer: G.puzzle.a, winner: summary.winner ? summary.winner.name : null });
-  G.players.forEach(p => { p.hand = 0; });
-  G.wheelValue = 0;
-  renderAll();
-  setTimeout(() => showRoundEnd(summary, why), 1200);
-}
-
-function showRoundEnd(s, why) {
-  $('reTitle').textContent = s.winner ? `${s.winner.name} kazandı!` : 'Bulmaca çözülemedi';
-  $('reAnswer').innerHTML = G.puzzle.a.split('').map(ch => ch === ' ' ? '<span class="gap"></span>' : `<span>${esc(ch)}</span>`).join('');
-  const rows = G.players.map(p => `<tr><td><span style="color:${p.color}">●</span> ${esc(p.name)}</td><td class="num">${fmt(p.total)}</td></tr>`).join('');
-  $('reBody').innerHTML = (s.winner ? `<p style="text-align:center">El puanı <b>${fmt(s.hand)}</b> + çözüm ödülü <b>${fmt(s.reward)}</b> = <b style="color:var(--yellow)">${fmt(s.banked)}</b> puan kesinleşti.</p>`
-    : `<p style="text-align:center">${esc(why)}. Bu turda kimse puan kesinleştiremedi.</p>`) +
-    `<table class="score-table"><thead><tr><th>Yarışmacı</th><th class="num">Toplam puan</th></tr></thead><tbody>${rows}</tbody></table>` +
-    (G.round < G.rounds ? '<p class="muted" style="text-align:center">Sıradaki adım: İpucu Marketi. Toplam puanınla bir sonraki bulmaca için ipucu alabilirsin.</p>' : '<p class="muted" style="text-align:center">Bu son turdu. Büyük finale geçiliyor.</p>');
-  $('reNext').textContent = G.round < G.rounds ? 'MARKETE GİT 🛒' : 'BÜYÜK FİNAL 🏆';
-  show('roundEnd');
-}
-
-function afterRoundEnd() {
-  hide('roundEnd');
-  if (G.phase !== 'roundOver') return;
-  if (G.round >= G.rounds) endGame(); else openMarket();
-}
-
-function endGame() {
-  G.phase = 'over';
-  const max = Math.max(...G.players.map(p => p.total));
-  const winners = G.players.filter(p => p.total === max);
-  const rows = G.players.slice().sort((a, b) => b.total - a.total).map(p =>
-    `<tr><td><span style="color:${p.color}">●</span> ${esc(p.name)}<div class="bought">${p.bought.length ? 'İpuçları: ' + p.bought.map(b => esc(b)).join(', ') : 'İpucu satın almadı'}</div></td><td class="num">${p.solved}</td><td class="num">${fmt(p.total)}</td></tr>`).join('');
-  $('goBody').innerHTML = `<div class="winner"><div class="crown">🏆</div><div class="wname">${winners.map(w => esc(w.name)).join(' & ')}</div><div>${G.players.length === 1 ? 'Toplam puanın' : winners.length > 1 ? 'Berabere! Toplam puan' : 'Şampiyon · toplam puan'}: <b style="color:var(--yellow)">${fmt(max)}</b></div></div>
-    <table class="score-table"><thead><tr><th>Yarışmacı</th><th class="num">Çözülen</th><th class="num">Toplam</th></tr></thead><tbody>${rows}</tbody></table>`;
-  show('gameOver');
-  FX.confetti(260); Sound.fanfare();
-  document.body.classList.remove('final'); G.final = false; Sound.updateMusic();
-  addLog(`Yarışma bitti. Kazanan: ${winners.map(w => w.name).join(' & ')} (${fmt(max)} puan).`, 'gold');
-  renderAll();
-}
-
-/* ------------------------------------------------------------------ 7 */
 // Yapısal ipuçları: cevabın harflerinden hesaplanır ve doğruluğu fonksiyonla kanıtlanır.
 const halfRepeat = s => { const seen = new Set(); for (const c of s) { if (seen.has(c)) return true; seen.add(c); } return false; };
 function structuralFacts(p) {
@@ -738,25 +436,6 @@ function buildOffers(p, prevPrices = {}) {
   });
 }
 
-function openMarket() {
-  const next = choosePuzzle(G.round + 1, G.rounds);
-  G.nextPuzzle = next;
-  const prev = {}; (G.lastOffers || []).forEach(o => { prev[o.type] = o.price; });
-  const offers = buildOffers(next, prev);
-  G.lastOffers = offers;
-  // Yeni market nesnesi: önceki elin teklifleri tamamen geçersiz olur
-  G.market = { id: Date.now(), offers, viewer: 0, owned: G.players.map(() => new Set()), puzzleKey: next.key, nextCat: next.cat };
-  G.phase = 'market';
-  // En çok puanı olan oyuncudan başla
-  G.market.viewer = G.players.reduce((bi, p, i, a) => p.total > a[bi].total ? i : bi, 0);
-  renderMarket();
-  const m = document.querySelector('.market-modal'); m.classList.remove('enter'); void m.offsetWidth; m.classList.add('enter');
-  show('market');
-  Sound.whoosh(); setTimeout(() => Sound.buy(), 250);
-  FX.burst(innerWidth / 2, innerHeight * .25, 50, false);
-  addLog(`İpucu Marketi açıldı (${offers.length} ürün). Sıradaki kategori: ${next.cat}.`, 'gold');
-  renderAll();
-}
 
 // Ürün görselleri (özgün, satır içi SVG)
 const COIN = '<svg class="coin" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#c77700"/><circle cx="12" cy="11.2" r="10" fill="#ffb627"/><circle cx="12" cy="11.2" r="7" fill="#ffe14a"/><path d="M9 7.5h4.2a2.6 2.6 0 0 1 0 5.2H10.6V15" stroke="#a35b00" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -771,72 +450,847 @@ const ART = {
 };
 const initial = name => esc((name || '?').trim().charAt(0).toLocaleUpperCase(TR) || '?');
 
-function renderMarket() {
-  const M = G.market; if (!M) return;
-  const v = G.players[M.viewer];
-  $('marketTabs').innerHTML = G.players.length > 1 ? G.players.map((p, i) =>
-    `<button type="button" role="tab" aria-selected="${i === M.viewer}" class="${i === M.viewer ? 'on' : ''}" style="--pc:${p.color}" data-i="${i}"><span class="av" style="--pc:${p.color}">${initial(p.name)}</span>${esc(p.name)}</button>`).join('') : '';
-  $('marketOwner').innerHTML = `<span class="av" style="--pc:${v.color}">${initial(v.name)}</span>
-    <span class="who">${esc(v.name)}<small>alışveriş yapıyor</small></span>
-    <span class="bal">${COIN}${fmt(v.total)}</span>${v.coupons ? `<span class="chip">🎟 ${v.coupons} ünlü kuponu</span>` : ''}`;
-  $('marketNote').textContent = `İpuçları sıradaki bulmaca (${M.nextCat}) için geçerli ve yalnızca satın alana ait. ${G.settings.clueMode === 'auto' ? 'Tur başında otomatik açılır.' : 'Sıran geldiğinde istediğin an açarsın.'} Ürünler her el yenilenir.`;
-  $('marketGrid').style.setProperty('--n', M.offers.length);
-  $('marketGrid').innerHTML = M.offers.map(o => {
-    const owned = M.owned[M.viewer].has(o.oid);
-    const afford = v.total >= o.price;
-    const label = owned ? 'SATIN ALINDI ✓' : afford ? 'SATIN AL' : 'PUAN YETERSİZ';
-    return `<article class="card ${owned ? 'owned' : ''} ${!owned && !afford ? 'poor' : ''}" style="--lc:${o.lc}">
-      <div class="tag-wrap"><span class="tag">${COIN}${o.sale ? `<s>${fmt(o.base)}</s>` : ''}${fmt(o.price)}</span></div>
-      <div class="art">${ART[o.type] || ''}${o.sale && !owned ? '<span class="sale">İNDİRİM</span>' : ''}</div>
-      ${owned ? '<span class="stamp">ALINDI ✓</span>' : ''}
-      <div class="body">
-        <span class="lvl">${o.level}</span><h3>${esc(o.name)}</h3>
-        <p>${owned && o.text ? (G.settings.clueMode === 'auto' ? 'Sıradaki turun başında açılacak.' : 'Sıran gelince ipuçları panelinden açabilirsin.') : esc(o.desc)}</p>
-        <button class="btn ${owned ? 'btn-ghost' : 'btn-spin'}" type="button" data-oid="${o.oid}" ${owned || !afford ? 'disabled' : ''}>${label}</button>
-      </div>
-    </article>`;
-  }).join('');
-}
 
-async function buyOffer(oid) {
-  const M = G.market; if (!M || G.phase !== 'market') return;
-  const mid = M.id, viewer = M.viewer, p = G.players[viewer];
-  const o = M.offers.find(x => x.oid === oid);
-  if (!o) return;                                         // eski marketten kalan teklif geçersiz
-  if (M.owned[viewer].has(oid)) return;              // aynı ürün iki kez alınamaz
-  if (p.total < o.price) { Sound.bad(); return; }
-  const ok = await confirmBox('Satın alma onayı', `${p.name}, "${o.name}" ürününü ${fmt(o.price)} puana alıyor. Kalan bakiye: ${fmt(p.total - o.price)} puan.`);
-  if (!ok || !G.market || G.market.id !== mid || G.market.viewer !== viewer) return;
-  if (p.total < o.price || M.owned[viewer].has(oid)) return;   // onay sırasında değişmiş olabilir
-  p.total -= o.price;
-  M.owned[viewer].add(oid);
-  p.bought.push(o.name);
-  if (o.type === 'coupon') { p.coupons++; addLog(`${p.name} Ünlü Kuponu aldı (−${fmt(o.price)}).`, 'gold'); }
-  else {
-    G.clues.push({ owner: viewer, puzzleKey: M.puzzleKey, title: o.name, text: o.text, opened: false });
-    addLog(`${p.name} "${o.name}" ipucunu aldı (−${fmt(o.price)}).`, 'gold');
+/* ------------------------------------------------------------------ 6
+   Sabitler, ayarlar ve kurucu tarafı seçim hafızası                        */
+const COLORS = ['#19e3d0', '#ff3fa4', '#ffe14a', '#ff8a00'];
+const MODES = { quick: { rounds: 3, vowelCost: 100, label: 'Hızlı oyun' }, std: { rounds: 5, vowelCost: 200, label: 'Standart' }, long: { rounds: 8, vowelCost: 250, label: 'Uzun yarışma' } };
+const SOLO_LIVES = 5, REVEAL_MS = 320, MAX_PLAYERS = 4;
+const defaultSettings = { volume: 70, sound: true, music: true, anim: 'normal', rounds: 0, clueMode: 'auto' };
+// G: ayarlar + bulmaca seçim hafızası (yalnızca oyunu yöneten cihazda) + arayüz bayrakları
+const G = {
+  settings: Object.assign({}, defaultSettings, store.get('cf.settings.v1', {})),
+  setup: { count: 2, length: 'std', names: ['Ayşe', 'Mehmet', 'Zeynep', 'Can'] },
+  sessionUsed: new Set(), lastCat: null, recentCats: [], catUse: {}, adapt: 0,
+  spinning: false, final: false
+};
+const sess = {
+  get(k) { try { const v = sessionStorage.getItem(k); return v ? JSON.parse(v) : null; } catch { return null; } },
+  set(k, v) { try { sessionStorage.setItem(k, JSON.stringify(v)); } catch { /* yok say */ } },
+  del(k) { try { sessionStorage.removeItem(k); } catch { /* yok say */ } }
+};
+const rid = n => { const a = 'abcdefghijkmnpqrstuvwxyz23456789'; let s = ''; const r = new Uint8Array(n); (crypto.getRandomValues ? crypto.getRandomValues(r) : r.forEach((_, i) => { r[i] = Math.random() * 256; })); r.forEach(x => { s += a[x % a.length]; }); return s; };
+const cleanName = s => String(s || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 16);
+
+/* ------------------------------------------------------------------ 7
+   Küçük MQTT 3.1.1 istemcisi (WebSocket üzerinden, dış kütüphane yok)      */
+const te = new TextEncoder(), td = new TextDecoder();
+const cat8 = arr => { let n = 0; arr.forEach(a => { n += a.length; }); const o = new Uint8Array(n); let k = 0; arr.forEach(a => { o.set(a, k); k += a.length; }); return o; };
+const mqStr = s => { const b = te.encode(s); const o = new Uint8Array(2 + b.length); o[0] = b.length >> 8; o[1] = b.length & 255; o.set(b, 2); return o; };
+const u16 = n => Uint8Array.from([n >> 8, n & 255]);
+const mqLen = n => { const out = []; do { let d = n % 128; n = Math.floor(n / 128); if (n > 0) d |= 128; out.push(d); } while (n > 0); return Uint8Array.from(out); };
+const mqPacket = (h, parts) => { const body = cat8(parts); return cat8([Uint8Array.from([h]), mqLen(body.length), body]); };
+
+class MiniMQTT {
+  constructor(url) { this.url = url; this.ws = null; this.buf = new Uint8Array(0); this.pid = 0; this.h = {}; this.connected = false; this.userClosed = false; this.cid = 'cf' + rid(14); this.pingT = null; this._connack = null; }
+  on(ev, fn) { this.h[ev] = fn; }
+  fire(ev, ...a) { const f = this.h[ev]; if (f) { try { f(...a); } catch (e) { console.error(e); } } }
+  connect(timeout = 7000) {
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      const done = (err) => { if (settled) return; settled = true; clearTimeout(timer); if (err) { try { this.ws && this.ws.close(); } catch { /* */ } reject(err); } else { this.connected = true; this.startPing(); resolve(this); } };
+      const timer = setTimeout(() => done(new Error('zaman aşımı')), timeout);
+      let ws;
+      try { ws = new WebSocket(this.url, ['mqtt']); } catch (e) { done(e); return; }
+      ws.binaryType = 'arraybuffer';
+      this.ws = ws; this.buf = new Uint8Array(0);
+      this._connack = ok => done(ok ? null : new Error('sunucu reddetti'));
+      ws.onopen = () => { try { ws.send(mqPacket(0x10, [mqStr('MQTT'), Uint8Array.from([4, 0x02, 0, 60]), mqStr(this.cid)])); } catch (e) { done(e); } };
+      ws.onmessage = e => { if (e.data instanceof ArrayBuffer) this.onData(new Uint8Array(e.data)); };
+      ws.onerror = () => done(new Error('bağlantı hatası'));
+      ws.onclose = () => { const was = this.connected; this.connected = false; this.stopPing(); if (!settled) done(new Error('bağlantı kapandı')); else if (was && !this.userClosed) this.fire('lost'); };
+    });
   }
-  Sound.buy(); FX.burst(innerWidth / 2, innerHeight / 2, 30);
-  renderMarket(); renderAll();
+  raw(bytes) { if (this.ws && this.ws.readyState === 1) { this.ws.send(bytes); return true; } return false; }
+  nextId() { this.pid = this.pid % 65535 + 1; return this.pid; }
+  subscribe(topic, qos = 1) { return this.raw(mqPacket(0x82, [u16(this.nextId()), mqStr(topic), Uint8Array.from([qos])])); }
+  publish(topic, text, { qos = 1, retain = false } = {}) {
+    const parts = [mqStr(topic)]; if (qos > 0) parts.push(u16(this.nextId())); parts.push(te.encode(text));
+    return this.raw(mqPacket(0x30 | (qos << 1) | (retain ? 1 : 0), parts));
+  }
+  startPing() { this.stopPing(); this.pingT = setInterval(() => this.raw(Uint8Array.from([0xC0, 0])), 25000); }
+  stopPing() { if (this.pingT) clearInterval(this.pingT); this.pingT = null; }
+  close() { this.userClosed = true; this.stopPing(); try { this.raw(Uint8Array.from([0xE0, 0])); this.ws && this.ws.close(); } catch { /* */ } this.connected = false; }
+  onData(chunk) {
+    this.buf = this.buf.length ? cat8([this.buf, chunk]) : chunk;
+    for (;;) {
+      const b = this.buf; if (b.length < 2) return;
+      let mult = 1, len = 0, i = 1, byte;
+      do { if (i >= b.length) return; byte = b[i++]; len += (byte & 127) * mult; mult *= 128; if (i > 5) { this.buf = new Uint8Array(0); return; } } while (byte & 128);
+      if (b.length < i + len) return;
+      const head = b[0], body = b.subarray(i, i + len);
+      this.buf = b.slice(i + len);
+      this.handle(head >> 4, head & 15, body);
+    }
+  }
+  handle(type, flags, body) {
+    if (type === 2) { if (this._connack) this._connack(body[1] === 0); return; }
+    if (type === 3) {
+      const qos = (flags >> 1) & 3, tl = (body[0] << 8) | body[1];
+      const topic = td.decode(body.subarray(2, 2 + tl));
+      let p = 2 + tl, id = 0;
+      if (qos > 0) { id = (body[p] << 8) | body[p + 1]; p += 2; }
+      if (qos === 1) this.raw(cat8([Uint8Array.from([0x40, 2]), u16(id)]));
+      if (qos === 2) this.raw(cat8([Uint8Array.from([0x50, 2]), u16(id)]));
+      this.fire('message', topic, td.decode(body.subarray(p)));
+      return;
+    }
+    if (type === 6) { const id = (body[0] << 8) | body[1]; this.raw(cat8([Uint8Array.from([0x70, 2]), u16(id)])); }
+    // PUBACK(4), PUBREC(5), SUBACK(9), UNSUBACK(11), PINGRESP(13): işlem gerekmez
+  }
 }
 
+/* ------------------------------------------------------------------ 8
+   Ağ katmanı: oda kur, katıl, mesaj yönlendirme, yeniden bağlanma          */
+const DEFAULT_BROKERS = ['wss://broker.emqx.io:8084/mqtt', 'wss://broker.hivemq.com:8884/mqtt', 'wss://test.mosquitto.org:8081/mqtt'];
+const NS = 'carkifelek-studyo/v1/';
+const CODE_ABC = 'ABCDEFGHJKLMNPRSTUVYZ23456789';
+const Net = {
+  role: 'local', mq: null, code: null, idx: 0, base: '', hostId: null, status: 'off', topics: [], infoWait: null, reconnecting: false,
+  myId: (() => { let id = sess.get('cf.cid'); if (!id) { id = rid(10); sess.set('cf.cid', id); } return id; })(),
+  brokers() { let q = null; try { q = new URLSearchParams(location.search).get('broker'); } catch { /* */ } return q ? [q] : DEFAULT_BROKERS; },
+  genCode() { let s = ''; const r = new Uint8Array(5); crypto.getRandomValues(r); r.forEach(x => { s += CODE_ABC[x % CODE_ABC.length]; }); return s; },
+  normCode(s) { return String(s || '').toLocaleUpperCase('en-US').replace(/[^A-Z0-9]/g, '').slice(0, 5); },
+  setStatus(s) { this.status = s; UI.netStatus(s); },
+  async connectAny(order, probe) {
+    const list = this.brokers();
+    for (const i of order.filter(i => i < list.length)) {
+      let mq;
+      try { mq = new MiniMQTT(list[i]); await mq.connect(7000); }
+      catch (e) { console.warn('Aracı başarısız', list[i], e.message); continue; }
+      if (!probe || await probe(mq, i)) return { mq, i };
+      mq.close();
+    }
+    return null;
+  },
+  wire(mq) {
+    this.mq = mq;
+    mq.on('message', (t, p) => this.onMessage(t, p));
+    mq.on('lost', () => this.reconnect());
+  },
+  sub(topic) { if (!this.topics.includes(topic)) this.topics.push(topic); this.mq && this.mq.subscribe(topic, 1); },
+  async host(code) {
+    this.code = code || this.genCode(); this.base = NS + this.code + '/';
+    const order = [0, 1, 2].map((_, k) => (k + (this.idx || 0)) % 3);
+    const r = await this.connectAny(order);
+    if (!r) throw new Error('Oyun sunucusuna bağlanılamadı. İnternet bağlantını kontrol et.');
+    this.idx = r.i; this.role = 'host'; this.topics = []; this.wire(r.mq);
+    this.sub(this.base + 'h');
+    this.setStatus('ok');
+  },
+  async join(code, hint = 0) {
+    this.code = code; this.base = NS + code + '/';
+    const n = this.brokers().length, order = Array.from({ length: n }, (_, k) => (k + hint) % n);
+    const r = await this.connectAny(order, (mq, i) => new Promise(res => {
+      const t = setTimeout(() => res(false), 4000);
+      mq.on('message', (topic, payload) => {
+        if (topic !== this.base + 'i' || !payload) return;
+        try { const info = JSON.parse(payload); if (info && info.host) { clearTimeout(t); this.hostId = info.host; res(true); } } catch { /* */ }
+      });
+      mq.subscribe(this.base + 'i', 1);
+    }));
+    if (!r) throw new Error(`"${code}" kodlu oda bulunamadı. Kodu kontrol et ya da kurucudan yeni link iste.`);
+    this.idx = r.i; this.role = 'client'; this.topics = [this.base + 'i']; this.wire(r.mq);
+    this.sub(this.base + 'c/' + this.myId);
+    this.setStatus('ok');
+  },
+  async reconnect() {
+    if (this.reconnecting || this.role === 'local') return;
+    this.reconnecting = true; this.setStatus('wait');
+    for (let k = 0; this.role !== 'local'; k++) {
+      try {
+        const mq = new MiniMQTT(this.brokers()[this.idx]); await mq.connect(7000);
+        if (this.role === 'local') { mq.close(); break; }
+        this.wire(mq); this.topics.forEach(t => mq.subscribe(t, 1));
+        this.setStatus('ok'); this.reconnecting = false;
+        if (this.role === 'host') Host.onReconnect(); else Client.onReconnect();
+        return;
+      } catch { await sleep(Math.min(8000, 1200 + k * 1500)); }
+    }
+    this.reconnecting = false;
+  },
+  stats: { rx: 0, tx: 0, acts: 0 },
+  onMessage(topic, payload) {
+    this.stats.rx++;
+    if (topic === this.base + 'i') { if (this.role === 'client' && payload === '') Client.onMessage({ t: 'closed' }); return; }
+    let m; try { m = JSON.parse(payload); } catch { return; }
+    if (topic === this.base + 'h' && this.role === 'host') Host.onMessage(m);
+    else if (topic === this.base + 'c/' + this.myId && this.role === 'client') Client.onMessage(m);
+  },
+  sendTo(id, obj) { this.stats.tx++; if (this.mq) this.mq.publish(this.base + 'c/' + id, JSON.stringify(obj)); },
+  sendToHost(obj) { this.stats.tx++; if (this.mq) this.mq.publish(this.base + 'h', JSON.stringify(obj)); },
+  publishInfo(obj) { if (this.mq) this.mq.publish(this.base + 'i', obj ? JSON.stringify(obj) : '', { qos: 1, retain: true }); },
+  leave() {
+    const mq = this.mq;
+    if (mq) { try { if (this.role === 'host') { this.publishInfo(null); Host.broadcast({ t: 'closed' }); } else if (this.role === 'client') this.sendToHost({ t: 'bye', id: this.myId }); } catch { /* */ } setTimeout(() => mq.close(), 250); }
+    this.mq = null; this.role = 'local'; this.code = null; this.topics = []; this.setStatus('off');
+  },
+  shareLink() {
+    const base = location.href.split('#')[0].split('?')[0];
+    let extra = ''; try { const b = new URLSearchParams(location.search).get('broker'); if (b) extra = '&broker=' + encodeURIComponent(b); } catch { /* */ }
+    return `${base}?oda=${this.code}${this.idx ? '&s=' + this.idx : ''}${extra}`;
+  }
+};
+
+/* ------------------------------------------------------------------ 9
+   Oyun motoru — tek doğru durum (S) yalnızca oyunu yöneten cihazda tutulur.
+   Yerel oyunda bu cihaz, online oyunda oda kurucusu. Diğer cihazlar yalnızca
+   kendilerine özel hazırlanmış görüntüyü (viewFor) alır; gizli cevap gönderilmez. */
+let S = null;
+let viewSeq = 0;
+const Timers = {
+  ids: new Set(),
+  later(ms, fn) { const tok = S && S.token; const id = setTimeout(() => { this.ids.delete(id); if (S && S.token === tok) fn(); }, ms); this.ids.add(id); },
+  clear() { this.ids.forEach(clearTimeout); this.ids.clear(); }
+};
+function mkPlayer(i, name, clientId) {
+  return { name: cleanName(name) || `Yarışmacı ${i + 1}`, color: COLORS[i % COLORS.length], total: 0, hand: 0, coupons: 0, bought: [], solved: 0, wrong: 0,
+    clientId: clientId || null, online: true, lastSeen: Date.now(), offSince: 0 };
+}
+function newState(mode, players, lengthKey) {
+  const m = MODES[lengthKey] || MODES.std;
+  return { mode, token: rid(8), phase: 'idle', players, cur: 0, round: 0, rounds: +G.settings.rounds || m.rounds, vowelCost: m.vowelCost, lengthKey,
+    puzzle: null, revealed: new Set(), guessed: new Set(), wheelValue: 0, lives: SOLO_LIVES, misses: 0, roundDone: false,
+    rot: Wheel.rot || 0, spin: null, market: null, nextPuzzle: null, lastOffers: [], clues: [], history: [], summary: null, final: null, lastRound: false, evSeq: 0 };
+}
+const curP = () => S.players[S.cur];
+const hiddenSet = () => { const s = new Set(); [...S.puzzle.a].forEach((ch, i) => { if (!S.revealed.has(i)) s.add(ch); }); return s; };
+const consonantsLeft = () => { const h = hiddenSet(); return ALPHABET.concat(EXTRA_KEYS).some(l => !VOWELS.has(l) && !S.guessed.has(l) && h.has(l)); };
+const vowelsLeft = () => [...VOWELS].some(v => !S.guessed.has(v));
+const allRevealed = () => [...S.puzzle.a].every((ch, i) => S.revealed.has(i));
+
+function emit(ev, log, cls) { if (log) ev.log = log; if (cls) ev.cls = cls; ev.n = ++S.evSeq; ev.g = S.token; Out.event(ev); }
+let syncQueued = false;
+function sync() { if (syncQueued) return; syncQueued = true; queueMicrotask(() => { syncQueued = false; Out.sync(); }); }
+
+const Out = {
+  event(ev) {
+    UI.onEvent(ev);
+    if (Net.role === 'host') Host.broadcast({ t: 'ev', e: ev });
+  },
+  sync() {
+    if (!S) return;
+    UI.onView(viewFor(Net.role === 'host' ? 0 : 'all'));
+    if (Net.role === 'host') {
+      S.players.forEach((p, i) => { if (i > 0 && p.clientId) Net.sendTo(p.clientId, { t: 'view', v: viewFor(i) }); });
+      Host.spectators.forEach(id => Net.sendTo(id, { t: 'view', v: viewFor(-1) }));
+      Host.persist();
+    }
+  }
+};
+
+// Bir izleyiciye özel görüntü. viewer: 'all' (yerel), oyuncu sırası ya da -1 (izleyici)
+function viewFor(viewer) {
+  const P = S.puzzle, all = viewer === 'all';
+  const board = P ? [...P.a].map((ch, i) => !isLetter(ch) ? ch : (S.revealed.has(i) ? ch : '_')).join('') : '';
+  const clues = P ? S.clues.map((c, i) => ({ i, c })).filter(x => x.c.puzzleKey === P.key).map(({ i, c }) => {
+    const mine = all || viewer === c.owner;
+    return { i, owner: c.owner, title: c.title, opened: c.opened, mine, text: mine && c.opened ? c.text : null };
+  }) : [];
+  const M = S.market;
+  return {
+    g: S.token, seq: ++viewSeq, mode: S.mode, phase: S.phase, me: viewer, cur: S.cur, round: S.round, rounds: S.rounds, vowelCost: S.vowelCost, lastRound: S.lastRound,
+    players: S.players.map(p => ({ name: p.name, color: p.color, total: p.total, hand: p.hand, coupons: p.coupons, solved: p.solved, online: p.online, bought: p.bought.slice() })),
+    cat: P ? P.cat : '', d: P ? P.d : 1, board, consLeft: P ? consonantsLeft() : true, guessed: [...S.guessed], wheelValue: S.wheelValue, lives: S.lives, rot: S.rot,
+    spinning: S.phase === 'spinning' && S.spin ? { to: S.spin.to, left: Math.max(0, S.spin.end - Date.now()) } : null,
+    clues,
+    market: S.phase === 'market' && M ? { id: M.id, nextCat: M.nextCat, ready: M.ready.slice(), owned: M.owned.map(s => [...s]),
+      offers: M.offers.map(o => ({ oid: o.oid, type: o.type, name: o.name, level: o.level, lc: o.lc, base: o.base, price: o.price, sale: o.sale, desc: o.desc, hasText: !!o.text })) } : null,
+    summary: ['roundOver', 'market', 'over'].includes(S.phase) ? S.summary : null,
+    final: S.phase === 'over' ? S.final : null,
+    clueMode: G.settings.clueMode, code: Net.code
+  };
+}
+
+function startGame(mode, players, lengthKey) {
+  Timers.clear();
+  G.sessionUsed = new Set(); G.adapt = 0; G.catUse = {}; G.recentCats = []; G.lastCat = null;
+  S = newState(mode, players, lengthKey);
+  emit({ t: 'start' }, `Yarışma başladı: ${S.players.map(p => p.name).join(', ')} · ${S.rounds} tur · ${(MODES[lengthKey] || MODES.std).label}`, 'gold');
+  startRound(choosePuzzle(1, S.rounds));
+}
+
+function startRound(puzzle) {
+  S.round++;
+  S.puzzle = puzzle;
+  G.sessionUsed.add(puzzle.key); History.mark(puzzle);
+  G.lastCat = puzzle.cat; G.recentCats = [puzzle.cat, ...G.recentCats].slice(0, 3); G.catUse[puzzle.cat] = (G.catUse[puzzle.cat] || 0) + 1;
+  S.revealed = new Set(); S.guessed = new Set(); S.wheelValue = 0; S.roundDone = false; S.misses = 0; S.lives = SOLO_LIVES;
+  S.market = null; S.nextPuzzle = null; S.summary = null; S.spin = null;
+  S.players.forEach(p => { p.hand = 0; });
+  let c = (S.round - 1) % S.players.length;
+  for (let k = 0; k < S.players.length && !S.players[c].online; k++) c = (c + 1) % S.players.length;
+  S.cur = c;
+  [...puzzle.a].forEach((ch, i) => { if (!isLetter(ch)) S.revealed.add(i); });
+  S.clues = S.clues.filter(cl => cl.puzzleKey === puzzle.key);
+  if (G.settings.clueMode === 'auto') S.clues.forEach(cl => { cl.opened = true; });
+  S.lastRound = S.round === S.rounds && S.rounds > 1;
+  S.phase = 'idle';
+  emit({ t: 'round', round: S.round, lastRound: S.lastRound }, `${S.round}. tur · Kategori: ${puzzle.cat} · ${curP().name} başlıyor`, 'gold');
+  sync();
+}
+
+// Bir oyuncudan gelen hamle. pi: hamleyi yapan oyuncunun sırası (yerelde sıradaki oyuncu)
+function act(pi, a) {
+  if (!S || !a || typeof a.t !== 'string') return;
+  const hostLike = S.mode === 'local' || pi === 0;
+  switch (a.t) {
+    case 'spin': return doSpin(pi);
+    case 'vowel': return doVowel(pi);
+    case 'letter': return doLetter(pi, String(a.L || '').slice(0, 1));
+    case 'solve': return doSolve(pi, String(a.text || '').slice(0, 80));
+    case 'clue': return doClue(pi, a.i | 0);
+    case 'buy': return doBuy(S.mode === 'local' ? clamp(a.as | 0, 0, S.players.length - 1) : pi, String(a.oid || ''));
+    case 'ready': return doReady(pi);
+    case 'marketDone': if (hostLike) closeMarket(); return;
+    case 'next': if (hostLike) afterRoundEnd(); return;
+    case 'restart': if (hostLike && S.phase === 'over') restartGame(); return;
+    default: return;
+  }
+}
+
+function doSpin(pi) {
+  if (S.phase !== 'idle' || pi !== S.cur || S.roundDone) return;
+  if (!consonantsLeft()) { emit({ t: 'info', to: pi, text: 'Panoda ünsüz kalmadı: ünlü al ya da cevabı tahmin et.' }); return; }
+  const idx = randInt(0, SLICES.length - 1);
+  const from = S.rot, to = Wheel.targetRotation(from, idx, randInt(4, 6), rand(-1, 1));
+  const dur = Math.round(rand(4300, 6300));
+  S.rot = to; S.phase = 'spinning'; S.spin = { from, to, dur, end: Date.now() + dur };
+  emit({ t: 'spin', from, to, dur, by: pi });
+  sync();
+  Timers.later(dur + 250, () => landSpin(idx));
+}
+
+function landSpin(idx) {
+  if (S.phase !== 'spinning') return;
+  S.spin = null;
+  const landed = Wheel.indexAt(S.rot);
+  if (landed !== idx) console.error('Çark uyuşmazlığı', landed, idx);
+  const sl = SLICES[landed], p = curP();
+  if (sl.kind === 'val') {
+    S.wheelValue = sl.v; S.phase = 'pickConsonant';
+    emit({ t: 'landed', kind: 'val', v: sl.v, by: S.cur }, `${p.name} çarkı çevirdi: ${fmt(sl.v)} puan.`);
+  } else if (sl.kind === 'pass') {
+    emit({ t: 'landed', kind: 'pass', by: S.cur }, `${p.name}: PAS geldi.`, 'bad');
+    nextPlayer();
+  } else {
+    const lost = p.hand; p.hand = 0;
+    emit({ t: 'landed', kind: 'bankrupt', lost, by: S.cur }, `${p.name} İFLAS etti${lost ? `, ${fmt(lost)} el puanı kayboldu` : ''}.`, 'bad');
+    nextPlayer();
+  }
+  sync();
+}
+
+function doVowel(pi) {
+  if (pi !== S.cur || S.roundDone) return;
+  if (S.phase === 'pickVowel') { S.phase = 'idle'; sync(); return; }
+  if (S.phase !== 'idle' || !vowelsLeft()) return;
+  const p = curP();
+  if (!p.coupons && p.hand < S.vowelCost) { emit({ t: 'info', to: pi, text: `Ünlü almak için el puanın en az ${fmt(S.vowelCost)} olmalı.` }); return; }
+  S.phase = 'pickVowel'; sync();
+}
+
+function doLetter(pi, L) {
+  if (pi !== S.cur || S.roundDone || !isLetter(L) || S.guessed.has(L)) return;
+  const vowel = VOWELS.has(L);
+  if (!((S.phase === 'pickConsonant' && !vowel) || (S.phase === 'pickVowel' && vowel))) return;
+  const p = curP();
+  S.guessed.add(L);
+  const positions = [...S.puzzle.a].map((ch, i) => (ch === L && !S.revealed.has(i)) ? i : -1).filter(i => i >= 0);
+  const count = positions.length;
+  let note = '';
+  if (vowel) {
+    if (p.coupons > 0) { p.coupons--; note = ' (kupon)'; } else p.hand -= S.vowelCost;
+  }
+  if (count) {
+    const gain = vowel ? 0 : S.wheelValue * count;
+    p.hand += gain;
+    positions.forEach(i => S.revealed.add(i));
+    S.phase = 'revealing';
+    emit({ t: 'reveal', positions, letter: L, count, gain, by: pi }, `${p.name}: "${L}" ${count} kez var${gain ? ` → +${fmt(gain)}` : ''}${note}.`, 'good');
+    sync();
+    Timers.later(count * REVEAL_MS + 450, () => {
+      S.wheelValue = 0;
+      if (allRevealed()) finishRound(pi, 'Bütün harfler açıldı');
+      else { S.phase = 'idle'; sync(); }
+    });
+  } else {
+    p.wrong++;
+    emit({ t: 'miss', letter: L, by: pi }, `${p.name}: "${L}" bulmacada yok${note}.`, 'bad');
+    nextPlayer();
+    sync();
+  }
+}
+
+function doSolve(pi, text) {
+  if (pi !== S.cur || S.roundDone || !['idle', 'pickConsonant'].includes(S.phase)) return;
+  const guess = lettersOnly(text);
+  if (!guess) return;
+  const p = curP();
+  // Türkçe klavyesi olmayanlar için Ç/C, Ğ/G, I/İ, Ö/O, Ş/S, Ü/U farkı tahmini bozmasın
+  const fold = s => s.replace(/[ÇĞIİÖŞÜ]/g, c => ({ Ç: 'C', Ğ: 'G', I: 'I', İ: 'I', Ö: 'O', Ş: 'S', Ü: 'U' }[c]));
+  if (guess === S.puzzle.key || fold(guess) === fold(S.puzzle.key)) {
+    finishRound(pi, 'Doğru tahmin');
+  } else {
+    p.wrong++;
+    emit({ t: 'wrongSolve', by: pi }, `${p.name} yanlış tahmin etti: "${up(text.trim()).slice(0, 40)}".`, 'bad');
+    nextPlayer();
+    sync();
+  }
+}
+
+function doClue(pi, i) {
+  const c = S.clues[i];
+  if (!c || c.opened || c.owner !== pi || pi !== S.cur || S.phase !== 'idle') return;
+  c.opened = true;
+  emit({ t: 'clue', by: pi }, `${S.players[pi].name} "${c.title}" ipucunu açtı.`, 'gold');
+  sync();
+}
+
+function nextPlayer() {
+  S.wheelValue = 0;
+  if (S.players.length === 1) {
+    S.lives--;
+    if (S.lives <= 0) { finishRound(null, 'Hata hakkın bitti'); return; }
+    emit({ t: 'lives', lives: S.lives }, `Kalan hata hakkı: ${S.lives}`);
+  } else {
+    S.misses++;
+    if (S.misses >= S.players.length * 6) { finishRound(null, 'Kimse çözemedi'); return; }
+    let n = S.cur;
+    for (let k = 0; k < S.players.length; k++) { n = (n + 1) % S.players.length; if (S.players[n].online) break; }
+    S.cur = n;
+    emit({ t: 'turn', cur: n }, `Sıra ${S.players[n].name} adlı yarışmacıda.`);
+  }
+  S.phase = 'idle';
+}
+
+// Turu kapatır; puan yalnızca bir kez ve yalnızca kazanana kesinleşir
+function finishRound(winner, why) {
+  if (S.roundDone) return;
+  S.roundDone = true; S.phase = 'roundOver'; S.spin = null;
+  [...S.puzzle.a].forEach((ch, i) => S.revealed.add(i));
+  const reward = S.puzzle.d * 250;
+  let summary;
+  if (winner != null) {
+    const w = S.players[winner], hand = w.hand, banked = hand + reward;
+    w.total += banked; w.solved++;
+    summary = { winner, banked, hand, reward };
+    emit({ t: 'roundEnd', winner }, `${w.name} bulmacayı çözdü! ${fmt(hand)} el puanı + ${fmt(reward)} çözüm ödülü = ${fmt(banked)} kesinleşti.`, 'good');
+    G.adapt = clamp(G.adapt + (S.misses <= S.players.length ? .35 : S.misses > S.players.length * 3 ? -.3 : .05), -.8, .8);
+  } else {
+    summary = { winner: null };
+    emit({ t: 'roundEnd', winner: null }, `Tur çözülemeden bitti (${why}). El puanları kesinleşmedi.`, 'bad');
+    G.adapt = clamp(G.adapt - .4, -.8, .8);
+  }
+  Object.assign(summary, { why, round: S.round, answer: S.puzzle.a, cat: S.puzzle.cat, last: S.round >= S.rounds });
+  S.summary = summary;
+  S.history.push({ round: S.round, cat: S.puzzle.cat, answer: S.puzzle.a, winner: winner != null ? S.players[winner].name : null });
+  S.players.forEach(p => { p.hand = 0; });
+  S.wheelValue = 0;
+  sync();
+  if (S.mode === 'online') Timers.later(12000, () => { if (S.phase === 'roundOver') afterRoundEnd(); });
+}
+
+function afterRoundEnd() {
+  if (S.phase !== 'roundOver') return;
+  if (S.round >= S.rounds) endGame(); else openMarket();
+}
+
+function openMarket() {
+  const next = choosePuzzle(S.round + 1, S.rounds);
+  const prev = {}; S.lastOffers.forEach(o => { prev[o.type] = o.price; });
+  const offers = buildOffers(next, prev);
+  S.lastOffers = offers;
+  S.nextPuzzle = next;
+  S.market = { id: Date.now(), offers, owned: S.players.map(() => new Set()), ready: S.players.map(p => !p.online), puzzleKey: next.key, nextCat: next.cat };
+  S.phase = 'market';
+  emit({ t: 'market' }, `İpucu Marketi açıldı (${offers.length} ürün). Sıradaki kategori: ${next.cat}.`, 'gold');
+  sync();
+  if (S.mode === 'online') { const id = S.market.id; Timers.later(150000, () => { if (S.phase === 'market' && S.market && S.market.id === id) closeMarket(); }); }
+}
+
+function doBuy(who, oid) {
+  const M = S.market; if (S.phase !== 'market' || !M) return;
+  const p = S.players[who], o = M.offers.find(x => x.oid === oid);
+  if (!p || !o || M.owned[who].has(oid) || p.total < o.price) return;
+  p.total -= o.price;
+  M.owned[who].add(oid);
+  p.bought.push(o.name);
+  if (o.type === 'coupon') p.coupons++;
+  else S.clues.push({ owner: who, puzzleKey: M.puzzleKey, title: o.name, text: o.text, opened: false });
+  emit({ t: 'buy', by: who }, `${p.name} "${o.name}" aldı (−${fmt(o.price)}).`, 'gold');
+  sync();
+}
+
+function doReady(pi) {
+  const M = S.market; if (S.phase !== 'market' || !M || S.mode !== 'online') return;
+  M.ready[pi] = !M.ready[pi];
+  if (!checkReady()) sync();
+}
+function checkReady() {
+  const M = S.market; if (!M) return false;
+  if (S.players.every((p, i) => M.ready[i] || !p.online)) { closeMarket(); return true; }
+  return false;
+}
 function closeMarket() {
-  if (G.phase !== 'market' || !G.market) return;
-  hide('market');
-  const next = G.nextPuzzle;
-  G.market = null;                                        // satılmayan teklifler geçersiz
+  if (S.phase !== 'market' || !S.market) return;
+  const next = S.nextPuzzle;
+  S.market = null;
   startRound(next);
 }
 
-/* ------------------------------------------------------------------ 8 */
-let lastBoardKey = null;
+function endGame() {
+  const max = Math.max(...S.players.map(p => p.total));
+  S.final = {
+    max, winners: S.players.map((p, i) => p.total === max ? i : -1).filter(i => i >= 0),
+    rows: S.players.map((p, i) => ({ i, name: p.name, color: p.color, total: p.total, solved: p.solved, bought: p.bought.slice() })).sort((a, b) => b.total - a.total)
+  };
+  S.phase = 'over';
+  emit({ t: 'over' }, `Yarışma bitti. Kazanan: ${S.final.winners.map(i => S.players[i].name).join(' & ')} (${fmt(max)} puan).`, 'gold');
+  sync();
+}
+
+function restartGame() {
+  const players = S.players.map((p, i) => Object.assign(mkPlayer(i, p.name, p.clientId), { online: p.online, lastSeen: p.lastSeen }));
+  startGame(S.mode, players, S.lengthKey);
+}
+
+/* ------------------------------------------------------------------ 10
+   Kurucu (host) — lobi, oyuncu eşleme, varlık takibi, durum yedeği         */
+const Host = {
+  L: null, spectators: new Set(), tickT: null, hbT: null,
+  async create(name, lengthKey) {
+    await Net.host();
+    this.L = { players: [{ name, clientId: Net.myId, lastSeen: Date.now() }], lengthKey };
+    this.spectators = new Set();
+    this.publishInfo();
+    this.startTimers();
+    this.broadcastLobby();
+    this.persist();
+  },
+  publishInfo() { Net.publishInfo({ host: Net.myId, code: Net.code, playing: !!S, ts: Date.now() }); },
+  startTimers() {
+    clearInterval(this.tickT); clearInterval(this.hbT);
+    this.tickT = setInterval(() => this.tick(), 2000);
+    this.hbT = setInterval(() => this.broadcast({ t: 'hb' }), 5000);
+  },
+  stop() { clearInterval(this.tickT); clearInterval(this.hbT); this.L = null; this.spectators.clear(); sess.del('cf.host'); },
+  clients() {
+    if (S) return S.players.filter((p, i) => i > 0 && p.clientId).map(p => p.clientId).concat([...this.spectators]);
+    return this.L ? this.L.players.slice(1).map(p => p.clientId) : [];
+  },
+  broadcast(m) { this.clients().forEach(id => Net.sendTo(id, m)); },
+  lobbyMsg() { return { t: 'lobby', code: Net.code, s: Net.idx, lengthKey: this.L.lengthKey, players: this.L.players.map((p, i) => ({ name: p.name, color: COLORS[i] })) }; },
+  broadcastLobby() { if (!this.L) return; const m = this.lobbyMsg(); UI.showLobby(m, true, 0); this.L.players.forEach((p, i) => { if (i > 0) Net.sendTo(p.clientId, Object.assign({ you: i }, m)); }); this.persist(); },
+  onMessage(m) {
+    if (!m || typeof m.id !== 'string' || m.id === Net.myId) return;
+    const now = Date.now();
+    if (m.t === 'hello') { this.onHello(m.id, cleanName(m.name)); return; }
+    if (S) {
+      const i = S.players.findIndex(p => p.clientId === m.id);
+      if (i > 0) {
+        const p = S.players[i];
+        if (m.t === 'bye') { p.lastSeen = 0; this.tick(); return; }
+        p.lastSeen = now;
+        if (!p.online) this.tick();
+        if (m.t === 'act' && m.a) { Net.stats.acts++; act(i, m.a); }
+      }
+    } else if (this.L) {
+      const k = this.L.players.findIndex(p => p.clientId === m.id);
+      if (k > 0) {
+        if (m.t === 'bye') { this.L.players.splice(k, 1); this.broadcastLobby(); return; }
+        this.L.players[k].lastSeen = now;
+      }
+    }
+  },
+  onHello(id, name) {
+    const now = Date.now();
+    if (!S) {
+      if (!this.L) return;
+      let p = this.L.players.find(x => x.clientId === id);
+      if (!p) {
+        if (this.L.players.length >= MAX_PLAYERS) { Net.sendTo(id, { t: 'full' }); return; }
+        p = { name: name || `Yarışmacı ${this.L.players.length + 1}`, clientId: id, lastSeen: now };
+        this.L.players.push(p);
+        UI.toast(`${p.name} odaya katıldı`, 'good');
+      } else { p.name = name || p.name; p.lastSeen = now; }
+      this.broadcastLobby();
+      return;
+    }
+    const i = S.players.findIndex(x => x.clientId === id);
+    if (i > 0) {
+      const p = S.players[i]; p.lastSeen = now;
+      if (!p.online) { p.online = true; p.offSince = 0; emit({ t: 'presence' }, `${p.name} yeniden bağlandı.`, 'good'); }
+      sync();
+      Net.sendTo(id, { t: 'view', v: viewFor(i) });
+    } else {
+      this.spectators.add(id);
+      Net.sendTo(id, { t: 'view', v: viewFor(-1) });
+    }
+  },
+  start() {
+    if (!this.L || S || this.L.players.length < 2) return;
+    const players = this.L.players.map((p, i) => mkPlayer(i, p.name, p.clientId));
+    const lengthKey = this.L.lengthKey;
+    startGame('online', players, lengthKey);
+    this.publishInfo();
+  },
+  tick() {
+    const now = Date.now();
+    if (!S) {
+      if (!this.L) return;
+      const before = this.L.players.length;
+      this.L.players = this.L.players.filter((p, i) => i === 0 || now - p.lastSeen < 15000);
+      if (this.L.players.length !== before) this.broadcastLobby();
+      return;
+    }
+    let changed = false;
+    S.players.forEach((p, i) => {
+      if (i === 0) return;
+      const on = now - p.lastSeen < 12000;
+      if (on !== p.online) {
+        p.online = on; p.offSince = on ? 0 : now; changed = true;
+        emit({ t: 'presence' }, on ? `${p.name} yeniden bağlandı.` : `${p.name} bağlantısı koptu.`, on ? 'good' : 'bad');
+      }
+    });
+    const c = S.players[S.cur];
+    if (['idle', 'pickConsonant', 'pickVowel'].includes(S.phase) && !c.online && now - c.offSince > 8000 && S.players.some(p => p.online)) {
+      emit({ t: 'skip' }, `${c.name} bağlı olmadığı için sıra geçti.`, 'bad');
+      nextPlayer(); changed = true;
+    }
+    if (S.phase === 'market' && S.market) { S.players.forEach((p, i) => { if (!p.online) S.market.ready[i] = true; }); if (checkReady()) return; }
+    if (changed) sync();
+  },
+  onReconnect() { this.publishInfo(); if (S) sync(); else this.broadcastLobby(); },
+  // Telefon sekmeyi kapatıp açarsa oyun kaybolmasın: durum oturum belleğine yazılır
+  persist() {
+    if (Net.role !== 'host') return;
+    try {
+      const snap = { code: Net.code, idx: Net.idx, ts: Date.now(), L: this.L, spectators: [...this.spectators],
+        G: { sessionUsed: [...G.sessionUsed], lastCat: G.lastCat, recentCats: G.recentCats, catUse: G.catUse, adapt: G.adapt }, viewSeq };
+      if (S) snap.S = Object.assign({}, S, { puzzle: S.puzzle && S.puzzle.key, nextPuzzle: S.nextPuzzle && S.nextPuzzle.key, revealed: [...S.revealed], guessed: [...S.guessed],
+        market: S.market ? Object.assign({}, S.market, { owned: S.market.owned.map(s => [...s]) }) : null });
+      sess.set('cf.host', snap);
+    } catch (e) { console.warn('Yedek yazılamadı', e); }
+  },
+  async restore(snap) {
+    Net.idx = snap.idx || 0;
+    await Net.host(snap.code);
+    this.L = snap.L; this.spectators = new Set(snap.spectators || []);
+    Object.assign(G, { sessionUsed: new Set(snap.G.sessionUsed), lastCat: snap.G.lastCat, recentCats: snap.G.recentCats, catUse: snap.G.catUse, adapt: snap.G.adapt });
+    viewSeq = (snap.viewSeq || 0) + 1000;
+    if (snap.S) {
+      const s = snap.S;
+      S = Object.assign({}, s, { puzzle: Pool.byKey.get(s.puzzle) || null, nextPuzzle: s.nextPuzzle ? Pool.byKey.get(s.nextPuzzle) : null,
+        revealed: new Set(s.revealed), guessed: new Set(s.guessed), market: s.market ? Object.assign({}, s.market, { owned: s.market.owned.map(a => new Set(a)) }) : null });
+      const now = Date.now();
+      S.players.forEach((p, i) => { if (i > 0) p.lastSeen = now; });
+      Wheel.rot = S.rot; Wheel.apply();
+      if (S.phase === 'spinning') { S.spin = null; S.phase = 'spinning'; landSpin(Wheel.indexAt(S.rot)); }
+      else if (S.phase === 'revealing') { if (allRevealed()) { S.roundDone = false; finishRound(S.cur, 'Bütün harfler açıldı'); } else S.phase = 'idle'; }
+      else if (S.phase === 'roundOver') Timers.later(4000, () => { if (S.phase === 'roundOver') afterRoundEnd(); });
+    }
+    this.publishInfo();
+    this.startTimers();
+    if (S) { emit({ t: 'presence' }, 'Oda kurucusu yeniden bağlandı.', 'gold'); sync(); } else this.broadcastLobby();
+  }
+};
+
+/* ------------------------------------------------------------------ 11
+   Katılımcı (client)                                                         */
+const Client = {
+  lastSeq: 0, lastEv: 0, g: null, lastMsg: 0, pingT: null, dogT: null, name: '', you: null,
+  async join(code, name, hint) {
+    this.name = name; this.lastSeq = 0; this.lastEv = 0; this.g = null;
+    await Net.join(code, hint || 0);
+    this.lastMsg = Date.now();
+    this.hello();
+    clearInterval(this.pingT); clearInterval(this.dogT);
+    this.pingT = setInterval(() => Net.sendToHost({ t: 'ping', id: Net.myId }), 4000);
+    this.dogT = setInterval(() => {
+      if (Net.role !== 'client') return;
+      if (Date.now() - this.lastMsg > 15000 && Net.status === 'ok') UI.netToast('Oda kurucusuna ulaşılamıyor. Bekleniyor…');
+    }, 3000);
+    sess.set('cf.client', { code, name, s: Net.idx, ts: Date.now() });
+  },
+  hello() { Net.sendToHost({ t: 'hello', id: Net.myId, name: this.name }); },
+  stop() { clearInterval(this.pingT); clearInterval(this.dogT); sess.del('cf.client'); },
+  onReconnect() { this.hello(); },
+  onMessage(m) {
+    this.lastMsg = Date.now(); UI.netToast(null);
+    switch (m.t) {
+      case 'lobby': this.you = m.you; UI.showLobby(m, false, m.you); break;
+      case 'view': {
+        const v = m.v; if (!v) return;
+        if (v.g !== this.g) { this.g = v.g; this.lastSeq = 0; this.lastEv = 0; }
+        if (v.seq <= this.lastSeq) return;
+        this.lastSeq = v.seq; UI.onView(v); break;
+      }
+      case 'ev': {
+        const e = m.e; if (!e) return;
+        if (e.g !== this.g) { this.g = e.g; this.lastSeq = 0; this.lastEv = 0; }
+        if (e.n <= this.lastEv) return;
+        this.lastEv = e.n; UI.onEvent(e); break;
+      }
+      case 'full': leaveRoom(false); UI.netMsg('Oda dolu (en fazla 4 yarışmacı).', 'bad'); break;
+      case 'closed': leaveRoom(false); UI.netMsg('Oda kurucusu odayı kapattı.', 'bad'); break;
+      default: break;
+    }
+  }
+};
+
+// Arayüzden gelen hamleyi doğru yere iletir
+function send(a) {
+  Sound.init();
+  if (Net.role === 'client') Net.sendToHost({ t: 'act', id: Net.myId, a });
+  else if (S) act(Net.role === 'host' ? 0 : (a.t === 'buy' ? a.as : S.cur), a);
+}
+
+/* ------------------------------------------------------------------ 12
+   Arayüz — yalnızca gelen görüntüye (V) ve olaylara göre çizer              */
+const isPhone = () => innerWidth < 760;
+const UI = {
+  V: null, animating: new Set(), lastBoard: '', lastBoardKey: '', marketTab: 0, lastMarketId: null, reTimer: null, shownRe: null, hintUntil: 0, prevMyTurn: false, prevPhase: null,
+  canAct() { const V = this.V; return !!V && (V.mode === 'local' || V.me === V.cur); },
+  meIdx() { const V = this.V; return V && typeof V.me === 'number' ? V.me : -1; },
+  onView(V) {
+    const prev = this.V;
+    this.V = V;
+    hide('menu'); hide('lobby');
+    // Çark: dönmüyorsa kurucunun açısına hizala; kaçırılmış bir dönüş varsa kalanını oynat
+    if (!Wheel.spinning) {
+      if (V.spinning && V.spinning.left > 300) this.playSpin(Wheel.rot, V.spinning.to, V.spinning.left);
+      else if (Math.abs(Wheel.rot - V.rot) > .01) { Wheel.rot = V.rot; Wheel.apply(); }
+    }
+    G.final = V.lastRound && !['over'].includes(V.phase);
+    document.body.classList.toggle('final', G.final);
+    Sound.updateMusic();
+    // Sıra sende bildirimi (online)
+    const myTurn = V.mode === 'online' && V.me === V.cur && ['idle', 'pickConsonant', 'pickVowel'].includes(V.phase);
+    if (myTurn && !this.prevMyTurn && V.phase === 'idle') { setTimeout(() => banner('SIRA SENDE!', 'pink'), 500); try { navigator.vibrate && navigator.vibrate([90, 60, 90]); } catch { /* */ } Sound.special(); }
+    this.prevMyTurn = myTurn;
+    // Harf seçme anında telefonda panoyu göster
+    const picking = this.canAct() && ['pickConsonant', 'pickVowel'].includes(V.phase);
+    document.body.classList.toggle('pick', picking);
+    if (picking && this.prevPhase !== V.phase && isPhone()) setTimeout(() => { const z = document.querySelector('.board-zone'); if (z) z.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80);
+    if (!['idle', 'pickConsonant'].includes(V.phase) || !this.canAct()) closeSolve(true);
+    this.prevPhase = V.phase;
+    this.overlays(prev);
+    renderAll();
+  },
+  overlays(prev) {
+    const V = this.V;
+    // Tur sonu
+    if (V.phase === 'roundOver' && V.summary) {
+      const key = V.g + ':' + V.summary.round;
+      if (this.shownRe !== key) { this.shownRe = key; clearTimeout(this.reTimer); this.reTimer = setTimeout(() => { if (this.V && this.V.phase === 'roundOver') { showRoundEnd(); show('roundEnd'); } }, 1300); }
+      else if (!$('roundEnd').hidden) showRoundEnd();
+    } else { clearTimeout(this.reTimer); hide('roundEnd'); }
+    // Market
+    if (V.phase === 'market' && V.market) {
+      if (this.lastMarketId !== V.market.id) {
+        this.lastMarketId = V.market.id;
+        this.marketTab = V.mode === 'local' ? V.players.reduce((bi, p, i, a) => p.total > a[bi].total ? i : bi, 0) : this.meIdx();
+        const m = document.querySelector('.market-modal'); m.classList.remove('enter'); void m.offsetWidth; m.classList.add('enter');
+      }
+      renderMarket(); show('market');
+    } else hide('market');
+    // Final
+    if (V.phase === 'over' && V.final) { renderGameOver(); show('gameOver'); } else hide('gameOver');
+  },
+  playSpin(from, to, dur) {
+    G.spinning = true; document.body.classList.add('spinning'); Sound.updateMusic();
+    $('wheelResult').textContent = 'Çark dönüyor…';
+    Wheel.animate(from, to, dur).then(() => { G.spinning = false; document.body.classList.remove('spinning'); Sound.updateMusic(); if (UI.V && !Wheel.spinning) { if (Math.abs(Wheel.rot - UI.V.rot) > .01 && !UI.V.spinning) { Wheel.rot = UI.V.rot; Wheel.apply(); } renderAll(); } });
+  },
+  onEvent(e) {
+    if (e.log) addLog(e.log, e.cls);
+    const V = this.V, mine = !V || V.mode === 'local' || e.by === V.me;
+    switch (e.t) {
+      case 'spin': this.playSpin(e.from, e.to, e.dur); break;
+      case 'landed': {
+        const ww = $('wheelWrap'); ww.classList.remove('flash'); void ww.offsetWidth; ww.classList.add('flash');
+        Sound.stop();
+        if (e.kind === 'val') { $('wheelResult').textContent = `${fmt(e.v)} PUAN`; banner(`${fmt(e.v)} PUAN`); }
+        else if (e.kind === 'pass') { $('wheelResult').textContent = 'PAS ✋'; banner('PAS!', 'pink'); Sound.bad(); }
+        else { $('wheelResult').textContent = 'İFLAS 💀'; banner('İFLAS!', 'bad'); flash('bad'); Sound.bankrupt(); }
+        break;
+      }
+      case 'reveal': this.playReveal(e); break;
+      case 'miss': Sound.bad(); flash('bad'); pulse('board', 'bad'); banner(`"${e.letter}" YOK`, 'bad'); break;
+      case 'wrongSolve': Sound.bad(); flash('bad'); banner('YANLIŞ CEVAP', 'bad'); break;
+      case 'roundEnd': {
+        if (e.winner != null) {
+          const n = V && V.players[e.winner] ? V.players[e.winner].name : '';
+          Sound.solve(); setTimeout(() => Sound.fanfare(), 700); FX.confetti(180); flash('good');
+          banner(V && V.me === e.winner ? 'BİLDİN!' : `${n.toLocaleUpperCase(TR)} ÇÖZDÜ!`, 'good');
+        } else { Sound.bankrupt(); banner('TUR BİTTİ', 'bad'); }
+        break;
+      }
+      case 'round': banner(e.lastRound ? 'SON TUR!' : `${e.round}. TUR`, e.lastRound ? 'pink' : ''); if (e.lastRound) FX.confetti(60); $('wheelResult').textContent = 'Çarkı çevir!'; break;
+      case 'market': Sound.whoosh(); setTimeout(() => Sound.buy(), 250); FX.burst(innerWidth / 2, innerHeight * .25, 50, false); break;
+      case 'buy': if (mine) { Sound.buy(); FX.burst(innerWidth / 2, innerHeight / 2, 30); } break;
+      case 'clue': Sound.special(); break;
+      case 'over': FX.confetti(260); Sound.fanfare(); break;
+      case 'info': if (mine || e.to === (V && V.me)) { setHint(e.text, 3500); Sound.bad(); } break;
+      default: break;
+    }
+  },
+  async playReveal(e) {
+    const g = this.V ? this.V.g : null;
+    e.positions.forEach(i => this.animating.add(i));
+    renderBoard();
+    showBoard();
+    for (const i of e.positions) {
+      const t = document.querySelector(`.tile[data-i="${i}"]`);
+      if (t) { t.classList.add('pending'); await sleep(REVEAL_MS * .5); }
+      this.animating.delete(i);
+      const t2 = document.querySelector(`.tile[data-i="${i}"]`);
+      if (t2) { t2.classList.remove('pending'); t2.classList.add('open', 'light'); t2.textContent = e.letter; }
+      Sound.good();
+      await sleep(REVEAL_MS * .5);
+      if (!this.V || this.V.g !== g) { this.animating.clear(); return; }
+    }
+    this.lastBoard = this.V ? this.V.board : this.lastBoard;
+    if (e.gain) {
+      banner(`+${fmt(e.gain)} PUAN!`, 'good');
+      FX.burst(...centerOf($('board')), e.gain >= 1000 ? 70 : 35);
+      if (e.gain >= 1000) FX.confetti(70);
+    }
+    flash('good'); pulse('board', 'good');
+  },
+  netStatus(s) {
+    const chip = $('roomChip'), dot = $('netDot');
+    chip.hidden = s === 'off';
+    document.body.classList.toggle('online', s !== 'off');
+    $('roomChipCode').textContent = Net.code || '-----';
+    dot.className = 'net-dot ' + (s === 'ok' ? 'ok' : s === 'wait' ? 'wait' : '');
+    if (s === 'wait') this.netToast('Bağlantı koptu, yeniden bağlanılıyor…'); else if (s === 'ok') this.netToast(null);
+  },
+  netToast(text) { const t = $('netToast'); if (!text) { t.hidden = true; return; } t.textContent = text; t.hidden = false; },
+  toast(text, cls) { addLog(text, cls); },
+  netMsg(text, cls) { const m = $('netMsg'); m.textContent = text || ''; m.className = 'net-msg ' + (cls || ''); if (text) { showMenu('online'); } },
+  showLobby(m, isHost, you) {
+    hide('menu'); show('lobby');
+    $('roomCode').textContent = m.code;
+    $('shareLink').value = Net.shareLink();
+    $('lobbyCount').textContent = `${m.players.length}/${MAX_PLAYERS}`;
+    $('lobbyPlayers').innerHTML = m.players.map((p, i) => `<div class="lp" style="--pc:${p.color}"><span class="av" style="--pc:${p.color}">${initial(p.name)}</span><b>${esc(p.name)}</b>${i === 0 ? '<span class="tagx">kurucu</span>' : ''}${i === you ? '<span class="tagx me">sen</span>' : ''}</div>`).join('')
+      + Array.from({ length: MAX_PLAYERS - m.players.length }, () => '<div class="lp empty"><span class="av">?</span><span>Boş koltuk</span></div>').join('');
+    $('lobbyHost').hidden = !isHost; $('lobbyWait').hidden = isHost;
+    $('segLobbyLength').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === m.lengthKey));
+    $('btnLobbyStart').disabled = m.players.length < 2;
+    $('btnLobbyStart').textContent = m.players.length < 2 ? 'Arkadaşlarının katılmasını bekle…' : `▶ YARIŞMAYI BAŞLAT (${m.players.length} kişi)`;
+    if (!isHost) $('lobbyWait').textContent = `${m.players[0] ? m.players[0].name : 'Kurucu'} yarışmayı başlatınca oyun açılacak · ${(MODES[m.lengthKey] || MODES.std).label}`;
+  }
+};
+
+/* ---------- çizim ---------- */
 function boardCols() { const w = $('board').clientWidth || 600; return w < 360 ? 10 : w < 470 ? 12 : 14; }
 function layoutRows(answer, maxCols) {
   const words = answer.split(' ');
-  const longest = Math.max(...words.map(w => w.length));
-  const cols = Math.max(maxCols, longest);
-  const rows = []; let row = [];
-  let len = 0, idx = 0;
+  const cols = Math.max(maxCols, ...words.map(w => w.length));
+  const rows = []; let row = [], len = 0, idx = 0;
   for (const w of words) {
     const need = (row.length ? 1 : 0) + w.length;
     if (row.length && len + need > cols) { rows.push(row); row = []; len = 0; }
@@ -851,85 +1305,122 @@ function sizeTiles() {
   board.style.setProperty('--tile', Math.max(18, Math.min(46, Math.floor((w - (n - 1) * 5) / n))) + 'px');
 }
 function renderBoard(force) {
-  const P = G.puzzle, board = $('board');
-  if (!P) { board.innerHTML = ''; return; }
-  const maxCols = boardCols();
-  const key = P.key + ':' + maxCols;
-  if (force || key !== lastBoardKey) {
-    lastBoardKey = key;
-    const { rows, cols } = layoutRows(P.a, maxCols);
+  const V = UI.V, board = $('board');
+  if (!V || !V.board) { board.innerHTML = ''; return; }
+  const maxCols = boardCols(), key = V.g + ':' + V.round + ':' + maxCols;
+  const B = V.board;
+  if (force || key !== UI.lastBoardKey) {
+    UI.lastBoardKey = key;
+    const { rows, cols } = layoutRows(B, maxCols);
     const widest = Math.max(...rows.map(r => r.reduce((s, x, i) => s + x.w.length + (i ? 1 : 0), 0)));
-    const nCols = Math.max(widest, Math.min(cols, 10));
-    board.dataset.cols = nCols;
-    // Gizli harfler DOM'a hiç yazılmaz; yalnızca açılan karolar metin alır
+    board.dataset.cols = Math.max(widest, Math.min(cols, 10));
     board.innerHTML = rows.map(r => `<div class="board-row">${r.map((x, wi) => (wi ? '<div class="tile blank"></div>' : '') +
-      [...x.w].map((ch, k) => { const i = x.start + k; const letter = isLetter(ch); const open = G.revealed.has(i);
-        return `<div class="tile ${letter ? 'letter' : 'punct'} ${open && letter ? 'open' : ''}" data-i="${i}">${open ? esc(ch) : ''}</div>`; }).join('')).join('')}</div>`).join('');
+      [...x.w].map((ch, k) => { const i = x.start + k; const hidden = ch === '_'; const letter = hidden || isLetter(ch); const open = letter && !hidden && !UI.animating.has(i);
+        return `<div class="tile ${letter ? 'letter' : 'punct'} ${open ? 'open' : ''}" data-i="${i}">${open || !letter ? esc(ch) : ''}</div>`; }).join('')).join('')}</div>`).join('');
     sizeTiles();
-  } else {
-    board.querySelectorAll('.tile[data-i]').forEach(t => { const i = +t.dataset.i; if (G.revealed.has(i) && !t.textContent) { t.classList.add('open'); t.textContent = P.a[i]; } });
+    UI.lastBoard = B;
+    return;
   }
+  board.querySelectorAll('.tile[data-i]').forEach(t => {
+    const i = +t.dataset.i, ch = B[i];
+    if (!t.classList.contains('letter')) return;
+    const shouldOpen = ch && ch !== '_' && !UI.animating.has(i);
+    if (shouldOpen && !t.classList.contains('open')) { t.classList.add('open'); if (UI.lastBoard[i] === '_') t.classList.add('light'); t.textContent = ch; }
+  });
+  UI.lastBoard = B;
 }
 function renderKeyboard() {
-  const kb = $('keyboard');
-  if (!kb.childElementCount) {
-    kb.innerHTML = ALPHABET.concat(EXTRA_KEYS).map(l => `<button type="button" class="key ${VOWELS.has(l) ? 'vowel' : ''}" data-l="${l}" aria-label="${l} harfi">${l}</button>`).join('');
-  }
-  const armed = G.phase === 'pickConsonant' || G.phase === 'pickVowel';
+  const kb = $('keyboard'), V = UI.V;
+  if (!kb.childElementCount) kb.innerHTML = ALPHABET.concat(EXTRA_KEYS).map(l => `<button type="button" class="key ${VOWELS.has(l) ? 'vowel' : ''}" data-l="${l}" aria-label="${l} harfi">${l}</button>`).join('');
+  const armed = !!V && UI.canAct() && (V.phase === 'pickConsonant' || V.phase === 'pickVowel');
   kb.classList.toggle('armed', armed);
-  const present = G.puzzle ? new Set([...G.puzzle.a]) : new Set();
+  const guessed = new Set(V ? V.guessed : []), shown = new Set(V ? [...V.board] : []);
   kb.querySelectorAll('.key').forEach(k => {
-    const l = k.dataset.l, used = G.guessed.has(l), v = VOWELS.has(l);
-    k.classList.toggle('hit', used && present.has(l));
-    k.classList.toggle('miss', used && !present.has(l));
-    k.disabled = used || !armed || (G.phase === 'pickConsonant' && v) || (G.phase === 'pickVowel' && !v);
+    const l = k.dataset.l, used = guessed.has(l), v = VOWELS.has(l);
+    k.classList.toggle('hit', used && shown.has(l));
+    k.classList.toggle('miss', used && !shown.has(l));
+    k.disabled = used || !armed || (V.phase === 'pickConsonant' && v) || (V.phase === 'pickVowel' && !v);
   });
 }
+function playerBadges(p, i, V) {
+  return `${V.me === i ? '<span class="badge me">SEN</span>' : ''}${p.online ? '' : '<span class="badge off">bağlantı yok</span>'}${p.coupons ? `<span class="badge">🎟 ${p.coupons}</span>` : ''}`;
+}
 function renderPlayers() {
-  $('players').innerHTML = G.players.map((p, i) => `<div class="player ${i === G.cur && G.phase !== 'over' ? 'active' : ''}" style="--pc:${p.color}">
+  const V = UI.V;
+  if (!V) { $('players').innerHTML = ''; $('pstrip').innerHTML = ''; return; }
+  $('players').innerHTML = V.players.map((p, i) => `<div class="player ${i === V.cur && V.phase !== 'over' ? 'active' : ''} ${p.online ? '' : 'offline'}" style="--pc:${p.color}">
     <span class="dot"></span><span class="pname">${esc(p.name)}</span><span class="ptotal">${fmt(p.total)}</span>
-    <span class="phand"><span>El: <b>${fmt(p.hand)}</b></span><span>${p.coupons ? `<span class="badge">🎟 ${p.coupons} kupon</span> ` : ''}<span class="badge">✓ ${p.solved}</span></span></span></div>`).join('')
-    || '<p class="muted">Ana menüden yarışmacıları seç.</p>';
+    <span class="phand"><span>El: <b>${fmt(p.hand)}</b></span><span>${playerBadges(p, i, V)}<span class="badge">✓ ${p.solved}</span></span></span></div>`).join('');
+  $('pstrip').innerHTML = V.players.map((p, i) => `<div class="pchip ${i === V.cur && V.phase !== 'over' ? 'active' : ''} ${p.online ? '' : 'offline'} ${V.me === i ? 'me' : ''}" style="--pc:${p.color}">
+    <span class="av" style="--pc:${p.color}">${initial(p.name)}</span><span class="pc-txt"><b>${esc(p.name)}${V.me === i ? ' · sen' : ''}</b><small>${fmt(p.total)}${p.hand ? ` <em>+${fmt(p.hand)}</em>` : ''}</small></span></div>`).join('');
 }
 function renderClues() {
-  const box = $('clues');
-  const mine = G.puzzle ? G.clues.filter(c => c.puzzleKey === G.puzzle.key) : [];
-  if (!mine.length) { box.innerHTML = '<p class="muted">Marketten alınan ipuçları burada görünür. Market her el bittiğinde açılır.</p>'; return; }
-  box.innerHTML = mine.map((c, i) => {
-    const p = G.players[c.owner];
-    const canOpen = !c.opened && c.owner === G.cur && G.phase === 'idle';
+  const V = UI.V, box = $('clues');
+  const list = V ? V.clues : [];
+  if (!list.length) { box.innerHTML = '<p class="muted">Marketten alınan ipuçları burada görünür. Market her el bittiğinde açılır.</p>'; return; }
+  box.innerHTML = list.map(c => {
+    const p = V.players[c.owner];
+    if (!c.mine) return `<div class="clue" style="--pc:${p.color}"><h4>${esc(p.name)} · ${esc(c.title)}</h4><p class="muted">🔒 Bu ipucu yalnızca ${esc(p.name)} tarafından görülebilir.</p></div>`;
+    const canOpen = !c.opened && c.owner === V.cur && V.phase === 'idle' && UI.canAct();
     return `<div class="clue" style="--pc:${p.color}"><h4>${esc(p.name)} · ${esc(c.title)}</h4>${c.opened ? `<p>${esc(c.text)}</p>`
-      : `<p class="muted">Kilitli ipucu. Sahibi sırası gelince açabilir.</p><button class="btn btn-vowel" type="button" data-clue="${G.clues.indexOf(c)}" ${canOpen ? '' : 'disabled'}>İPUCUNU AÇ</button>`}</div>`;
+      : `<p class="muted">Kilitli ipucu. Sıran gelince açabilirsin.</p><button class="btn btn-vowel" type="button" data-clue="${c.i}" ${canOpen ? '' : 'disabled'}>İPUCUNU AÇ</button>`}</div>`;
   }).join('');
 }
-function renderAll(forceBoard) {
-  const P = G.puzzle, p = G.players[G.cur];
-  $('roundLabel').textContent = G.rounds && G.round ? `${G.round} / ${G.rounds}` : '–';
+function hintFor(V) {
+  const cp = V.players[V.cur], name = cp ? cp.name : '', can = UI.canAct();
+  if (V.phase === 'spinning') return can ? 'Çark dönüyor…' : `${name} çarkı çeviriyor…`;
+  if (V.phase === 'revealing') return 'Harfler açılıyor…';
+  if (!can) {
+    if (V.me === -1) return `İzleyicisin · sıra ${name} adlı yarışmacıda`;
+    if (V.phase === 'pickConsonant') return `${name} ${fmt(V.wheelValue)} puan için ünsüz seçiyor…`;
+    if (V.phase === 'pickVowel') return `${name} ünlü seçiyor…`;
+    return `Sıra ${name} adlı yarışmacıda. Sıran gelince butonlar açılır.`;
+  }
+  const pre = V.mode === 'local' && V.players.length > 1 ? `${name}: ` : '';
+  const say = t => pre ? pre + t : t.charAt(0).toLocaleUpperCase(TR) + t.slice(1);
+  if (V.phase === 'pickConsonant') return say(`bir ünsüz seç. Her geçiş ${fmt(V.wheelValue)} puan.`);
+  if (V.phase === 'pickVowel') return say(`bir ünlü seç (iptal için ÜNLÜ AL'a tekrar bas).`);
+  if (V.consLeft === false) return say('panoda ünsüz kalmadı: ünlü al ya da cevabı tahmin et.');
+  return say('çarkı çevir, ünlü al ya da cevabı tahmin et.');
+}
+function renderAll() {
+  const V = UI.V; if (!V) return;
+  const p = V.players[V.cur], me = V.players[UI.meIdx()];
+  $('roundLabel').textContent = `${V.round} / ${V.rounds}`;
   $('activeLabel').textContent = p ? p.name : '–';
   $('activeLabel').style.color = p ? p.color : '';
-  $('activeTotal').textContent = p ? fmt(p.total) : '0';
-  $('catLabel').textContent = P ? up(P.cat) : 'KATEGORİ';
-  $('diffLabel').textContent = P ? ['', 'KOLAY', 'ORTA', 'ZOR', 'UZMAN'][P.d] + ` · ÖDÜL ${fmt(P.d * 250)}` : '';
-  $('handInfo').textContent = p ? `${p.name} · El puanı: ${fmt(p.hand)}` : 'El puanı: 0';
-  const li = $('livesInfo'); li.hidden = G.players.length !== 1 || !P; li.textContent = '❤'.repeat(Math.max(0, G.lives)) + '♡'.repeat(Math.max(0, SOLO_LIVES - G.lives)) + ' hata hakkı';
-  $('vowelCost').textContent = p && p.coupons ? 'KUPON' : fmt(G.vowelCost);
-  const idle = G.phase === 'idle' && !G.roundDone;
-  $('btnSpin').disabled = !idle || Wheel.spinning;
-  $('btnVowel').disabled = !(idle || G.phase === 'pickVowel') || !vowelsLeft() || (p && !p.coupons && p.hand < G.vowelCost && G.phase !== 'pickVowel');
-  $('btnVowel').classList.toggle('on', G.phase === 'pickVowel');
-  $('btnSolve').disabled = !['idle', 'pickConsonant'].includes(G.phase) || G.roundDone;
-  renderBoard(forceBoard); renderKeyboard(); renderPlayers(); renderClues();
+  const scoreOf = V.mode === 'online' && me ? me : p;
+  $('activeTotalK').textContent = V.mode === 'online' && me ? 'PUANIN' : 'TOPLAM';
+  $('activeTotal').textContent = scoreOf ? fmt(scoreOf.total) : '0';
+  $('catLabel').textContent = V.cat ? up(V.cat) : 'KATEGORİ';
+  $('diffLabel').textContent = ['', 'KOLAY', 'ORTA', 'ZOR', 'UZMAN'][V.d] + ` · ÖDÜL ${fmt(V.d * 250)}`;
+  $('handInfo').textContent = p ? `${p.name} · El puanı: ${fmt(p.hand)}` : '';
+  const li = $('livesInfo'); li.hidden = V.players.length !== 1; li.textContent = '❤'.repeat(Math.max(0, V.lives)) + '♡'.repeat(Math.max(0, SOLO_LIVES - V.lives)) + ' hata hakkı';
+  const can = UI.canAct(), idle = V.phase === 'idle';
+  $('vowelCost').textContent = p && p.coupons ? 'KUPON' : fmt(V.vowelCost);
+  $('btnSpin').disabled = !(can && idle) || Wheel.spinning || V.consLeft === false;
+  $('btnVowel').disabled = !can || !(idle || V.phase === 'pickVowel') || (p && !p.coupons && p.hand < V.vowelCost && V.phase !== 'pickVowel') || !ALPHABET.some(l => VOWELS.has(l) && !V.guessed.includes(l));
+  $('btnVowel').classList.toggle('on', V.phase === 'pickVowel');
+  $('btnSolve').disabled = !can || !['idle', 'pickConsonant'].includes(V.phase);
+  // Online sıra şeridi
+  const tb = $('turnBanner');
+  if (V.mode === 'online' && ['idle', 'spinning', 'pickConsonant', 'pickVowel', 'revealing'].includes(V.phase)) {
+    tb.hidden = false;
+    tb.className = 'turn-banner ' + (can ? 'mine' : '');
+    tb.style.setProperty('--pc', p ? p.color : '#fff');
+    tb.innerHTML = can ? '⭐ SIRA SENDE' : `<span class="av" style="--pc:${p.color}">${initial(p.name)}</span> Sıra: <b>${esc(p.name)}</b>`;
+  } else tb.hidden = true;
+  if (Date.now() > UI.hintUntil) $('hintLine').textContent = hintFor(V);
+  renderBoard(); renderKeyboard(); renderPlayers(); renderClues();
 }
+function setHint(t, ms = 0) { $('hintLine').textContent = t; UI.hintUntil = ms ? Date.now() + ms : 0; if (ms) setTimeout(() => { if (Date.now() >= UI.hintUntil && UI.V) $('hintLine').textContent = hintFor(UI.V); }, ms + 50); }
 function showBoard() {
   const f = document.querySelector('.board-frame'), r = f.getBoundingClientRect();
-  if (r.top < 0 || r.bottom > innerHeight) f.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+  if (r.top < 0 || r.bottom > innerHeight) f.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: isPhone() ? 'start' : 'center' });
 }
-function setHint(t) { $('hintLine').textContent = t; }
 function pulse(id, cls) { const el = $(id); el.classList.remove('good', 'bad'); void el.offsetWidth; el.classList.add(cls); }
 function addLog(text, cls = '') {
   const t = new Date();
-  G.log.unshift({ text, cls, t });
-  G.log = G.log.slice(0, 60);
   const li = document.createElement('li'); if (cls) li.className = cls;
   li.innerHTML = `<time>${String(t.getHours()).padStart(2, '0')}:${String(t.getMinutes()).padStart(2, '0')}</time><span>${esc(text)}</span>`;
   const ol = $('log'); ol.prepend(li); while (ol.children.length > 60) ol.lastChild.remove();
@@ -943,18 +1434,109 @@ function confirmBox(title, text) {
 }
 function closeConfirm(v) { hide('confirm'); if (confirmResolve) { const r = confirmResolve; confirmResolve = null; r(v); } }
 
-/* ------------------------------------------------------------------ 9 */
+/* ---------- tahmin kutusu ---------- */
+function openSolve() {
+  const V = UI.V; if (!V || !UI.canAct() || !['idle', 'pickConsonant'].includes(V.phase)) return;
+  $('solveForm').hidden = false; $('solveInput').value = ''; $('solveInput').focus();
+  setHint('Cevabı yaz ve gönder. Yanlış tahminde sıra geçer.', 60000);
+}
+function closeSolve(silent) { if ($('solveForm').hidden) return; $('solveForm').hidden = true; if (!silent) { UI.hintUntil = 0; renderAll(); } else UI.hintUntil = 0; }
+
+/* ---------- tur sonu / final ---------- */
+function showRoundEnd() {
+  const V = UI.V, s = V.summary; if (!s) return;
+  const w = s.winner != null ? V.players[s.winner] : null;
+  $('reTitle').textContent = w ? (V.me === s.winner ? 'Tebrikler, bildin!' : `${w.name} kazandı!`) : 'Bulmaca çözülemedi';
+  $('reAnswer').innerHTML = s.answer.split('').map(ch => ch === ' ' ? '<span class="gap"></span>' : `<span>${esc(ch)}</span>`).join('');
+  const rows = V.players.map((p, i) => `<tr><td><span style="color:${p.color}">●</span> ${esc(p.name)}${V.me === i ? ' <small>(sen)</small>' : ''}</td><td class="num">${fmt(p.total)}</td></tr>`).join('');
+  $('reBody').innerHTML = (w ? `<p style="text-align:center">El puanı <b>${fmt(s.hand)}</b> + çözüm ödülü <b>${fmt(s.reward)}</b> = <b style="color:var(--yellow)">${fmt(s.banked)}</b> puan kesinleşti.</p>`
+    : `<p style="text-align:center">${esc(s.why)}. Bu turda kimse puan kesinleştiremedi.</p>`) +
+    `<table class="score-table"><thead><tr><th>Yarışmacı</th><th class="num">Toplam puan</th></tr></thead><tbody>${rows}</tbody></table>` +
+    `<p class="muted" style="text-align:center">${s.last ? 'Bu son turdu. Büyük finale geçiliyor.' : 'Sıradaki adım: İpucu Marketi. Toplam puanınla bir sonraki bulmaca için ipucu alabilirsin.'}</p>`;
+  const btn = $('reNext');
+  const canGo = V.mode === 'local' || V.me === 0;
+  btn.disabled = !canGo;
+  btn.textContent = canGo ? (s.last ? 'BÜYÜK FİNAL 🏆' : 'MARKETE GİT 🛒') : 'Kurucu devam ettirecek…';
+}
+function renderGameOver() {
+  const V = UI.V, F = V.final;
+  const names = F.winners.map(i => esc(V.players[i].name)).join(' & ');
+  const rows = F.rows.map(r => `<tr><td><span style="color:${r.color}">●</span> ${esc(r.name)}${V.me === r.i ? ' <small>(sen)</small>' : ''}<div class="bought">${r.bought.length ? 'İpuçları: ' + r.bought.map(b => esc(b)).join(', ') : 'İpucu satın almadı'}</div></td><td class="num">${r.solved}</td><td class="num">${fmt(r.total)}</td></tr>`).join('');
+  $('goBody').innerHTML = `<div class="winner"><div class="crown">🏆</div><div class="wname">${names}</div><div>${V.players.length === 1 ? 'Toplam puanın' : F.winners.length > 1 ? 'Berabere! Toplam puan' : 'Şampiyon · toplam puan'}: <b style="color:var(--yellow)">${fmt(F.max)}</b></div></div>
+    <table class="score-table"><thead><tr><th>Yarışmacı</th><th class="num">Çözülen</th><th class="num">Toplam</th></tr></thead><tbody>${rows}</tbody></table>`;
+  const host = V.mode === 'local' || V.me === 0;
+  $('goAgain').hidden = !host;
+  $('goAgain').textContent = V.mode === 'online' ? 'Aynı odada yeniden oyna' : 'Aynı ekiple yeniden oyna';
+  $('goMenu').textContent = V.mode === 'online' ? 'Odadan çık' : 'Ana menü';
+  $('goWait').hidden = host;
+}
+
+/* ---------- market ---------- */
+function renderMarket() {
+  const V = UI.V, M = V.market; if (!M) return;
+  const local = V.mode === 'local';
+  const viewer = local ? clamp(UI.marketTab, 0, V.players.length - 1) : UI.meIdx();
+  const v = V.players[viewer];
+  $('marketTabs').innerHTML = local && V.players.length > 1 ? V.players.map((p, i) =>
+    `<button type="button" role="tab" aria-selected="${i === viewer}" class="${i === viewer ? 'on' : ''}" style="--pc:${p.color}" data-i="${i}"><span class="av" style="--pc:${p.color}">${initial(p.name)}</span>${esc(p.name)}</button>`).join('') : '';
+  if (!v) { // izleyici
+    $('marketOwner').innerHTML = '<span class="who">İzleyicisin<small>yarışmacılar alışveriş yapıyor</small></span>';
+    $('marketGrid').innerHTML = ''; $('marketNote').textContent = '';
+    $('btnMarketDone').hidden = true; $('btnMarketForce').hidden = true; $('readyInfo').textContent = '';
+    return;
+  }
+  $('marketOwner').innerHTML = `<span class="av" style="--pc:${v.color}">${initial(v.name)}</span>
+    <span class="who">${esc(v.name)}<small>${local ? 'alışveriş yapıyor' : 'senin bakiyen'}</small></span>
+    <span class="bal">${COIN}${fmt(v.total)}</span>${v.coupons ? `<span class="chip">🎟 ${v.coupons} ünlü kuponu</span>` : ''}`;
+  $('marketNote').textContent = `İpuçları sıradaki bulmaca (${M.nextCat}) için geçerli ve yalnızca satın alana görünür. ${V.clueMode === 'auto' ? 'Tur başında otomatik açılır.' : 'Sıran geldiğinde istediğin an açarsın.'} Ürünler her el yenilenir.`;
+  const owned = new Set(M.owned[viewer] || []);
+  $('marketGrid').style.setProperty('--n', M.offers.length);
+  $('marketGrid').innerHTML = M.offers.map(o => {
+    const has = owned.has(o.oid), afford = v.total >= o.price;
+    const label = has ? 'SATIN ALINDI ✓' : afford ? 'SATIN AL' : 'PUAN YETERSİZ';
+    return `<article class="card ${has ? 'owned' : ''} ${!has && !afford ? 'poor' : ''}" style="--lc:${o.lc}">
+      <div class="tag-wrap"><span class="tag">${COIN}${o.sale ? `<s>${fmt(o.base)}</s>` : ''}${fmt(o.price)}</span></div>
+      <div class="art">${ART[o.type] || ''}${o.sale && !has ? '<span class="sale">İNDİRİM</span>' : ''}</div>
+      ${has ? '<span class="stamp">ALINDI ✓</span>' : ''}
+      <div class="body">
+        <span class="lvl">${o.level}</span><h3>${esc(o.name)}</h3>
+        <p>${has && o.hasText ? (V.clueMode === 'auto' ? 'Sıradaki turun başında açılacak.' : 'Sıran gelince ipuçları panelinden açabilirsin.') : esc(o.desc)}</p>
+        <button class="btn ${has ? 'btn-ghost' : 'btn-spin'}" type="button" data-oid="${o.oid}" ${has || !afford ? 'disabled' : ''}>${label}</button>
+      </div>
+    </article>`;
+  }).join('');
+  const done = $('btnMarketDone'), force = $('btnMarketForce'), info = $('readyInfo');
+  done.hidden = false;
+  if (local) { done.textContent = 'SONRAKİ TURA GEÇ ▶'; force.hidden = true; info.textContent = ''; done.classList.remove('btn-ghost'); }
+  else {
+    const rdy = M.ready[viewer];
+    const n = M.ready.filter((r, i) => r && V.players[i].online).length, tot = V.players.filter(p => p.online).length;
+    done.textContent = rdy ? 'HAZIRSIN ✓ (geri al)' : 'HAZIRIM ▶';
+    done.classList.toggle('btn-ghost', rdy);
+    info.textContent = `${n}/${tot} hazır`;
+    force.hidden = V.me !== 0;
+  }
+}
+
+/* ------------------------------------------------------------------ 13
+   Menü, lobi, ayarlar                                                       */
+function showMenu(tab) {
+  hide('lobby'); show('menu');
+  const t = tab || store.get('cf.tab', 'online');
+  $('tabOnline').hidden = t !== 'online'; $('tabLocal').hidden = t !== 'local';
+  $('tabBtnOnline').classList.toggle('on', t === 'online'); $('tabBtnLocal').classList.toggle('on', t === 'local');
+  $('tabBtnOnline').setAttribute('aria-selected', t === 'online'); $('tabBtnLocal').setAttribute('aria-selected', t === 'local');
+  updatePoolInfo();
+}
 function renderNames() {
   $('names').innerHTML = Array.from({ length: G.setup.count }, (_, i) => `<label><span class="dot" style="background:${COLORS[i]}"></span><input id="name${i}" maxlength="16" value="${esc(G.setup.names[i] || '')}" aria-label="${i + 1}. yarışmacının adı"></label>`).join('');
   $('names').querySelectorAll('input').forEach((inp, i) => inp.addEventListener('input', () => { G.setup.names[i] = inp.value; store.set('cf.setup.v1', G.setup); }));
 }
-function seg(id, key) {
+function seg(id, onPick) {
   $(id).addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     $(id).querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
-    G.setup[key] = key === 'count' ? +b.dataset.v : b.dataset.v;
-    store.set('cf.setup.v1', G.setup);
-    if (key === 'count') renderNames();
+    onPick(b.dataset.v);
   });
 }
 function syncSetupButtons() {
@@ -974,70 +1556,165 @@ function openSettings() {
   const s = G.settings;
   $('setVolume').value = s.volume; $('setSound').checked = s.sound; $('setMusic').checked = s.music; $('setAnim').value = s.anim;
   $('setRounds').value = String(s.rounds); $('setClueMode').value = s.clueMode;
-  $('historyInfo').textContent = `${fmt(History.seen())} / ${fmt(Pool.list.length)} bulmaca daha önce görüldü. Yeni oyun bu geçmişi korur.`;
+  $('historyInfo').textContent = `${fmt(History.seen())} / ${fmt(Pool.list.length)} bulmaca bu cihazda daha önce görüldü. Yeni oyun bu geçmişi korur.`;
+  const client = Net.role === 'client';
+  $('setRounds').disabled = client; $('setClueMode').disabled = client;
+  $('btnResetGame').hidden = client || !S;
   show('settings');
-}
-function backToMenu() {
-  G.roundToken++; G.phase = 'menu'; G.market = null;
-  ['market', 'roundEnd', 'gameOver', 'settings'].forEach(hide);
-  $('solveForm').hidden = true;
-  document.body.classList.remove('final', 'spinning'); G.final = false; Sound.updateMusic();
-  updatePoolInfo(); syncSetupButtons(); renderNames(); show('menu');
 }
 function updatePoolInfo() {
   $('poolInfo').textContent = `Havuzda ${fmt(Pool.list.length)} benzersiz bulmaca, ${Pool.stats.cats} kategori · ${fmt(History.seen())} tanesi bu cihazda daha önce görüldü.`;
 }
+function resetUI() {
+  UI.V = null; UI.animating.clear(); UI.lastBoardKey = ''; UI.lastMarketId = null; UI.shownRe = null; UI.prevMyTurn = false; UI.prevPhase = null;
+  Wheel.stop(); G.spinning = false; G.final = false;
+  ['market', 'roundEnd', 'gameOver', 'settings', 'lobby'].forEach(hide);
+  $('solveForm').hidden = true; $('turnBanner').hidden = true;
+  document.body.classList.remove('final', 'spinning', 'pick');
+  $('board').innerHTML = ''; $('players').innerHTML = ''; $('pstrip').innerHTML = ''; $('log').innerHTML = '';
+  $('catLabel').textContent = 'KATEGORİ'; $('diffLabel').textContent = ''; $('handInfo').textContent = '';
+  $('roundLabel').textContent = '–'; $('activeLabel').textContent = '–'; $('activeTotal').textContent = '0';
+  $('wheelResult').textContent = 'Çarkı çevirerek başla';
+  renderKeyboard();
+  Sound.updateMusic();
+}
+function leaveRoom(toMenu = true) {
+  Timers.clear();
+  if (Net.role === 'host') Host.stop();
+  if (Net.role === 'client') Client.stop();
+  Net.leave();
+  S = null; resetUI();
+  try { history.replaceState(null, '', location.pathname + (new URLSearchParams(location.search).get('broker') ? '?broker=' + encodeURIComponent(new URLSearchParams(location.search).get('broker')) : '')); } catch { /* */ }
+  if (toMenu) showMenu();
+  else showMenu('online');
+}
+function startLocal(count, length) {
+  if (Net.role !== 'local') leaveRoom(false);
+  Sound.init();
+  G.setup.count = count; G.setup.length = length; store.set('cf.setup.v1', G.setup);
+  resetUI();
+  const players = Array.from({ length: count }, (_, i) => mkPlayer(i, G.setup.names[i]));
+  startGame('local', players, length);
+}
+function myName() {
+  const n = cleanName($('onName').value);
+  if (!n) { UI.netMsg('Önce adını yaz.', 'bad'); $('onName').focus(); return null; }
+  store.set('cf.name', n); return n;
+}
+async function hostRoom() {
+  const name = myName(); if (!name) return;
+  Sound.init();
+  setBusy(true, 'Oda kuruluyor…');
+  try { resetUI(); await Host.create(name, store.get('cf.lobbyLen', 'std')); UI.netMsg(''); }
+  catch (e) { UI.netMsg(e.message + ' (claude.ai önizlemesinde online oyun çalışmaz; GitHub linkini kullan.)', 'bad'); Net.leave(); }
+  finally { setBusy(false); }
+}
+async function joinRoom(codeIn, hint) {
+  const name = myName(); if (!name) return;
+  const code = Net.normCode(codeIn || $('joinCode').value);
+  if (code.length !== 5) { UI.netMsg('Oda kodu 5 karakter olmalı.', 'bad'); $('joinCode').focus(); return; }
+  Sound.init();
+  setBusy(true, `${code} odasına bağlanılıyor…`);
+  try { resetUI(); await Client.join(code, name, hint); UI.netMsg(''); show('lobby'); hide('menu'); $('roomCode').textContent = code; $('lobbyPlayers').innerHTML = '<p class="muted">Oda bilgisi bekleniyor…</p>'; $('lobbyHost').hidden = true; $('lobbyWait').hidden = false; $('lobbyWait').textContent = 'Kurucuya bağlanılıyor…'; $('shareLink').value = Net.shareLink(); }
+  catch (e) { UI.netMsg(e.message, 'bad'); Net.leave(); }
+  finally { setBusy(false); }
+}
+function setBusy(on, text) {
+  ['btnHost', 'btnJoin'].forEach(id => { $(id).disabled = on; });
+  if (on) { $('netMsg').textContent = text; $('netMsg').className = 'net-msg busy'; }
+}
+async function shareInvite() {
+  const url = Net.shareLink(), text = `Çarkıfelek'te benim odama gel! Oda kodu: ${Net.code}`;
+  if (navigator.share) { try { await navigator.share({ title: 'Çarkıfelek Stüdyo', text, url }); return; } catch { /* iptal */ } }
+  copyInvite();
+}
+async function copyInvite() {
+  const url = Net.shareLink();
+  try { await navigator.clipboard.writeText(url); $('btnCopy').textContent = 'Kopyalandı ✓'; setTimeout(() => { $('btnCopy').textContent = 'Kopyala'; }, 1600); }
+  catch { const i = $('shareLink'); i.focus(); i.select(); }
+}
 
 function bindEvents() {
-  $('btnSpin').addEventListener('click', doSpin);
-  $('wheel').addEventListener('click', doSpin);
-  $('btnVowel').addEventListener('click', startVowel);
+  $('btnSpin').addEventListener('click', () => send({ t: 'spin' }));
+  $('wheel').addEventListener('click', () => { if (UI.V && UI.canAct() && UI.V.phase === 'idle') send({ t: 'spin' }); });
+  $('btnVowel').addEventListener('click', () => send({ t: 'vowel' }));
   $('btnSolve').addEventListener('click', openSolve);
-  $('solveCancel').addEventListener('click', cancelSolve);
-  $('solveForm').addEventListener('submit', e => { e.preventDefault(); submitSolve($('solveInput').value); });
-  $('keyboard').addEventListener('click', e => { const k = e.target.closest('.key'); if (k && !k.disabled) chooseLetter(k.dataset.l); });
+  $('solveCancel').addEventListener('click', () => closeSolve());
+  $('solveForm').addEventListener('submit', e => { e.preventDefault(); const t = $('solveInput').value; if (!lettersOnly(t)) { setHint('Önce bir tahmin yaz.', 2500); return; } closeSolve(); send({ t: 'solve', text: t }); });
+  $('keyboard').addEventListener('click', e => { const k = e.target.closest('.key'); if (k && !k.disabled) { send({ t: 'letter', L: k.dataset.l }); k.disabled = true; } });
   document.addEventListener('keydown', e => {
     if (e.target.tagName === 'INPUT' || e.ctrlKey || e.metaKey || e.altKey) return;
     if (!$('confirm').hidden) { if (e.key === 'Escape') closeConfirm(false); return; }
-    if (G.phase === 'pickConsonant' || G.phase === 'pickVowel') {
+    const V = UI.V; if (!V || !UI.canAct()) return;
+    if (V.phase === 'pickConsonant' || V.phase === 'pickVowel') {
       const L = e.key.length === 1 ? up(e.key) : '';
-      if (isLetter(L)) { const btn = document.querySelector(`.key[data-l="${L}"]`); if (btn && !btn.disabled) chooseLetter(L); }
-    } else if (G.phase === 'idle' && e.code === 'Space' && document.activeElement === document.body) { e.preventDefault(); doSpin(); }
+      if (isLetter(L)) { const btn = document.querySelector(`.key[data-l="${L}"]`); if (btn && !btn.disabled) send({ t: 'letter', L }); }
+    } else if (V.phase === 'idle' && e.code === 'Space' && document.activeElement === document.body) { e.preventDefault(); send({ t: 'spin' }); }
   });
-  $('clues').addEventListener('click', e => {
-    const b = e.target.closest('[data-clue]'); if (!b) return;
-    const c = G.clues[+b.dataset.clue];
-    if (c && !c.opened && c.owner === G.cur && G.phase === 'idle') { c.opened = true; Sound.special(); addLog(`${G.players[c.owner].name} "${c.title}" ipucunu açtı.`, 'gold'); renderClues(); }
-  });
+  $('clues').addEventListener('click', e => { const b = e.target.closest('[data-clue]'); if (b && !b.disabled) send({ t: 'clue', i: +b.dataset.clue }); });
   $('btnSound').addEventListener('click', () => { Sound.init(); G.settings.sound = !G.settings.sound; applySettings(); });
   $('btnSettings').addEventListener('click', openSettings);
   $('btnCloseSettings').addEventListener('click', () => hide('settings'));
-  $('btnMenu').addEventListener('click', async () => { if (G.phase === 'menu') return; if (await confirmBox('Ana menüye dön', 'Devam eden yarışma kapanacak. Puanlar kaydedilmez; bulmaca geçmişi korunur.')) backToMenu(); });
+  $('roomChip').addEventListener('click', () => { if (Net.code) { copyInvite(); setHint(`Davet linki kopyalandı · oda ${Net.code}`, 2500); } });
+  $('btnMenu').addEventListener('click', async () => {
+    if (!$('menu').hidden) return;
+    const online = Net.role !== 'local';
+    if (!S && !UI.V && !online) { showMenu(); return; }
+    if (await confirmBox(online ? 'Odadan çık' : 'Ana menüye dön', online ? (Net.role === 'host' ? 'Oda kapanacak ve arkadaşlarının oyunu bitecek.' : 'Odadan ayrılacaksın. Aynı kodla yeniden katılabilirsin.') : 'Devam eden yarışma kapanacak. Bulmaca geçmişi korunur.')) leaveRoom(true);
+  });
   $('setVolume').addEventListener('input', e => { G.settings.volume = +e.target.value; applySettings(); });
   $('setSound').addEventListener('change', e => { Sound.init(); G.settings.sound = e.target.checked; applySettings(); });
   $('setMusic').addEventListener('change', e => { Sound.init(); G.settings.music = e.target.checked; applySettings(); });
   $('setAnim').addEventListener('change', e => { G.settings.anim = e.target.value; applySettings(); });
   $('setRounds').addEventListener('change', e => { G.settings.rounds = +e.target.value; applySettings(); });
   $('setClueMode').addEventListener('change', e => { G.settings.clueMode = e.target.value; applySettings(); });
-  $('btnNewGame').addEventListener('click', async () => { hide('settings'); if (G.phase === 'menu' || await confirmBox('Yeni oyun', 'Mevcut yarışma kapanıp ana menü açılacak. Bulmaca geçmişi korunur.')) backToMenu(); });
-  $('btnResetGame').addEventListener('click', async () => { hide('settings'); if (G.phase === 'menu') return; if (await confirmBox('Oyunu sıfırla', 'Aynı yarışmacılarla 1. turdan, sıfır puanla yeniden başlanacak.')) { G.roundToken++; startGame(); } });
+  $('btnNewGame').addEventListener('click', async () => { hide('settings'); if (!UI.V && Net.role === 'local') { showMenu(); return; } if (await confirmBox('Yeni oyun', 'Mevcut yarışma kapanıp ana menü açılacak. Bulmaca geçmişi korunur.')) leaveRoom(true); });
+  $('btnResetGame').addEventListener('click', async () => {
+    hide('settings'); if (!S) return;
+    if (await confirmBox('Oyunu sıfırla', 'Aynı yarışmacılarla 1. turdan, sıfır puanla yeniden başlanacak.')) { S.phase = 'over'; restartGame(); }
+  });
   $('btnResetHistory').addEventListener('click', async () => {
     hide('settings');
     if (await confirmBox('Geçmişi sıfırla', `Bu cihazda görülen ${fmt(History.seen())} bulmacanın kaydı silinecek ve hepsi yeniden çıkabilecek. Bu işlem geri alınamaz.`)) { History.reset(); addLog('Bulmaca geçmişi sıfırlandı.', 'gold'); updatePoolInfo(); }
   });
   $('confirmYes').addEventListener('click', () => closeConfirm(true));
   $('confirmNo').addEventListener('click', () => closeConfirm(false));
-  $('reNext').addEventListener('click', afterRoundEnd);
-  $('btnMarketDone').addEventListener('click', closeMarket);
-  $('marketTabs').addEventListener('click', e => { const b = e.target.closest('button[data-i]'); if (b && G.market) { G.market.viewer = +b.dataset.i; renderMarket(); } });
-  $('marketGrid').addEventListener('click', e => { const b = e.target.closest('button[data-oid]'); if (b && !b.disabled) buyOffer(b.dataset.oid); });
-  $('goMenu').addEventListener('click', backToMenu);
-  $('goAgain').addEventListener('click', () => { hide('gameOver'); startGame(); });
-  $('btnStart').addEventListener('click', () => { Sound.init(); startGame(); });
-  $('btnQuick').addEventListener('click', () => { Sound.init(); G.setup.count = 1; G.setup.length = 'quick'; syncSetupButtons(); renderNames(); startGame(); });
-  seg('segPlayers', 'count'); seg('segLength', 'length');
+  $('reNext').addEventListener('click', () => send({ t: 'next' }));
+  $('btnMarketDone').addEventListener('click', () => send({ t: UI.V && UI.V.mode === 'online' ? 'ready' : 'marketDone' }));
+  $('btnMarketForce').addEventListener('click', () => send({ t: 'marketDone' }));
+  $('marketTabs').addEventListener('click', e => { const b = e.target.closest('button[data-i]'); if (b) { UI.marketTab = +b.dataset.i; renderMarket(); } });
+  $('marketGrid').addEventListener('click', async e => {
+    const b = e.target.closest('button[data-oid]'); if (!b || b.disabled) return;
+    const V = UI.V, M = V && V.market; if (!M) return;
+    const as = V.mode === 'local' ? UI.marketTab : UI.meIdx(), p = V.players[as], o = M.offers.find(x => x.oid === b.dataset.oid);
+    if (!p || !o) return;
+    const mid = M.id;
+    const ok = await confirmBox('Satın alma onayı', `${p.name}, "${o.name}" ürününü ${fmt(o.price)} puana alıyor. Kalan bakiye: ${fmt(p.total - o.price)} puan.`);
+    if (ok && UI.V && UI.V.market && UI.V.market.id === mid) send({ t: 'buy', oid: o.oid, as });
+  });
+  $('goMenu').addEventListener('click', () => leaveRoom(true));
+  $('goAgain').addEventListener('click', () => send({ t: 'restart' }));
+  // Menü
+  $('tabBtnOnline').addEventListener('click', () => { store.set('cf.tab', 'online'); showMenu('online'); });
+  $('tabBtnLocal').addEventListener('click', () => { store.set('cf.tab', 'local'); showMenu('local'); });
+  $('btnStart').addEventListener('click', () => startLocal(G.setup.count, G.setup.length));
+  $('btnQuick').addEventListener('click', () => { G.setup.count = 1; G.setup.length = 'quick'; syncSetupButtons(); renderNames(); startLocal(1, 'quick'); });
+  seg('segPlayers', v => { G.setup.count = +v; store.set('cf.setup.v1', G.setup); renderNames(); });
+  seg('segLength', v => { G.setup.length = v; store.set('cf.setup.v1', G.setup); });
+  seg('segLobbyLength', v => { store.set('cf.lobbyLen', v); if (Host.L && !S) { Host.L.lengthKey = v; Host.broadcastLobby(); } });
+  $('btnHost').addEventListener('click', hostRoom);
+  $('btnJoin').addEventListener('click', () => joinRoom());
+  $('joinCode').addEventListener('input', e => { const c = Net.normCode(e.target.value); if (e.target.value !== c) e.target.value = c; });
+  $('joinCode').addEventListener('keydown', e => { if (e.key === 'Enter') joinRoom(); });
+  $('onName').addEventListener('keydown', e => { if (e.key === 'Enter') { if (Net.normCode($('joinCode').value).length === 5) joinRoom(); } });
+  $('btnLobbyStart').addEventListener('click', () => Host.start());
+  $('btnLeave').addEventListener('click', () => leaveRoom(true));
+  $('btnShare').addEventListener('click', shareInvite);
+  $('btnCopy').addEventListener('click', copyInvite);
   let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { FX.resize(); renderBoard(); sizeTiles(); }, 120); });
-  // tarayıcı ses kısıtlaması: ilk etkileşimde ses bağlamını başlat
+  // Telefon kilitlenip açılınca bağlantıyı hemen tazele
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && Net.role !== 'local' && (!Net.mq || !Net.mq.connected)) Net.reconnect(); });
+  addEventListener('pagehide', () => { if (Net.role === 'client') Net.sendToHost({ t: 'bye', id: Net.myId }); });
   const unlock = () => { Sound.init(); };
   addEventListener('pointerdown', unlock, { once: true }); addEventListener('keydown', unlock, { once: true });
 }
@@ -1051,19 +1728,40 @@ async function init() {
   Pool.load(window.PUZZLE_DATA || []);
   History.load();
   Object.assign(G.setup, store.get('cf.setup.v1', {}));
-  if (!Array.isArray(G.setup.names) || G.setup.names.length < 3) G.setup.names = ['Ayşe', 'Mehmet', 'Zeynep'];
+  if (!Array.isArray(G.setup.names) || G.setup.names.length < 4) G.setup.names = (G.setup.names || []).concat(['Ayşe', 'Mehmet', 'Zeynep', 'Can']).slice(0, 4);
+  G.setup.count = clamp(G.setup.count | 0 || 2, 1, 4);
   Wheel.canvas = $('wheel'); FX.cv = $('fx'); FX.ctx = FX.cv.getContext('2d'); FX.resize();
   Wheel.draw(); Wheel.apply(); buildBulbs();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => Wheel.draw());
-  bindEvents(); applySettings(); syncSetupButtons(); renderNames(); updatePoolInfo();
-  // Açılışta boş olmasın: menünün arkasında örnek bir pano göster (cevap gizli)
-  G.puzzle = null; renderAll();
-  const extra = await Pool.loadExtra(); if (extra) updatePoolInfo();
+  bindEvents(); applySettings(); syncSetupButtons(); renderNames(); renderKeyboard();
+  $('onName').value = store.get('cf.name', '') || '';
+  $('segLobbyLength').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === store.get('cf.lobbyLen', 'std')));
+  let q; try { q = new URLSearchParams(location.search); } catch { q = new URLSearchParams(); }
+  const inviteCode = Net.normCode(q.get('oda') || (location.hash.length === 6 ? location.hash.slice(1) : ''));
+  // Yeniden yükleme sonrası odaya dönüş (telefon sekmeyi tazelediğinde)
+  const hostSnap = sess.get('cf.host'), clientSnap = sess.get('cf.client');
+  if (hostSnap && Date.now() - hostSnap.ts < 30 * 60000) {
+    showMenu('online'); setBusy(true, `${hostSnap.code} odası geri yükleniyor…`);
+    try { await Host.restore(hostSnap); UI.netMsg(''); } catch (e) { sess.del('cf.host'); UI.netMsg('Oda geri yüklenemedi: ' + e.message, 'bad'); }
+    finally { setBusy(false); }
+    return;
+  }
+  if (clientSnap && Date.now() - clientSnap.ts < 30 * 60000 && (!inviteCode || inviteCode === clientSnap.code)) {
+    $('onName').value = clientSnap.name; showMenu('online');
+    await joinRoom(clientSnap.code, clientSnap.s || 0);
+    return;
+  }
+  if (inviteCode.length === 5) {
+    $('joinCode').value = inviteCode;
+    showMenu('online');
+    UI.netMsg(`Davet: ${inviteCode} odası. Adını yazıp KATIL'a bas.`, 'invite');
+    $(($('onName').value ? 'btnJoin' : 'onName')).focus();
+  } else showMenu();
 }
 
 // Test ve hata ayıklama için dışa açılan arayüz
-window.CF = { G, Pool, History, Wheel, SLICES, SLICE_DEG, structuralFacts, buildOffers, hintLeaks, lettersOnly, choosePuzzle, layoutRows,
-  _start: startGame, _spinTo: null, Sound };
+window.CF = { get S() { return S; }, get V() { return UI.V; }, G, Pool, History, Wheel, SLICES, SLICE_DEG, Net, Host, Client, UI, structuralFacts, buildOffers, hintLeaks, lettersOnly, choosePuzzle, layoutRows, send, act, viewFor, MiniMQTT };
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+
 })();
