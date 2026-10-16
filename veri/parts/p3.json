@@ -1,0 +1,1802 @@
+[
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ESKİŞEHİR",
+  "d": 1,
+  "sub": "İç Anadolu Bölgesi'nde bir il",
+  "mean": "Öğrenci nüfusu, tramvayları ve Porsuk Çayı kıyısındaki gondollarıyla bilinen kent",
+  "theme": "Lületaşının çıkarıldığı ve işlendiği dünyadaki başlıca merkezlerden biridir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "KAHİRE",
+  "d": 1,
+  "sub": "Afrika kıtasında bir başkent",
+  "mean": "Nil Nehri kıyısında kurulmuş, Arap dünyasının en kalabalık kentlerinden biri",
+  "theme": "Gize piramitleri bu kentin metropol alanının hemen batısında yer alır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "GÜNEY KORE",
+  "d": 1,
+  "sub": "Doğu Asya'da bir ülke",
+  "mean": "K-pop, dizileri ve teknoloji devleriyle dünyaya açılan yarımada ülkesi",
+  "theme": "Türkiye 1950'lerde bu ülkedeki savaşa asker göndermiştir; başkenti Seul'dür"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "İZMİR",
+  "d": 1,
+  "sub": "Ege Bölgesi'nde bir il",
+  "mean": "Kordon boyu ve boyozuyla anılan, Türkiye'nin üçüncü büyük kenti",
+  "theme": "Konak Meydanı'ndaki ünlü saat kulesi 1901 yılında inşa edilmiştir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "JAPONYA",
+  "d": 1,
+  "sub": "Uzak Doğu'da bir ada ülkesi",
+  "mean": "Yükselen Güneş Ülkesi olarak anılır, hızlı trenleriyle ünlüdür",
+  "theme": "Dört ana adadan oluşur; bunların en büyüğü Honşu'dur"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "BREZİLYA",
+  "d": 1,
+  "sub": "Güney Amerika'da bir ülke",
+  "mean": "Samba ve futbolla özdeşleşmiş, Portekizce konuşulan dev ülke",
+  "theme": "Başkenti Rio değil, 1960'ta kurulan planlı kent Brasilia'dır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "TRABZON",
+  "d": 1,
+  "sub": "Karadeniz Bölgesi'nde bir il",
+  "mean": "Hamsisi, Uzungöl'ü ve Sümela Manastırı ile tanınan kent",
+  "theme": "Fatih Sultan Mehmet 1461'de bu kenti Komnenos hanedanından almıştır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "İTALYA",
+  "d": 1,
+  "sub": "Güney Avrupa'da bir ülke",
+  "mean": "Çizme biçimli yarımadasıyla bilinen, pizza ve makarnanın anavatanı",
+  "theme": "Topraklarının içinde Vatikan ve San Marino olmak üzere iki bağımsız devlet bulunur"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ANTALYA",
+  "d": 1,
+  "sub": "Akdeniz Bölgesi'nde bir il",
+  "mean": "Turizmin başkenti diye anılır; Kaleiçi ve Düden Şelalesi buradadır",
+  "theme": "Hadrianus Kapısı, Roma imparatorunun kente yaptığı ziyaretin anısına yapılmıştır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "KANADA",
+  "d": 2,
+  "sub": "Kuzey Amerika'da bir ülke",
+  "mean": "Akçaağaç yaprağı bayrağıyla bilinen, yüzölçümüyle dünyanın ikinci büyük ülkesi",
+  "theme": "Resmi dilleri İngilizce ve Fransızcadır; başkenti Ottava'dır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "PARİS",
+  "d": 1,
+  "sub": "Avrupa'da bir başkent",
+  "mean": "Işıklar şehri olarak anılır; Louvre Müzesi buradadır",
+  "theme": "Seine Nehri kenti ikiye böler; nehrin kuzeyine Sağ Yaka denir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "MERSİN",
+  "d": 2,
+  "sub": "Akdeniz kıyısında bir il",
+  "mean": "Türkiye'nin en işlek limanlarından birine sahip, tantunisiyle ünlü kent",
+  "theme": "Kızkalesi ve Cennet-Cehennem obrukları bu ilin sınırları içindedir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ARJANTİN",
+  "d": 3,
+  "sub": "Güney Amerika'da bir ülke",
+  "mean": "Tango ve bifteğiyle tanınan, Patagonya'yı da içine alan ülke",
+  "theme": "Amerika kıtasının en yüksek dağı Akonkagua bu ülkenin sınırları içindedir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "MARDİN",
+  "d": 2,
+  "sub": "Güneydoğu Anadolu'da bir il",
+  "mean": "Taş evleri ve Mezopotamya ovasına bakan manzarasıyla ünlü kent",
+  "theme": "Süryanilerin önemli manastırlarından Deyrulzafaran bu kentin yakınındadır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "PERU",
+  "d": 2,
+  "sub": "Güney Amerika'da bir ülke",
+  "mean": "İnka uygarlığının merkezi olmuş And Dağları ülkesi",
+  "theme": "Machu Picchu kalıntıları bu ülkenin Cusco bölgesinde yer alır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "NORVEÇ",
+  "d": 3,
+  "sub": "Kuzey Avrupa'da bir İskandinav ülkesi",
+  "mean": "Fiyortları ve kuzey ışıklarıyla bilinen ülke",
+  "theme": "Nobel Barış Ödülü her yıl bu ülkenin başkenti Oslo'da verilir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "VİETNAM",
+  "d": 2,
+  "sub": "Güneydoğu Asya'da bir ülke",
+  "mean": "Ha Long Körfezi ve pho çorbasıyla tanınan ülke",
+  "theme": "Başkenti Hanoi, en kalabalık kenti ise Ho Chi Minh'dir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "FAS",
+  "d": 3,
+  "sub": "Kuzey Afrika'da bir krallık",
+  "mean": "Kazablanka, Marakeş ve Fes gibi kentleriyle ünlü ülke",
+  "theme": "Cebelitarık Boğazı bu ülkeyi İspanya'dan ayırır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "BOLU",
+  "d": 2,
+  "sub": "Batı Karadeniz'de bir il",
+  "mean": "Abant Gölü ve Yedigöller ile anılan, aşçılarıyla ünlü kent",
+  "theme": "Mengen ilçesi yetiştirdiği aşçılar ve aşçılık okuluyla tanınır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "LİZBON",
+  "d": 3,
+  "sub": "Batı Avrupa'da bir başkent",
+  "mean": "Yedi tepe üzerine kurulmuş, sarı tramvaylarıyla ünlü kıyı kenti",
+  "theme": "1755 yılında büyük bir deprem ve ardından gelen tsunamiyle yıkılmıştır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ÇANAKKALE",
+  "d": 2,
+  "sub": "Marmara Bölgesi'nde bir il",
+  "mean": "Boğazı, şehitlikleri ve Truva antik kentiyle bilinen il",
+  "theme": "Toprakları hem Avrupa hem de Asya kıtasında yer alır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "HİNDİSTAN",
+  "d": 1,
+  "sub": "Güney Asya'da bir ülke",
+  "mean": "Tac Mahal'i, baharatları ve renkli festivalleriyle bilinen ülke",
+  "theme": "2023'te nüfusta Çin'i geçerek dünyanın en kalabalık ülkesi olmuştur"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ŞANLIURFA",
+  "d": 2,
+  "sub": "Güneydoğu Anadolu'da bir il",
+  "mean": "Peygamberler şehri olarak anılır; Balıklıgöl buradadır",
+  "theme": "Bilinen en eski anıtsal tapınak alanı Göbeklitepe bu ilin sınırlarındadır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "İZLANDA",
+  "d": 3,
+  "sub": "Kuzey Atlantik'te bir ada ülkesi",
+  "mean": "Gayzerleri, buzulları ve volkanlarıyla tanınan ülke",
+  "theme": "Dünyanın en eski parlamentolarından Althing, 930 yılında burada kurulmuştur"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "KIRGIZİSTAN",
+  "d": 4,
+  "sub": "Orta Asya'da bir Türk cumhuriyeti",
+  "mean": "Isık Göl'ü ve dağlık coğrafyasıyla bilinen ülke",
+  "theme": "Başkenti Bişkek'tir; topraklarının büyük kısmını Tanrı Dağları kaplar"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "KÜTAHYA",
+  "d": 2,
+  "sub": "Ege Bölgesi'nde bir il",
+  "mean": "Çinileriyle ünlü, Germiyanoğulları Beyliği'nin merkezi olmuş kent",
+  "theme": "Aizanoi antik kentindeki Zeus Tapınağı bu ilin Çavdarhisar ilçesindedir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "BOTSVANA",
+  "d": 4,
+  "sub": "Afrika'nın güneyinde, denize kıyısı olmayan bir ülke",
+  "mean": "Okavango Deltası ve elmas madenleriyle bilinen ülke",
+  "theme": "1966'da Birleşik Krallık'tan bağımsızlığını kazanmıştır; başkenti Gaborone'dir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "NEVŞEHİR",
+  "d": 2,
+  "sub": "İç Anadolu'da bir il",
+  "mean": "Peri bacaları ve sıcak hava balonlarıyla ünlü bölgenin merkezi",
+  "theme": "Damat İbrahim Paşa doğduğu bu köyü büyük bir yerleşime dönüştürmüştür"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "BUENOS AİRES",
+  "d": 2,
+  "sub": "Güney Amerika'da bir başkent",
+  "mean": "Tangonun doğduğu kabul edilen liman kenti",
+  "theme": "Kentin en geniş bulvarı 9 de Julio Caddesi'dir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "KUALA LUMPUR",
+  "d": 3,
+  "sub": "Güneydoğu Asya'da bir başkent",
+  "mean": "Petronas İkiz Kuleleri ile tanınan Malezya kenti",
+  "theme": "Adı Malay dilinde çamurlu nehirlerin birleştiği yer anlamına gelir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "YENİ ZELANDA",
+  "d": 2,
+  "sub": "Okyanusya'da bir ada ülkesi",
+  "mean": "Maori kültürü ve Yüzüklerin Efendisi çekimleriyle bilinen ülke",
+  "theme": "1893'te kadınlara ulusal seçimlerde oy hakkı tanıyan ilk ülke olmuştur"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "FİLDİŞİ SAHİLİ",
+  "d": 3,
+  "sub": "Batı Afrika'da bir ülke",
+  "mean": "Dünyanın en büyük kakao üreticisi olarak bilinen ülke",
+  "theme": "Resmi başkenti Yamusukro, ekonomik merkezi ise Abidjan'dır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "SRİ LANKA",
+  "d": 3,
+  "sub": "Hint Okyanusu'nda bir ada ülkesi",
+  "mean": "Seylan çayıyla dünyaca ünlü ülke",
+  "theme": "Dünyanın ilk kadın başbakanı 1960 yılında bu ülkede göreve gelmiştir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ABU DABİ",
+  "d": 3,
+  "sub": "Basra Körfezi kıyısında bir başkent",
+  "mean": "Şeyh Zayed Camii ve Louvre müzesinin şubesiyle bilinen kent",
+  "theme": "Yedi emirlikten oluşan federasyonun başkentidir; Dubai'nin komşusudur"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "BOSNA HERSEK",
+  "d": 2,
+  "sub": "Balkanlar'da bir ülke",
+  "mean": "Mostar Köprüsü ve başkentindeki Başçarşı ile tanınan ülke",
+  "theme": "Mostar Köprüsü 1566'da Mimar Hayreddin tarafından inşa edilmiştir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "RİO DE JANEİRO",
+  "d": 2,
+  "sub": "Güney Amerika'da bir kent",
+  "mean": "Kurtarıcı İsa heykeli ve Copacabana plajıyla ünlü kent",
+  "theme": "Adı Portekizce Ocak Nehri anlamına gelir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "PAPUA YENİ GİNE",
+  "d": 4,
+  "sub": "Okyanusya'da bir ülke",
+  "mean": "800'den fazla dilin konuşulduğu, dil çeşitliliğiyle bilinen ülke",
+  "theme": "Toprağının büyük kısmı dünyanın ikinci büyük adasının doğu yarısındadır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "TRİNİDAD VE TOBAGO",
+  "d": 4,
+  "sub": "Karayipler'de bir ada ülkesi",
+  "mean": "Çelik davul müziğinin doğduğu yer olarak bilinen ülke",
+  "theme": "Venezuela kıyılarına çok yakın iki ana adadan oluşur"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "BİRLEŞİK ARAP EMİRLİKLERİ",
+  "d": 2,
+  "sub": "Orta Doğu'da bir ülke",
+  "mean": "Yedi yönetimden oluşan, gökdelenleri ve lüks turizmiyle ünlü federasyon",
+  "theme": "Dünyanın en yüksek binası Burj Khalifa bu ülkenin Dubai kentindedir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ORTA AFRİKA CUMHURİYETİ",
+  "d": 4,
+  "sub": "Kıtanın merkezinde, denize kıyısı olmayan bir ülke",
+  "mean": "Başkenti Bangui olan, Ubangi Nehri kıyısındaki ülke",
+  "theme": "1960 yılında Fransa'dan bağımsızlığını kazanmıştır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "SAN MARİNO",
+  "d": 3,
+  "sub": "Avrupa'da bir mikro devlet",
+  "mean": "Dört bir yanı İtalya ile çevrili küçük devlet",
+  "theme": "Varlığını sürdüren en eski cumhuriyetlerden biri olarak kabul edilir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "KOSTA RİKA",
+  "d": 4,
+  "sub": "Panama ile Nikaragua arasında bir ülke",
+  "mean": "1948'de ordusunu kaldıran, ekoturizmiyle ünlü ülke",
+  "theme": "Adı İspanyolca zengin kıyı anlamına gelir"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "KAHRAMANMARAŞ",
+  "d": 3,
+  "sub": "Akdeniz Bölgesi'nde bir il",
+  "mean": "Dövme dondurması ve pul biberiyle ünlü kent",
+  "theme": "Kurtuluş Savaşı'ndaki direnişi nedeniyle 1973'te TBMM tarafından unvan almıştır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "VİYANA",
+  "d": 3,
+  "sub": "Orta Avrupa'da bir başkent",
+  "mean": "Klasik müziği, operası ve kahvehane kültürüyle tanınan kent",
+  "theme": "Osmanlı ordusu bu kenti 1529 ve 1683 yıllarında iki kez kuşatmıştır"
+ },
+ {
+  "cat": "Şehirler ve Ülkeler",
+  "a": "ŞİLİ",
+  "d": 3,
+  "sub": "Güney Amerika'da bir ülke",
+  "mean": "And Dağları ile Pasifik arasında şerit gibi uzanan ülke",
+  "theme": "Dünyanın en kurak çöllerinden Atakama bu ülkededir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "PASAPORT",
+  "d": 1,
+  "sub": "Yurt dışına çıkarken gereken bir belge",
+  "mean": "Sahibinin kimliğini ve uyruğunu uluslararası alanda kanıtlar",
+  "theme": "Türkiye'de rengi; umuma mahsus, hususi, hizmet ve diplomatik türlerine göre değişir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "VİZE",
+  "d": 1,
+  "sub": "Seyahat öncesi alınan bir izin",
+  "mean": "Bir ülkeye giriş için o ülkenin verdiği resmi onay",
+  "theme": "Schengen bölgesine giriş için tek bir izinle birçok ülke gezilebilir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "BAVUL",
+  "d": 1,
+  "sub": "Yolculukta kullanılan bir taşıma eşyası",
+  "mean": "Kıyafetlerin ve eşyaların içine yerleştirildiği büyük çanta",
+  "theme": "Tekerlekli modelleri 1970'lerde patentlenmiş ve zamanla yaygınlaşmıştır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "OTEL",
+  "d": 1,
+  "sub": "Tatilde kalınan bir yer",
+  "mean": "Ücret karşılığı oda ve hizmet sunan konaklama tesisi",
+  "theme": "Yıldız sistemiyle sınıflandırılır; en yüksek sınıf genellikle beş yıldızdır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "PANSİYON",
+  "d": 2,
+  "sub": "Küçük ölçekli bir konaklama türü",
+  "mean": "Genellikle aile işletmesi olan, ev sıcaklığında kalınan yer",
+  "theme": "Kahvaltı ve akşam yemeğinin dahil olduğu sisteme yarım adı verilir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "ÇADIR",
+  "d": 1,
+  "sub": "Doğada konaklama için bir donanım",
+  "mean": "Kazıklarla yere sabitlenen, katlanıp taşınabilen barınak",
+  "theme": "Göçebe toplulukların keçe ve deriden yaptığı türleri yüzyıllardır kullanılır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "PLAJ",
+  "d": 1,
+  "sub": "Yaz tatilinin vazgeçilmez yerlerinden",
+  "mean": "Kumlu ya da çakıllı, denize girilen kıyı alanı",
+  "theme": "Temizlik ve güvenlik ölçütlerini karşılayanlara Mavi Bayrak verilir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "REZERVASYON",
+  "d": 2,
+  "sub": "Tatil planlamasında atılan bir adım",
+  "mean": "Oda, masa ya da koltuğun önceden ayırtılması",
+  "theme": "Erken yapıldığında birçok tesis önemli indirimler sunar"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "TUR REHBERİ",
+  "d": 1,
+  "sub": "Gezilerde yol gösteren biri",
+  "mean": "Turistlere tarihi ve kültürel yerleri anlatan kişi",
+  "theme": "Türkiye'de bu mesleği yapmak için kokart adı verilen çalışma kartı gerekir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "HER ŞEY DAHİL",
+  "d": 1,
+  "sub": "Otellerde bir konaklama sistemi",
+  "mean": "Yemek, içecek ve pek çok hizmetin ücrete katıldığı paket",
+  "theme": "Antalya'daki tatil tesislerinin büyük kısmı bu sistemle çalışır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "BALAYI",
+  "d": 1,
+  "sub": "Evliliğin ardından yapılan bir şey",
+  "mean": "Yeni evlilerin düğün sonrası çıktığı romantik gezi",
+  "theme": "Maldivler, Bali ve Kapadokya bu tür yolculuklar için en popüler rotalar arasındadır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "KARTPOSTAL",
+  "d": 2,
+  "sub": "Seyahatten gönderilen bir hatıra",
+  "mean": "Bir yüzünde manzara resmi, öbür yüzünde not olan kart",
+  "theme": "İlk resimli örnekleri 19. yüzyılın ikinci yarısında yaygınlaşmıştır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "GÜMRÜK",
+  "d": 2,
+  "sub": "Sınır kapılarında karşılaşılan bir birim",
+  "mean": "Ülkeye giren ve çıkan eşyanın denetlendiği yer",
+  "theme": "Bu kelime Bizans dönemindeki kommerkion vergisinden dilimize geçmiştir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "DÖVİZ",
+  "d": 2,
+  "sub": "Yurt dışı seyahatinde gerekebilecek bir şey",
+  "mean": "Başka bir ülkenin parası",
+  "theme": "Havalimanlarındaki bozdurma noktalarında kur genellikle daha yüksek olur"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "HOSTEL",
+  "d": 3,
+  "sub": "Ekonomik bir konaklama türü",
+  "mean": "Yatakhane tipi odalarıyla genç gezginlerin tercihi",
+  "theme": "İlk örnekleri 1900'lerin başında Almanya'da gençlik yurtları olarak açılmıştır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "ŞEZLONG",
+  "d": 2,
+  "sub": "Plajlarda kiralanan bir eşya",
+  "mean": "Uzanarak güneşlenmek için kullanılan katlanır sandalye",
+  "theme": "Adı Fransızca uzun sandalye anlamındaki ifadeden gelir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "KAPLICA",
+  "d": 2,
+  "sub": "Sağlık turizmine yönelik bir yer",
+  "mean": "Yerin altından gelen sıcak sularda yıkanılan tesis",
+  "theme": "Pamukkale ve Afyon bu tür sularıyla öne çıkan yerlerdendir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "RESEPSİYON",
+  "d": 2,
+  "sub": "Otelin bir bölümü",
+  "mean": "Misafirlerin giriş ve çıkış işlemlerinin yapıldığı danışma",
+  "theme": "Oda anahtarları ve kartları genellikle bu noktadan teslim edilir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "KONAKLAMA",
+  "d": 3,
+  "sub": "Seyahat bütçesinin önemli bir kalemi",
+  "mean": "Bir yerde geceyi geçirme, barınma",
+  "theme": "Turizm istatistiklerinde geceleme sayısıyla ölçülür"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "YAZLIK",
+  "d": 2,
+  "sub": "Tatil için kullanılan bir ev",
+  "mean": "Sıcak aylarda gidilen, genellikle sahildeki ikinci konut",
+  "theme": "Ege ve Akdeniz kıyılarındaki sitelerde bu tür evler çok yaygındır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "AÇIK BÜFE",
+  "d": 2,
+  "sub": "Otellerde bir yemek düzeni",
+  "mean": "Konukların tabağını dilediği gibi kendisinin doldurduğu sistem",
+  "theme": "Bu düzenin kökeni İsveç'in smörgåsbord adlı sofra geleneğine dayandırılır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "VALİZ",
+  "d": 2,
+  "sub": "Yolculukta taşınan bir eşya",
+  "mean": "Seyahat için eşya konulan kulplu çanta",
+  "theme": "Kelime dilimize Fransızcadan geçmiştir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "EL BAGAJI",
+  "d": 2,
+  "sub": "Uçuş öncesi hazırlanan bir şey",
+  "mean": "Yolcunun kabine yanında götürebildiği küçük çanta",
+  "theme": "Sıvılar genellikle 100 mililitrelik kaplarla sınırlandırılır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "AKTARMA",
+  "d": 2,
+  "sub": "Uçuş planlamasında bir terim",
+  "mean": "Varış noktasına giderken ara bir yerde başka sefere geçme",
+  "theme": "İstanbul Havalimanı bu tür yolcular için önemli bir merkezdir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "GİDİŞ DÖNÜŞ",
+  "d": 2,
+  "sub": "Bilet alırken seçilen bir seçenek",
+  "mean": "Hem varış hem de geri geliş yolculuğunu kapsayan bilet",
+  "theme": "Tek yön alınan iki ayrı biletten çoğu zaman daha ucuza gelir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "SEYAHAT SİGORTASI",
+  "d": 3,
+  "sub": "Vize başvurularında istenen bir belge",
+  "mean": "Yolculukta sağlık ve kayıp risklerine karşı güvence",
+  "theme": "Schengen vizesi için en az 30 bin avroluk teminat şartı aranır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "MAVİ YOLCULUK",
+  "d": 2,
+  "sub": "Ege ve Akdeniz'de yapılan bir gezi",
+  "mean": "Guletle koy koy dolaşılan tekne tatili",
+  "theme": "Bu adı Halikarnas Balıkçısı ve arkadaşlarının gezileri yaygınlaştırmıştır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "SIRT ÇANTALI GEZGİN",
+  "d": 3,
+  "sub": "Bir gezi tarzı",
+  "mean": "Az bütçeyle, yükünü omzunda taşıyarak dolaşan kişi",
+  "theme": "Bu tarz yolcular sıklıkla yatakhaneli ucuz konaklama yerlerini tercih eder"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "TATİL KÖYÜ",
+  "d": 2,
+  "sub": "Bir konaklama tesisi türü",
+  "mean": "Geniş alana yayılmış, havuzlu ve eğlenceli tesis",
+  "theme": "Kulüp tarzı ilk örneklerinden biri Akdeniz'de 1950'de kurulmuştur"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "OTOSTOP",
+  "d": 3,
+  "sub": "Ücretsiz bir yolculuk yöntemi",
+  "mean": "Yol kenarında el kaldırarak araç durdurup binme",
+  "theme": "Genellikle başparmak yukarı kaldırılarak işaret verilir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "KAMP ATEŞİ",
+  "d": 2,
+  "sub": "Doğa tatilinde bir etkinlik",
+  "mean": "Akşamları etrafında toplanıp sohbet edilen alev",
+  "theme": "Orman yangını riski nedeniyle yaz aylarında çoğu yerde yasaklanır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "SAFARİ",
+  "d": 2,
+  "sub": "Afrika'da yapılan bir gezi türü",
+  "mean": "Vahşi hayvanları doğal ortamlarında izleme turu",
+  "theme": "Kelime Svahilicede yolculuk anlamına gelir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "KRUVAZİYER",
+  "d": 3,
+  "sub": "Deniz yoluyla yapılan bir tatil türü",
+  "mean": "Birçok limanı dolaşan, içinde her türlü eğlence olan dev gemi",
+  "theme": "Kuşadası ve Bodrum bu gemilerin sık uğradığı limanlardır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "BİNİŞ KARTI",
+  "d": 2,
+  "sub": "Uçağa binmeden önce gösterilen şey",
+  "mean": "Koltuk ve kapı numarasının yazılı olduğu belge",
+  "theme": "Artık çoğu havayolu bunu telefona dijital olarak gönderebilmektedir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "SAAT FARKI",
+  "d": 3,
+  "sub": "Uzak yolculuklarda hissedilen bir durum",
+  "mean": "Farklı zaman dilimleri arasındaki zaman ayrımı",
+  "theme": "Doğuya yapılan uzun uçuşlarda vücudun uyum sağlaması genellikle daha zordur"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "BRONZLAŞMAK",
+  "d": 2,
+  "sub": "Plajda yapılan bir şey",
+  "mean": "Güneş ışığıyla tenin koyulaşması",
+  "theme": "Ten rengi koyulaşması, derinin melanin üretimini artırmasıyla gerçekleşir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "DENİZ, KUM, GÜNEŞ",
+  "d": 1,
+  "sub": "Yaz tatilinin üç temel unsuru",
+  "mean": "Kıyı turizmini özetleyen üçlü",
+  "theme": "Turizmde bu üçlü İngilizce baş harfleriyle 3S olarak da anılır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "CAM KENARI KOLTUK",
+  "d": 2,
+  "sub": "Yolculukta tercih edilen bir yer",
+  "mean": "Manzarayı izlemek isteyen yolcuların seçtiği oturak",
+  "theme": "Uçaklarda her sıranın en uç noktalarında yer alır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "BALKONLU ODA",
+  "d": 2,
+  "sub": "Otel rezervasyonunda bir seçenek",
+  "mean": "Dışarı açılan, manzara keyfi yapılabilen çıkıntısı olan konaklama birimi",
+  "theme": "Kıyı tesislerinde deniz tarafına bakanlar genellikle daha pahalıya kiralanır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "KAYIP EŞYA BÜROSU",
+  "d": 3,
+  "sub": "Havalimanı ve garlarda bir birim",
+  "mean": "Unutulan ya da kaybolan çanta ve benzerlerinin teslim edildiği yer",
+  "theme": "Bagajı gelmeyen yolcular tutanak tutturmak için bu noktaya başvurur"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "SU PARKI",
+  "d": 2,
+  "sub": "Tatil yerlerinde eğlence alanı",
+  "mean": "Kaydıraklar ve dalga havuzlarıyla dolu eğlence merkezi",
+  "theme": "Bu tür tesisler sıcak iklimli tatil bölgelerinde çok yaygındır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "YÜZME HAVUZU",
+  "d": 1,
+  "sub": "Otellerin olmazsa olmazı",
+  "mean": "İçine su doldurulmuş, serinlemek için yapılmış alan",
+  "theme": "Olimpik olanların uzunluğu 50 metredir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "HATIRA FOTOĞRAFI",
+  "d": 2,
+  "sub": "Gezilerden geriye kalan bir şey",
+  "mean": "Gezilen yerin önünde poz verilerek çekilen anı karesi",
+  "theme": "Selfie çubukları bazı müze ve tarihi mekanlarda yasaklanmıştır"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "KONSOLOSLUK",
+  "d": 3,
+  "sub": "Vize başvurusu yapılan bir yer",
+  "mean": "Bir ülkenin başka ülkedeki vatandaşlarına hizmet veren temsilciliği",
+  "theme": "Büyükelçilikten farklı olarak başkent dışındaki kentlerde de bulunabilir"
+ },
+ {
+  "cat": "Tatil ve Seyahat",
+  "a": "HAFTA SONU KAÇAMAĞI",
+  "d": 2,
+  "sub": "Kısa bir seyahat türü",
+  "mean": "Cumartesi ve pazarı değerlendirmek için yapılan kısa tatil",
+  "theme": "Resmi tatillerin köprü günlerle uzatılması bu tür kısa yolculukları artırır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "FLAMENKO",
+  "d": 1,
+  "sub": "İspanya'ya özgü bir gelenek",
+  "mean": "Gitar eşliğinde, topuk vuruşları ve kastanyetlerle yapılan dans",
+  "theme": "Endülüs'te doğmuştur; 2010'da UNESCO somut olmayan miras listesine girmiştir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "ÇAY SEREMONİSİ",
+  "d": 2,
+  "sub": "Japonya'ya özgü bir gelenek",
+  "mean": "Matcha'nın belirli kurallarla hazırlanıp sunulduğu tören",
+  "theme": "Zen Budizmi'nden etkilenmiş olup Japoncada chanoyu olarak bilinir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "KARNAVAL",
+  "d": 1,
+  "sub": "Birçok ülkede kutlanan bir şenlik",
+  "mean": "Kostümler, maskeler ve geçit törenleriyle yapılan coşkulu kutlama",
+  "theme": "Rio'daki ünlü samba okulları her yıl bu şenlik için aylarca hazırlanır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SİESTA",
+  "d": 2,
+  "sub": "İspanya ve Akdeniz ülkelerine özgü bir alışkanlık",
+  "mean": "Öğle yemeğinden sonra sıcak saatlerde verilen kısa uyku molası",
+  "theme": "Adı Latincede günün altıncı saati anlamındaki sözcükten gelir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "KİMONO",
+  "d": 1,
+  "sub": "Japonya'ya özgü bir gelenek",
+  "mean": "Geniş kollu, kuşakla bağlanan geleneksel giysi",
+  "theme": "Bel kısmına bağlanan geniş kuşağa obi adı verilir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "OKTOBERFEST",
+  "d": 2,
+  "sub": "Almanya'ya özgü bir festival",
+  "mean": "Münih'te düzenlenen, geleneksel kıyafetlerin giyildiği halk şenliği",
+  "theme": "İlk kez 1810'da Bavyera veliahdının düğünü vesilesiyle düzenlenmiştir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "HOLİ",
+  "d": 3,
+  "sub": "Hindistan'a özgü bir festival",
+  "mean": "İnsanların birbirine renkli toz boyalar attığı bahar şenliği",
+  "theme": "Hindu takvimine göre Phalguna ayının dolunayında kutlanır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "DİVALİ",
+  "d": 3,
+  "sub": "Hindistan'a özgü bir bayram",
+  "mean": "Kandiller ve havai fişeklerle kutlanan ışıklar bayramı",
+  "theme": "Işığın karanlığa ve iyiliğin kötülüğe zaferini simgeler"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "HANAMİ",
+  "d": 4,
+  "sub": "Japonya'ya özgü bir gelenek",
+  "mean": "Bahar aylarında açan çiçeklerin altında piknik yapma",
+  "theme": "Kiraz ağaçlarının çiçek açma zamanı haberlerde günlük olarak takip edilir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "MATRUŞKA",
+  "d": 2,
+  "sub": "Rusya'ya özgü bir el sanatı",
+  "mean": "İç içe geçen, boyalı tahta bebek takımı",
+  "theme": "İlk takım 1890'larda yapılmış ve sekiz parçadan oluşmuştur"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "ÇİN YENİ YILI",
+  "d": 1,
+  "sub": "Doğu Asya'da kutlanan bir bayram",
+  "mean": "Ay takvimine göre kutlanan, kırmızı süslerle dolu bayram",
+  "theme": "Her yıl on iki hayvanlı takvimden birinin adıyla anılır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "TANGO",
+  "d": 1,
+  "sub": "Arjantin ve Uruguay'a özgü bir gelenek",
+  "mean": "Çiftlerin tutkulu adımlarla yaptığı ünlü dans",
+  "theme": "19. yüzyılın sonlarında Rio de la Plata kıyısındaki kentlerde doğmuştur"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "HAKA",
+  "d": 3,
+  "sub": "Yeni Zelanda'ya özgü bir gelenek",
+  "mean": "Maorilerin yüz ifadeleri ve bağırışlarla yaptığı tören dansı",
+  "theme": "Ülkenin milli ragbi takımı maçlardan önce bu gösteriyi yapar"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "GEYŞA",
+  "d": 3,
+  "sub": "Japonya'ya özgü bir gelenek",
+  "mean": "Dans, müzik ve sohbet sanatlarında eğitimli geleneksel eğlendirici",
+  "theme": "Kyoto'daki Gion semti bu kadınlarıyla ünlüdür"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SEMA TÖRENİ",
+  "d": 2,
+  "sub": "Türkiye'ye özgü bir gelenek",
+  "mean": "Mevlevilerin kendi etraflarında dönerek yaptığı ritüel",
+  "theme": "Her yıl aralık ayında Konya'da Şeb-i Arus anmalarıyla sahnelenir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "NEVRUZ",
+  "d": 1,
+  "sub": "İran ve Orta Asya'da kutlanan bir bayram",
+  "mean": "Baharın gelişini ve yeni yılı kutlayan şenlik",
+  "theme": "21 Mart civarında kutlanır; ateş üzerinden atlamak geleneklerindendir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "HIDIRELLEZ",
+  "d": 2,
+  "sub": "Türkiye ve Balkanlar'a özgü bir gelenek",
+  "mean": "Baharın gelişinin kutlandığı, dileklerin gül dalına asıldığı şenlik",
+  "theme": "Her yıl 5 Mayıs'ı 6 Mayıs'a bağlayan gece kutlanır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "PİNYATA",
+  "d": 3,
+  "sub": "Meksika'ya özgü bir gelenek",
+  "mean": "İçi şekerle dolu, gözleri bağlı çocukların sopayla kırdığı süs",
+  "theme": "Doğum günleri ve Noel öncesi Las Posadas kutlamalarında yaygındır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SOMBRERO",
+  "d": 2,
+  "sub": "Meksika'ya özgü bir gelenek",
+  "mean": "Geniş kenarlı, güneşten koruyan geleneksel şapka",
+  "theme": "Adı İspanyolcada gölge anlamına gelen sözcükten türemiştir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "KİLT",
+  "d": 3,
+  "sub": "İskoçya'ya özgü bir gelenek",
+  "mean": "Erkeklerin giydiği ekose desenli dizlik etek",
+  "theme": "Desenleri tartan olarak bilinir ve farklı klanları temsil eder"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SAUNA",
+  "d": 4,
+  "sub": "Finlandiya'ya özgü bir gelenek",
+  "mean": "Sıcak buharlı odada terleyerek yapılan arınma",
+  "theme": "Bu ülkedeki terleme odası kültürü 2020'de UNESCO somut olmayan miras listesine girmiştir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "HYGGE",
+  "d": 4,
+  "sub": "Danimarka'ya özgü bir yaşam felsefesi",
+  "mean": "Mumlar, sıcak içecekler ve sevdiklerle yaşanan huzurlu rahatlık",
+  "theme": "2016'da Oxford sözlüğünün yılın kelimesi adayları arasında yer almıştır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SUŞİ",
+  "d": 1,
+  "sub": "Japonya'ya özgü bir yemek",
+  "mean": "Sirkeli pirinçle çiğ balığın birleştiği lokmalık yemek",
+  "theme": "Başlangıçta balığı pirinç içinde fermente ederek saklama yöntemi olarak doğmuştur"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "PAELLA",
+  "d": 2,
+  "sub": "İspanya'ya özgü bir yemek",
+  "mean": "Safranlı pirinç ve deniz ürünleriyle geniş tavada pişen yemek",
+  "theme": "Valensiya bölgesinden çıkmıştır; adı pişirildiği tavanın adından gelir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "FONDÜ",
+  "d": 3,
+  "sub": "İsviçre'ye özgü bir yemek",
+  "mean": "Erimiş peynire ekmek batırılarak yenen ortak sofra yemeği",
+  "theme": "Adı Fransızca erimiş anlamındaki sözcükten gelir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "PAMPLONA BOĞA KOŞUSU",
+  "d": 3,
+  "sub": "İspanya'ya özgü bir gelenek",
+  "mean": "Temmuzda insanların sokaklarda azgın hayvanların önünde koştuğu etkinlik",
+  "theme": "San Fermin şenlikleri kapsamında yapılır; Hemingway'in romanıyla ünlenmiştir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "KINA GECESİ",
+  "d": 1,
+  "sub": "Türkiye'ye özgü bir gelenek",
+  "mean": "Düğünden önce gelinin eline yakı yakılan eğlence",
+  "theme": "Bu eğlencede gelinin ağlatılması için hüzünlü türküler söylenir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "NAZAR BONCUĞU",
+  "d": 1,
+  "sub": "Türkiye'ye özgü bir gelenek",
+  "mean": "Kötü bakışlardan korunmak için takılan mavi cam süs",
+  "theme": "İzmir'in Görece köyü bu süslerin geleneksel olarak üretildiği yerdir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "TÜRK KAHVESİ",
+  "d": 1,
+  "sub": "Anadolu'ya özgü bir gelenek",
+  "mean": "Cezvede pişirilip telvesiyle fincanda sunulan içecek",
+  "theme": "2013 yılında UNESCO somut olmayan kültürel miras listesine alınmıştır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "NOEL PAZARI",
+  "d": 2,
+  "sub": "Almanya ve Orta Avrupa'ya özgü bir gelenek",
+  "mean": "Aralıkta meydanlarda kurulan, süs ve sıcak şarap satılan çarşı",
+  "theme": "Nürnberg'deki Christkindlesmarkt bunların en ünlülerindendir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "VENEDİK MASKESİ",
+  "d": 2,
+  "sub": "İtalya'ya özgü bir gelenek",
+  "mean": "Karnavalda yüzü gizlemek için takılan süslü yüz örtüsü",
+  "theme": "Uzun gagalı veba doktoru tasarımı bunların en bilinenlerindendir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SARİ",
+  "d": 2,
+  "sub": "Hindistan'a özgü bir gelenek",
+  "mean": "Kadınların vücuda sararak giydiği uzun kumaş",
+  "theme": "Genellikle beş ila dokuz metre uzunluğunda tek parça kumaştan oluşur"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "YOGA",
+  "d": 1,
+  "sub": "Hindistan'a özgü bir gelenek",
+  "mean": "Beden, nefes ve zihni birleştiren duruş ve meditasyon pratiği",
+  "theme": "Birleşmiş Milletler 21 Haziran'ı bu pratiğin uluslararası günü ilan etmiştir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SAMBA",
+  "d": 1,
+  "sub": "Brezilya'ya özgü bir gelenek",
+  "mean": "Karnaval geçitlerinde yapılan hızlı ritimli dans",
+  "theme": "Afrika kökenli ritimlerden doğmuştur; 2 Aralık ülkede bu dansın günüdür"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "FADO",
+  "d": 4,
+  "sub": "Portekiz'e özgü bir gelenek",
+  "mean": "Hüzün ve özlem dolu geleneksel şarkı türü",
+  "theme": "2011'de UNESCO somut olmayan miras listesine alınmıştır; Lizbon'la özdeşleşmiştir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "MATE",
+  "d": 3,
+  "sub": "Arjantin ve Uruguay'a özgü bir gelenek",
+  "mean": "Su kabağından yapılan kapta metal pipetle içilen bitki çayı",
+  "theme": "Arkadaş arasında aynı kaptan sırayla içilmesi paylaşım simgesidir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "TACO",
+  "d": 2,
+  "sub": "Meksika'ya özgü bir yemek",
+  "mean": "Mısır ekmeğinin içine et ve sos konularak yenen yemek",
+  "theme": "Geleneksel olarak nixtamal işleminden geçmiş mısırdan yapılan tortilla kullanılır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "DOMATES SAVAŞI",
+  "d": 3,
+  "sub": "İspanya'ya özgü bir festival",
+  "mean": "Katılımcıların birbirine ezilmiş sebze attığı şenlik",
+  "theme": "Valensiya yakınlarındaki Buñol kasabasında ağustosun son çarşambası yapılır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "PASKALYA YUMURTASI",
+  "d": 2,
+  "sub": "Hristiyan ülkelerinde bir gelenek",
+  "mean": "İlkbahardaki bayram için boyanan ve saklanan süs",
+  "theme": "Rus çarlarına yapılan Fabergé örnekleri bu geleneğin en değerli eserleridir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "SAMOVAR",
+  "d": 3,
+  "sub": "Rusya'ya özgü bir gelenek",
+  "mean": "Çay için su kaynatılan, üstünde demlik duran metal kap",
+  "theme": "Tula kenti bu kapların üretimiyle ünlüdür"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "MAYIS DİREĞİ DANSI",
+  "d": 3,
+  "sub": "Avrupa'ya özgü bir bahar geleneği",
+  "mean": "Uzun bir sırığın çevresinde kurdeleler tutularak yapılan dans",
+  "theme": "Özellikle Almanya, İngiltere ve İsveç'te bahar ve yaz kutlamalarında yapılır"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "AZİZ PATRİK GÜNÜ",
+  "d": 3,
+  "sub": "İrlanda'ya özgü bir bayram",
+  "mean": "Yeşil giysiler ve yonca motifleriyle 17 Mart'ta kutlanan gün",
+  "theme": "Ülkeye Hristiyanlığı yaydığına inanılan koruyucu din adamını anar"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "EĞİLEREK SELAMLAŞMA",
+  "d": 2,
+  "sub": "Japonya'ya özgü bir görgü kuralı",
+  "mean": "Karşıdakine saygıyı belden öne doğru bükülerek gösterme",
+  "theme": "Japoncada ojigi denir; açı arttıkça gösterilen saygı da artar"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "KABUKİ",
+  "d": 4,
+  "sub": "Japonya'ya özgü bir sahne sanatı",
+  "mean": "Abartılı makyaj, gösterişli kostümler ve stilize hareketlerle oynanan geleneksel tiyatro",
+  "theme": "17. yüzyılın başında Kyoto'da ortaya çıkmış, UNESCO somut olmayan miras listesindedir"
+ },
+ {
+  "cat": "Ülkelerin Kültürleri",
+  "a": "KIRMIZI ZARF",
+  "d": 4,
+  "sub": "Çin'e özgü bir gelenek",
+  "mean": "Bayramlarda çocuklara içinde para konularak verilen hediye",
+  "theme": "Rengi bu kültürde şans ve bereketi simgeler; Çincede hongbao denir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "OTOMOBİL",
+  "d": 1,
+  "sub": "Karayolunda kullanılan bir taşıt",
+  "mean": "Genellikle dört tekerlekli, motorlu binek taşıtı",
+  "theme": "Karl Benz 1886'da motorlu taşıt için ilk patentlerden birini almıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "BİSİKLET",
+  "d": 1,
+  "sub": "İnsan gücüyle hareket eden bir taşıt",
+  "mean": "Pedal çevrilerek ilerleyen iki tekerlekli taşıt",
+  "theme": "Hollanda, nüfus başına en çok sahip olunan ülkeler arasındadır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "MOTOSİKLET",
+  "d": 1,
+  "sub": "İki tekerlekli bir taşıt",
+  "mean": "Motorlu, gidonla yönlendirilen hızlı taşıt",
+  "theme": "Sürücü ve yolcunun kask takması yasal zorunluluktur"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "ÇİFT KATLI OTOBÜS",
+  "d": 2,
+  "sub": "Şehir içi toplu taşımada bir araç",
+  "mean": "Üst üste iki yolcu bölümü olan büyük taşıt",
+  "theme": "Kırmızı renkli olanları Londra'nın simgelerinden biridir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "TRAMVAY",
+  "d": 1,
+  "sub": "Raylı bir toplu taşıma aracı",
+  "mean": "Şehir içinde caddeler boyunca raylar üzerinde giden taşıt",
+  "theme": "İstanbul'da ilk atlı türü 1871'de hizmete girmiştir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "METRO",
+  "d": 1,
+  "sub": "Raylı bir toplu taşıma sistemi",
+  "mean": "Genellikle yerin altında çalışan hızlı şehir treni",
+  "theme": "Dünyanın ilk yeraltı hattı 1863'te Londra'da açılmıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "HELİKOPTER",
+  "d": 1,
+  "sub": "Havada uçan bir taşıt",
+  "mean": "Dikey kalkış yapabilen, pervaneleri üstte dönen hava aracı",
+  "theme": "Kurtarma, ambulans ve yangın söndürme görevlerinde sıkça kullanılır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "DENİZALTI",
+  "d": 2,
+  "sub": "Su altında hareket eden bir taşıt",
+  "mean": "Deniz yüzeyinin altında seyredebilen askeri ya da bilimsel gemi",
+  "theme": "Su altındayken yüzeyi görmek için periskop kullanılır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "VAPUR",
+  "d": 1,
+  "sub": "Deniz yolu ulaşımında bir taşıt",
+  "mean": "İstanbul'da iki yaka arasında yolcu taşıyan buharlı gemi",
+  "theme": "Şirket-i Hayriye 1851'de Boğaz'da düzenli yolcu taşımacılığına başlamıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "TELEFERİK",
+  "d": 2,
+  "sub": "Havadan giden bir ulaşım aracı",
+  "mean": "Halatlara asılı kabinlerle dağlara çıkılan sistem",
+  "theme": "Bursa'dan Uludağ'a çıkan hat Türkiye'nin en uzunlarındandır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "FÜNİKÜLER",
+  "d": 4,
+  "sub": "Raylı bir ulaşım sistemi",
+  "mean": "Dik yokuşlarda halatla çekilen raylı taşıt",
+  "theme": "İstanbul'daki Tünel, dünyanın en eski yeraltı hatlarından biridir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "KAMYON",
+  "d": 2,
+  "sub": "Yük taşımacılığında bir araç",
+  "mean": "Ağır yükleri taşımak için kullanılan büyük motorlu taşıt",
+  "theme": "Kasası arkaya doğru eğilerek boşaltılan türüne damperli denir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "TRAKTÖR",
+  "d": 1,
+  "sub": "Tarımda kullanılan bir araç",
+  "mean": "Tarlayı sürmek ve römork çekmek için kullanılan güçlü taşıt",
+  "theme": "Türkiye'de bu aracın yerli seri üretimi 1950'lerde Ankara'da başlamıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "AMBULANS",
+  "d": 1,
+  "sub": "Acil durumlarda kullanılan bir taşıt",
+  "mean": "Hasta ve yaralıları hastaneye taşıyan araç",
+  "theme": "Önündeki yazı ayna yansımasında okunabilsin diye ters yazılır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "İTFAİYE ARACI",
+  "d": 2,
+  "sub": "Acil durumlarda kullanılan bir taşıt",
+  "mean": "Su tankı ve merdiveniyle yangına koşan kırmızı araç",
+  "theme": "Türkiye'de bu birimin acil çağrı numarası 112'de birleştirilmiştir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "HIZLI TREN",
+  "d": 1,
+  "sub": "Raylı bir yolcu taşıtı",
+  "mean": "Kentler arasını saatte 250 kilometreye varan hızla bağlayan taşıt",
+  "theme": "Türkiye'deki ilk sefer 2009'da Ankara ile Eskişehir arasında yapılmıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "ZEPLİN",
+  "d": 3,
+  "sub": "Havadan giden bir taşıt",
+  "mean": "Gazla dolu dev balonu ve motorlarıyla uçan hava gemisi",
+  "theme": "Hindenburg kazası 1937'de bu taşıtların yolcu taşımacılığını bitirmiştir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "SICAK HAVA BALONU",
+  "d": 2,
+  "sub": "Gökyüzünde süzülen bir taşıt",
+  "mean": "Isıtılan gazla yükselen, sepetli uçan araç",
+  "theme": "Kapadokya'da gün doğumunda yapılan uçuşları dünyaca ünlüdür"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "KARAVAN",
+  "d": 2,
+  "sub": "Konaklama imkanı da sunan bir taşıt",
+  "mean": "İçinde yatak ve mutfak bulunan gezici ev",
+  "theme": "Çekme türleri bir otomobile bağlanarak taşınır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "DOLMUŞ",
+  "d": 1,
+  "sub": "Türkiye'ye özgü bir toplu taşıma türü",
+  "mean": "Belirli güzergahta yolcular dolunca hareket eden araç",
+  "theme": "Adını yolcu sayısı tamamlanmadan yola çıkmama alışkanlığından alır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "TAKSİ",
+  "d": 1,
+  "sub": "Ücretli bir şehir içi ulaşım aracı",
+  "mean": "Ücreti metreyle hesaplanan, el kaldırılarak ya da çağrılarak binilen araç",
+  "theme": "İstanbul'da sarı rengiyle tanınır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "MİNİBÜS",
+  "d": 2,
+  "sub": "Toplu taşımada bir araç",
+  "mean": "Otobüsten küçük, otomobilden büyük yolcu taşıtı",
+  "theme": "Türkiye'de birçok kentte sabit güzergahlı ulaşımın bel kemiğidir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "KAYIK",
+  "d": 2,
+  "sub": "Suda kullanılan küçük bir taşıt",
+  "mean": "Kürekle ya da küçük motorla yürütülen tekne",
+  "theme": "Osmanlı döneminde İstanbul'da padişahlar süslü saltanat türlerini kullanırdı"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "YELKENLİ",
+  "d": 2,
+  "sub": "Rüzgar gücüyle giden bir taşıt",
+  "mean": "Bez direklerle rüzgarı yakalayarak ilerleyen tekne",
+  "theme": "Gulet, Bodrum'da yapımıyla ünlü bir türüdür"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "FERİBOT",
+  "d": 2,
+  "sub": "Deniz yoluyla araç taşıyan bir taşıt",
+  "mean": "Araçları ve yolcuları karşı kıyıya geçiren gemi",
+  "theme": "Çanakkale Boğazı'nda iki yaka arasında sık seferler yapar"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "KAĞNI",
+  "d": 2,
+  "sub": "Geleneksel bir yük taşıtı",
+  "mean": "Öküzlerin çektiği, tahta tekerlekli Anadolu arabası",
+  "theme": "Kurtuluş Savaşı'nda cepheye cephane taşımada büyük rol oynamıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "FAYTON",
+  "d": 3,
+  "sub": "Atla çekilen bir taşıt",
+  "mean": "Adalar'da yakın zamana dek kullanılan körüklü at arabası",
+  "theme": "Adı Yunan mitolojisinde güneş arabasını süren karakterden gelir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "KIZAK",
+  "d": 3,
+  "sub": "Karda kullanılan bir taşıt",
+  "mean": "Kar üzerinde kayarak ilerleyen, köpek ya da geyikle çekilebilen araç",
+  "theme": "Kutup bölgelerinde köpeklerin çektiği türleri yüzyıllardır kullanılır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "FORKLİFT",
+  "d": 3,
+  "sub": "Depolarda kullanılan bir iş aracı",
+  "mean": "Önündeki çatallarla paletleri kaldırıp taşıyan makine",
+  "theme": "Kullanmak için özel operatörlük belgesi gerekir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "BULDOZER",
+  "d": 2,
+  "sub": "İnşaatlarda kullanılan bir iş makinesi",
+  "mean": "Önündeki geniş bıçakla toprağı iten paletli araç",
+  "theme": "Paletleri sayesinde yumuşak ve engebeli zeminde ilerleyebilir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "VİNÇ",
+  "d": 2,
+  "sub": "İnşaatlarda kullanılan bir makine",
+  "mean": "Ağır yükleri halat ve kancayla kaldıran düzenek",
+  "theme": "Kule türleri gökdelen yapımında kat kat yükseltilebilir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "PLANÖR",
+  "d": 3,
+  "sub": "Havadan giden bir taşıt",
+  "mean": "Motorsuz, hava akımlarıyla süzülen hafif uçak",
+  "theme": "Türk Hava Kurumu'nun İnönü'deki tesisi bu uçuşlarıyla bilinir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "UZAY MEKİĞİ",
+  "d": 2,
+  "sub": "Yeryüzü dışına giden bir taşıt",
+  "mean": "Yeniden kullanılabilir şekilde tasarlanmış, yörüngeye çıkan araç",
+  "theme": "NASA'nın bu programı 1981'de başlamış ve 2011'de sona ermiştir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "YOLCU UÇAĞI",
+  "d": 1,
+  "sub": "Hava yolu taşımacılığında bir araç",
+  "mean": "Yüzlerce kişiyi kıtalar arası taşıyabilen hava taşıtı",
+  "theme": "Airbus A380 dünyanın en büyük bu tür taşıtı olarak bilinir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "OTOYOL",
+  "d": 2,
+  "sub": "Karayolu ağının bir parçası",
+  "mean": "Yüksek hızlı, ayrılmış şeritli ve genellikle ücretli yol",
+  "theme": "Türkiye'de bu yollarda otomobiller için genel hız sınırı 120 km/sa'tir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "AVRASYA TÜNELİ",
+  "d": 3,
+  "sub": "İstanbul'da bir ulaşım yapısı",
+  "mean": "Boğaz'ın altından iki kıtayı karayoluyla bağlayan geçit",
+  "theme": "2016'da açılmıştır; iki katlı yapısıyla yalnızca otomobil ve minibüslere hizmet verir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "HAVALİMANI",
+  "d": 1,
+  "sub": "Ulaşımda bir merkez",
+  "mean": "Uçakların kalkış ve iniş yaptığı tesis",
+  "theme": "İstanbul'daki en büyüğü 2018'de hizmete açılmıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "YAYA GEÇİDİ",
+  "d": 1,
+  "sub": "Trafikte bir işaret alanı",
+  "mean": "Yolun karşı tarafına güvenle ulaşmak için çizilmiş beyaz şeritli bölüm",
+  "theme": "Siyah beyaz şeritleri nedeniyle İngilizcede zebra adıyla anılır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "TRAFİK IŞIĞI",
+  "d": 1,
+  "sub": "Kavşaklarda bulunan bir düzenek",
+  "mean": "Kırmızı, sarı ve yeşil renklerle kavşaktaki akışı yöneten sinyal",
+  "theme": "İlk elektrikli örneklerinden biri 1914'te ABD'nin Cleveland kentinde kurulmuştur"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "EMNİYET KEMERİ",
+  "d": 1,
+  "sub": "Araçlarda bir güvenlik donanımı",
+  "mean": "Kaza anında yolcuyu koltukta tutan kayış",
+  "theme": "Üç noktalı türünü 1959'da Volvo mühendisi Nils Bohlin geliştirmiştir"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "SÜRÜCÜ BELGESİ",
+  "d": 2,
+  "sub": "Araç kullanmak için gerekli bir evrak",
+  "mean": "Kişinin motorlu taşıt kullanma yetkisini gösteren kart",
+  "theme": "Türkiye'de otomobil için B sınıfı olanı alınır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "MARMARAY",
+  "d": 2,
+  "sub": "İstanbul'da raylı bir ulaşım hattı",
+  "mean": "Boğaz'ın altından iki yakayı raylı sistemle birleştiren hat",
+  "theme": "2013'te açılmıştır; kazılarda Yenikapı'da Bizans dönemine ait batıklar bulunmuştur"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "KONTEYNER GEMİSİ",
+  "d": 3,
+  "sub": "Deniz yük taşımacılığında bir taşıt",
+  "mean": "Standart çelik kutularla yük taşıyan dev deniz aracı",
+  "theme": "2021'de Ever Given adlı bir örneği Süveyş Kanalı'nı günlerce tıkamıştır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "HAFİF RAYLI SİSTEM",
+  "d": 4,
+  "sub": "Şehir içi toplu taşımada bir tür",
+  "mean": "Metro ile tramvay arasında kapasiteye sahip toplu ulaşım hattı",
+  "theme": "Bu tür hatlar genellikle kısaltmayla HRS olarak anılır"
+ },
+ {
+  "cat": "Araçlar ve Ulaşım",
+  "a": "TOPLU TAŞIMA",
+  "d": 2,
+  "sub": "Kentsel ulaşımda bir kavram",
+  "mean": "Kent içinde birçok yolcunun aynı araçla birlikte yol almasını sağlayan hizmet",
+  "theme": "İstanbul'da bu hizmetin ödemeleri uzun yıllar Akbil adlı cihazla yapılmıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ARÇELİK",
+  "d": 1,
+  "sub": "Türk beyaz eşya markası",
+  "mean": "Buzdolabı ve çamaşır makineleriyle tanınan, Koç Topluluğu'na ait firma",
+  "theme": "1955'te İstanbul'da kurulmuş, ilk ürünlerinden biri çamaşır makinesi olmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "VESTEL",
+  "d": 1,
+  "sub": "Türk elektronik markası",
+  "mean": "Televizyon ve beyaz eşya üreten, Manisa'daki dev tesisleriyle bilinen firma",
+  "theme": "Zorlu Holding bünyesinde yer alır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ÜLKER",
+  "d": 1,
+  "sub": "Türk gıda markası",
+  "mean": "Bisküvi ve çikolatalarıyla tanınan köklü firma",
+  "theme": "1944'te İstanbul'da küçük bir fırın olarak kurulmuş, bugün Yıldız Holding'e bağlıdır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ETİ",
+  "d": 1,
+  "sub": "Türk gıda markası",
+  "mean": "Bisküvi, kek ve krakerleriyle bilinen firma",
+  "theme": "1962'de Eskişehir'de kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "KOTON",
+  "d": 2,
+  "sub": "Türk hazır giyim markası",
+  "mean": "Uygun fiyatlı gündelik kıyafetleriyle bilinen mağaza zinciri",
+  "theme": "1988'de İstanbul'da kurulmuş, birçok ülkede mağaza açmıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "MAVİ",
+  "d": 2,
+  "sub": "Türk hazır giyim markası",
+  "mean": "Kot pantolonlarıyla dünyaya açılan firma",
+  "theme": "1991'de İstanbul'da kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "BEKO",
+  "d": 1,
+  "sub": "Türk beyaz eşya ve elektronik markası",
+  "mean": "Buzdolabı, çamaşır makinesi ve televizyonlarıyla Avrupa'da da tanınan marka",
+  "theme": "Adı iki kurucu ortağın soyadlarının birleşiminden türetilmiştir; 1955'te kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "PEGASUS",
+  "d": 2,
+  "sub": "Türk havayolu markası",
+  "mean": "Düşük maliyetli uçuşlarıyla bilinen havayolu",
+  "theme": "Merkezi İstanbul Sabiha Gökçen Havalimanı'dır; adı kanatlı attan gelir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ŞİŞECAM",
+  "d": 4,
+  "sub": "Türk sanayi markası",
+  "mean": "Cam ev eşyası, düz cam ve ambalaj camı üreten dev firma",
+  "theme": "1935'te Atatürk'ün talimatıyla İş Bankası tarafından kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "SÜTAŞ",
+  "d": 2,
+  "sub": "Türk süt ürünleri markası",
+  "mean": "Ayran, yoğurt ve peynirleriyle bilinen firma",
+  "theme": "1975'te Bursa'nın Karacabey ilçesinde kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "PINAR",
+  "d": 3,
+  "sub": "Türk gıda markası",
+  "mean": "Süt, et ürünleri ve suyuyla bilinen, Yaşar Holding'e ait firma",
+  "theme": "İzmir merkezlidir; 1975'te Türkiye'nin ilk UHT süt fabrikalarından birini kurmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "MİGROS",
+  "d": 1,
+  "sub": "Süpermarket zinciri",
+  "mean": "Türkiye'nin en köklü perakende zincirlerinden biri",
+  "theme": "İsviçre'de 1925'te kurulmuş, Türkiye'de 1954'te gezici satış kamyonlarıyla başlamıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "VAKKO",
+  "d": 3,
+  "sub": "Türk moda markası",
+  "mean": "İpek eşarpları ve lüks giyimiyle bilinen firma",
+  "theme": "Vitali Hakko tarafından 1934'te İstanbul'da şapka dükkanı olarak kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "HACI BEKİR",
+  "d": 3,
+  "sub": "Türk şekerleme markası",
+  "mean": "Lokum ve akide şekeriyle bilinen köklü firma",
+  "theme": "1777'de İstanbul Bahçekapı'da açılmış olup Türkiye'nin en eski markalarındandır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "KOSKA",
+  "d": 3,
+  "sub": "Türk gıda markası",
+  "mean": "Helva ve tahiniyle tanınan firma",
+  "theme": "Adını İstanbul'da ilk dükkanının açıldığı semtten alır; kökeni 1907'ye dayanır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ÇAYKUR",
+  "d": 2,
+  "sub": "Türk çay markası",
+  "mean": "Karadeniz'de yetişen çayı işleyip paketleyen kamu kuruluşu",
+  "theme": "1971'de kurulmuştur; genel müdürlüğü Rize'dedir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "TOGG",
+  "d": 2,
+  "sub": "Türk otomobil markası",
+  "mean": "Yerli elektrikli otomobil üreten girişim",
+  "theme": "Bursa Gemlik'teki tesisinde 2022'de seri üretime başlamıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "COCA-COLA",
+  "d": 1,
+  "sub": "Dünyaca ünlü bir içecek markası",
+  "mean": "Kırmızı logolu, gazlı kola içeceği üreten firma",
+  "theme": "1886'da Atlanta'da eczacı John Pemberton tarafından icat edilmiştir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "TOYOTA",
+  "d": 2,
+  "sub": "Japon otomobil markası",
+  "mean": "Dünyanın en çok araç satan üreticilerinden biri",
+  "theme": "Sakarya'da 1990'larda kurulan fabrikasında otomobil üretmektedir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "MERCEDES",
+  "d": 1,
+  "sub": "Alman otomobil markası",
+  "mean": "Üç köşeli yıldız logosuyla bilinen lüks araç üreticisi",
+  "theme": "Adını bir araç siparişi veren iş insanının kızının adından almıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "RENAULT",
+  "d": 2,
+  "sub": "Fransız otomobil markası",
+  "mean": "Bursa'da Oyak ortaklığıyla üretim yapan otomobil firması",
+  "theme": "1899'da üç kardeş tarafından Fransa'da kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "IKEA",
+  "d": 2,
+  "sub": "İsveç mobilya markası",
+  "mean": "Kendin kur mobilyaları ve köfteli restoranıyla tanınan mağaza",
+  "theme": "1943'te Ingvar Kamprad tarafından kurulmuştur; adı onun baş harflerini de içerir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ZARA",
+  "d": 1,
+  "sub": "İspanyol hazır giyim markası",
+  "mean": "Hızlı moda anlayışıyla tanınan, Inditex grubuna ait mağaza",
+  "theme": "İlk mağazası 1975'te İspanya'nın A Coruña kentinde açılmıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "GUCCI",
+  "d": 2,
+  "sub": "İtalyan lüks moda markası",
+  "mean": "Çift G logolu deri çanta ve aksesuarlarıyla bilinen firma",
+  "theme": "1921'de Floransa'da kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "LOUIS VUITTON",
+  "d": 3,
+  "sub": "Fransız lüks moda markası",
+  "mean": "Monogram desenli çantaları ve bavullarıyla bilinen firma",
+  "theme": "1854'te Paris'te bir sandık ustası tarafından kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ROLEX",
+  "d": 2,
+  "sub": "İsviçre saat markası",
+  "mean": "Taç logolu lüks kol saatleriyle ünlü firma",
+  "theme": "1905'te Londra'da kurulmuş, daha sonra merkezini Cenevre'ye taşımıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ALFA ROMEO",
+  "d": 3,
+  "sub": "İtalyan otomobil markası",
+  "mean": "Yonca ve yılan figürlü logosuyla bilinen spor otomobil üreticisi",
+  "theme": "1910'da Milano'da kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "NUTELLA",
+  "d": 2,
+  "sub": "İtalyan gıda markası",
+  "mean": "Fındıklı kakaolu sürülebilir krema",
+  "theme": "Ferrero firması tarafından 1964'te piyasaya sürülmüştür"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "HARIBO",
+  "d": 2,
+  "sub": "Alman şekerleme markası",
+  "mean": "Ayıcık şeklindeki yumuşak şekerleriyle ünlü firma",
+  "theme": "1920'de Bonn'da kurulmuştur; adı kurucusunun ve kentin adının ilk hecelerinden oluşur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "STARBUCKS",
+  "d": 2,
+  "sub": "Amerikan kahve zinciri",
+  "mean": "Yeşil deniz kızı logolu kahve dükkanları",
+  "theme": "1971'de Seattle'da kurulmuş, adını Moby Dick romanındaki bir karakterden almıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "MCDONALD'S",
+  "d": 1,
+  "sub": "Amerikan fast food zinciri",
+  "mean": "Sarı kemer logolu hamburger restoranları",
+  "theme": "Türkiye'deki ilk restoranı 1986'da İstanbul Taksim'de açılmıştır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "LEGO",
+  "d": 1,
+  "sub": "Danimarka oyuncak markası",
+  "mean": "Birbirine geçen renkli plastik parçalarıyla ünlü firma",
+  "theme": "1932'de kurulmuştur; adı Danca iyi oyna anlamındaki ifadeden gelir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "LACOSTE",
+  "d": 3,
+  "sub": "Fransız giyim markası",
+  "mean": "Timsah logolu polo tişörtleriyle bilinen firma",
+  "theme": "Kurucusu, timsah lakaplı ünlü bir Fransız tenisçidir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "BOSCH",
+  "d": 3,
+  "sub": "Alman teknoloji ve ev aletleri markası",
+  "mean": "Beyaz eşya, elektrikli alet ve otomotiv parçalarıyla bilinen firma",
+  "theme": "1886'da Stuttgart'ta kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "CALVIN KLEIN",
+  "d": 2,
+  "sub": "Amerikan moda markası",
+  "mean": "İç giyim, parfüm ve kot ürünleriyle bilinen firma",
+  "theme": "1968'de New York'ta kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "FERRARI",
+  "d": 1,
+  "sub": "İtalyan otomobil markası",
+  "mean": "Şahlanan at logolu, kırmızı spor otomobilleriyle ünlü firma",
+  "theme": "Merkezi Maranello'dadır; Formula 1'in en köklü takımına sahiptir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "ADIDAS",
+  "d": 1,
+  "sub": "Alman spor giyim markası",
+  "mean": "Üç şerit logosuyla bilinen spor ayakkabı ve giyim üreticisi",
+  "theme": "Herzogenaurach'ta kurulmuştur; kurucusunun kardeşi aynı kentte rakip Puma'yı kurmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "NIKE",
+  "d": 1,
+  "sub": "Amerikan spor giyim markası",
+  "mean": "Swoosh adlı tik işareti logosuyla bilinen firma",
+  "theme": "Adını Yunan mitolojisindeki zafer tanrıçasından alır; merkezi Oregon'dadır"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "DR. OETKER",
+  "d": 3,
+  "sub": "Alman gıda markası",
+  "mean": "Kabartma tozu, puding ve pasta malzemeleriyle bilinen firma",
+  "theme": "1891'de Bielefeld'de bir eczacı tarafından kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "CHANEL",
+  "d": 2,
+  "sub": "Fransız lüks moda markası",
+  "mean": "No. 5 parfümü ve tüvit ceketleriyle ünlü firma",
+  "theme": "Gabrielle adlı modacı tarafından 1910'da Paris'te kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "KENTUCKY FRIED CHICKEN",
+  "d": 2,
+  "sub": "Amerikan fast food zinciri",
+  "mean": "Kızarmış tavuk menüleriyle bilinen restoran zinciri",
+  "theme": "Logosunda kurucusu Albay Harland Sanders'ın portresi bulunur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "THE NORTH FACE",
+  "d": 4,
+  "sub": "Amerikan outdoor giyim markası",
+  "mean": "Dağcılık montları ve kamp malzemeleriyle bilinen firma",
+  "theme": "1966'da San Francisco'da kurulmuştur; logosu Yosemite'deki Half Dome kayasından esinlenir"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "UNITED COLORS OF BENETTON",
+  "d": 3,
+  "sub": "İtalyan giyim markası",
+  "mean": "Renkli triko ürünleri ve çarpıcı reklam kampanyalarıyla bilinen firma",
+  "theme": "1965'te Treviso'da dört kardeş tarafından kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "YAPI KREDİ",
+  "d": 2,
+  "sub": "Türk bankacılık markası",
+  "mean": "Türkiye'nin köklü özel bankalarından biri",
+  "theme": "1944'te Kazım Taşkent öncülüğünde ülke çapında ilk özel banka olarak kurulmuştur"
+ },
+ {
+  "cat": "Ünlü Markalar",
+  "a": "SİMİT SARAYI",
+  "d": 2,
+  "sub": "Türk kafe zinciri",
+  "mean": "Susamlı halka, poğaça ve çayıyla bilinen fırın kafe zinciri",
+  "theme": "2002'de İstanbul'da kurulmuş, yurt dışında da şubeler açmıştır"
+ }
+]

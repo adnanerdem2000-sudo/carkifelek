@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Çarkıfelek Stüdyo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@500;700;800;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="studio-bg" aria-hidden="true">
+  <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+  <div class="neon-grid"></div>
+</div>
+<div class="marquee-lights" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<div id="app">
+  <!-- ÜST BÖLÜM -->
+  <header class="topbar">
+    <div class="logo" aria-label="Çarkıfelek">
+      <span class="logo-main">ÇARKIFELEK</span>
+      <span class="logo-sub">STÜDYO</span>
+    </div>
+    <div class="top-stats">
+      <div class="stat"><span class="stat-k">TUR</span><span class="stat-v" id="roundLabel">–</span></div>
+      <div class="stat"><span class="stat-k">SIRADA</span><span class="stat-v" id="activeLabel">–</span></div>
+      <div class="stat"><span class="stat-k">TOPLAM</span><span class="stat-v" id="activeTotal">0</span></div>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="btnSound" type="button" aria-label="Sesi aç/kapat" title="Ses">🔊</button>
+      <button class="icon-btn" id="btnSettings" type="button" aria-label="Ayarlar" title="Ayarlar">⚙️</button>
+      <button class="icon-btn" id="btnMenu" type="button" aria-label="Ana menü" title="Ana menü">☰</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <!-- ORTA: ÇARK + PANO -->
+    <section class="wheel-zone" aria-label="Çark">
+      <div class="wheel-wrap" id="wheelWrap">
+        <div class="wheel-bulbs" id="wheelBulbs" aria-hidden="true"></div>
+        <canvas id="wheel" width="560" height="560" aria-label="Çark"></canvas>
+        <div class="wheel-hub" aria-hidden="true"><span>ÇEVİR</span></div>
+        <div class="pointer" id="pointer" aria-hidden="true"></div>
+      </div>
+      <div class="wheel-result" id="wheelResult" aria-live="polite">Çarkı çevirerek başla</div>
+    </section>
+
+    <section class="board-zone" aria-label="Bulmaca">
+      <div class="board-frame">
+        <div class="board-head">
+          <span class="cat-chip" id="catLabel">KATEGORİ</span>
+          <span class="diff-chip" id="diffLabel">KOLAY</span>
+        </div>
+        <div class="board" id="board" aria-live="polite"></div>
+        <div class="board-foot">
+          <span id="handInfo">El puanı: 0</span>
+          <span id="livesInfo" hidden></span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn-spin" id="btnSpin" type="button">🎡 ÇARKI ÇEVİR</button>
+        <button class="btn btn-vowel" id="btnVowel" type="button">🔤 ÜNLÜ AL <small id="vowelCost">200</small></button>
+        <button class="btn btn-solve" id="btnSolve" type="button">💡 CEVABI TAHMİN ET</button>
+      </div>
+      <div class="hint-line" id="hintLine">Çarkı çevir, ardından bir ünsüz seç.</div>
+      <!-- ALT: HARFLER + TAHMİN -->
+      <section class="letters-zone" aria-label="Harf seçimi">
+        <div class="keyboard" id="keyboard"></div>
+        <form class="solve-form" id="solveForm" autocomplete="off" hidden>
+          <input id="solveInput" type="text" placeholder="Cevabı yaz…" aria-label="Cevap tahmini" maxlength="60">
+          <button class="btn btn-solve" type="submit">GÖNDER</button>
+          <button class="btn btn-ghost" type="button" id="solveCancel">VAZGEÇ</button>
+        </form>
+      </section>
+    </section>
+
+    <!-- YAN PANEL -->
+    <aside class="side" aria-label="Oyuncular ve ipuçları">
+      <div class="panel">
+        <h2 class="panel-title">YARIŞMACILAR</h2>
+        <div id="players" class="players"></div>
+      </div>
+      <div class="panel">
+        <h2 class="panel-title">İPUÇLARI</h2>
+        <div id="clues" class="clues"><p class="muted">Marketten alınan ipuçları burada görünür. Market her el bittiğinde açılır.</p></div>
+      </div>
+    </aside>
+  </main>
+
+
+
+  <section class="log-zone panel" aria-label="Oyun günlüğü">
+    <h2 class="panel-title">OYUN GÜNLÜĞÜ</h2>
+    <ol class="log" id="log"></ol>
+  </section>
+</div>
+
+<!-- BİLDİRİM -->
+<div class="banner" id="banner" aria-live="assertive"></div>
+
+<!-- MENÜ -->
+<div class="overlay" id="menu">
+  <div class="modal menu-modal">
+    <div class="menu-logo"><span class="logo-main big">ÇARKIFELEK</span><span class="logo-sub">STÜDYO · CANLI YAYIN</span></div>
+    <div class="menu-section">
+      <h3>YARIŞMACI SAYISI</h3>
+      <div class="seg" id="segPlayers">
+        <button type="button" data-v="1">Tek oyunculu</button>
+        <button type="button" data-v="2" class="on">İki oyunculu</button>
+        <button type="button" data-v="3">Üç oyunculu yarışma</button>
+      </div>
+    </div>
+    <div class="menu-section">
+      <h3>YARIŞMA SÜRESİ</h3>
+      <div class="seg" id="segLength">
+        <button type="button" data-v="quick">Hızlı oyun · 3 tur</button>
+        <button type="button" data-v="std" class="on">Standart · 5 tur</button>
+        <button type="button" data-v="long">Uzun yarışma · 8 tur</button>
+      </div>
+    </div>
+    <div class="menu-section">
+      <h3>İSİMLER</h3>
+      <div class="names" id="names"></div>
+    </div>
+    <div class="menu-actions">
+      <button class="btn btn-spin" id="btnStart" type="button">▶ YARIŞMAYI BAŞLAT</button>
+      <button class="btn btn-ghost" id="btnQuick" type="button">⚡ HIZLI OYUN (tek kişi, 3 tur)</button>
+    </div>
+    <p class="menu-foot" id="poolInfo"></p>
+  </div>
+</div>
+
+<!-- AYARLAR -->
+<div class="overlay" id="settings" hidden>
+  <div class="modal">
+    <h2 class="modal-title">AYARLAR</h2>
+    <div class="set-row"><label for="setVolume">Ses seviyesi</label><input type="range" id="setVolume" min="0" max="100" value="70"></div>
+    <div class="set-row"><label for="setSound">Ses efektleri</label><input type="checkbox" id="setSound" checked></div>
+    <div class="set-row"><label for="setMusic">Stüdyo müziği</label><input type="checkbox" id="setMusic" checked></div>
+    <div class="set-row"><label for="setAnim">Animasyon yoğunluğu</label>
+      <select id="setAnim"><option value="low">Düşük</option><option value="normal" selected>Normal</option><option value="high">Yüksek</option></select></div>
+    <div class="set-row"><label for="setRounds">Tur sayısı (yeni oyunda)</label>
+      <select id="setRounds"><option value="0">Mod varsayılanı</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></div>
+    <div class="set-row"><label for="setClueMode">Satın alınan ipuçları</label>
+      <select id="setClueMode"><option value="auto">Sonraki bulmacada otomatik açılır</option><option value="manual">Saklanır, oyuncu sırası gelince açar</option></select></div>
+    <div class="set-row stack"><span>Bulmaca geçmişi</span><span class="muted" id="historyInfo"></span></div>
+    <div class="modal-actions wrap">
+      <button class="btn btn-ghost" id="btnNewGame" type="button">Yeni oyun</button>
+      <button class="btn btn-ghost" id="btnResetGame" type="button">Mevcut oyunu sıfırla</button>
+      <button class="btn btn-danger" id="btnResetHistory" type="button">Geçmişi sıfırla</button>
+      <button class="btn btn-spin" id="btnCloseSettings" type="button">Kapat</button>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET -->
+<div class="overlay" id="market" hidden>
+  <div class="modal market-modal">
+    <div class="awning" aria-hidden="true"></div>
+    <div class="market-inner">
+      <div class="market-sign">
+        <svg class="sign-bag" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 22h36l-3 34H17z" fill="#ff3fa4"/><path d="M14 22h36l-1 8H15z" fill="#ff8fd0"/><path d="M24 24v-6a8 8 0 0 1 16 0v6" stroke="#ffe14a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M32 36l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z" fill="#ffe14a"/></svg>
+        <div class="sign-text"><span>İPUCU</span><b>MARKETİ</b></div>
+        <svg class="sign-bag flip" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 22h36l-3 34H17z" fill="#19e3d0"/><path d="M14 22h36l-1 8H15z" fill="#9ff5ec"/><path d="M24 24v-6a8 8 0 0 1 16 0v6" stroke="#ffe14a" stroke-width="4" fill="none" stroke-linecap="round"/><text x="32" y="50" text-anchor="middle" font-family="Bungee, Arial Black, sans-serif" font-size="18" fill="#12052e">?</text></svg>
+      </div>
+      <div class="market-tabs" id="marketTabs" role="tablist"></div>
+      <div class="wallet" id="marketOwner"></div>
+      <p class="market-note" id="marketNote"></p>
+      <div class="market-grid" id="marketGrid"></div>
+      <div class="market-floor" aria-hidden="true"></div>
+      <div class="modal-actions">
+        <button class="btn btn-spin" id="btnMarketDone" type="button">SONRAKİ TURA GEÇ ▶</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ONAY -->
+<div class="overlay" id="confirm" hidden>
+  <div class="modal small">
+    <h2 class="modal-title" id="confirmTitle">Emin misin?</h2>
+    <p id="confirmText"></p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="confirmNo" type="button">Vazgeç</button>
+      <button class="btn btn-spin" id="confirmYes" type="button">Onayla</button>
+    </div>
+  </div>
+</div>
+
+<!-- TUR SONU -->
+<div class="overlay" id="roundEnd" hidden>
+  <div class="modal">
+    <h2 class="modal-title" id="reTitle">TUR BİTTİ</h2>
+    <div class="re-answer" id="reAnswer"></div>
+    <div id="reBody"></div>
+    <div class="modal-actions"><button class="btn btn-spin" id="reNext" type="button">DEVAM ▶</button></div>
+  </div>
+</div>
+
+<!-- OYUN SONU -->
+<div class="overlay" id="gameOver" hidden>
+  <div class="modal">
+    <h2 class="modal-title">BÜYÜK FİNAL</h2>
+    <div id="goBody"></div>
+    <div class="modal-actions wrap">
+      <button class="btn btn-ghost" id="goMenu" type="button">Ana menü</button>
+      <button class="btn btn-spin" id="goAgain" type="button">Aynı ekiple yeniden oyna</button>
+    </div>
+  </div>
+</div>
+
+<script src="puzzles.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

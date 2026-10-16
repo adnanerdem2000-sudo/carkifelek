@@ -1,0 +1,1802 @@
+[
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "AĞZI KULAKLARINDA",
+  "d": 1,
+  "sub": "Sevinç ve mutluluk anlatan bir deyim",
+  "mean": "Yüzünden gülümseme eksik olmayan, son derece memnun ve neşeli olmak",
+  "theme": "Müjdeli bir haber alan ya da sınavı kazanan kişinin hâlini anlatmak için sıkça söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ETEKLERİ ZİL ÇALMAK",
+  "d": 1,
+  "sub": "Büyük sevinci anlatan bir deyim",
+  "mean": "Sevinçten yerinde duramamak, havalara uçacak kadar mutlu olmak",
+  "theme": "Kutlama günlerinde neşesi yüzüne vuran, coşkuyla dolaşan kişiler için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "GÖZDEN DÜŞMEK",
+  "d": 2,
+  "sub": "İtibar kaybını anlatan bir deyim",
+  "mean": "Eskiden sahip olduğu değeri ve sevgiyi yitirip önemsenmez hâle gelmek",
+  "theme": "Yöneticisinin güvenini yitiren bir çalışan için sıkça söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "KULAK ASMAMAK",
+  "d": 1,
+  "sub": "Umursamazlık anlatan bir deyim",
+  "mean": "Söylenen sözleri önemsememek, duymazdan gelmek",
+  "theme": "Verilen öğütleri dinlemeyip bildiğini okuyan kişiler için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "PİRE İÇİN YORGAN YAKMAK",
+  "d": 3,
+  "sub": "Aşırı tepkiyi anlatan bir deyim",
+  "mean": "Küçük bir sıkıntıdan kurtulmak uğruna çok daha büyük bir zararı göze almak",
+  "theme": "Ufak bir sorun yüzünden tüm düzeni bozan, öfkeyle büyük kayıplara yol açan kişiye söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "BURNUNDAN SOLUMAK",
+  "d": 2,
+  "sub": "Öfkeyi anlatan bir deyim",
+  "mean": "Çok kızgın olmak, hırsından ne yapacağını bilmez hâlde bulunmak",
+  "theme": "Sinirden nefes alışverişi hızlanmış, kızgınlığı yüzünden okunan biri için söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ÇAM DEVİRMEK",
+  "d": 2,
+  "sub": "Pot kırmayı anlatan bir deyim",
+  "mean": "Farkında olmadan karşısındakini kıracak uygunsuz bir söz söylemek",
+  "theme": "Kalabalık bir sofrada yersiz bir şaka yapıp ortamı geren biri için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ÇİZMEYİ AŞMAK",
+  "d": 3,
+  "sub": "Haddini bilmemeyi anlatan bir deyim",
+  "mean": "Bilgisi ve yetkisi dışındaki konularda söz söyleyip ahkâm kesmek",
+  "theme": "Ressam Apelles'in, ayakkabı dışındaki ayrıntıları eleştiren kunduracıya verdiği yanıta dayanır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ELİ AÇIK",
+  "d": 1,
+  "sub": "Cömertliği anlatan bir deyim",
+  "mean": "Harcamaktan ve başkalarına vermekten kaçınmayan, cömert olmak",
+  "theme": "Misafirlerini ağırlamak için hiçbir masraftan kaçınmayan kişiler için söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "DİL DÖKMEK",
+  "d": 2,
+  "sub": "İkna çabasını anlatan bir deyim",
+  "mean": "Birini razı etmek için tatlı sözlerle uzun uzun konuşmak",
+  "theme": "Ders çalışmak istemeyen çocuğunu kandırmaya uğraşan bir anne bunu yapabilir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "KILI KIRK YARMAK",
+  "d": 3,
+  "sub": "Titizliği anlatan bir deyim",
+  "mean": "En küçük ayrıntıyı bile gözden kaçırmayacak kadar özenli ve dikkatli davranmak",
+  "theme": "İnce işçiliğiyle tanınan bir zanaatkâr ya da her virgülü denetleyen bir editör için söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "İÇİ İÇİNE SIĞMAMAK",
+  "d": 2,
+  "sub": "Heyecan anlatan bir deyim",
+  "mean": "Sevinç ya da sabırsızlıktan yerinde duramayacak hâle gelmek",
+  "theme": "Bayram sabahını ya da tatile çıkacağı günü bekleyen çocukların hâlini anlatır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "YANGINA KÖRÜKLE GİTMEK",
+  "d": 3,
+  "sub": "Kışkırtmayı anlatan bir deyim",
+  "mean": "Zaten büyümüş bir kavgayı ya da sorunu daha da alevlendirmek",
+  "theme": "İki kişi tartışırken araya girip sözleriyle gerginliği artıran biri için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "AYAĞINI DENK ALMAK",
+  "d": 3,
+  "sub": "Tedbirli olmayı anlatan bir deyim",
+  "mean": "Başına bir iş gelmemesi için dikkatli ve temkinli davranmak",
+  "theme": "Çoğunlukla bir uyarı olarak, karşısındakine gözdağı vermek amacıyla söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ÖDÜ KOPMAK",
+  "d": 2,
+  "sub": "Korkuyu anlatan bir deyim",
+  "mean": "Aniden çok büyük bir dehşete kapılmak",
+  "theme": "Karanlık bir sokakta beklenmedik bir sesle irkilen kişinin yaşadığı durumu anlatır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "YÜZÜ KIZARMAK",
+  "d": 1,
+  "sub": "Utancı anlatan bir deyim",
+  "mean": "Mahcup olmak, yaptığı ya da duyduğu bir şeyden dolayı sıkılmak",
+  "theme": "Kalabalık içinde övülen çekingen biri ya da yalanı ortaya çıkan kişi bu durumu yaşar"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "KAFA TUTMAK",
+  "d": 2,
+  "sub": "Başkaldırıyı anlatan bir deyim",
+  "mean": "Söz dinlememek, karşı gelip direnmek",
+  "theme": "Ergenlik çağındaki gençlerin ailelerine karşı tutumu için sıkça kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "GÖZ BOYAMAK",
+  "d": 2,
+  "sub": "Aldatmayı anlatan bir deyim",
+  "mean": "Gerçeği gizleyip yapmacık işlerle insanları kandırmak",
+  "theme": "Denetim günü gelince her yeri apar topar düzelten bir işletme buna örnek gösterilir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "AKLI BAŞINDA",
+  "d": 1,
+  "sub": "Sağduyuyu anlatan bir deyim",
+  "mean": "Mantıklı düşünen, ne yaptığını bilen, olgun kimse",
+  "theme": "Sorumluluk sahibi, ölçülü kararlar veren gençler övülürken söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "SÜT DÖKMÜŞ KEDİ GİBİ",
+  "d": 2,
+  "sub": "Mahcubiyeti anlatan bir deyim",
+  "mean": "Kabahatinin farkında olup sessizce, suçlu suçlu duran kişiyi tanımlar",
+  "theme": "Yaramazlık yaptıktan sonra köşesine çekilip masum görünmeye çalışan çocuk için söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "KÜPLERE BİNMEK",
+  "d": 2,
+  "sub": "Hiddeti anlatan bir deyim",
+  "mean": "Çok sinirlenmek, öfkeden kendini kaybedecek hâle gelmek",
+  "theme": "Beklemediği bir haksızlıkla karşılaşan ya da kandırıldığını öğrenen kişi böyle olur"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "HAVADAN SUDAN KONUŞMAK",
+  "d": 1,
+  "sub": "Sohbeti anlatan bir deyim",
+  "mean": "Önemsiz, gündelik konular üzerine gelişigüzel sohbet etmek",
+  "theme": "Asıl meseleye girmeden önce ortamı yumuşatmak için yapılan sohbetler böyledir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "İPE UN SERMEK",
+  "d": 3,
+  "sub": "Bahane bulmayı anlatan bir deyim",
+  "mean": "Bir işi yapmamak için türlü mazeretler ileri sürüp oyalanmak",
+  "theme": "Nasreddin Hoca'nın, ödünç bir eşya isteyen komşusunu olmayacak bir bahaneyle geri çevirdiği fıkradan gelir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "KARA KARA DÜŞÜNMEK",
+  "d": 1,
+  "sub": "Endişeyi anlatan bir deyim",
+  "mean": "Çaresizlik içinde, derin bir kaygıyla bir sorunun çözümünü aramak",
+  "theme": "Borcunu nasıl ödeyeceğini bilemeyen birinin uykusuz gecelerini anlatır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "NABZINA GÖRE ŞERBET VERMEK",
+  "d": 3,
+  "sub": "Gönül almayı anlatan bir deyim",
+  "mean": "Karşısındakinin hoşuna gidecek biçimde konuşup davranarak onu idare etmek",
+  "theme": "Eski hekimlerin hastanın durumunu yoklayıp ilacını buna uygun hazırlamasından doğduğu söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "DİŞ BİLEMEK",
+  "d": 3,
+  "sub": "Kin beslemeyi anlatan bir deyim",
+  "mean": "Birine karşı içinde öfke biriktirip öç almak için fırsat kollamak",
+  "theme": "Eski bir rekabeti unutmayan ve rakibinin hata yapmasını bekleyen kişi için söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "DOLAP ÇEVİRMEK",
+  "d": 2,
+  "sub": "Hileyi anlatan bir deyim",
+  "mean": "Gizlice düzen kurup birini aldatmak, entrika peşinde koşmak",
+  "theme": "Ortağının haberi olmadan şirketin parasını kendi hesabına aktaran biri için söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "TAŞ KESİLMEK",
+  "d": 3,
+  "sub": "Donup kalmayı anlatan bir deyim",
+  "mean": "Şaşkınlık ya da korkudan kıpırdayamaz hâle gelmek",
+  "theme": "Beklenmedik acı bir haberi duyan kişinin tepkisizliğini anlatmak için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "İĞNEYLE KUYU KAZMAK",
+  "d": 2,
+  "sub": "Sabırlı emeği anlatan bir deyim",
+  "mean": "Çok güç bir işi uzun süre, büyük bir sabır ve özveriyle başarmaya çalışmak",
+  "theme": "Yıllarca süren tez çalışmaları ya da elle yapılan ince el işleri için sıkça söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "SUYUNA GİTMEK",
+  "d": 2,
+  "sub": "Uysallığı anlatan bir deyim",
+  "mean": "Birini kızdırmamak için isteklerine karşı çıkmayıp ona uygun davranmak",
+  "theme": "Huysuz bir yaşlıyı ya da öfkeli bir müdürü idare etmek isteyenler bu yolu seçer"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "PABUCU DAMA ATILMAK",
+  "d": 3,
+  "sub": "Önemini yitirmeyi anlatan bir deyim",
+  "mean": "Yeni gelen birinin ortaya çıkmasıyla eski değerini kaybedip bir kenara itilmek",
+  "theme": "Ahilik geleneğinde hile yapan esnafın ayakkabısının cezaen çatıya konduğu rivayet edilir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ATI ALAN ÜSKÜDAR'I GEÇTİ",
+  "d": 4,
+  "sub": "Gecikmeyi anlatan bir deyim",
+  "mean": "Fırsat çoktan kaçtı, artık yapılacak bir şey kalmadı",
+  "theme": "Kaçırılan bir fırsatın peşinden artık boşuna koşanlara söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "TEPESİ ATMAK",
+  "d": 1,
+  "sub": "Ani öfkeyi anlatan bir deyim",
+  "mean": "Birdenbire çok sinirlenmek, öfkesine hâkim olamamak",
+  "theme": "Trafikte önü kesilen sürücülerin ya da haksızlığa uğrayanların ani tepkisini anlatır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "GÖNÜL KOYMAK",
+  "d": 1,
+  "sub": "Kırgınlığı anlatan bir deyim",
+  "mean": "Birinin söz ya da davranışından incinip ona küsmek",
+  "theme": "Doğum gününü unutan bir arkadaşa karşı duyulan kırgınlık bu sözle anlatılabilir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "BAŞI GÖĞE ERMEK",
+  "d": 2,
+  "sub": "Mutluluğu anlatan bir deyim",
+  "mean": "Çok sevinmek, kendini son derece mutlu ve şanslı hissetmek",
+  "theme": "Uzun süre beklediği müjdeli haberi sonunda alan kişinin hâlini anlatır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "HAPI YUTMAK",
+  "d": 2,
+  "sub": "Çaresizliği anlatan bir deyim",
+  "mean": "Kurtuluşu olmayan kötü bir duruma düşmek, işi bitmek",
+  "theme": "Kopya çekerken yakalanan bir öğrenci kendi kendine bu sözü söyleyebilir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "PARMAK ISIRMAK",
+  "d": 1,
+  "sub": "Hayranlığı anlatan bir deyim",
+  "mean": "Gördüğü şey karşısında büyük bir şaşkınlık ve beğeni duymak",
+  "theme": "Usta bir sanatçının ya da genç bir yeteneğin gösterisini izleyenlerin tepkisini anlatır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ÇORAP ÖRMEK",
+  "d": 3,
+  "sub": "Kötü niyetli tuzağı anlatan bir deyim",
+  "mean": "Birinin başına gizlice dert açmak için plan kurmak",
+  "theme": "Kıskandığı iş arkadaşını yönetime kötülemek için arkasından iş çeviren biri için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "CİN FİKİRLİ",
+  "d": 2,
+  "sub": "Zekâyı anlatan bir deyim",
+  "mean": "Çok çabuk kavrayan, kurnaz ve hazırcevap kimse",
+  "theme": "Her soruna beklenmedik çözümler bulan uyanık çocuklar için sıkça söylenir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "DEVEYE HENDEK ATLATMAK",
+  "d": 4,
+  "sub": "Zorluğu anlatan bir deyim",
+  "mean": "Birine son derece güç, neredeyse imkânsız bir işi yaptırmak",
+  "theme": "İnatçı birini ikna etmenin ya da tembel birini çalıştırmanın güçlüğünü anlatır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ALNININ AKIYLA",
+  "d": 3,
+  "sub": "Onuru anlatan bir deyim",
+  "mean": "Hiçbir lekeye bulaşmadan, dürüstçe ve şerefle",
+  "theme": "Uzun yıllar görev yapıp temiz bir sicille emekli olan kişiler için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "DOKUZ DOĞURMAK",
+  "d": 4,
+  "sub": "Sabırsız bekleyişi anlatan bir deyim",
+  "mean": "Bir şeyin olmasını beklerken büyük sıkıntı ve heyecan çekmek",
+  "theme": "Sınav sonuçlarının açıklanmasını bekleyen öğrencinin hâli bu sözle anlatılabilir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "KAZAN KALDIRMAK",
+  "d": 4,
+  "sub": "İsyanı anlatan bir deyim",
+  "mean": "Toplu hâlde ayaklanmak, yönetime karşı isyan etmek",
+  "theme": "Yeniçerilerin hoşnutsuzluklarını belirtmek için yemek kaplarını devirmesinden gelir"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "GÜN GÖRMÜŞ",
+  "d": 1,
+  "sub": "Tecrübeyi anlatan bir deyim",
+  "mean": "Hayatta pek çok şey yaşamış, deneyimli ve olgun kimse",
+  "theme": "Gençlere öğüt veren, başından çok olay geçmiş yaşlılar için kullanılır"
+ },
+ {
+  "cat": "Türkçe Deyimler",
+  "a": "ZURNANIN ZIRT DEDİĞİ YER",
+  "d": 4,
+  "sub": "Kritik anı anlatan bir deyim",
+  "mean": "Bir işin en can alıcı, en çetin ve belirleyici noktası",
+  "theme": "Her şeyin yolunda gittiği bir planda asıl sınavın başladığı an için kullanılır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "DAMLAYA DAMLAYA GÖL OLUR",
+  "d": 1,
+  "sub": "Birikimle ilgili bir atasözü",
+  "mean": "Küçük birikimler zamanla bir araya gelerek büyük bir varlık oluşturur",
+  "theme": "Kumbara alan çocuklara ve tasarruf etmek isteyenlere sıkça hatırlatılır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "SAKLA SAMANI GELİR ZAMANI",
+  "d": 1,
+  "sub": "Tutumlulukla ilgili bir atasözü",
+  "mean": "Bugün işe yaramaz görünen şeyler ileride bir gün gerekebilir",
+  "theme": "Eski eşyalarını atamayan, her şeyi biriktiren kişiler kendilerini bu sözle savunur"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "AĞAÇ YAŞKEN EĞİLİR",
+  "d": 1,
+  "sub": "Eğitimle ilgili bir atasözü",
+  "mean": "İnsan küçük yaşta kolayca biçimlendirilir; terbiye erken başlamalıdır",
+  "theme": "Çocuklara iyi alışkanlıkların erken kazandırılması gerektiğini vurgulamak için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "BUGÜNÜN İŞİNİ YARINA BIRAKMA",
+  "d": 1,
+  "sub": "Çalışkanlıkla ilgili bir atasözü",
+  "mean": "Yapılması gereken görevler ertelenmeden, zamanında tamamlanmalıdır",
+  "theme": "Ödevlerini son güne kadar erteleyen öğrencilere sıkça hatırlatılan bir öğüttür"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "SABRIN SONU SELAMETTİR",
+  "d": 1,
+  "sub": "Dayanıklılık ve beklemeyle ilgili bir atasözü",
+  "mean": "Zorluklara katlanıp beklemesini bilen kişi en nihayetinde kurtuluşa erer",
+  "theme": "Sıkıntılı günler geçiren birine umudunu yitirmemesi için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ÜZÜM ÜZÜME BAKA BAKA KARARIR",
+  "d": 2,
+  "sub": "Çevrenin etkisiyle ilgili bir atasözü",
+  "mean": "İnsan birlikte olduğu kişilerden etkilenir, zamanla onlara benzer",
+  "theme": "Kötü arkadaş edinen gençler konusunda kaygılanan aileler bu sözü sıkça kullanır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "GÜLME KOMŞUNA GELİR BAŞINA",
+  "d": 1,
+  "sub": "Başkasının derdiyle ilgili bir atasözü",
+  "mean": "Başkalarının talihsizliğiyle alay eden, aynı şeyi bir gün kendisi de yaşayabilir",
+  "theme": "Birinin düşmesine kahkahayla karşılık veren çocuklar uyarılırken söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "BİR ELİN NESİ VAR, İKİ ELİN SESİ VAR",
+  "d": 2,
+  "sub": "Dayanışmayla ilgili bir atasözü",
+  "mean": "Tek başına başarılamayan işler, birlikte çalışıldığında kolayca yapılır",
+  "theme": "İmece usulüyle yapılan köy işlerinde yardımlaşmanın değerini anlatır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "İŞLEYEN DEMİR IŞILDAR",
+  "d": 2,
+  "sub": "Çalışmanın değeriyle ilgili bir atasözü",
+  "mean": "Sürekli çaba gösteren kişi gelişir, yeteneğini ve parlaklığını korur",
+  "theme": "Pas tutmamak için bilgisini ve becerisini sürekli kullanmanın önemini vurgular"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "AKIL AKILDAN ÜSTÜNDÜR",
+  "d": 2,
+  "sub": "Danışmanın önemiyle ilgili bir atasözü",
+  "mean": "Bir kişinin düşüncesi diğerininkinden daha isabetli olabilir; fikir almak gerekir",
+  "theme": "Önemli bir karar öncesinde başkalarının görüşüne başvurmayı öğütler"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ACELE İŞE ŞEYTAN KARIŞIR",
+  "d": 1,
+  "sub": "Sakin davranmakla ilgili bir atasözü",
+  "mean": "Telaşla, düşünmeden yapılan işlerde hata ve aksilik kaçınılmazdır",
+  "theme": "Son dakikaya bırakılıp koşturmaca içinde bitirilen işler bozuk çıkınca söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "TATLI DİL YILANI DELİĞİNDEN ÇIKARIR",
+  "d": 2,
+  "sub": "Güzel sözün gücüyle ilgili bir atasözü",
+  "mean": "Yumuşak ve nazik konuşma, en inatçı insanı bile ikna edebilir",
+  "theme": "Öfkeli bir müşteriyi sakinleştirmeyi başaran bir çalışan bu sözün doğruluğunu kanıtlar"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "BİN BİLSEN DE BİR BİLENE DANIŞ",
+  "d": 3,
+  "sub": "Alçakgönüllülükle ilgili bir atasözü",
+  "mean": "Ne kadar bilgili olursan ol, işin uzmanının görüşünü almaktan çekinme",
+  "theme": "Kendine fazla güvenip kimseye fikir sormayan kişilere verilen bir öğüttür"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "SÜTTEN AĞZI YANAN YOĞURDU ÜFLEYEREK YER",
+  "d": 2,
+  "sub": "Tecrübeden doğan temkinle ilgili bir atasözü",
+  "mean": "Bir kez zarar gören kişi, benzer durumlarda gereğinden fazla tedbirli olur",
+  "theme": "Bir kez dolandırılan birinin, sonraki her teklife kuşkuyla yaklaşmasını anlatır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "GÜVENME VARLIĞA DÜŞERSİN DARLIĞA",
+  "d": 3,
+  "sub": "Servetle ilgili bir atasözü",
+  "mean": "Zenginliğine aldanıp savurganlık eden kişi bir gün yoksulluğa düşebilir",
+  "theme": "Mirasa konup her şeyini kısa sürede harcayan kişiler için ibret olarak anlatılır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "NE EKERSEN ONU BİÇERSİN",
+  "d": 1,
+  "sub": "Eylemlerin sonucuyla ilgili bir atasözü",
+  "mean": "İnsan yaptığı iyiliğin ya da kötülüğün karşılığını mutlaka görür",
+  "theme": "Çiftçilikten alınan bu benzetme, davranışların insana geri döndüğünü anlatır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "TAŞIMA SU İLE DEĞİRMEN DÖNMEZ",
+  "d": 2,
+  "sub": "Kalıcı kaynakla ilgili bir atasözü",
+  "mean": "Dışarıdan getirilen geçici yardımlarla büyük ve sürekli işler yürütülemez",
+  "theme": "Kendi geliri olmadan borçla ayakta durmaya çalışan işletmeler için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ÇIKMADIK CANDAN UMUT KESİLMEZ",
+  "d": 2,
+  "sub": "İyimserlikle ilgili bir atasözü",
+  "mean": "Hayat sürdükçe her zaman iyiye gitme ihtimali vardır, ümitsizliğe düşmemeli",
+  "theme": "Ağır hasta yakınlarını ya da zor durumdaki kişileri teselli etmek için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ÇİVİ ÇİVİYİ SÖKER",
+  "d": 2,
+  "sub": "Çözüm yoluyla ilgili bir atasözü",
+  "mean": "Bir sorun, ancak kendisine benzer bir yolla ya da güçle giderilebilir",
+  "theme": "Bir alışkanlığı ya da üzüntüyü yenisiyle unutturmaya çalışanlar bu sözü kullanır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "YUVAYI DİŞİ KUŞ YAPAR",
+  "d": 2,
+  "sub": "Aile düzeniyle ilgili bir atasözü",
+  "mean": "Bir evin huzuru ve düzeni büyük ölçüde kadının emeğine bağlıdır",
+  "theme": "Geleneksel olarak yeni evlenen gelinlere öğüt verilirken sıkça söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ÖFKEYLE KALKAN ZARARLA OTURUR",
+  "d": 2,
+  "sub": "Sinirle ilgili bir atasözü",
+  "mean": "Hiddetle davranan kişi sonunda kayba uğrar ve pişman olur",
+  "theme": "Kızgınlıkla verilen kararların genellikle kötü sonuçlar doğurduğunu hatırlatır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ETME BULMA DÜNYASI",
+  "d": 3,
+  "sub": "Karşılık görmeyle ilgili bir atasözü",
+  "mean": "Bu hayatta herkes yaptığının karşılığını eninde sonunda görür",
+  "theme": "Haksızlık yapan birinin zamanla aynı muameleye uğraması üzerine söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "BALIK BAŞTAN KOKAR",
+  "d": 2,
+  "sub": "Yönetimle ilgili bir atasözü",
+  "mean": "Bir topluluktaki bozulma önce en üstteki yöneticilerden başlar",
+  "theme": "Kurumlardaki yolsuzluk ve düzensizliklerin sorumluluğunu liderlere bağlar"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ARMUT DİBİNE DÜŞER",
+  "d": 3,
+  "sub": "Kalıtımla ilgili bir atasözü",
+  "mean": "Çocuklar huy ve davranış bakımından genellikle anne babalarına benzer",
+  "theme": "Babası gibi usta bir zanaatkâr olan oğul için övgüyle söylenebilir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "SÖZ GÜMÜŞSE SÜKUT ALTINDIR",
+  "d": 2,
+  "sub": "Susmanın değeriyle ilgili bir atasözü",
+  "mean": "Konuşmak değerlidir ama yerinde sessiz kalmak çok daha kıymetlidir",
+  "theme": "Tartışmalarda gereksiz laf etmekten kaçınmayı öğütler"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "KEL ÖLÜR SIRMA SAÇLI OLUR",
+  "d": 4,
+  "sub": "Ölümden sonraki övgüyle ilgili bir atasözü",
+  "mean": "İnsanların değeri genellikle hayattayken değil, öldükten sonra anlaşılır",
+  "theme": "Sağlığında hiç takdir görmeyen birinin vefatından sonra göklere çıkarılması üzerine söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ATEŞ OLMAYAN YERDEN DUMAN ÇIKMAZ",
+  "d": 2,
+  "sub": "Söylentilerle ilgili bir atasözü",
+  "mean": "Ortada dolaşan bir dedikodunun mutlaka gerçek bir dayanağı vardır",
+  "theme": "Hakkında söylentiler çıkan birinin bütünüyle masum sayılamayacağını ima etmek için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ARAYAN MEVLASINI DA BULUR, BELASINI DA",
+  "d": 3,
+  "sub": "Kişinin kendi seçimleriyle ilgili bir atasözü",
+  "mean": "İnsan iyiliğe de kötülüğe de kendi isteği ve davranışlarıyla ulaşır",
+  "theme": "Kendi başını derde sokan birinin sonradan şikâyet etmesi üzerine söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "YALANCININ MUMU YATSIYA KADAR YANAR",
+  "d": 2,
+  "sub": "Dürüstlükle ilgili bir atasözü",
+  "mean": "Gerçeğe aykırı sözler uzun süre gizli kalmaz, çabucak anlaşılır",
+  "theme": "Uydurduğu hikâyeler kısa sürede ortaya çıkan kişiler için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "KOL KIRILIR YEN İÇİNDE",
+  "d": 3,
+  "sub": "Aile içi sorunlarla ilgili bir atasözü",
+  "mean": "Bir topluluğun iç sorunları dışarıya yansıtılmadan kendi arasında çözülmelidir",
+  "theme": "Evdeki tartışmaların komşulara ve yabancılara duyurulmaması gerektiğini öğütler"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "EMEK OLMADAN YEMEK OLMAZ",
+  "d": 1,
+  "sub": "Çalışmanın karşılığıyla ilgili bir atasözü",
+  "mean": "Hiçbir kazanç zahmetsiz elde edilemez, geçim için çalışmak gerekir",
+  "theme": "Tembellik edip başkalarının kazancıyla geçinmek isteyenlere söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "HAMAMA GİREN TERLER",
+  "d": 3,
+  "sub": "Sorumluluk almakla ilgili bir atasözü",
+  "mean": "Bir işe girişen kişi, o işin zorluklarına ve sonuçlarına katlanmak zorundadır",
+  "theme": "Ortaklığa girip zarar edince yakınan birine hatırlatılabilecek bir sözdür"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "İT ÜRÜR, KERVAN YÜRÜR",
+  "d": 2,
+  "sub": "Kararlılıkla ilgili bir atasözü",
+  "mean": "Boş laf edenlere aldırmadan doğru bildiğin yolda ilerlemeyi sürdürmelisin",
+  "theme": "Haksız eleştirilere rağmen işine devam eden kişiler kendilerini bu sözle teselli eder"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "GÖRÜNEN KÖY KILAVUZ İSTEMEZ",
+  "d": 1,
+  "sub": "Apaçık gerçeklerle ilgili bir atasözü",
+  "mean": "Herkesin gözü önünde olan bir durum için ayrıca kanıt ya da açıklama gerekmez",
+  "theme": "Sonucu belli bir konuda uzun uzun tartışanlara kısa yoldan söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ERKEN KALKAN YOL ALIR",
+  "d": 1,
+  "sub": "Sabah işe başlamakla ilgili bir atasözü",
+  "mean": "Güne vaktinde başlayan kişi işlerinde ilerler ve başarıya ulaşır",
+  "theme": "Sabahları geç uyanan gençleri harekete geçirmek için büyüklerce sıkça söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "BOŞ ÇUVAL DİK DURMAZ",
+  "d": 3,
+  "sub": "Temel ihtiyaçlarla ilgili bir atasözü",
+  "mean": "Karnı aç ya da donanımı eksik olan kişi ayakta kalamaz, iş göremez",
+  "theme": "Kahvaltı etmeden işe ya da okula gidenlere güne hazırlıklı başlamaları için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "DERDİNİ SÖYLEMEYEN DERMAN BULAMAZ",
+  "d": 3,
+  "sub": "Sorunları paylaşmakla ilgili bir atasözü",
+  "mean": "Sıkıntısını kimseye açmayan kişi, çözüm ya da yardıma kavuşamaz",
+  "theme": "Hastalığını hekimden gizleyen ya da sorununu içine atan kişilere öğüt olarak söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "İNSAN YEDİSİNDE NEYSE YETMİŞİNDE DE ODUR",
+  "d": 4,
+  "sub": "Karakterle ilgili bir atasözü",
+  "mean": "Kişinin temel huyları çocukluğunda biçimlenir ve ömür boyu pek değişmez",
+  "theme": "Yaşlandığı hâlde çocukluğundaki alışkanlıklarını sürdüren birini anlatmak için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "GÜLÜ SEVEN DİKENİNE KATLANIR",
+  "d": 3,
+  "sub": "Fedakârlıkla ilgili bir atasözü",
+  "mean": "Güzel bir şeye sahip olmak isteyen, onun getirdiği zorluklara da razı olmalıdır",
+  "theme": "Sevdiği işin yorucu yanlarından yakınan birine hatırlatılabilecek bir öğüttür"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "YERİN KULAĞI VARDIR",
+  "d": 1,
+  "sub": "Sır saklamakla ilgili bir atasözü",
+  "mean": "Gizli konuşulan şeyler bile bir şekilde başkalarının duyabileceği yerlere ulaşır",
+  "theme": "Özel bir konuyu kalabalık bir yerde anlatan birini uyarmak için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "ELDEN GELEN ÖĞÜN OLMAZ",
+  "d": 4,
+  "sub": "Kendi emeğiyle geçinmekle ilgili bir atasözü",
+  "mean": "Başkasının yardımına bel bağlayan kişi her zaman doyamaz; insan kendi kazancına güvenmeli",
+  "theme": "Atasözünün devamı, böyle bir yardımın vaktinde de bulunmadığını söyler"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "KAZ GELECEK YERDEN TAVUK ESİRGENMEZ",
+  "d": 4,
+  "sub": "Yatırımla ilgili bir atasözü",
+  "mean": "Büyük bir kazanç umulan durumda küçük bir harcamadan kaçınılmamalıdır",
+  "theme": "İleride büyük fayda sağlayacak bir iş için önceden masraf yapmayı haklı gösterir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "AĞLAMAYAN ÇOCUĞA MEME VERMEZLER",
+  "d": 3,
+  "sub": "İstemenin önemiyle ilgili bir atasözü",
+  "mean": "İhtiyacını dile getirmeyen kişiye kimse yardım etmez; hakkını aramak gerekir",
+  "theme": "Zam ya da terfi istemeye çekinen çalışanlara cesaret vermek için söylenir"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "DOST ACI SÖYLER",
+  "d": 1,
+  "sub": "Samimiyetle ilgili bir atasözü",
+  "mean": "Seni gerçekten seven kişi, hoşuna gitmese de doğruyu yüzüne karşı dile getirir",
+  "theme": "Eleştiriye kırılan birine, eleştirenin iyi niyetini anlatmak için kullanılır"
+ },
+ {
+  "cat": "Atasözleri",
+  "a": "KORKUNUN ECELE FAYDASI YOK",
+  "d": 2,
+  "sub": "Kaderle ilgili bir atasözü",
+  "mean": "Kaçınılmaz olan bir sondan endişelenmek onu değiştirmez",
+  "theme": "Ameliyat ya da sınav gibi kaçınılmaz bir an öncesi telaşlananları sakinleştirmek için söylenir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "TEKERLEME",
+  "d": 1,
+  "sub": "Çocukların sevdiği ritmik bir söz oyunu",
+  "mean": "Ses benzerliklerine dayanan, kafiyeli ve çoğu zaman anlamsız sözlerden oluşan kalıp",
+  "theme": "Masalların başında söylenen \"Evvel zaman içinde, kalbur saman içinde\" bunun ünlü bir örneğidir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "BİLMECE",
+  "d": 1,
+  "sub": "Soru biçiminde bir halk söz oyunu",
+  "mean": "Bir nesneyi ya da kavramı üstü kapalı biçimde tarif edip adını buldurmaya dayanan söz",
+  "theme": "Uzun kış gecelerinde aile büyüklerinin çocuklara sorduğu \"Bil bakalım\" soruları buna örnektir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "PALİNDROM",
+  "d": 3,
+  "sub": "Harf düzenine dayalı bir kelime oyunu",
+  "mean": "Baştan sona ve sondan başa okunduğunda aynı kalan söz ya da sayı",
+  "theme": "Türkçedeki \"Ey Edip Adana'da pide ye\" cümlesi bunun en bilinen örneklerindendir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "SATRANÇ PROBLEMİ",
+  "d": 3,
+  "sub": "Bir tahta oyununa dayanan zekâ sorusu",
+  "mean": "Belirli bir taş dizilişinden başlayıp verilen hamle sayısında mat etmeyi isteyen bulmaca",
+  "theme": "Gazetelerin bulmaca köşelerinde \"Beyaz oynar, iki hamlede mat eder\" başlığıyla yer alır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "SUDOKU",
+  "d": 1,
+  "sub": "Rakamlarla oynanan popüler bir bulmaca",
+  "mean": "Dokuza dokuzluk tabloyu, her satır, sütun ve kutuda rakamlar tekrar etmeyecek biçimde doldurma",
+  "theme": "Adı Japonca olsa da kökeni ABD'de yayımlanan Number Place adlı bulmacaya dayanır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "TANGRAM",
+  "d": 3,
+  "sub": "Geometrik parçalarla oynanan bir zekâ oyunu",
+  "mean": "Bir kareden kesilmiş yedi parçayla çeşitli şekiller oluşturmaya dayanan bulmaca",
+  "theme": "Çin kökenli bu oyunda parçaların hiçbiri üst üste gelmeden tamamı kullanılmalıdır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "AKROSTİŞ",
+  "d": 3,
+  "sub": "Satır başlarına dayalı bir kelime oyunu",
+  "mean": "Dizelerin ilk harfleri yukarıdan aşağı okununca bir isim ya da sözcük ortaya çıkan şiir",
+  "theme": "Sevgiliye yazılan şiirlerde onun adını gizlemek için sıkça başvurulan bir yöntemdir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ANAGRAM",
+  "d": 2,
+  "sub": "Harflerin yer değiştirmesine dayalı bir oyun",
+  "mean": "Bir sözcüğün harflerini karıştırarak yeni ve anlamlı bir sözcük elde etme",
+  "theme": "Yazarlar ve bulmacacılar takma ad üretmek için bu yöntemi sıkça kullanır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ÇENGEL BULMACA",
+  "d": 1,
+  "sub": "Gazete eklerinde sık görülen bir harf kareli eğlence",
+  "mean": "Soruların karelerin içine yazıldığı, cevapların oklar yönünde dizildiği kelime tablosu",
+  "theme": "Hafta sonu eklerinin vazgeçilmezi olan bu oyun, kolaydan zora pek çok seviyede hazırlanır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ADAM ASMACA",
+  "d": 1,
+  "sub": "Kâğıt kalemle oynanan bir tahmin oyunu",
+  "mean": "Gizli bir sözcüğün harflerini tek tek tahmin ederek, çizim tamamlanmadan bulmaya çalışma",
+  "theme": "Her yanlış tahminde darağacı çizimine yeni bir çizgi eklenir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "KELİME AVI",
+  "d": 1,
+  "sub": "Harf tablosunda oynanan bir arama oyunu",
+  "mean": "Rastgele harflerle dolu bir tabloda gizlenmiş sözcükleri bulup işaretleme",
+  "theme": "Sözcükler yatay, dikey, çapraz hatta tersten yerleştirilmiş olabilir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "LABİRENT",
+  "d": 1,
+  "sub": "Yol bulmaya dayalı bir zekâ oyunu",
+  "mean": "Karmaşık ve çıkmazlarla dolu yollar arasından girişten çıkışa ulaşmaya çalışılan düzen",
+  "theme": "Mitolojide Minotor'un hapsedildiği yapı bunun en ünlü örneğidir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "PARADOKS",
+  "d": 2,
+  "sub": "Mantıkta bir düşünce kavramı",
+  "mean": "Doğru görünen öncüllerden çelişkili ya da akla aykırı bir sonuca ulaşan akıl yürütme",
+  "theme": "Hem doğru hem yanlış olamayacak \"Bu cümle yanlıştır\" ifadesi meşhur bir örnektir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "KAKURO",
+  "d": 3,
+  "sub": "Rakamlarla oynanan bir bulmaca türü",
+  "mean": "Çapraz yerleşimli karelere, verilen toplamları tutacak biçimde rakamlar yerleştirme oyunu",
+  "theme": "Japonya'da çok sevilen bu oyunda aynı blokta bir rakam iki kez kullanılamaz"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "KENKEN",
+  "d": 4,
+  "sub": "Matematik temelli bir zekâ bulmacası",
+  "mean": "Kafeslere ayrılmış tabloyu, verilen işlem sonuçlarını sağlayacak rakamlarla doldurma oyunu",
+  "theme": "Japon matematik öğretmeni Tetsuya Miyamoto tarafından 2004 yılında geliştirilmiştir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "NONOGRAM",
+  "d": 4,
+  "sub": "Resim ortaya çıkaran bir mantık bulmacası",
+  "mean": "Kenarlardaki sayı ipuçlarına göre kareleri boyayarak gizli bir resim elde etme oyunu",
+  "theme": "Adını mucitlerinden Non Ishida'dan alan bu bulmaca 1980'lerin sonunda Japonya'da doğmuştur"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "SEZAR ŞİFRESİ",
+  "d": 3,
+  "sub": "Gizli yazışmaya dayalı bir harf oyunu",
+  "mean": "Her harfin alfabede belirli sayıda kaydırılmasıyla yapılan basit bir gizli yazı yöntemi",
+  "theme": "Adını, askerî mesajlarını bu yolla gizlediği bilinen Romalı devlet adamından alır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "CİNAS",
+  "d": 4,
+  "sub": "Sesteşliğe dayalı bir söz sanatı",
+  "mean": "Yazılışı ve okunuşu aynı, anlamları farklı sözcüklerin bir arada kullanılması",
+  "theme": "Divan ve halk şiirinde, özellikle mânilerde ustalıkla kullanılan bir kelime oyunudur"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ZEKA SORUSU",
+  "d": 1,
+  "sub": "Düşünme becerisini ölçen bir eğlence",
+  "mean": "Çözümü bilgi yerine akıl yürütme ve dikkat gerektiren şaşırtıcı problem",
+  "theme": "Kibrit çöpleri, su kapları ya da yalancı ve doğrucu köylüler bu tür bilmecelerin klasik konularıdır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "SAYI DİZİSİ",
+  "d": 2,
+  "sub": "Örüntü bulmaya dayalı bir zekâ problemi",
+  "mean": "Belirli bir kurala göre sıralanmış rakamların devamını tahmin etmeye dayanan soru",
+  "theme": "1, 1, 2, 3, 5, 8 diye giden Fibonacci örneği bu tür soruların en ünlüsüdür"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "TÜMDENGELİM",
+  "d": 3,
+  "sub": "Akıl yürütme yöntemlerinden biri",
+  "mean": "Genel bir ilkeden yola çıkarak tek tek durumlar hakkında kesin sonuca varma",
+  "theme": "\"Bütün insanlar ölümlüdür, Sokrates insandır, öyleyse ölümlüdür\" kıyası klasik örnektir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "TÜMEVARIM",
+  "d": 3,
+  "sub": "Bilimsel düşünmede bir çıkarım biçimi",
+  "mean": "Tek tek gözlem ve örneklerden hareketle genel bir kurala ulaşma yöntemi",
+  "theme": "Matematikte bir önermenin bütün doğal sayılar için geçerliliğini kanıtlamada kullanılır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ÇELİŞKİ",
+  "d": 2,
+  "sub": "Mantık hatalarıyla ilgili bir kavram",
+  "mean": "Aynı anda doğru olamayacak iki ifadenin bir arada bulunması durumu",
+  "theme": "Her şeyi delen mızrakla hiçbir şeyin delemediği kalkanı birlikte satan tüccar öyküsü bunu anlatır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "YANILTMAÇ",
+  "d": 1,
+  "sub": "Dil sürçmesine dayalı bir söz oyunu",
+  "mean": "Benzer sesleri art arda dizerek hızlı söylenmesi zor kılınan söz kalıbı",
+  "theme": "\"Şu köşe yaz köşesi, şu köşe kış köşesi\" bunun en bilinen örneklerindendir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "SİHİRLİ KARE",
+  "d": 2,
+  "sub": "Sayılarla oluşturulan bir matematik bulmacası",
+  "mean": "Satır, sütun ve köşegen toplamlarının hep aynı çıktığı rakam tablosu",
+  "theme": "Ressam Albrecht Dürer'in Melankoli gravüründe dörde dörtlük bir örneği yer alır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "YAPBOZ",
+  "d": 1,
+  "sub": "Parçaları birleştirmeye dayalı bir zekâ oyunu",
+  "mean": "Kesilmiş küçük parçaları doğru yerlerine oturtarak bir resmi tamamlama",
+  "theme": "Binlerce parçalı olanlarını bitirenler sonucu çerçeveletip duvara asabilir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "FARKI BUL",
+  "d": 1,
+  "sub": "Dikkat gerektiren bir görsel oyun",
+  "mean": "Birbirine çok benzeyen iki resim arasındaki ayrıntı ayrılıklarını tespit etme",
+  "theme": "Çocuk dergilerinde genellikle yedi ya da on ayrıntının gizlendiği iki çizimle sunulur"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "NOKTA BİRLEŞTİRME",
+  "d": 2,
+  "sub": "Çocuklar için hazırlanan bir çizim oyunu",
+  "mean": "Numaralanmış işaretleri sırasıyla çizgiyle bağlayarak gizli bir resmi ortaya çıkarma",
+  "theme": "Etkinlik kitaplarında küçüklerin sayı sırasını öğrenmesine de yardımcı olur"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ŞAŞIRTMACA",
+  "d": 2,
+  "sub": "Dikkati yanıltmaya dayalı bir soru türü",
+  "mean": "Cevabı ilk akla gelen değil, dikkatli düşünülünce bulunan tuzaklı soru",
+  "theme": "\"Bir kilo pamuk mu ağır, bir kilo demir mi?\" sorusu bunun klasik örneğidir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "SÖZCÜK ZİNCİRİ",
+  "d": 2,
+  "sub": "Sırayla oynanan sözlü bir kelime oyunu",
+  "mean": "Her oyuncunun bir öncekinin söylediği kelimenin son hecesiyle yeni kelime türetmesi",
+  "theme": "Uzun yolculuklarda ve kalabalık sofralarda vakit geçirmek için sıkça oynanır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "İSİM ŞEHİR HAYVAN",
+  "d": 1,
+  "sub": "Kâğıt kalemle oynanan bir kategori oyunu",
+  "mean": "Belirlenen harfle başlayan kişi adı, yer ve canlı adlarını süre bitmeden yazma yarışı",
+  "theme": "Oyunculardan birinin \"Dur!\" demesiyle herkes kalemi bırakır ve puanlar sayılır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "DOĞRULUK TABLOSU",
+  "d": 3,
+  "sub": "Önermeler mantığında bir araç",
+  "mean": "Bir ifadenin her olası değer birleşiminde hangi sonucu verdiğini gösteren çizelge",
+  "theme": "Bilgisayar devrelerinin tasarımında mantık kapılarının davranışını göstermek için kullanılır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ÖNERME",
+  "d": 2,
+  "sub": "Mantığın temel kavramlarından biri",
+  "mean": "Doğru ya da yanlış olduğu kesin olarak söylenebilen hüküm bildiren cümle",
+  "theme": "\"Ankara Türkiye'nin başkentidir\" bir örnek iken soru cümleleri bu tanıma girmez"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "TOTOLOJİ",
+  "d": 4,
+  "sub": "Biçimsel mantıkta bir terim",
+  "mean": "Bileşenleri ne olursa olsun her durumda doğru çıkan bileşik ifade",
+  "theme": "\"Yağmur yağar ya da yağmaz\" gibi her koşulda geçerli kalan ifadeler bunun örneğidir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ÇIKARIM",
+  "d": 2,
+  "sub": "Akıl yürütmeyle ilgili bir kavram",
+  "mean": "Eldeki bilgi ve verilerden mantık yoluyla elde edilen sonuç",
+  "theme": "Dedektif öykülerinde ipuçlarını birleştirip suçluyu bulmak bu becerinin ürünüdür"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "BEYİN JİMNASTİĞİ",
+  "d": 2,
+  "sub": "Zihni çalıştıran etkinlikleri anlatan bir ifade",
+  "mean": "Düşünme gücünü canlı tutmak için yapılan zekâ alıştırmaları",
+  "theme": "Yaşlılıkta unutkanlığı geciktirmek için bulmaca çözmek bu amaçla sıkça önerilir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "DÜŞÜNCE DENEYİ",
+  "d": 3,
+  "sub": "Felsefede kullanılan bir yöntem",
+  "mean": "Gerçekte yapılması güç bir durumu zihinde canlandırarak sonuçlarını sorgulama",
+  "theme": "Schrödinger'in kutudaki kedisi bu yöntemin en bilinen örneklerinden biridir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "MAHKUM İKİLEMİ",
+  "d": 4,
+  "sub": "Oyun kuramında ünlü bir problem",
+  "mean": "İki kişinin bireysel çıkar peşinde koşunca ikisi için de kötü sonuca ulaştığı karar durumu",
+  "theme": "Ayrı odalarda sorgulanan iki şüphelinin birbirini ele verip vermeme seçimi üzerine kuruludur"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "MAYIN TARLASI",
+  "d": 2,
+  "sub": "Bilgisayarlarda bilinen bir mantık oyunu",
+  "mean": "Sayı ipuçlarından yararlanarak gizli tehlikeli kareleri açmadan alanı temizleme oyunu",
+  "theme": "Windows işletim sistemleriyle yıllarca birlikte gelen bu oyun bayraklarla işaretleme içerir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "OPTİK İLÜZYON",
+  "d": 2,
+  "sub": "Görsel algıyla ilgili bir zekâ oyunu",
+  "mean": "Gözün ve beynin görüntüyü yanlış yorumlamasıyla oluşan yanıltıcı görünüm",
+  "theme": "Eşit uzunluktaki iki çizgiden birinin uçlarındaki oklar yüzünden uzun görünmesi buna örnektir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "KUŞ DİLİ",
+  "d": 2,
+  "sub": "Çocukların gizli konuşma oyunu",
+  "mean": "Her hecenin arkasına belirli bir ek getirilerek söylenen, yabancının anlamadığı şifreli konuşma",
+  "theme": "Karadeniz'deki ıslıkla haberleşme geleneği de aynı adla bilinir ve UNESCO listesindedir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "ÖRÜNTÜ",
+  "d": 2,
+  "sub": "Zekâ testlerinde sık geçen bir kavram",
+  "mean": "Şekil, sayı ya da renklerin belirli bir kurala göre tekrarlanarak oluşturduğu düzen",
+  "theme": "Okul öncesi eğitimde çocuklara boncuk dizerek bu düzeni kavratmak yaygındır"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "BİLGİ YARIŞMASI",
+  "d": 1,
+  "sub": "Sorulu cevaplı bir eğlence türü",
+  "mean": "Katılımcıların genel kültür sorularını yanıtlayarak puan topladığı etkinlik",
+  "theme": "Televizyonda büyük ödüllü sürümleri izlenir; kafelerde de takımlar hâlinde düzenlenir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "KISIR DÖNGÜ",
+  "d": 3,
+  "sub": "Bir sorunun yapısını anlatan ifade",
+  "mean": "Bir nedenin sonucu doğurduğu, sonucun da yeniden aynı nedeni beslediği çıkışsız durum",
+  "theme": "\"Deneyimi yok diye işe alınmıyor, işe alınmadığı için de deneyimi yok\" buna örnektir"
+ },
+ {
+  "cat": "Mantık ve Kelime Oyunları",
+  "a": "SAFSATA",
+  "d": 3,
+  "sub": "Mantıkta hatalı akıl yürütme türü",
+  "mean": "Doğru gibi görünen ama aslında geçersiz olan, karşıyı yanıltmaya yönelik çıkarım",
+  "theme": "Tartışmada fikri değil kişiyi hedef alan saldırı bu türün yaygın örneklerindendir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "TRAFİK POLİSİ",
+  "d": 1,
+  "sub": "Güvenlik alanında bir meslek",
+  "mean": "Yollarda araç ve yaya akışını düzenleyen, kurallara uyulmasını denetleyen görevli",
+  "theme": "Kavşaklarda düdüğü ve el işaretleriyle akışı yöneten, gerektiğinde ceza yazan kişi"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "İTFAİYECİ",
+  "d": 1,
+  "sub": "Acil durumlarda görev yapan bir meslek",
+  "mean": "Yangın söndürme ve kurtarma çalışmaları yapan görevli",
+  "theme": "Ağaçta mahsur kalan kediden sel bölgelerine kadar her türlü kurtarma işine koşarlar"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "HEMŞİRE",
+  "d": 1,
+  "sub": "Sağlık alanında bir meslek",
+  "mean": "Hastanede hekimin yanında hasta bakımını üstlenen, tedaviyi uygulayan sağlık çalışanı",
+  "theme": "Modern anlamda bu mesleğin öncüsü Kırım Savaşı'nda yaralılara bakan Florence Nightingale'dir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "DİŞ HEKİMİ",
+  "d": 1,
+  "sub": "Ağız sağlığıyla ilgilenen bir meslek",
+  "mean": "Çürük tedavisi, dolgu, kanal ve çekim gibi işlemleri yapan uzman",
+  "theme": "Altı ayda bir kontrole gidilmesi önerilen bu uzmanın koltuğu birçok kişiyi tedirgin eder"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "AVUKAT",
+  "d": 1,
+  "sub": "Hukuk alanında bir meslek",
+  "mean": "Müvekkilini mahkemede savunan ve ona hukuki danışmanlık veren kişi",
+  "theme": "Duruşmalarda siyah cübbe giyen bu meslek mensupları barolara kayıtlı olarak çalışır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "BERBER",
+  "d": 1,
+  "sub": "Kişisel bakım alanında bir meslek",
+  "mean": "Erkeklerin saç ve sakal tıraşını yapan esnaf",
+  "theme": "Kapısındaki kırmızı beyaz dönen direk bu dükkânların simgesi sayılır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "POSTACI",
+  "d": 1,
+  "sub": "Haberleşme alanında bir meslek",
+  "mean": "Mektup, kart ve kargo gönderilerini adreslere ulaştıran görevli",
+  "theme": "Mahallede kapı kapı dolaşıp tebligat ve faturaları sahiplerine teslim eder"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "MARANGOZ",
+  "d": 1,
+  "sub": "Ahşap işleriyle uğraşan bir meslek",
+  "mean": "Ağaç malzemeden kapı, pencere ve mobilya yapan usta",
+  "theme": "Rende, keski ve testere bu ustanın atölyesinde en çok kullanılan aletlerdir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ELEKTRİKÇİ",
+  "d": 1,
+  "sub": "Teknik bir zanaat",
+  "mean": "Binalarda kablo döşeyen, priz ve sigorta arızalarını gideren usta",
+  "theme": "Sigortalar attığında ya da ışıklar söndüğünde ilk çağrılan kişidir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "TERZİ",
+  "d": 1,
+  "sub": "Dikiş işleriyle uğraşan bir meslek",
+  "mean": "Ölçüye göre giysi diken ya da giysilerde tadilat yapan usta",
+  "theme": "\"Kendi söküğünü dikemez\" sözüyle anılan bu ustanın en önemli aleti mezurasıdır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ÇİFTÇİ",
+  "d": 1,
+  "sub": "Tarım alanında bir meslek",
+  "mean": "Toprağı işleyip ekim ve hasat yapan kişi",
+  "theme": "Traktör, saban ve tohum bu mesleğin vazgeçilmezleridir; 14 Mayıs onların günüdür"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ECZACI",
+  "d": 1,
+  "sub": "Sağlık alanında bir meslek",
+  "mean": "Reçetedeki ilaçları hazırlayıp hastaya kullanımını anlatan uzman",
+  "theme": "Gece ve hafta sonları sırayla nöbet tutan bu meslek mensuplarının dükkânı tabelasından tanınır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "BEKÇİ",
+  "d": 1,
+  "sub": "Güvenlik alanında bir meslek",
+  "mean": "Geceleri sokakları dolaşıp mahallenin güvenliğini sağlayan görevli",
+  "theme": "Düdüğüyle tanınan bu görevliler son yıllarda yeniden mahallelerde sıkça görülmeye başlandı"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ÇOCUK DOKTORU",
+  "d": 1,
+  "sub": "Sağlık alanında bir uzmanlık",
+  "mean": "Bebeklerin ve küçük yaştaki hastaların sağlığıyla ilgilenen hekim",
+  "theme": "Aşı takvimini takip eden, büyüme gelişimini izleyen bu uzmana pediatrist de denir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "MUHASEBECİ",
+  "d": 2,
+  "sub": "Finans alanında bir meslek",
+  "mean": "Bir işletmenin gelir gider kayıtlarını tutup vergi beyannamelerini hazırlayan kişi",
+  "theme": "Ay sonları ve vergi dönemlerinde en yoğun mesaiyi yapan meslek gruplarından biridir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "MİMAR",
+  "d": 2,
+  "sub": "Tasarım alanında bir meslek",
+  "mean": "Binaların planını çizen, yapıların estetik ve işlevsel tasarımını yapan kişi",
+  "theme": "Süleymaniye ve Selimiye camilerini yapan Sinan bu mesleğin Türk tarihindeki en büyük ismidir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "NOTER",
+  "d": 2,
+  "sub": "Hukukla ilgili bir meslek",
+  "mean": "Sözleşme, vekâletname ve satış gibi belgeleri resmî olarak onaylayan kamu görevlisi",
+  "theme": "İkinci el araç satışlarının resmî işlemleri de bu kişilerin onayıyla yapılır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "SAVCI",
+  "d": 2,
+  "sub": "Yargı alanında bir meslek",
+  "mean": "Suçları soruşturup kamu adına dava açan yargı mensubu",
+  "theme": "Duruşmalarda iddianameyi hazırlayan ve sanığın cezalandırılmasını talep eden kişidir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "MUHTAR",
+  "d": 2,
+  "sub": "Yerel yönetimde bir görev",
+  "mean": "Köy ya da mahallede seçimle göreve gelen, halkla devlet arasında aracılık eden kişi",
+  "theme": "İkametgâh belgesi almak ya da adres sorunu çözmek için ilk başvurulan kişidir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "KAYMAKAM",
+  "d": 2,
+  "sub": "Kamu yönetiminde bir görev",
+  "mean": "İlçede devleti temsil eden en yüksek mülki amir",
+  "theme": "Valiye bağlı olarak çalışan bu yöneticiler genellikle siyasal bilgiler mezunudur"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ÇİLİNGİR",
+  "d": 2,
+  "sub": "Kilitlerle uğraşan bir meslek",
+  "mean": "Kapı açma, anahtar kopyalama ve kilit tamiri yapan usta",
+  "theme": "Anahtarını evde unutup kapıda kalan birinin gece yarısı aradığı kişidir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "KUYUMCU",
+  "d": 2,
+  "sub": "Değerli metallerle ilgili bir meslek",
+  "mean": "Altın ve gümüşten takı yapan ya da satan esnaf",
+  "theme": "Kapalıçarşı'da yüzlerce dükkânı bulunan bu esnaf, düğün öncesinin uğrak yeridir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ÇEVİRMEN",
+  "d": 2,
+  "sub": "Dil alanında bir meslek",
+  "mean": "Yazılı metinleri bir dilden başka bir dile aktaran uzman",
+  "theme": "Sözlü aktarım yapanlara tercüman da denir; 30 Eylül bu mesleğin uluslararası günüdür"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "EMLAKÇI",
+  "d": 2,
+  "sub": "Gayrimenkulle ilgili bir meslek",
+  "mean": "Ev, arsa ve dükkân alım satımına ya da kiralanmasına aracılık eden kişi",
+  "theme": "Kiralama işlemlerinde genellikle bir aylık kira bedeli kadar hizmet bedeli alır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "FİZYOTERAPİST",
+  "d": 2,
+  "sub": "Sağlık alanında bir meslek",
+  "mean": "Egzersiz ve özel tekniklerle hastaların hareket yeteneğini geri kazandıran uzman",
+  "theme": "Sakatlanan sporcuların sahalara dönüşünde ve ameliyat sonrası iyileşmede kritik rol oynar"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "DİYETİSYEN",
+  "d": 2,
+  "sub": "Beslenme alanında bir meslek",
+  "mean": "Kişiye özel beslenme programı hazırlayan sağlık uzmanı",
+  "theme": "Kilo vermek ya da kronik hastalıklarını yönetmek isteyenlerin başvurduğu kişidir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "PSİKOLOG",
+  "d": 2,
+  "sub": "Ruh sağlığı alanında bir meslek",
+  "mean": "İnsan davranışlarını inceleyen, danışanlarına terapi ve destek sunan uzman",
+  "theme": "İlaç yazma yetkisi olmadığı için bu açıdan psikiyatristten ayrılır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "EBE",
+  "d": 2,
+  "sub": "Sağlık alanında bir meslek",
+  "mean": "Doğum sırasında anneye yardım eden ve yeni doğan bakımında görev alan sağlık çalışanı",
+  "theme": "Geleneksel olarak köylerde doğumu yaptıran deneyimli kadınlara da bu ad verilirdi"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ZABITA",
+  "d": 2,
+  "sub": "Belediyede görev yapan bir meslek",
+  "mean": "Belediye kurallarına uyulmasını denetleyen, esnafı ve pazarları kontrol eden görevli",
+  "theme": "Seyyar satıcıları denetlemesi ve fiyat etiketi kontrolleriyle bilinir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "SPİKER",
+  "d": 2,
+  "sub": "Yayıncılık alanında bir meslek",
+  "mean": "Radyo ya da televizyonda haber okuyan veya program sunan kişi",
+  "theme": "Güzel diksiyon ve doğru vurgu bu meslekte en önemli beceriler arasında sayılır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "İNŞAAT MÜHENDİSİ",
+  "d": 3,
+  "sub": "Yapı alanında bir meslek",
+  "mean": "Bina, köprü ve yolların statik hesaplarını yapıp yapımını denetleyen uzman",
+  "theme": "Depreme dayanıklı yapı tasarımında en büyük sorumluluk bu meslek mensuplarına düşer"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ANESTEZİYOLOG",
+  "d": 3,
+  "sub": "Ameliyathanede görev yapan bir uzmanlık",
+  "mean": "Ameliyat süresince hastayı uyutan ve hayati bulgularını izleyen hekim",
+  "theme": "Narkoz uygulamasının yanı sıra yoğun bakım ve ağrı tedavisinde de görev alır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "KUNDURACI",
+  "d": 3,
+  "sub": "Ayakkabıyla ilgili geleneksel bir meslek",
+  "mean": "Ayakkabı yapan ya da tamir eden usta",
+  "theme": "Çekiç, kalıp ve deriyle çalışan bu usta, eskimiş tabanları yenileyerek ömrünü uzatır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "KALAYCI",
+  "d": 3,
+  "sub": "Kaybolmaya yüz tutmuş bir zanaat",
+  "mean": "Bakır kapların iç yüzeyini zararsız bir metalle kaplayarak sağlıklı kullanılmasını sağlayan usta",
+  "theme": "Eskiden mahalleleri dolaşıp tencereleri ocakta kızdırarak yenileyen bu ustalar artık nadir görülür"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "HATTAT",
+  "d": 3,
+  "sub": "Güzel yazı sanatıyla ilgili bir meslek",
+  "mean": "Kamış kalem ve mürekkeple estetik yazılar yazan sanatçı",
+  "theme": "Şeyh Hamdullah ve Hafız Osman bu sanatın Osmanlı dönemindeki büyük ustalarıdır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "CİLTÇİ",
+  "d": 3,
+  "sub": "Kitap yapımıyla ilgili bir zanaat",
+  "mean": "Kitap ve defterlerin sayfalarını dikip kapaklarını takan usta",
+  "theme": "Ebru kâğıtları ve deri kapaklarla süslenen eski el yazmalarını onaran zanaatkârdır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "SİMSAR",
+  "d": 3,
+  "sub": "Aracılık yapan geleneksel bir meslek",
+  "mean": "Alıcıyla satıcıyı buluşturup alışverişe aracılık eden, karşılığında pay alan kişi",
+  "theme": "Eski çarşılarda özellikle tahıl ve hayvan pazarlarında etkin olan komisyoncular bu adla anılırdı"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "KÜRATÖR",
+  "d": 3,
+  "sub": "Sanat alanında bir meslek",
+  "mean": "Müze ve galerilerde sergileri planlayan, eserleri seçip düzenleyen uzman",
+  "theme": "Bienallerin her düzenlemesinde farklı bir isim bu görevi üstlenerek sergiye kendi bakışını katar"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "GÜMRÜK MÜŞAVİRİ",
+  "d": 3,
+  "sub": "Dış ticaretle ilgili bir meslek",
+  "mean": "İthalat ve ihracatta resmî işlemleri firmalar adına yürüten danışman",
+  "theme": "Sınır kapılarında ve limanlarda beyannameleri hazırlayıp eşyanın geçişini hızlandırır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "BİLİRKİŞİ",
+  "d": 3,
+  "sub": "Yargıya yardımcı olan bir görev",
+  "mean": "Mahkemenin teknik konularda görüşüne başvurduğu uzman kişi",
+  "theme": "Kaza, inşaat ya da muhasebe davalarında hazırladığı rapor kararı büyük ölçüde etkiler"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "İCRA MEMURU",
+  "d": 3,
+  "sub": "Adliyede görev yapan bir meslek",
+  "mean": "Ödenmeyen borçların tahsili için haciz gibi işlemleri yürüten görevli",
+  "theme": "Borçlunun evine giderek eşyalara el koyma işlemini yapanlar bu görevlilerdir"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "SARRAÇ",
+  "d": 4,
+  "sub": "Deri işçiliğiyle ilgili eski bir zanaat",
+  "mean": "Deriden eyer, koşum takımı, çanta ve kemer gibi eşyalar yapan usta",
+  "theme": "Osmanlı çarşılarında bu ustaların toplandığı sokaklar hâlâ onların adıyla anılır"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "TELLAL",
+  "d": 4,
+  "sub": "Eski çarşılarda görülen bir meslek",
+  "mean": "Pazarda ya da sokakta yüksek sesle duyuru yapan, mal satışına aracılık eden kişi",
+  "theme": "Kayıp ilanlarını ve resmî duyuruları halka bağırarak bildiren bu kişiler eskinin haber ajansıydı"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "ARZUHALCİ",
+  "d": 4,
+  "sub": "Adliye kapılarında rastlanan eski bir meslek",
+  "mean": "Okuma yazma bilmeyenler için dilekçe ve resmî başvuru yazan kişi",
+  "theme": "Daktilosuyla adliye önlerinde oturan bu kişiler, internet çağıyla neredeyse kayboldu"
+ },
+ {
+  "cat": "Meslekler",
+  "a": "AKTÜER",
+  "d": 4,
+  "sub": "Sigorta ve finans alanında bir meslek",
+  "mean": "İstatistik ve olasılık hesaplarıyla risk ölçüp prim ve fon tutarlarını belirleyen uzman",
+  "theme": "Türkiye'de bu unvanı almak için zorlu yeterlilik sınavlarından geçmek gerekir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "SEKSEK",
+  "d": 1,
+  "sub": "Sokakta oynanan geleneksel bir çocuk oyunu",
+  "mean": "Yere çizilmiş numaralı kareler üzerinde tek ayakla zıplayarak taşı ilerletme oyunu",
+  "theme": "Tebeşirle çizilen kareler ve atılan küçük bir taş bu oyunun tek malzemesidir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "BİRDİRBİR",
+  "d": 1,
+  "sub": "Atlamaya dayalı geleneksel bir çocuk oyunu",
+  "mean": "Eğilmiş arkadaşın sırtına ellerini dayayıp üzerinden atlayarak oynanan oyun",
+  "theme": "Sırayla eğilip sırayla atlayan çocukların tekerlemeler eşliğinde oynadığı bir avlu oyunudur"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "OKEY",
+  "d": 1,
+  "sub": "Taşlarla oynanan popüler bir masa oyunu",
+  "mean": "Dört kişinin istaka üzerinde taşları dizerek seri ve per oluşturmaya çalıştığı oyun",
+  "theme": "Kahvehanelerde ve aile toplantılarında en çok oynanan oyunlardandır; sahte joker de içerir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "ORİGAMİ",
+  "d": 1,
+  "sub": "Kâğıtla yapılan bir el sanatı",
+  "mean": "Kesmeden ve yapıştırmadan kâğıdı katlayarak figürler oluşturma sanatı",
+  "theme": "Bin turna figürü katlayanın dileğinin gerçekleşeceğine inanılan Japon geleneği buna dayanır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "SAKLAMBAÇ",
+  "d": 1,
+  "sub": "Bulmaya dayalı geleneksel bir çocuk oyunu",
+  "mean": "Biri gözünü kapatıp sayarken diğerlerinin gizlendiği, sonra arandığı oyun",
+  "theme": "Sayan çocuğun \"Önüm, arkam, sağım, solum sobe\" diye seslenmesiyle başlar"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "KÖREBE",
+  "d": 1,
+  "sub": "Gözü bağlı oynanan bir çocuk oyunu",
+  "mean": "Gözleri kapatılan oyuncunun el yordamıyla arkadaşlarını yakalamaya çalıştığı oyun",
+  "theme": "Yakalanan kişiyi dokunarak tanımaya çalışmak oyunun en eğlenceli kısmıdır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "İP ATLAMA",
+  "d": 1,
+  "sub": "Hareketli bir çocuk oyunu",
+  "mean": "Döndürülen halatın üzerinden ritimle sıçrayarak oynanan oyun",
+  "theme": "Boksörlerin de antrenmanlarında kondisyon için sıkça yaptığı bir egzersizdir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "DOMİNO",
+  "d": 1,
+  "sub": "Taşlarla oynanan bir masa oyunu",
+  "mean": "Üzerinde noktalar bulunan dikdörtgen taşları uç uca eşleştirerek dizme oyunu",
+  "theme": "Taşların art arda dizilip ilkine dokunulunca zincirleme devrilmesi ayrı bir hobidir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "TAVLA",
+  "d": 1,
+  "sub": "Zarla oynanan geleneksel bir masa oyunu",
+  "mean": "İki kişinin zar atarak pullarını karşı tarafa taşımaya ve toplamaya çalıştığı oyun",
+  "theme": "\"Şeş beş\", \"dü şeş\" gibi Farsça zar adlarıyla oynanır; mars olmak büyük yenilgidir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "MİSKET",
+  "d": 2,
+  "sub": "Sokakta oynanan bir çocuk oyunu",
+  "mean": "Küçük cam bilyeleri parmakla fırlatıp rakibinkine çarptırma oyunu",
+  "theme": "Bilye ya da cicoz gibi adlarla da anılan bu oyunun renkli toplarını biriktiren çok çocuk vardır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "UÇURTMA",
+  "d": 1,
+  "sub": "Rüzgârlı havalarda yapılan bir hobi",
+  "mean": "Çıta ve kâğıttan yapılmış, ipe bağlı hafif bir aracı rüzgârla gökyüzüne yükseltme",
+  "theme": "Bahar aylarında tepelerde ve sahillerde rengârenk festivaller düzenlenir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "PUL KOLEKSİYONU",
+  "d": 1,
+  "sub": "Toplamaya dayalı bir hobi",
+  "mean": "Mektuplarda kullanılan damgalı küçük kâğıtları biriktirip albümlerde saklama uğraşı",
+  "theme": "Bu hobinin meraklısına filatelist denir; ilk örnek 1840'ta basılan Penny Black'tir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "ÖRGÜ",
+  "d": 2,
+  "sub": "İple yapılan bir el işi hobisi",
+  "mean": "Şiş ya da tığ kullanarak yünden giysi ve aksesuar üretme uğraşı",
+  "theme": "Kış aylarında atkı, bere ve kazak hazırlayanların vazgeçilmez uğraşıdır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "PİŞTİ",
+  "d": 2,
+  "sub": "Kâğıtla oynanan bir kart oyunu",
+  "mean": "Masadaki son kartla aynı kartı atarak yerdeki tüm kartları toplamaya dayanan oyun",
+  "theme": "Yerde tek kart varken eşini atıp toplamak ekstra puan kazandırır; vale ise her şeyi alır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "DEVE CÜCE",
+  "d": 1,
+  "sub": "Komutlara dayalı bir çocuk oyunu",
+  "mean": "Söylenen sözcüğe göre ayağa kalkmak ya da çömelmek gereken dikkat oyunu",
+  "theme": "Yanlış harekete geçen oyuncu elenir; anaokullarında sıkça oynanır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "KOVALAMACA",
+  "d": 1,
+  "sub": "Koşmaya dayalı bir çocuk oyunu",
+  "mean": "Bir oyuncunun diğerlerini yakalamaya çalıştığı, dokunduğunun yerine geçtiği oyun",
+  "theme": "\"Elim sende\" adıyla da bilinen bu oyun bahçe ve teneffüslerin vazgeçilmezidir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "TOMBALA",
+  "d": 1,
+  "sub": "Sayılarla oynanan bir şans oyunu",
+  "mean": "Torbadan çekilen numaraları kartındakilerle eşleştirip çinko yapmaya çalışma oyunu",
+  "theme": "Yılbaşı gecelerinde aile ve arkadaş toplantılarında geleneksel olarak oynanır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "MENDİL KAPMACA",
+  "d": 2,
+  "sub": "Takımla oynanan geleneksel bir oyun",
+  "mean": "Ortaya bırakılan bezi kapıp yakalanmadan kendi sahasına götürmeye çalışma oyunu",
+  "theme": "İki takımdaki aynı numaralı oyuncular çağrılınca ortaya koşarak yarışır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "ÇELİK ÇOMAK",
+  "d": 2,
+  "sub": "Sopayla oynanan geleneksel bir oyun",
+  "mean": "Uzun bir değnekle kısa bir tahta parçasına vurarak uzağa fırlatmaya dayanan oyun",
+  "theme": "Bazı araştırmacılar onu beyzbol ve kriketin uzak bir akrabası olarak görür"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "YEDİ KİREMİT",
+  "d": 2,
+  "sub": "Topla oynanan geleneksel bir sokak oyunu",
+  "mean": "Üst üste dizilmiş yassı taşları topla devirip rakiplere yakalanmadan yeniden dizme oyunu",
+  "theme": "Bir takım dağılan taşları dizmeye çalışırken öbür takım topla onları vurmaya uğraşır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "AHŞAP OYMACILIĞI",
+  "d": 3,
+  "sub": "Ağaçla yapılan bir el sanatı",
+  "mean": "Bıçak ve keskilerle tahta üzerine figür ve desen işleme uğraşı",
+  "theme": "Selçuklu dönemi cami kapıları ve minberleri bu sanatın Anadolu'daki eşsiz örnekleridir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "ÇÖMLEKÇİLİK",
+  "d": 2,
+  "sub": "Toprakla yapılan bir el sanatı",
+  "mean": "Kili çarkta biçimlendirip fırında pişirerek kap kacak yapma uğraşı",
+  "theme": "Kapadokya'daki Avanos, Kızılırmak'ın kızıl çamuruyla bu sanatın merkezlerinden biridir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "EBRU",
+  "d": 2,
+  "sub": "Suyla yapılan geleneksel bir sanat",
+  "mean": "Kitreli su üzerine boyaları serpip desen oluşturduktan sonra kâğıda aktarma sanatı",
+  "theme": "Bu sanat 2014 yılında UNESCO Somut Olmayan Kültürel Miras listesine Türkiye adına alınmıştır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "GOBLEN",
+  "d": 2,
+  "sub": "İğneyle yapılan bir el işi",
+  "mean": "Delikli bez üzerine renkli iplerle resim işlemeye dayanan nakış türü",
+  "theme": "Duvar panolarına çerçevelenen bu işlemeler eskiden çeyiz sandıklarının gözdesiydi"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "MAKETÇİLİK",
+  "d": 2,
+  "sub": "Küçültülmüş modellerle uğraşılan bir hobi",
+  "mean": "Gerçek nesnelerin oranlı küçük kopyalarını parça parça birleştirip boyama uğraşı",
+  "theme": "Gemi, uçak ve bina modellerini yapıştırıp ince fırçalarla boyamak sabır ister"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "FOTOĞRAFÇILIK",
+  "d": 2,
+  "sub": "Görsel kayda dayalı bir hobi",
+  "mean": "Işığı ve kompozisyonu kullanarak anları kareye dondurma uğraşı",
+  "theme": "Gün batımından hemen önceki yumuşak ışıklı zaman dilimine \"altın saat\" denir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "AMİRAL BATTI",
+  "d": 2,
+  "sub": "Kâğıt kalemle oynanan bir strateji oyunu",
+  "mean": "Gizli ızgaraya yerleştirilen gemileri koordinat tahminleriyle bulup vurmaya dayanan oyun",
+  "theme": "Rakip \"isabet\" ya da \"karavana\" diye yanıt verir; bütün parçaları vurulan gemi sulara gömülür"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "SESSİZ SİNEMA",
+  "d": 2,
+  "sub": "Kalabalıkla oynanan bir tahmin oyunu",
+  "mean": "Bir eserin adını konuşmadan, yalnızca jest ve mimiklerle takım arkadaşlarına anlatma oyunu",
+  "theme": "Kelime sayısı parmaklarla, hece sayısı kola dokunarak belirtilir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "BRİÇ",
+  "d": 3,
+  "sub": "Eşli oynanan bir kart oyunu",
+  "mean": "Dört oyuncunun karşılıklı ortaklık kurup deklarasyon ve el kazanma üzerine oynadığı oyun",
+  "theme": "Satranç gibi bir zihin sporu kabul edilen bu oyunun uluslararası olimpiyatları düzenlenir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "BATAK",
+  "d": 2,
+  "sub": "Kâğıtla oynanan popüler bir kart oyunu",
+  "mean": "Oyuncuların alacakları el sayısını önceden söyleyip koz rengini belirlediği oyun",
+  "theme": "Söylediği eli alamayan oyuncu puan kaybeder; maça çoğu zaman koz kabul edilir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "MOZAİK",
+  "d": 3,
+  "sub": "Küçük parçalarla yapılan bir sanat",
+  "mean": "Renkli taş, cam ya da seramik parçalarını yan yana dizerek resim oluşturma",
+  "theme": "Gaziantep'teki Zeugma'da bulunan Çingene Kızı bu sanatın en ünlü örneklerindendir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "YAĞ SATARIM BAL SATARIM",
+  "d": 2,
+  "sub": "Halka olup oynanan geleneksel bir oyun",
+  "mean": "Halka hâlinde oturan çocukların arkasında dolaşan ebenin bir mendili gizlice bırakıp koştuğu oyun",
+  "theme": "Tekerlemeyi söyleyen ebe bezi birinin arkasına bırakınca kovalamaca başlar"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "TOPAÇ",
+  "d": 2,
+  "sub": "Dönmeye dayalı geleneksel bir oyuncak",
+  "mean": "Sivri ucu üzerinde, ipe sarılıp fırlatılarak uzun süre döndürülen ahşap oyuncak",
+  "theme": "Kamçıyla vurularak döndürülen türleri de olan bu oyuncak binlerce yıllık geçmişe sahiptir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "MAKROME",
+  "d": 3,
+  "sub": "İple yapılan bir el sanatı",
+  "mean": "Kalın ipleri çeşitli düğümlerle bağlayarak süs eşyası yapma sanatı",
+  "theme": "Saksı askıları ve duvar süsleri yapımında son yıllarda yeniden moda olmuştur"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "KANAVİÇE",
+  "d": 4,
+  "sub": "İğne ve iplikle yapılan bir el işi",
+  "mean": "Seyrek dokunmuş delikli kumaş üzerine çarpı işleriyle desen oluşturma",
+  "theme": "Etamin olarak da bilinen bu kumaş, sayarak işleme yönteminin temel malzemesidir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "KALİGRAFİ",
+  "d": 3,
+  "sub": "Güzel yazı sanatı",
+  "mean": "Harfleri estetik bir biçimde, özel uçlu kalemlerle yazma sanatı",
+  "theme": "Davetiyelerde ve logo tasarımlarında sıkça başvurulan bu beceri yeniden popüler bir hobidir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "AÇ KAPIYI BEZİRGAN BAŞI",
+  "d": 3,
+  "sub": "Tekerlemeyle oynanan geleneksel bir oyun",
+  "mean": "İki çocuğun kollarıyla oluşturduğu kemerin altından sırayla geçen çocuklarla oynanan oyun",
+  "theme": "Tekerlemenin sonunda kemerin altında kalan çocuk iki takımdan birini seçer"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "ESİR ALMACA",
+  "d": 3,
+  "sub": "İki takımla oynanan geleneksel bir oyun",
+  "mean": "Rakip takımın oyuncularını yakalayıp kendi sahasında tutsak etmeye dayanan oyun",
+  "theme": "Tutsak düşen arkadaşlarını kurtarmak için takım arkadaşları rakip sahaya dalar"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "ÇİNİCİLİK",
+  "d": 3,
+  "sub": "Seramik süslemeyle ilgili bir sanat",
+  "mean": "Pişmiş toprak levhalar üzerine renkli desenler işleyip sırlayarak süsleme sanatı",
+  "theme": "İznik ve Kütahya bu sanatın Anadolu'daki en ünlü merkezleridir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "MİNYATÜR",
+  "d": 3,
+  "sub": "Resimle ilgili geleneksel bir sanat",
+  "mean": "Kitapları süslemek için yapılan, perspektifsiz ve ince ayrıntılı küçük resim",
+  "theme": "Nakkaş Osman ve Levnî bu sanatın Osmanlı'daki en büyük ustaları arasındadır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "YÜZÜK OYUNU",
+  "d": 3,
+  "sub": "İki takım arasında oynanan geleneksel bir saklama eğlencesi",
+  "mean": "Ters kapatılmış fincanlardan hangisinin altında küçük bir takı saklandığını bulmaya dayanan oyun",
+  "theme": "Doğu Anadolu'da özellikle uzun kış gecelerinde takımlar hâlinde oynanır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "MANGALA",
+  "d": 4,
+  "sub": "Taşlarla oynanan geleneksel bir zekâ oyunu",
+  "mean": "İki oyuncunun çukurlardaki taşları sırayla dağıtarak hazinesinde en çok taşı toplamaya çalıştığı oyun",
+  "theme": "Türklerin eski strateji oyunlarından olup 2020'de UNESCO Somut Olmayan Kültürel Miras listesine girmiştir"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "KUTU KUTU PENSE",
+  "d": 3,
+  "sub": "Halka olup oynanan tekerlemeli bir oyun",
+  "mean": "El ele tutuşan çocukların söylenen tekerlemeyle adı geçen kişinin arkasını dönmesine dayanan oyun",
+  "theme": "\"Elmayı yerse, armudu yerse\" diye devam eden sözlerle oynanır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "NÜMİSMATİK",
+  "d": 4,
+  "sub": "Bilimsel boyutu olan bir koleksiyon hobisi",
+  "mean": "Eski madeni ve kâğıt paraları toplayıp inceleme uğraşı",
+  "theme": "Tarihte ilk sikkeyi basan Lidyalılar bu hobiyle uğraşanlar için büyük önem taşır"
+ },
+ {
+  "cat": "Oyunlar ve Hobiler",
+  "a": "TELKARİ",
+  "d": 4,
+  "sub": "İnce metal işçiliğine dayalı bir sanat",
+  "mean": "Gümüş ya da altın telleri işleyerek dantel gibi süs eşyası yapma sanatı",
+  "theme": "Mardin'in Midyat ilçesi bu zanaatin Türkiye'deki en bilinen merkezidir"
+ }
+]

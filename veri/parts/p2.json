@@ -1,0 +1,1802 @@
+[
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ASLAN",
+  "d": 1,
+  "sub": "Kedigiller ailesinden iri bir yırtıcı",
+  "mean": "Ormanlar kralı olarak anılan güçlü avcı",
+  "theme": "Erkeklerinin boynunu gür bir yele çevreler; sürüde avı çoğunlukla dişiler yapar"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "FİL",
+  "d": 1,
+  "sub": "Karada yaşayan en iri memeli",
+  "mean": "Hortumunu el gibi kullanarak su içer ve yiyecek toplar",
+  "theme": "Afrika ve Asya türleri vardır; kulakları vücut ısısını dengelemeye yardım eder"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ZÜRAFA",
+  "d": 1,
+  "sub": "Afrika savanlarında yaşayan otçul bir memeli",
+  "mean": "Yüksek dallardaki yaprakları rahatça yiyebilen uzun boyunlu canlı",
+  "theme": "Boynunda da insanlardaki gibi yalnızca yedi omur bulunur"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "PENGUEN",
+  "d": 1,
+  "sub": "Uçamayan bir kanatlı türü",
+  "mean": "Kanatlarını yüzgeç gibi kullanarak suda hızla ilerler",
+  "theme": "Çoğu türü Güney Yarımküre'de yaşar; imparator türü en büyüğüdür"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KAPLUMBAĞA",
+  "d": 1,
+  "sub": "Sürüngenler sınıfından yavaş hareketli bir canlı",
+  "mean": "Sırtındaki sert kabuk onu yırtıcılardan korur",
+  "theme": "Bazı dev türleri yüz yılı aşkın süre yaşayabilir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KARTAL",
+  "d": 1,
+  "sub": "Gündüz avlanan büyük bir yırtıcı kanatlı",
+  "mean": "Keskin gözleri ve güçlü pençeleriyle tanınan avcı",
+  "theme": "Birçok ülkenin armasında ve bayrağında güç simgesi olarak yer alır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "BAYKUŞ",
+  "d": 1,
+  "sub": "Geceleri avlanan bir kanatlı",
+  "mean": "Başını yaklaşık 270 derece çevirebilen gece avcısı",
+  "theme": "Özel tüy yapısı sayesinde neredeyse sessiz uçar; bilgeliğin simgesi sayılır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KELEBEK",
+  "d": 1,
+  "sub": "Renkli kanatlı bir böcek",
+  "mean": "Tırtıl evresinden sonra koza içinde başkalaşım geçirir",
+  "theme": "Kanatlarındaki renkler, ışığı yansıtan minicik pullardan gelir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ARI",
+  "d": 1,
+  "sub": "Kovanda yaşayan sosyal bir böcek",
+  "mean": "Çiçeklerden nektar toplayıp bal üretir",
+  "theme": "Koloni bir kraliçe etrafında örgütlenir; işçiler dans ederek yön tarif eder"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "GÖKKUŞAĞI",
+  "d": 1,
+  "sub": "Yağmur sonrası görülebilen bir doğa olayı",
+  "mean": "Güneş ışığının su damlacıklarında kırılıp renklere ayrılmasıyla oluşur",
+  "theme": "Yedi renkten oluştuğu kabul edilir; dış kenarı kırmızı, iç kenarı mordur"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ŞELALE",
+  "d": 1,
+  "sub": "Akarsularla ilgili bir doğa güzelliği",
+  "mean": "Suyun yüksek bir yerden aşağıya döküldüğü yer",
+  "theme": "Venezuela'daki Angel, dünyanın en yüksek örneği kabul edilir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "YANARDAĞ",
+  "d": 1,
+  "sub": "Yer kabuğuyla ilgili bir doğa oluşumu",
+  "mean": "Patladığında lav, kül ve gaz püskürtür",
+  "theme": "Erciyes ve Ağrı Dağı, Türkiye'deki bilinen örneklerdendir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KUTUP AYISI",
+  "d": 1,
+  "sub": "Soğuk bölgelerde yaşayan iri bir memeli",
+  "mean": "Beyaz görünen kürkü karla kamufle olmasını sağlar",
+  "theme": "Derisi aslında siyahtır; Arktik'te deniz buzu üzerinde fok avlar"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "SİNCAP",
+  "d": 1,
+  "sub": "Ağaçlarda yaşayan küçük bir kemirgen",
+  "mean": "Kışa hazırlık için fındık ve cevizleri toprağa saklar",
+  "theme": "Gömdüğü tohumların bir kısmını unutması ormanların yayılmasına katkı sağlar"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "YARASA",
+  "d": 2,
+  "sub": "Uçabilen tek memeli grubu",
+  "mean": "Karanlıkta sesin yankısını kullanarak yönünü bulur",
+  "theme": "Gündüzleri mağaralarda baş aşağı asılı olarak dinlenir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "BUKALEMUN",
+  "d": 2,
+  "sub": "Renk değiştirebilen bir sürüngen",
+  "mean": "Gözlerini birbirinden bağımsız hareket ettirebilir",
+  "theme": "Dilini vücut uzunluğundan bile uzun fırlatarak böcek yakalar"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KANGURU",
+  "d": 2,
+  "sub": "Avustralya'ya özgü bir memeli",
+  "mean": "Yavrusunu karnındaki kesede taşır",
+  "theme": "Güçlü arka bacaklarıyla zıplayarak ilerler; geri geri yürüyemez"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ÇİTA",
+  "d": 2,
+  "sub": "Kedigiller ailesinin benekli bir üyesi",
+  "mean": "Karadaki en hızlı hayvan olarak bilinir",
+  "theme": "Kısa mesafede saatte 100 kilometreyi aşan hızlara ulaşabilir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KUNDUZ",
+  "d": 2,
+  "sub": "Suda ve karada yaşayan bir kemirgen",
+  "mean": "Ağaç keserek akarsular üzerine baraj kurar",
+  "theme": "Sürekli uzayan turuncu ön dişlerini kemirerek aşındırır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "AKBABA",
+  "d": 2,
+  "sub": "Leşle beslenen büyük bir kanatlı",
+  "mean": "Doğanın temizlikçisi olarak hastalıkların yayılmasını önler",
+  "theme": "Başındaki tüysüz deri, beslenirken temiz kalmasına yardım eder"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "FLAMİNGO",
+  "d": 2,
+  "sub": "Sığ göllerde sürüler halinde yaşayan bir kanatlı",
+  "mean": "Pembe rengini beslendiği karides ve alglerden alır",
+  "theme": "Sıklıkla tek ayağı üzerinde durur; Gediz Deltası'nda kalabalık koloniler görülür"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "TİMSAH",
+  "d": 2,
+  "sub": "İri ve güçlü bir sürüngen",
+  "mean": "Nehir kenarlarında pusu kurup avını suya çeker",
+  "theme": "Dinozorlar çağından günümüze ulaşmış bir soyun temsilcisidir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KİRPİ",
+  "d": 2,
+  "sub": "Küçük, böcekçil bir memeli",
+  "mean": "Tehlikede top gibi kıvrılıp dikenleriyle korunur",
+  "theme": "Kışı uyuyarak geçirir; bahçelerdeki salyangozları yiyerek faydalı olur"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KASIRGA",
+  "d": 2,
+  "sub": "Şiddetli bir hava olayı",
+  "mean": "Sıcak okyanuslar üzerinde oluşan dev bir alçak basınç fırtınası",
+  "theme": "Merkezindeki sakin bölgeye göz denir; Pasifik'te tayfun adını alır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "VAN KEDİSİ",
+  "d": 2,
+  "sub": "Türkiye'ye özgü evcil bir ırk",
+  "mean": "Bembeyaz tüyleriyle tanınan sevimli dost",
+  "theme": "Gözleri çoğu zaman farklı renklerdedir; suyu sevmesiyle ünlüdür"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "GÖÇMEN KUŞLAR",
+  "d": 2,
+  "sub": "Mevsimlere bağlı bir hayvan davranışı",
+  "mean": "Sonbaharda sıcak bölgelere gidip ilkbaharda geri dönen kanatlılar",
+  "theme": "İstanbul Boğazı, leylekler ve yırtıcılar için dünyanın önemli rotalarındandır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ORMAN YANGINI",
+  "d": 2,
+  "sub": "Doğal alanları tehdit eden bir afet",
+  "mean": "Kuru ve rüzgârlı havalarda hızla yayılarak ağaçları yok eder",
+  "theme": "Bazı çam türlerinin kozalakları ancak yüksek ısıyla açılıp tohum bırakır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "UĞUR BÖCEĞİ",
+  "d": 2,
+  "sub": "Kırmızı kanatlı, benekli küçük bir canlı",
+  "mean": "Bitki bitlerini yiyerek tarımda doğal ilaç görevi görür",
+  "theme": "Halk arasında üzerine konduğu kişiye şans getirdiğine inanılır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "GERGEDAN",
+  "d": 2,
+  "sub": "Kalın derili iri bir otçul",
+  "mean": "Burnunun üzerindeki boynuzlarıyla tanınır",
+  "theme": "Boynuzu saç ve tırnakla aynı madde olan keratinden oluşur"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KÜRESEL ISINMA",
+  "d": 2,
+  "sub": "Çevre sorunlarından biri",
+  "mean": "Sera gazlarının artmasıyla dünyanın ortalama sıcaklığının yükselmesi",
+  "theme": "Buzulların erimesi ve deniz seviyesinin yükselmesi sonuçlarındandır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ORNİTORENK",
+  "d": 3,
+  "sub": "Avustralya'ya özgü ilginç bir memeli",
+  "mean": "Ördek gagalı ve yumurtlayan bir memeli",
+  "theme": "Erkeklerinin arka ayaklarında zehirli bir mahmuz bulunur"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KARINCAYİYEN",
+  "d": 3,
+  "sub": "Orta ve Güney Amerika'da yaşayan bir memeli",
+  "mean": "Uzun yapışkan diliyle termit yuvalarını boşaltır",
+  "theme": "Hiç dişi yoktur; günde on binlerce küçük böcek tüketebilir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "TEMBEL HAYVAN",
+  "d": 3,
+  "sub": "Ağaçlarda yaşayan yavaş bir memeli",
+  "mean": "Günün büyük bölümünü dallardan asılı uyuyarak geçirir",
+  "theme": "Kürkünde yosun ürediği için yeşilimsi görünebilir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "AKREP",
+  "d": 3,
+  "sub": "Eklembacaklılar şubesinden bir canlı",
+  "mean": "Kuyruğunun ucundaki iğneyle zehir enjekte eder",
+  "theme": "Morötesi ışık altında mavi yeşil renkte parlar"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "SU AYGIRI",
+  "d": 3,
+  "sub": "Afrika nehirlerinde yaşayan iri bir memeli",
+  "mean": "Günü suda geçirip geceleri karada otlar",
+  "theme": "Derisi güneşten koruyan kırmızımsı bir salgı üretir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "BUZUL",
+  "d": 3,
+  "sub": "Soğuk iklimlerle ilgili bir doğa oluşumu",
+  "mean": "Yavaşça hareket eden dev ve donmuş kütle",
+  "theme": "Dünyadaki tatlı suyun büyük kısmı bu yapılarda depolanır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "MAMUT",
+  "d": 3,
+  "sub": "Soyu tükenmiş bir memeli",
+  "mean": "Uzun kıllı ve kıvrık dişli, iri bir buzul çağı canlısı",
+  "theme": "Sibirya'da donmuş toprakta neredeyse bozulmadan kalıntıları bulunmuştur"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "SİBİRYA KAPLANI",
+  "d": 3,
+  "sub": "Kedigillerin en iri temsilcilerinden",
+  "mean": "Soğuk ormanlarda yaşayan çizgili büyük bir yırtıcı",
+  "theme": "Uzak Doğu Rusya'da yaşar; yoğun kürkü dondurucu soğuklara dayanmasını sağlar"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KUZGUN",
+  "d": 3,
+  "sub": "Kargagillerden iri bir kanatlı",
+  "mean": "Zekâsı ve ses taklit yeteneğiyle bilinen siyah tüylü canlı",
+  "theme": "Londra Kalesi'nde bakılan örneklerine dair eski efsaneler vardır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "YABAN KEÇİSİ",
+  "d": 3,
+  "sub": "Dağlık kayalıklarda yaşayan bir otçul",
+  "mean": "Sarp yamaçlara tırmanmada çok usta, kıvrık boynuzlu memeli",
+  "theme": "Türkiye'de Toroslarda ve Doğu Anadolu dağlarında yaşar"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "ASİT YAĞMURU",
+  "d": 3,
+  "sub": "Çevre kirliliğiyle bağlantılı bir doğa olayı",
+  "mean": "Havadaki kükürt ve azot oksitlerinin suyla birleşip yere düşmesi",
+  "theme": "Ormanlara, göllere ve tarihi taş yapılara zarar verir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "BESİN ZİNCİRİ",
+  "d": 4,
+  "sub": "Ekolojiyle ilgili temel bir kavram",
+  "mean": "Canlıların kimin kimi yediğine göre sıralanması",
+  "theme": "Üreticiler olan bitkilerle başlar, ayrıştırıcılarla tamamlanır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "NESLİ TÜKENMEKTE OLAN TÜRLER",
+  "d": 4,
+  "sub": "Doğa korumayla ilgili bir ifade",
+  "mean": "Yakın gelecekte yeryüzünden silinme riski taşıyan canlılar",
+  "theme": "IUCN Kırmızı Listesi bu canlıları risk düzeyine göre sınıflandırır"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "KIŞ UYKUSU",
+  "d": 4,
+  "sub": "Bazı hayvanların mevsimsel bir davranışı",
+  "mean": "Soğuk aylarda vücut ısısı ve metabolizmanın büyük ölçüde düşmesi",
+  "theme": "Kirpiler, yarasalar ve dağ gelincikleri bu dönemi farklı biçimlerde geçirir"
+ },
+ {
+  "cat": "Hayvanlar ve Doğa",
+  "a": "YAŞAM ALANI KAYBI",
+  "d": 4,
+  "sub": "Doğa korumayla ilgili bir sorun",
+  "mean": "Canlıların barındığı yerlerin tarım ve şehirleşme yüzünden yok olması",
+  "theme": "Türlerin yeryüzünden silinmesinin en büyük nedeni olarak gösterilir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MAVİ BALİNA",
+  "d": 1,
+  "sub": "Okyanuslarda yaşayan dev bir memeli",
+  "mean": "Yeryüzünde yaşamış en büyük hayvan olarak bilinir",
+  "theme": "Boyu 30 metreye yaklaşabilir; minik kril karidesleriyle beslenir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "YUNUS",
+  "d": 1,
+  "sub": "Zekâsıyla bilinen bir deniz memelisi",
+  "mean": "Sürüler halinde yüzen, oyuncu ve sosyal bir canlı",
+  "theme": "Uyurken beyninin yalnızca bir yarısını dinlendirir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "KÖPEKBALIĞI",
+  "d": 1,
+  "sub": "Kıkırdaklı bir deniz canlısı",
+  "mean": "Keskin dişleriyle bilinen okyanus avcısı",
+  "theme": "Dişleri ömrü boyunca sürekli yenilenir; iskeletinde kemik bulunmaz"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "AHTAPOT",
+  "d": 1,
+  "sub": "Yumuşakçalar grubundan bir deniz canlısı",
+  "mean": "Sekiz kolu ve vantuzlarıyla avını yakalar",
+  "theme": "Üç kalbi ve mavi kanı vardır; tehlikede mürekkep püskürtür"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "DENİZANASI",
+  "d": 1,
+  "sub": "Şeffaf gövdeli bir su canlısı",
+  "mean": "Dokunaçlarındaki yakıcı hücrelerle avlanır",
+  "theme": "Beyni ve kalbi yoktur; bazı türleri neredeyse ölümsüz kabul edilir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "YENGEÇ",
+  "d": 1,
+  "sub": "Kabuklular grubundan bir deniz canlısı",
+  "mean": "Kıskaçları ve yan yan yürümesiyle tanınır",
+  "theme": "Büyüdükçe eski kabuğunu bırakıp yenisini oluşturur"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "İSTAKOZ",
+  "d": 1,
+  "sub": "İri kıskaçlı bir kabuklu",
+  "mean": "Kayalık deniz tabanlarında yaşayan uzun antenli canlı",
+  "theme": "Kanı mavimsidir; pişirildiğinde kırmızıya döner"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MARTI",
+  "d": 1,
+  "sub": "Kıyılarda sık görülen bir kanatlı",
+  "mean": "Balıkçı teknelerinin peşinden giden yüksek sesli kuş",
+  "theme": "İstanbul'un ve sahil kasabalarının simgelerinden biri sayılır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "FOK",
+  "d": 1,
+  "sub": "Kutup ve ılıman sularda yaşayan bir memeli",
+  "mean": "Karada sürünerek ilerleyen, suda usta bir yüzücü",
+  "theme": "Akdeniz türü, dünyanın en nadir memelileri arasında yer alır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "DALGA",
+  "d": 1,
+  "sub": "Su yüzeyinde görülen bir hareket",
+  "mean": "Rüzgârın etkisiyle kıyıya doğru ilerleyen su kabarması",
+  "theme": "Sörfçüler en büyüklerini yakalamak için Portekiz'deki Nazaré'ye gider"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "KARİDES",
+  "d": 1,
+  "sub": "Küçük bir kabuklu",
+  "mean": "Sığ sularda ve tabanda yaşayan, uzun bıyıklı canlı",
+  "theme": "Bazı türleri büyük canlıların derisini temizleyerek ortak yaşam kurar"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MİDYE",
+  "d": 1,
+  "sub": "İki kabuklu bir yumuşakça",
+  "mean": "Kayalara tutunup suyu süzerek beslenir",
+  "theme": "Tutunmak için ürettiği güçlü iplikler tıbbi yapıştırıcılara ilham olmuştur"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "ADA",
+  "d": 1,
+  "sub": "Coğrafi bir kara parçası türü",
+  "mean": "Dört yanı suyla çevrili kara parçası",
+  "theme": "Grönland bu türün en büyük örneği sayılır; Avustralya ise kıta kabul edilir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "AKDENİZ",
+  "d": 1,
+  "sub": "Türkiye'nin güney kıyılarını çevreleyen su",
+  "mean": "Avrupa, Asya ve Afrika arasında kalan iç deniz",
+  "theme": "Cebelitarık Boğazı ile Atlantik'e bağlanır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "KALAMAR",
+  "d": 2,
+  "sub": "Kafadanbacaklılardan bir deniz canlısı",
+  "mean": "On kollu, mürekkep püskürten hızlı yüzücü",
+  "theme": "Dev türlerinin gözleri hayvanlar âlemindeki en büyük gözler arasındadır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "VATOZ",
+  "d": 2,
+  "sub": "Yassı gövdeli kıkırdaklı bir canlı",
+  "mean": "Kumlu tabanlarda gizlenen, kanat gibi yüzgeçli canlı",
+  "theme": "Bazı türlerinin kuyruğunda zehirli bir diken bulunur"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MORS",
+  "d": 2,
+  "sub": "Kuzey Kutbu'nda yaşayan iri bir memeli",
+  "mean": "Uzun fildişi dişlerini buz üzerine tırmanmak için kullanır",
+  "theme": "Bıyıkları sayesinde deniz tabanındaki midyeleri bulur"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "İSTİRİDYE",
+  "d": 2,
+  "sub": "İki kabuklu bir yumuşakça",
+  "mean": "İçine kaçan yabancı maddeyi sedefle kaplar",
+  "theme": "Doğal incilerin oluşumu bu canlının savunma mekanizmasına dayanır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "ORKA",
+  "d": 2,
+  "sub": "Siyah beyaz renkli bir deniz memelisi",
+  "mean": "Katil balina olarak da anılan güçlü avcı",
+  "theme": "Aslında yunusgiller ailesinin en büyük üyesidir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "PALYAÇO BALIĞI",
+  "d": 2,
+  "sub": "Mercan resiflerinde yaşayan renkli bir canlı",
+  "mean": "Şakayık benzeri dokunaçlar arasında güvenle yaşar",
+  "theme": "Nemo'yu Bulmak filmiyle ün kazanmıştır; turuncu beyaz çizgilidir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "PLANKTON",
+  "d": 2,
+  "sub": "Suda sürüklenerek yaşayan canlılar",
+  "mean": "Okyanus besin zincirinin temelini oluşturur",
+  "theme": "Bitkisel türleri, soluduğumuz oksijenin önemli bir kısmını üretir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "AKINTI",
+  "d": 2,
+  "sub": "Denizlerdeki su hareketlerinden biri",
+  "mean": "Belirli bir yönde sürekli akan büyük su kütlesi",
+  "theme": "Gulf Stream, Avrupa'nın batısını ılık tutan ünlü örnektir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "KÖRFEZ",
+  "d": 2,
+  "sub": "Kıyı biçimlerinden biri",
+  "mean": "Denizin karaya doğru sokulduğu geniş girinti",
+  "theme": "İzmit ve Edremit, Türkiye'deki bilinen örneklerdendir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MÜREN",
+  "d": 2,
+  "sub": "Yılan görünümlü bir deniz canlısı",
+  "mean": "Kaya oyuklarında saklanıp avını bekler",
+  "theme": "Ağzında ikinci bir çene seti bulunur; avını içeri çekmekte kullanır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "GELGİT",
+  "d": 2,
+  "sub": "Deniz seviyesindeki düzenli bir değişim",
+  "mean": "Ay ve Güneş'in çekim etkisiyle suyun yükselip alçalması",
+  "theme": "Kanada'daki Fundy Koyu'nda seviye farkı 15 metreyi aşabilir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "TSUNAMİ",
+  "d": 2,
+  "sub": "Denizle ilgili yıkıcı bir afet",
+  "mean": "Deniz tabanındaki depremlerin yarattığı dev dalga dizisi",
+  "theme": "Japonca liman dalgası anlamına gelen bir sözcüktür"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "CARETTA CARETTA",
+  "d": 2,
+  "sub": "Akdeniz kıyılarında yaşayan bir sürüngen",
+  "mean": "Yumurtalarını kumsallara bırakan iri başlı deniz canlısı",
+  "theme": "Dalyan İztuzu Plajı, yuva alanlarının korunmasıyla ünlüdür"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MERCAN",
+  "d": 2,
+  "sub": "Sıcak denizlerde koloniler kuran bir canlı",
+  "mean": "Kireçli iskeletleriyle resifler oluşturur",
+  "theme": "Sıcaklık artışında rengini kaybetmesine ağarma denir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "HİNT OKYANUSU",
+  "d": 2,
+  "sub": "Dünyadaki büyük su kütlelerinden biri",
+  "mean": "Afrika, Asya ve Avustralya arasında kalan geniş su",
+  "theme": "Maldivler ve Seyşeller bu suların ortasındaki ada ülkeleridir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "SÜNGER",
+  "d": 2,
+  "sub": "Gözenekli yapıya sahip ilkel bir deniz canlısı",
+  "mean": "Gövdesinden suyu süzerek beslenir",
+  "theme": "Sinir sistemi ve organları yoktur; Ege'de dalgıçlar tarafından toplanırdı"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "LAGÜN",
+  "d": 3,
+  "sub": "Kıyı oluşumlarından biri",
+  "mean": "Kum setiyle denizden ayrılmış sığ göl",
+  "theme": "Fethiye yakınlarındaki ünlü turkuaz koy bilinen bir örnektir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "KIZILDENİZ",
+  "d": 3,
+  "sub": "Afrika ile Arap Yarımadası arasındaki su",
+  "mean": "Süveyş Kanalı ile Akdeniz'e bağlanan dar deniz",
+  "theme": "Mercan resifleri ve tuzlu sularıyla dalgıçların gözdesidir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "ANEMON",
+  "d": 3,
+  "sub": "Mercanlarla akraba bir deniz canlısı",
+  "mean": "Çiçeğe benzeyen, yakıcı dokunaçlı canlı",
+  "theme": "Turuncu beyaz çizgili küçük balıklarla ortak yaşam kurar"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "BARRAKUDA",
+  "d": 3,
+  "sub": "Sıcak denizlerde yaşayan yırtıcı bir balık",
+  "mean": "Uzun gövdeli ve sivri dişli hızlı avcı",
+  "theme": "Parlayan nesnelere saldırma eğilimiyle bilinir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "NARVAL",
+  "d": 3,
+  "sub": "Kuzey Kutbu sularında yaşayan bir memeli",
+  "mean": "Erkeklerinin uzun sarmal dişi boynuz gibi görünür",
+  "theme": "Halk arasında denizlerin tek boynuzlu atı olarak anılır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MANATİ",
+  "d": 3,
+  "sub": "Sıcak kıyı sularında yaşayan otçul bir memeli",
+  "mean": "Deniz ineği olarak da bilinen yavaş canlı",
+  "theme": "Eski denizcilerin denizkızı hikâyelerine ilham verdiği düşünülür"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "TUZLULUK",
+  "d": 3,
+  "sub": "Deniz suyuyla ilgili bir ölçü",
+  "mean": "Suda çözünmüş mineral miktarını ifade eder",
+  "theme": "Okyanuslarda ortalama binde 35 civarındadır"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MARİANA ÇUKURU",
+  "d": 3,
+  "sub": "Okyanus tabanındaki bir oluşum",
+  "mean": "Yeryüzünün bilinen en derin noktasını barındırır",
+  "theme": "Pasifik'teki Challenger Derinliği yaklaşık 11 kilometredir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "ATOL",
+  "d": 3,
+  "sub": "Tropik denizlerdeki bir oluşum",
+  "mean": "Ortasında lagün bulunan halka biçimli resif adası",
+  "theme": "Maldivler büyük ölçüde bu yapılardan oluşur"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "LÜFER",
+  "d": 3,
+  "sub": "Marmara ve Boğaz'ın ünlü yırtıcı balığı",
+  "mean": "Sonbaharda sürüler halinde göç eden mavi yeşil balık",
+  "theme": "Küçüklerine çinekop, büyüklerine kofana denir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "KAŞALOT",
+  "d": 3,
+  "sub": "Dişli balinalardan iri bir memeli",
+  "mean": "Derin sularda dev mürekkep balıklarını avlar",
+  "theme": "Hayvanlar âlemindeki en büyük beyne sahiptir; Moby Dick bu türdendir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "KITA SAHANLIĞI",
+  "d": 4,
+  "sub": "Deniz tabanı coğrafyasıyla ilgili bir terim",
+  "mean": "Karanın deniz altında sığ biçimde devam eden kısmı",
+  "theme": "Deniz hukukunda ülkelerin kaynak hakları açısından önemlidir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "ULUSLARARASI SULAR",
+  "d": 4,
+  "sub": "Deniz hukukuyla ilgili bir kavram",
+  "mean": "Hiçbir ülkenin egemenliğinde olmayan açık deniz alanları",
+  "theme": "Bu bölgelerde gemiler kendi bayrak devletinin yasalarına tabidir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "MÜNHASIR EKONOMİK BÖLGE",
+  "d": 4,
+  "sub": "Deniz hukukuyla ilgili bir kavram",
+  "mean": "Kıyı devletinin balıkçılık ve kaynak haklarına sahip olduğu alan",
+  "theme": "Kıyıdan itibaren 200 deniz miline kadar uzanabilir"
+ },
+ {
+  "cat": "Denizler ve Deniz Canlıları",
+  "a": "DALGIÇ HASTALIĞI",
+  "d": 4,
+  "sub": "Su altı etkinlikleriyle ilgili bir sağlık sorunu",
+  "mean": "Derinlikten hızla yüzeye çıkınca kanda azot kabarcıkları oluşması",
+  "theme": "Halk arasında vurgun denir; tedavisinde basınç odası kullanılır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "GÜNEŞ",
+  "d": 1,
+  "sub": "Gökyüzündeki en parlak gök cismi",
+  "mean": "Dünya'ya ışık ve ısı veren yıldız",
+  "theme": "Işığı bize yaklaşık 8 dakika 20 saniyede ulaşır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "LABORATUVAR",
+  "d": 1,
+  "sub": "Bilimsel çalışmaların yapıldığı bir yer",
+  "mean": "Deney ve analizlerin özel donanımla yürütüldüğü mekân",
+  "theme": "Önlük, gözlük ve eldiven buradaki temel güvenlik kurallarındandır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "MARS",
+  "d": 1,
+  "sub": "Güneş Sistemi'nden bir gök cismi",
+  "mean": "Kızıl renkli görünen dördüncü gezegen",
+  "theme": "Olimpos Dağı adlı yanardağı sistemin en yüksek dağıdır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "JÜPİTER",
+  "d": 1,
+  "sub": "Güneş Sistemi'nden bir gök cismi",
+  "mean": "Sistemdeki en büyük gezegen",
+  "theme": "Büyük Kırmızı Leke, yüzyıllardır süren dev bir fırtınadır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "SATÜRN",
+  "d": 1,
+  "sub": "Güneş Sistemi'nden bir gök cismi",
+  "mean": "Belirgin halkalarıyla tanınan gaz devi",
+  "theme": "Yoğunluğu sudan düşüktür; dev bir havuza konsa yüzerdi"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "GEZEGEN",
+  "d": 1,
+  "sub": "Astronomiyle ilgili bir terim",
+  "mean": "Bir yıldızın çevresinde dolanan büyük gök cismi",
+  "theme": "Sistemimizde sekiz tane olduğu kabul edilir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "ASTRONOT",
+  "d": 1,
+  "sub": "Uzayla ilgili bir unvan",
+  "mean": "Uzay yolculuğu için eğitilmiş kişi",
+  "theme": "Alper Gezeravcı 2024'te uzaya giden ilk Türk oldu"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "TELESKOP",
+  "d": 1,
+  "sub": "Gökyüzü gözleminde kullanılan bir araç",
+  "mean": "Uzaktaki cisimleri büyüterek görmeyi sağlar",
+  "theme": "Galileo bu aleti gökyüzüne çevirerek Jüpiter'in uydularını keşfetti"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "KARA DELİK",
+  "d": 1,
+  "sub": "Uzaydaki gizemli bir oluşum",
+  "mean": "Işığın bile kaçamadığı çok güçlü çekim alanı",
+  "theme": "Çok büyük yıldızların çökmesiyle oluşabilir; ilk fotoğrafı 2019'da yayımlandı"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "ATOM",
+  "d": 1,
+  "sub": "Maddenin yapısıyla ilgili bir kavram",
+  "mean": "Elementlerin özelliğini taşıyan en küçük birim",
+  "theme": "Adı Yunanca bölünemez anlamındaki sözcükten gelir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "MIKNATIS",
+  "d": 1,
+  "sub": "Fizikle ilgili bir nesne",
+  "mean": "Demiri ve bazı metalleri kendine çeken cisim",
+  "theme": "Her zaman kuzey ve güney olmak üzere iki kutbu vardır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "DENEY",
+  "d": 1,
+  "sub": "Bilimsel yöntemin bir aşaması",
+  "mean": "Bir hipotezi sınamak için yapılan kontrollü çalışma",
+  "theme": "Sonuçların güvenilir olması için başkalarınca tekrarlanabilmesi gerekir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "KUYRUKLU YILDIZ",
+  "d": 1,
+  "sub": "Güneş'in çevresinde dolanan bir gök cismi",
+  "mean": "Güneş'e yaklaştıkça parlak bir iz bırakan buzlu kütle",
+  "theme": "Halley her 75-76 senede bir Dünya'dan görülebilir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "UYDU",
+  "d": 1,
+  "sub": "Bir gezegenin çevresinde dolanan cisim",
+  "mean": "Doğal olanı da yapay olanı da bulunan yörünge cismi",
+  "theme": "İlk yapay örnek olan Sputnik 1957'de fırlatıldı"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "SAMANYOLU",
+  "d": 2,
+  "sub": "Uzaydaki büyük bir yapı",
+  "mean": "İçinde bulunduğumuz sarmal galaksi",
+  "theme": "Karanlık gecelerde gökyüzünde soluk bir ışık kuşağı olarak görülür"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "METEOR",
+  "d": 2,
+  "sub": "Gökyüzünde görülen bir olay",
+  "mean": "Atmosfere giren taş parçasının yanarak bıraktığı ışık izi",
+  "theme": "Halk arasında yıldız kayması olarak bilinir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "GALAKSİ",
+  "d": 2,
+  "sub": "Uzaydaki dev bir yapı",
+  "mean": "Milyarlarca yıldız, gaz ve tozdan oluşan sistem",
+  "theme": "Andromeda, bize en yakın büyük örnektir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "MERKÜR",
+  "d": 2,
+  "sub": "Güneş Sistemi'nden bir gök cismi",
+  "mean": "Güneş'e en yakın gezegen",
+  "theme": "Bir yılı yalnızca 88 Dünya günü sürer"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "VENÜS",
+  "d": 2,
+  "sub": "Güneş Sistemi'nden bir gök cismi",
+  "mean": "Sabah ve akşam yıldızı olarak da bilinen gezegen",
+  "theme": "Sistemin en sıcak gezegenidir; kendi ekseni etrafında ters yönde döner"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "NEPTÜN",
+  "d": 2,
+  "sub": "Güneş Sistemi'nden bir gök cismi",
+  "mean": "Güneş'e en uzak gezegen",
+  "theme": "Matematiksel hesaplarla gözlenmeden önce yeri tahmin edilmiştir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "PLÜTON",
+  "d": 2,
+  "sub": "Güneş Sistemi'nin uzak bir gök cismi",
+  "mean": "2006'da cüce gezegen sınıfına alınan cisim",
+  "theme": "New Horizons aracı 2015'te yanından geçerek kalp biçimli bir bölge görüntüledi"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "AY TUTULMASI",
+  "d": 2,
+  "sub": "Gökyüzünde gerçekleşen bir olay",
+  "mean": "Dünya'nın gölgesinin uydumuzun üzerine düşmesi",
+  "theme": "Tam olduğunda uydumuz kızıl renge bürünebilir; buna kanlı görünüm denir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "MOLEKÜL",
+  "d": 2,
+  "sub": "Kimyayla ilgili bir kavram",
+  "mean": "İki ya da daha fazla atomun bağlanmasıyla oluşan yapı",
+  "theme": "Su, iki hidrojen ve bir oksijenden oluşan bir örnektir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "ELEKTRON",
+  "d": 2,
+  "sub": "Atomun yapı taşlarından biri",
+  "mean": "Çekirdeğin çevresinde bulunan eksi yüklü parçacık",
+  "theme": "J. J. Thomson tarafından 1897'de keşfedildi"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "IŞIK YILI",
+  "d": 2,
+  "sub": "Astronomide kullanılan bir uzunluk birimi",
+  "mean": "Işığın bir yılda aldığı yol",
+  "theme": "Yaklaşık 9,46 trilyon kilometreye eşittir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "BÜYÜK PATLAMA",
+  "d": 2,
+  "sub": "Evrenin kökeniyle ilgili bir kuram",
+  "mean": "Evrenin çok sıcak ve yoğun bir noktadan genişlediği görüşü",
+  "theme": "Yaklaşık 13,8 milyar yıl önce gerçekleştiği hesaplanır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "MİKROSKOP",
+  "d": 2,
+  "sub": "Laboratuvarda kullanılan bir araç",
+  "mean": "Gözle görülemeyecek kadar küçük şeyleri büyüterek gösterir",
+  "theme": "Leeuwenhoek bu aletle ilk kez bakterileri gözlemledi"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "PERİYODİK TABLO",
+  "d": 2,
+  "sub": "Kimyayla ilgili bir çizelge",
+  "mean": "Elementleri atom numaralarına göre düzenleyen sistem",
+  "theme": "Mendeleyev henüz keşfedilmemiş elementler için boşluklar bıraktı"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "DNA",
+  "d": 2,
+  "sub": "Biyolojiyle ilgili bir molekül",
+  "mean": "Canlıların kalıtsal bilgisini taşıyan yapı",
+  "theme": "Watson ve Crick 1953'te çift sarmal yapısını açıkladı"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "UZAY İSTASYONU",
+  "d": 2,
+  "sub": "Yörüngedeki bir yapı",
+  "mean": "Astronotların aylarca kalıp araştırma yaptığı yörünge üssü",
+  "theme": "Uluslararası örneği Dünya'nın çevresini yaklaşık 90 dakikada dolanır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "İZOTOP",
+  "d": 3,
+  "sub": "Kimya ve fizikle ilgili bir kavram",
+  "mean": "Aynı elementin nötron sayısı farklı olan biçimi",
+  "theme": "Karbon-14, arkeolojide yaş tayini için kullanılır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "NEBULA",
+  "d": 3,
+  "sub": "Uzaydaki bir oluşum",
+  "mean": "Gaz ve tozdan oluşan dev bulut",
+  "theme": "Yeni yıldızların doğduğu yerlerdir; Orion'daki ünlü örnek çıplak gözle görülür"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "KUASAR",
+  "d": 3,
+  "sub": "Uzaydaki çok parlak bir cisim",
+  "mean": "Uzak galaksilerin merkezindeki son derece enerjik kaynak",
+  "theme": "Merkezdeki dev bir kara deliğin madde yutmasıyla parladığı düşünülür"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "SÜPERNOVA",
+  "d": 3,
+  "sub": "Uzaydaki şiddetli bir olay",
+  "mean": "Büyük bir yıldızın ömrünün sonunda patlaması",
+  "theme": "1054'te gözlenen örnek, bugün Yengeç Bulutsusu olarak görülür"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "ASTEROİT KUŞAĞI",
+  "d": 3,
+  "sub": "Güneş Sistemi'ndeki bir bölge",
+  "mean": "Mars ile Jüpiter arasındaki küçük kayalık cisimler topluluğu",
+  "theme": "Cüce gezegen Ceres bu bölgenin en büyük cismidir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "GÖRELİLİK KURAMI",
+  "d": 3,
+  "sub": "Fizikteki büyük bir teori",
+  "mean": "Zaman, uzay ve kütle çekimini yeniden tanımlayan açıklama",
+  "theme": "Einstein tarafından geliştirildi; E=mc² bu çalışmayla ünlendi"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "OLAY UFKU",
+  "d": 3,
+  "sub": "Uzay bilimleriyle ilgili bir terim",
+  "mean": "Ötesinden hiçbir şeyin geri dönemediği sınır",
+  "theme": "Işık bile bu sınırı geçtikten sonra kaçamaz"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "KIRMIZI DEV",
+  "d": 3,
+  "sub": "Yıldızların yaşam evrelerinden biri",
+  "mean": "Yakıtı azalan yıldızın şişip soğuyarak büyüdüğü evre",
+  "theme": "Güneş de yaklaşık 5 milyar yıl sonra bu evreye girecek"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "NÖTRON",
+  "d": 3,
+  "sub": "Atom çekirdeğindeki bir parçacık",
+  "mean": "Yüksüz olan çekirdek parçacığı",
+  "theme": "James Chadwick tarafından 1932'de keşfedildi"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "KATALİZÖR",
+  "d": 3,
+  "sub": "Kimyayla ilgili bir madde türü",
+  "mean": "Tepkimeyi hızlandırıp kendisi değişmeden kalan madde",
+  "theme": "Canlılardaki enzimler bu görevi üstlenen proteinlerdir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "ENTROPİ",
+  "d": 3,
+  "sub": "Termodinamikle ilgili bir kavram",
+  "mean": "Bir sistemdeki düzensizliğin ölçüsü",
+  "theme": "Yalıtılmış bir sistemde zamanla azalmayacağı kabul edilir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "KARANLIK MADDE",
+  "d": 4,
+  "sub": "Kozmolojideki gizemli bir bileşen",
+  "mean": "Işık yaymayan ama kütle çekimiyle varlığı anlaşılan bileşen",
+  "theme": "Galaksilerin dönüş hızları bu görünmez kütlenin ipuçlarını verir"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "NEWTON'UN HAREKET YASALARI",
+  "d": 4,
+  "sub": "Klasik fiziğin temel ilkeleri",
+  "mean": "Kuvvet ile cisimlerin davranışı arasındaki üç temel ilke",
+  "theme": "Eylemsizlik ile etki-tepki bu ilkeler arasında yer alır"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "KÜTLE ÇEKİM DALGALARI",
+  "d": 4,
+  "sub": "Uzay-zamanla ilgili bir olgu",
+  "mean": "Çarpışan kara delikler gibi devasa cisimlerin uzay-zamanda yarattığı titreşimler",
+  "theme": "İlk kez 2015'te LIGO dedektörleriyle doğrudan algılandı"
+ },
+ {
+  "cat": "Bilim ve Uzay",
+  "a": "MUTLAK SIFIR",
+  "d": 4,
+  "sub": "Sıcaklıkla ilgili bir sınır",
+  "mean": "Kuramsal olarak mümkün olan en düşük sıcaklık",
+  "theme": "Eksi 273,15 santigrat dereceye karşılık gelir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KALP",
+  "d": 1,
+  "sub": "Dolaşım sistemine ait bir organ",
+  "mean": "Kanı vücuda pompalayan kaslı organ",
+  "theme": "Bir yetişkinde dakikada ortalama 60 ile 100 arasında atar"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "BEYİN",
+  "d": 1,
+  "sub": "Kafatası içindeki bir organ",
+  "mean": "Düşünme, hafıza ve hareketleri yöneten merkez",
+  "theme": "Vücut ağırlığının yaklaşık yüzde 2'si olmasına karşın enerjinin beşte birini kullanır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "AKCİĞER",
+  "d": 1,
+  "sub": "Solunum sistemine ait bir organ",
+  "mean": "Havadaki oksijeni kana geçiren organ",
+  "theme": "Sağ tarafta üç, sol tarafta iki lobdan oluşur"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "İSKELET",
+  "d": 1,
+  "sub": "Vücudun destek sistemi",
+  "mean": "Kemiklerden oluşan, vücuda şekil veren çatı",
+  "theme": "Yetişkin bir insanda 206 kemikten oluşur"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "MİDE",
+  "d": 1,
+  "sub": "Sindirim sistemine ait bir organ",
+  "mean": "Yiyecekleri asit ve enzimlerle parçalayan kese",
+  "theme": "İç yüzeyi asitten korunmak için birkaç günde bir yenilenir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "BÖBREK",
+  "d": 1,
+  "sub": "Boşaltım sistemine ait bir organ",
+  "mean": "Kanı süzerek idrar oluşturan organ",
+  "theme": "Fasulye biçimli olup çift halinde bulunur; biri yeterli olabilir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KARACİĞER",
+  "d": 1,
+  "sub": "Karın boşluğundaki büyük bir organ",
+  "mean": "Zararlı maddeleri arındıran ve safra üreten organ",
+  "theme": "Kendini yenileyebilen tek iç organdır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "DİŞ",
+  "d": 1,
+  "sub": "Ağız içindeki sert yapılar",
+  "mean": "Yiyecekleri ısırıp çiğnemeye yarar",
+  "theme": "Mineyle kaplıdır; mine vücudun en sert maddesidir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KULAK",
+  "d": 1,
+  "sub": "Duyu organlarından biri",
+  "mean": "Sesleri algılayan ve dengeyi sağlayan organ",
+  "theme": "Vücudun en küçük kemikleri burada bulunur"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "GÖZ",
+  "d": 1,
+  "sub": "Duyu organlarından biri",
+  "mean": "Işığı algılayarak görmeyi sağlayan organ",
+  "theme": "Saniyede birkaç kez farkına varmadan küçük sıçrama hareketleri yapar"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "AŞI",
+  "d": 1,
+  "sub": "Koruyucu sağlıkla ilgili bir uygulama",
+  "mean": "Bağışıklık sistemini hastalıklara karşı önceden hazırlar",
+  "theme": "Edward Jenner 1796'da çiçek hastalığına karşı ilk örneği geliştirdi"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "VİTAMİN",
+  "d": 1,
+  "sub": "Beslenmeyle ilgili bir kavram",
+  "mean": "Vücudun az miktarda ihtiyaç duyduğu düzenleyici maddeler",
+  "theme": "C türünün eksikliği eskiden denizcilerde iskorbüte yol açardı"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "GRİP",
+  "d": 1,
+  "sub": "Yaygın bir hastalık",
+  "mean": "Ateş, halsizlik ve kas ağrısıyla seyreden viral enfeksiyon",
+  "theme": "Her yıl değişen virüs suşları nedeniyle aşısı yenilenir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "İLK YARDIM",
+  "d": 1,
+  "sub": "Acil durumlarla ilgili bir uygulama",
+  "mean": "Sağlık ekibi gelene kadar yaralıya yapılan müdahale",
+  "theme": "Temel kuralı önce olay yerinin güvenliğini sağlamaktır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "OMURGA",
+  "d": 2,
+  "sub": "İskelet sisteminin bir parçası",
+  "mean": "Vücudu dik tutan ve sinir kordonunu koruyan kemik dizisi",
+  "theme": "Yetişkinlerde 33 ile 34 arası kemikten oluşur; boyun kısmında yedi tane bulunur"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "PANKREAS",
+  "d": 2,
+  "sub": "Sindirim sistemine bağlı bir organ",
+  "mean": "Hem sindirim enzimleri hem de hormon üreten bez",
+  "theme": "Ürettiği hormonlar kan şekerini düzenler"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "TANSİYON",
+  "d": 2,
+  "sub": "Sağlık kontrollerinde ölçülen bir değer",
+  "mean": "Kanın damar duvarlarına yaptığı basınç",
+  "theme": "Büyük ve küçük olmak üzere iki değerle ifade edilir; ideali 120/80 civarıdır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KAS",
+  "d": 2,
+  "sub": "Hareket sisteminin bir parçası",
+  "mean": "Uyarıldığında kısalıp gevşeyerek hareket sağlayan doku",
+  "theme": "İnsan vücudunda 600'den fazla bulunur; en büyüğü kalçadadır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "HÜCRE",
+  "d": 2,
+  "sub": "Canlıların temel yapı birimi",
+  "mean": "Yaşamın en küçük işlevsel parçası",
+  "theme": "Robert Hooke şişe mantarını inceleyerek bu adı ilk kez kullandı"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KAN GRUBU",
+  "d": 2,
+  "sub": "Laboratuvar testleriyle belirlenen bir özellik",
+  "mean": "A, B, AB ve 0 olarak sınıflandırılan kişisel özellik",
+  "theme": "Karl Landsteiner bu sınıflandırmayı bulduğu için Nobel ödülü aldı"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "ANTİBİYOTİK",
+  "d": 2,
+  "sub": "İlaçlarla ilgili bir terim",
+  "mean": "Bakteriyel enfeksiyonlara karşı kullanılan ilaç grubu",
+  "theme": "Penisilin, Alexander Fleming tarafından 1928'de keşfedildi"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "DİYABET",
+  "d": 2,
+  "sub": "Kronik bir hastalık",
+  "mean": "Kan şekerinin normalden yüksek seyrettiği rahatsızlık",
+  "theme": "Halk arasında şeker hastalığı olarak bilinir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "REFLEKS",
+  "d": 2,
+  "sub": "Sinir sistemiyle ilgili bir tepki",
+  "mean": "İstemsiz ve çok hızlı gerçekleşen tepki",
+  "theme": "Doktorların dize çekiçle vurması bu tepkiyi ölçmek içindir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "BAĞIŞIKLIK",
+  "d": 2,
+  "sub": "Vücudun savunmasıyla ilgili bir kavram",
+  "mean": "Mikroplara karşı vücudun direnç gösterme yeteneği",
+  "theme": "Akyuvarlar ve antikorlar bu savunmanın önemli parçalarıdır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KOLESTEROL",
+  "d": 2,
+  "sub": "Kan tahlillerinde bakılan bir değer",
+  "mean": "Kanda bulunan yağ benzeri bir madde",
+  "theme": "İyi ve kötü olarak bilinen iki türü vardır: HDL ve LDL"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "ALERJİ",
+  "d": 2,
+  "sub": "Bağışıklık sistemiyle ilgili bir durum",
+  "mean": "Vücudun zararsız maddelere aşırı tepki vermesi",
+  "theme": "Polen, toz ve bazı yiyecekler sık görülen tetikleyicilerdendir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KIKIRDAK",
+  "d": 2,
+  "sub": "Vücuttaki bir doku türü",
+  "mean": "Eklemlerde kemiklerin sürtünmesini önleyen esnek doku",
+  "theme": "Burun ucu ve kulak kepçesi bu dokudan oluşur"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "TİROİT",
+  "d": 2,
+  "sub": "Boyunda bulunan bir bez",
+  "mean": "Metabolizma hızını düzenleyen hormonlar üretir",
+  "theme": "Kelebek biçimlidir; çalışması için iyot gereklidir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "BEL FITIĞI",
+  "d": 2,
+  "sub": "Omurgayla ilgili bir rahatsızlık",
+  "mean": "Omurlar arasındaki diskin kayarak sinire baskı yapması",
+  "theme": "Ağır kaldırma ve uzun süre hareketsiz oturma risk etkenlerindendir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "DİYAFRAM",
+  "d": 2,
+  "sub": "Solunuma yardım eden bir kas",
+  "mean": "Göğüs ve karın boşluğunu ayıran kubbe biçimli kas",
+  "theme": "İstemsiz kasılması hıçkırığa neden olur"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "ALYUVAR",
+  "d": 3,
+  "sub": "Kanın hücrelerinden biri",
+  "mean": "Oksijeni akciğerlerden dokulara taşıyan hücre",
+  "theme": "Çekirdeği yoktur ve yaklaşık 120 gün yaşar"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "HİPOTALAMUS",
+  "d": 3,
+  "sub": "Beynin bir bölümü",
+  "mean": "Vücut ısısını, açlığı ve uykuyu düzenleyen merkez",
+  "theme": "Hipofiz bezini yöneterek hormon sistemini kontrol eder"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "ÜZENGİ KEMİĞİ",
+  "d": 3,
+  "sub": "Orta kulaktaki bir yapı",
+  "mean": "Sesin iç kulağa iletilmesine yardım eden minik yapı",
+  "theme": "İnsandaki en küçük iskelet parçasıdır; adını binicilik takımına benzerliğinden alır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "VÜCUT KİTLE ENDEKSİ",
+  "d": 3,
+  "sub": "Sağlık taramalarında kullanılan bir ölçüt",
+  "mean": "Ağırlığın boy uzunluğunun karesine bölünmesiyle bulunan değer",
+  "theme": "18,5 ile 24,9 arası normal kabul edilir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "KORNEA",
+  "d": 3,
+  "sub": "Gözün bir parçası",
+  "mean": "Gözün önündeki saydam ve kubbe biçimli tabaka",
+  "theme": "Kan damarı içermez; oksijeni doğrudan havadan alır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "HEMOGLOBİN",
+  "d": 3,
+  "sub": "Kanda bulunan bir protein",
+  "mean": "Oksijene bağlanarak taşınmasını sağlayan molekül",
+  "theme": "Kana kırmızı rengini veren demir içerikli yapıdır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "İNSÜLİN",
+  "d": 3,
+  "sub": "Vücuttaki bir hormon",
+  "mean": "Kandaki şekerin hücrelere girmesini sağlar",
+  "theme": "1921'de Banting ve Best tarafından keşfedildi"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "ADRENALİN",
+  "d": 3,
+  "sub": "Vücuttaki bir hormon",
+  "mean": "Tehlike anında kalp atışını ve enerjiyi artıran madde",
+  "theme": "Böbreküstü bezlerinden salgılanır; savaş ya da kaç tepkisini başlatır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "GECE KÖRLÜĞÜ",
+  "d": 3,
+  "sub": "Görmeyle ilgili bir sorun",
+  "mean": "Loş ışıkta ve karanlıkta görmenin zorlaşması",
+  "theme": "A vitamini eksikliği en bilinen nedenlerinden biridir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "MELANİN",
+  "d": 3,
+  "sub": "Vücuttaki bir pigment",
+  "mean": "Deriye, saça ve gözlere renk veren madde",
+  "theme": "Güneşin morötesi ışınlarına karşı doğal bir kalkan görevi görür"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "SAFRA KESESİ",
+  "d": 3,
+  "sub": "Sindirim sistemine bağlı bir organ",
+  "mean": "Yağların sindirimine yardım eden sıvıyı depolayan küçük organ",
+  "theme": "İçinde oluşan taşlar ameliyatla alınmasına yol açabilir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "HİPOKRAT YEMİNİ",
+  "d": 4,
+  "sub": "Hekimlikle ilgili bir gelenek",
+  "mean": "Hekimlerin mesleğe başlarken ettiği etik söz",
+  "theme": "Adını tıbbın babası sayılan Antik Yunan hekiminden alır"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "DÜNYA SAĞLIK ÖRGÜTÜ",
+  "d": 4,
+  "sub": "Uluslararası bir kuruluş",
+  "mean": "Birleşmiş Milletler'in salgın hastalıklar ve halk hekimliğiyle ilgilenen kurumu",
+  "theme": "1948'de kuruldu; merkezi İsviçre'nin Cenevre kentindedir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "ÇAPRAZ BAĞ",
+  "d": 4,
+  "sub": "Dizle ilgili bir yapı",
+  "mean": "Diz eklemini dengede tutan iç bağlardan biri",
+  "theme": "Futbolcularda sık görülen yırtılmaları çoğu zaman ameliyat gerektirir"
+ },
+ {
+  "cat": "İnsan Vücudu ve Sağlık",
+  "a": "ON İKİ PARMAK BAĞIRSAĞI",
+  "d": 4,
+  "sub": "Sindirim sisteminin bir bölümü",
+  "mean": "Mideden sonra gelen sindirim kanalının ilk kısmı",
+  "theme": "Adı, uzunluğunun eski bir ölçüyle yan yana dizilmiş belli sayıda el genişliğine eşit olmasından gelir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "BİLGİSAYAR FARESİ",
+  "d": 1,
+  "sub": "Masaüstü çevre birimlerinden biri",
+  "mean": "İmleci ekranda hareket ettirmeye yarayan araç",
+  "theme": "Douglas Engelbart ilk örneğini 1960'larda tahtadan yaptı"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "KLAVYE",
+  "d": 1,
+  "sub": "Bilgisayar çevre birimlerinden biri",
+  "mean": "Harf ve komut girmeye yarayan tuşlu araç",
+  "theme": "Türkiye'de F ve Q olmak üzere iki farklı düzen kullanılır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "İNTERNET",
+  "d": 1,
+  "sub": "İletişim teknolojisiyle ilgili bir kavram",
+  "mean": "Dünya genelindeki bilgisayarları birbirine bağlayan ağ",
+  "theme": "Kökeni 1960'larda ABD'de geliştirilen ARPANET'e dayanır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "YAZICI",
+  "d": 1,
+  "sub": "Ofislerde sık kullanılan bir cihaz",
+  "mean": "Dijital belgeleri kâğıda aktaran makine",
+  "theme": "Mürekkep püskürtmeli ve lazer olmak üzere yaygın iki türü vardır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "ŞİFRE",
+  "d": 1,
+  "sub": "Hesap güvenliğiyle ilgili bir kavram",
+  "mean": "Yalnızca sahibinin bilmesi gereken gizli giriş anahtarı",
+  "theme": "Büyük küçük harf, rakam ve sembol içermesi önerilir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "TABLET",
+  "d": 1,
+  "sub": "Taşınabilir bir cihaz",
+  "mean": "Dokunmatik ekranlı, ince ve hafif bilgisayar",
+  "theme": "Telefon ile dizüstü arasında bir boyuta sahiptir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "AKILLI TELEFON",
+  "d": 1,
+  "sub": "Günlük hayatın vazgeçilmez cihazlarından",
+  "mean": "Arama yapmanın yanında uygulamalar çalıştıran cep cihazı",
+  "theme": "2007'de tanıtılan iPhone bu cihazların yaygınlaşmasını hızlandırdı"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "VİRÜS",
+  "d": 1,
+  "sub": "Bilgisayar güvenliğiyle ilgili bir tehdit",
+  "mean": "Kendini kopyalayarak dosyalara bulaşan zararlı program",
+  "theme": "Adını canlılardaki enfeksiyon yapıcılara benzemesinden alır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "ROBOT",
+  "d": 1,
+  "sub": "Otomasyonla ilgili bir makine",
+  "mean": "Programlanarak görevleri kendi başına yapabilen makine",
+  "theme": "Sözcük ilk kez Karel Çapek'in 1920 tarihli oyununda kullanıldı"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "YAPAY ZEKA",
+  "d": 1,
+  "sub": "Bilgisayar biliminin bir alanı",
+  "mean": "Makinelerin öğrenme ve karar verme yeteneği kazanması",
+  "theme": "Alan Turing ve John McCarthy bu alanın öncüleri arasındadır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "E-POSTA",
+  "d": 1,
+  "sub": "Dijital iletişim yollarından biri",
+  "mean": "Ağ üzerinden gönderilen elektronik mektup",
+  "theme": "Ray Tomlinson @ işaretini bu iletilerde ilk kullanan kişidir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "HOPARLÖR",
+  "d": 1,
+  "sub": "Ses donanımlarından biri",
+  "mean": "Elektrik sinyalini duyulabilir sese çeviren cihaz",
+  "theme": "İçindeki zar titreşerek havayı hareket ettirir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "ŞARJ CİHAZI",
+  "d": 1,
+  "sub": "Elektronik bir aksesuar",
+  "mean": "Telefonun bataryasını doldurmaya yarayan alet",
+  "theme": "Avrupa Birliği ortak giriş olarak USB-C kullanımını zorunlu kıldı"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "KABLOSUZ AĞ",
+  "d": 1,
+  "sub": "Bağlantı teknolojilerinden biri",
+  "mean": "Tel bağlantısı olmadan internete erişmeyi sağlayan sistem",
+  "theme": "Wi-Fi olarak bilinir; radyo dalgalarıyla çalışır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "İŞLETİM SİSTEMİ",
+  "d": 2,
+  "sub": "Temel bir yazılım türü",
+  "mean": "Donanım ile kullanıcı arasında köprü kuran ana program",
+  "theme": "Windows, macOS, Linux ve Android bilinen örneklerdir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "ANAKART",
+  "d": 2,
+  "sub": "Bilgisayarın iç donanımlarından biri",
+  "mean": "Tüm parçaların takıldığı ve birbirine bağlandığı ana devre",
+  "theme": "İşlemci, bellek ve ekran kartı bu kart üzerindeki yuvalara yerleşir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "İŞLEMCİ",
+  "d": 2,
+  "sub": "Bilgisayarın iç donanımlarından biri",
+  "mean": "Komutları çalıştıran ve hesaplamaları yapan beyin",
+  "theme": "Hızı gigahertz cinsinden ölçülür; İngilizce kısaltması CPU'dur"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "WEB SİTESİ",
+  "d": 2,
+  "sub": "İnternetle ilgili bir kavram",
+  "mean": "Bir alan adı altında yayımlanan sayfalar bütünü",
+  "theme": "Tim Berners-Lee ilkini 1991'de CERN'de yayımladı"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "ARAMA MOTORU",
+  "d": 2,
+  "sub": "İnternetle ilgili bir hizmet",
+  "mean": "Anahtar sözcüklerle bilgi bulmayı sağlayan sistem",
+  "theme": "Google, Bing ve Yandex bilinen örneklerdir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "BULUT DEPOLAMA",
+  "d": 2,
+  "sub": "Veri saklamayla ilgili bir hizmet",
+  "mean": "Dosyaların uzaktaki sunucularda saklanıp her yerden erişilmesi",
+  "theme": "Google Drive, iCloud ve Dropbox bu hizmetin örnekleridir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "YAZILIM",
+  "d": 2,
+  "sub": "Bilgisayar biliminin temel bir kavramı",
+  "mean": "Bilgisayara ne yapacağını söyleyen programların bütünü",
+  "theme": "Donanımın tersine elle tutulamaz; kodlarla oluşturulur"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "DONANIM",
+  "d": 2,
+  "sub": "Bilgisayarla ilgili temel bir kavram",
+  "mean": "Bilgisayarın elle tutulabilen fiziksel parçaları",
+  "theme": "Kasa, işlemci ve bellek bu gruba girer"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "MODEM",
+  "d": 2,
+  "sub": "Ağ cihazlarından biri",
+  "mean": "Evdeki cihazları internet hattına bağlayan aygıt",
+  "theme": "Adı modülatör ve demodülatör sözcüklerinin birleşiminden gelir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "USB BELLEK",
+  "d": 2,
+  "sub": "Taşınabilir bir depolama aygıtı",
+  "mean": "Dosyaları cebinizde taşımanızı sağlayan küçük sürücü",
+  "theme": "Halk arasında flaş disk olarak da bilinir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "SOSYAL MEDYA",
+  "d": 2,
+  "sub": "İnternetle ilgili bir kavram",
+  "mean": "Kullanıcıların içerik paylaşıp etkileşim kurduğu platformlar",
+  "theme": "Instagram, X ve TikTok bu platformlara örnektir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "EKRAN KARTI",
+  "d": 2,
+  "sub": "Bilgisayarın iç donanımlarından biri",
+  "mean": "Görüntüleri işleyip monitöre aktaran parça",
+  "theme": "Güçlü olanları yapay zekâ eğitiminde de yoğun olarak kullanılır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "KOPYALA YAPIŞTIR",
+  "d": 2,
+  "sub": "Bilgisayarda sık kullanılan bir işlem",
+  "mean": "Bir içeriği çoğaltıp başka bir yere aktarma işlemi",
+  "theme": "Ctrl+C ve Ctrl+V kısayollarıyla yapılır; Larry Tesler'e atfedilir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "PİKSEL",
+  "d": 2,
+  "sub": "Dijital görüntüyle ilgili bir terim",
+  "mean": "Ekrandaki görüntüyü oluşturan en küçük nokta",
+  "theme": "Çözünürlük bu noktaların sayısıyla ifade edilir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "SUNUCU",
+  "d": 2,
+  "sub": "Ağ altyapısıyla ilgili bir bilgisayar",
+  "mean": "Diğer bilgisayarlara hizmet ve veri sağlayan makine",
+  "theme": "Veri merkezlerinde binlercesi raflarda kesintisiz çalışır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "TARAYICI",
+  "d": 2,
+  "sub": "İnternet erişimi için kullanılan bir yazılım",
+  "mean": "Web sayfalarını görüntülemeye yarayan program",
+  "theme": "Chrome, Firefox ve Safari en bilinen örneklerdir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "ALGORİTMA",
+  "d": 3,
+  "sub": "Programlamanın temel bir kavramı",
+  "mean": "Bir problemi çözmek için izlenen adımlar dizisi",
+  "theme": "Adı 9. yüzyıl matematikçisi Harezmi'den gelir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "GÜVENLİK DUVARI",
+  "d": 3,
+  "sub": "Ağ korumasıyla ilgili bir sistem",
+  "mean": "İzinsiz trafiği engelleyen koruma katmanı",
+  "theme": "İngilizce adı firewall olarak bilinir; gelen ve giden paketleri kurallara göre süzer"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "SİBER SALDIRI",
+  "d": 3,
+  "sub": "Bilgi güvenliğiyle ilgili bir tehdit",
+  "mean": "Bilgisayar sistemlerine zarar vermek için yapılan girişim",
+  "theme": "Fidye yazılımları ve hizmet engelleme bu tehditlerin türlerindendir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "KRİPTOGRAFİ",
+  "d": 3,
+  "sub": "Bilgi güvenliğiyle ilgili bir bilim dalı",
+  "mean": "Mesajları yetkisiz kişilerin okuyamayacağı biçime sokma bilimi",
+  "theme": "Alan Turing, Enigma'nın çözülmesiyle bu alanda tarihe geçti"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "DERLEYİCİ",
+  "d": 3,
+  "sub": "Programlama araçlarından biri",
+  "mean": "Kaynak kodu makinenin anlayacağı dile çeviren program",
+  "theme": "Grace Hopper bu araçların ilk örneklerinden birini geliştirdi"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "VERİ TABANI",
+  "d": 3,
+  "sub": "Bilgi yönetimiyle ilgili bir yapı",
+  "mean": "Bilgilerin düzenli biçimde saklanıp sorgulandığı sistem",
+  "theme": "SQL bu sistemlerle çalışmak için kullanılan yaygın bir dildir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "IP ADRESİ",
+  "d": 3,
+  "sub": "Ağ iletişimiyle ilgili bir kavram",
+  "mean": "Ağa bağlı her cihaza verilen sayısal kimlik",
+  "theme": "Sürüm 4 ve sürüm 6 olarak iki ana biçimi vardır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "YARI İLETKEN",
+  "d": 3,
+  "sub": "Elektronikle ilgili bir malzeme türü",
+  "mean": "Elektriği koşullara bağlı olarak geçiren ya da geçirmeyen madde",
+  "theme": "Silisyum bu malzemelerin en yaygınıdır; çipler bundan yapılır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "OLTALAMA",
+  "d": 3,
+  "sub": "Dolandırıcılıkla ilgili bir siber yöntem",
+  "mean": "Sahte e-postalarla kişisel bilgileri ele geçirme girişimi",
+  "theme": "İngilizcede phishing olarak bilinir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "BAYT",
+  "d": 3,
+  "sub": "Dijital bilgiyle ilgili bir ölçü birimi",
+  "mean": "Sekiz bitten oluşan veri birimi",
+  "theme": "Bin katı kilo, milyon katı mega önekiyle anılır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "SANAL GERÇEKLİK",
+  "d": 3,
+  "sub": "Sürükleyici bir teknoloji",
+  "mean": "Başa takılan gözlükle kullanıcıyı yapay bir dünyaya sokan sistem",
+  "theme": "Oyun, eğitim ve tıp simülasyonlarında yaygın olarak kullanılır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "TURING TESTİ",
+  "d": 4,
+  "sub": "Yapay zekâ tarihine ait bir deney",
+  "mean": "Bir makinenin insan gibi düşünüp düşünemediğini sınama yöntemi",
+  "theme": "Ünlü İngiliz matematikçi 1950'de taklit oyunu adıyla önerdi"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "MAKİNE ÖĞRENMESİ",
+  "d": 4,
+  "sub": "Yapay zekânın bir alt dalı",
+  "mean": "Bilgisayarların verilerden örüntü çıkararak gelişmesi",
+  "theme": "Öneri sistemleri ve spam filtreleri bu yöntemle çalışır"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "AÇIK KAYNAK KOD",
+  "d": 4,
+  "sub": "Yazılım dünyasıyla ilgili bir yaklaşım",
+  "mean": "Programın içeriğinin herkesin incelemesine ve geliştirmesine serbest olması",
+  "theme": "Linux ve Firefox bu yaklaşımla geliştirilen ünlü projelerdendir"
+ },
+ {
+  "cat": "Teknoloji ve Bilgisayar",
+  "a": "DİJİTAL AYAK İZİ",
+  "d": 4,
+  "sub": "Çevrim içi gizlilikle ilgili bir kavram",
+  "mean": "İnternette bıraktığımız tüm veri ve etkinlik kalıntıları",
+  "theme": "Paylaşımlar, aramalar ve beğeniler bu kalıntının parçasıdır"
+ }
+]

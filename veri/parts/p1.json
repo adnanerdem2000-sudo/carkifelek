@@ -1,0 +1,1802 @@
+[
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "BUZDOLABI",
+  "d": 1,
+  "sub": "Mutfakta bulunan büyük bir elektrikli beyaz eşya",
+  "mean": "Yiyecekleri soğuk tutarak bozulmalarını geciktirir",
+  "theme": "Ev tipi elektrikli modelleri 20. yüzyılın başında yaygınlaşmaya başladı"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "BULAŞIK MAKİNESİ",
+  "d": 1,
+  "sub": "Mutfakta kullanılan elektrikli bir beyaz eşya",
+  "mean": "Kirli tabak, çatal ve bardakları sıcak suyla yıkar",
+  "theme": "İlk el ile çalışan modeli 1886'da Josephine Cochrane tarafından patentlendi"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "SÜPÜRGE",
+  "d": 1,
+  "sub": "Evde temizlik için kullanılan bir araç",
+  "mean": "Yerdeki toz, kırıntı ve çöpleri toplamaya yarar",
+  "theme": "Masallarda cadıların uçarken üzerine bindiği eşya olarak bilinir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "YASTIK",
+  "d": 1,
+  "sub": "Yatak odasında bulunan yumuşak bir eşya",
+  "mean": "Uyurken başın altına konarak boynu destekler",
+  "theme": "İçi geleneksel olarak kaz tüyü, yün ya da elyafla doldurulur"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "YORGAN",
+  "d": 1,
+  "sub": "Yatakta kullanılan kalın bir örtü",
+  "mean": "Soğuk gecelerde üzerimize çekip ısınırız",
+  "theme": "Geleneksel olarak içi pamuk ya da yünle doldurulup elde dikilir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "TERLİK",
+  "d": 1,
+  "sub": "Evde ayağa giyilen hafif bir eşya",
+  "mean": "Ev içinde rahat dolaşmak için giyilir, arkası genellikle açıktır",
+  "theme": "Türk annelerinin efsanevi fırlatma silahı olarak esprilere konu olur"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "HALI",
+  "d": 1,
+  "sub": "Yere serilen dokuma bir ev eşyası",
+  "mean": "Zemini örter, odayı ısıtır ve süsler",
+  "theme": "Uşak, Hereke ve Kayseri yöreleri el dokumalarıyla ünlüdür"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "PERDE",
+  "d": 1,
+  "sub": "Pencerelerde kullanılan kumaş bir eşya",
+  "mean": "Işığı ve dışarıdan gelen bakışları engeller",
+  "theme": "Tiyatroda da oyunun başlangıcı ve bitişi bunun açılıp kapanmasıyla belirlenir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÇAYDANLIK",
+  "d": 1,
+  "sub": "Mutfakta kullanılan iki katlı bir kap",
+  "mean": "Altta su kaynar, üstte demlik içinde tavşan kanı içecek hazırlanır",
+  "theme": "Türk evlerinde ocaktan neredeyse hiç inmeyen eşyaların başında gelir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÜTÜ",
+  "d": 1,
+  "sub": "Çamaşırlarla ilgili elektrikli bir ev aleti",
+  "mean": "Isı ve buharla giysilerdeki kırışıklıkları giderir",
+  "theme": "Elektrik öncesi dönemde içine kor kömür konularak kullanılırdı"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "HAVLU",
+  "d": 1,
+  "sub": "Banyoda kullanılan pamuklu bir eşya",
+  "mean": "Yıkandıktan sonra vücudu ve elleri kurulamaya yarar",
+  "theme": "Denizli ve Bursa, pamuklu dokumalarıyla ünlü üretim merkezleridir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ŞEMSİYE",
+  "d": 1,
+  "sub": "Kapı yanında durabilen katlanır bir eşya",
+  "mean": "Yağmurlu havada ıslanmamak için açılır",
+  "theme": "Eski Çin ve Mısır'da önce güneşten korunmak amacıyla kullanıldı"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "KOLTUK",
+  "d": 1,
+  "sub": "Oturma odasında yer alan bir mobilya",
+  "mean": "Kollu ve rahat, bir ya da birkaç kişinin oturduğu döşemeli eşya",
+  "theme": "Belediye meclisinde ya da mecliste kazanılan makam için de mecaz olarak kullanılır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÇÖP KOVASI",
+  "d": 1,
+  "sub": "Mutfak ya da banyo köşesinde duran bir kap",
+  "mean": "Atıkların biriktirildiği, genellikle kapaklı ve poşetli eşya",
+  "theme": "Geri dönüşüm için renklerine göre ayrılmış türleri de bulunur"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "DÜDÜKLÜ TENCERE",
+  "d": 2,
+  "sub": "Mutfakta kullanılan özel bir pişirme kabı",
+  "mean": "Buhar basıncıyla yemekleri çok daha kısa sürede pişirir",
+  "theme": "Kapağındaki supap öttüğünde altı kısılır; kuru baklagiller için idealdir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "GARDIROP",
+  "d": 2,
+  "sub": "Yatak odasındaki büyük bir mobilya",
+  "mean": "Kıyafetlerin asılarak ya da katlanarak saklandığı dolap",
+  "theme": "Narnia masallarında çocuklar sihirli dünyaya bunun içinden geçer"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "KOMODİN",
+  "d": 2,
+  "sub": "Yatağın hemen yanında duran küçük bir mobilya",
+  "mean": "Gece lambası, kitap ve saat gibi eşyaların konduğu çekmeceli dolapçık",
+  "theme": "Adı Fransızcadan gelir ve rahatlık anlamını çağrıştırır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ABAJUR",
+  "d": 2,
+  "sub": "Odayı aydınlatan bir ev eşyası",
+  "mean": "Ampulün ışığını yumuşatan kumaş ya da kâğıt başlıklı lamba",
+  "theme": "Fransızcadan gelen adı ışığı aşağı yönlendirmeyi ifade eder"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "MANGAL",
+  "d": 2,
+  "sub": "Kömür ateşiyle kullanılan bir ev ve bahçe eşyası",
+  "mean": "Üzerine ızgara konarak et, köfte ve sebze pişirilir",
+  "theme": "Hafta sonu piknik ve balkon keyfinin vazgeçilmezidir; eskiden ısınmak için de yakılırdı"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ODUN SOBASI",
+  "d": 2,
+  "sub": "Kışın evleri ısıtan geleneksel bir eşya",
+  "mean": "Ağaç kütükleri yakılarak çalışır, üstünde kestane bile pişirilebilir",
+  "theme": "Bacaya bağlanan borusu düzgün takılmazsa karbonmonoksit tehlikesi oluşur"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "OKLAVA",
+  "d": 2,
+  "sub": "Mutfakta kullanılan uzun, ince ahşap bir araç",
+  "mean": "Hamuru açarak yufka hâline getirmeye yarar",
+  "theme": "Börek yapan ev hanımlarının en önemli yardımcısıdır; çizgi filmlerde tehdit aracıdır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "CEZVE",
+  "d": 2,
+  "sub": "Ocakta kullanılan küçük, saplı bir kap",
+  "mean": "Kahvenin köpüklü pişirilmesi için kullanılır",
+  "theme": "Geleneksel olanları bakırdan yapılır; kumda pişirme yöntemi de vardır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ELEK",
+  "d": 2,
+  "sub": "Mutfakta kullanılan delikli bir araç",
+  "mean": "Unu kepekten ve topaklardan ayırmak için kullanılır",
+  "theme": "Ağ gibi teli olan bu araç, deyimlerde duvara asılmasıyla işin bittiğini anlatır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "TERMOS",
+  "d": 2,
+  "sub": "Piknik ve yolculuk için kullanılan bir kap",
+  "mean": "İçindeki sıvının sıcaklığını uzun süre korur",
+  "theme": "Çift cidarlı yapısının arasındaki vakum, ısı kaybını engeller"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "MİKSER",
+  "d": 2,
+  "sub": "Mutfakta kullanılan elektrikli bir alet",
+  "mean": "Kek hamuru ve krema çırpmak için dönen çubuklarla çalışır",
+  "theme": "Ayaklı modelleri profesyonel pastanelerde hamur yoğurmak için de kullanılır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÇAMAŞIR MANDALI",
+  "d": 2,
+  "sub": "Balkonda ya da bahçede kullanılan küçük bir eşya",
+  "mean": "Islak giysileri ipe tutturarak rüzgârda uçmalarını engeller",
+  "theme": "Ahşap ya da plastikten yapılır ve yaylı mekanizmayla çalışır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "EL FENERİ",
+  "d": 2,
+  "sub": "Çekmecede saklanan pilli bir eşya",
+  "mean": "Elektrik kesildiğinde karanlıkta yolu aydınlatır",
+  "theme": "Kamp çantalarının ve deprem çantalarının olmazsa olmazlarındandır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ORTA SEHPA",
+  "d": 2,
+  "sub": "Salonda koltukların önünde duran bir mobilya",
+  "mean": "Misafirlere ikram edilen çay ve kurabiyelerin konduğu alçak masa",
+  "theme": "Genellikle üçlü koltuk takımının tam karşısına yerleştirilir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÇALAR SAAT",
+  "d": 2,
+  "sub": "Komodin üstünde duran bir eşya",
+  "mean": "Sabah belirlenen vakitte ses çıkararak uyandırır",
+  "theme": "Telefonlar yaygınlaşmadan önce zil çanlı modelleri her evde bulunurdu"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "UZAKTAN KUMANDA",
+  "d": 2,
+  "sub": "Oturma odasında sık sık kaybolan küçük bir eşya",
+  "mean": "Koltuktan kalkmadan televizyonun kanalını ve sesini ayarlar",
+  "theme": "Kızılötesi ışıkla sinyal gönderir; evde sahiplenilmesi kavgalara yol açabilir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÇİFT KİŞİLİK YATAK",
+  "d": 2,
+  "sub": "Uyku odasındaki en büyük mobilya",
+  "mean": "Karı kocanın birlikte uyuyabileceği genişlikte bir uyku yeri",
+  "theme": "Standart ölçüsü genellikle yüz altmışa iki yüz santimetredir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "SEMAVER",
+  "d": 3,
+  "sub": "Rus ve Türk evlerinde görülen geleneksel bir eşya",
+  "mean": "İçindeki boruda yanan kömürle su kaynatılır, üstüne demlik konur",
+  "theme": "Piknik kültürünün simgelerindendir; Rusçada kendi kendine kaynatan anlamı taşır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ŞOFBEN",
+  "d": 3,
+  "sub": "Banyoda bulunabilen bir ısıtma cihazı",
+  "mean": "Gaz ya da elektrikle suyu anında ısıtarak sıcak su sağlar",
+  "theme": "Kapalı alanda bacasız kullanılırsa zehirlenme riski yaratır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "KEVGİR",
+  "d": 3,
+  "sub": "Mutfakta kullanılan delikli bir araç",
+  "mean": "Haşlanan makarna ya da sebzenin suyunu süzmeye yarar",
+  "theme": "Deyimde çok delikli bir şeyi anlatmak için benzetme olarak kullanılır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "HAVAN",
+  "d": 3,
+  "sub": "Mutfakta kullanılan geleneksel bir kap",
+  "mean": "İçinde baharat, ceviz ya da sarımsak tokmakla dövülerek ezilir",
+  "theme": "Boşuna uğraşmayı anlatan ünlü deyimde içinde su dövülür"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "SİNİ",
+  "d": 3,
+  "sub": "Geleneksel Türk evlerinde kullanılan geniş bir tepsi",
+  "mean": "Yer sofralarında yemeklerin üzerine konduğu yuvarlak metal düzlük",
+  "theme": "Genellikle bakırdan yapılır ve bir ayaklık üzerine yerleştirilir"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "İBRİK",
+  "d": 3,
+  "sub": "Su taşımak için kullanılan geleneksel bir kap",
+  "mean": "Uzun emzikli bu kap eskiden el yıkamak ve abdest için kullanılırdı",
+  "theme": "Bakır olanları leğenle takım hâlinde kullanılırdı"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "SİNEKLİK",
+  "d": 3,
+  "sub": "Pencereye takılan ince bir eşya",
+  "mean": "Yazın haşerelerin içeri girmesini engellerken havalandırmaya izin verir",
+  "theme": "Tül ya da ince telden yapılır, makaralı ve menteşeli modelleri vardır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "DAMACANA",
+  "d": 3,
+  "sub": "Evlere taşınan büyük bir kap",
+  "mean": "İçme suyunun konduğu, on dokuz litrelik büyük şişe",
+  "theme": "Adının Fransızca dame-jeanne kelimesinden geldiği düşünülür"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "YER SOFRASI",
+  "d": 3,
+  "sub": "Anadolu evlerinde görülen geleneksel bir düzen",
+  "mean": "Yemeğin minder ve bağdaş eşliğinde zeminde yenmesi",
+  "theme": "Üzerine sini konan alçak ahşap ayaklık bu düzenin temel parçasıdır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÇEYİZ SANDIĞI",
+  "d": 4,
+  "sub": "Gelin adaylarıyla ilgili geleneksel bir eşya",
+  "mean": "Dantel, oya ve örtülerin evlilik öncesinde biriktirildiği kutu",
+  "theme": "Ahşap olup çoğu zaman oymalarla süslenir ve kuşaktan kuşağa geçer"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ÇATAL BIÇAK TAKIMI",
+  "d": 4,
+  "sub": "Yemek masasında kullanılan bir grup eşya",
+  "mean": "Kaşık, kesici ve batırıcı aletlerden oluşan sofra seti",
+  "theme": "Genellikle altı ya da on iki kişilik kutular içinde satılır"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "İLK YARDIM ÇANTASI",
+  "d": 4,
+  "sub": "Evde ve araçta bulundurulması önerilen bir eşya",
+  "mean": "İçinde sargı bezi, yara bandı ve antiseptik bulunur",
+  "theme": "Türkiye'de araçlarda bulundurulması trafik mevzuatına göre zorunludur"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "KAPI ÖNÜ PASPASI",
+  "d": 4,
+  "sub": "Evin giriş kısmında duran bir eşya",
+  "mean": "İçeri girmeden önce ayakkabı altındaki çamuru silmeye yarar",
+  "theme": "Bazılarının üzerinde Hoş Geldiniz gibi karşılama yazıları bulunur"
+ },
+ {
+  "cat": "Günlük Yaşam ve Ev Eşyaları",
+  "a": "ELEKTRİKLİ BATTANİYE",
+  "d": 4,
+  "sub": "Kış gecelerinde yatakta kullanılan bir eşya",
+  "mean": "Prize takılınca içindeki teller sayesinde yatağı ısıtır",
+  "theme": "Uyumadan önce kapatılması ya da zamanlayıcıyla kullanılması önerilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "SÜZME MERCİMEK ÇORBASI",
+  "d": 2,
+  "sub": "Türk mutfağında kaşıkla içilen sıcak bir başlangıç yemeği",
+  "mean": "Turuncu renkte, kırmızı baklagilden yapılan pürüzsüz yemek",
+  "theme": "Esnaf lokantalarında yanına limon ve kıtır ekmek eklenerek servis edilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KARNIYARIK",
+  "d": 1,
+  "sub": "Türk mutfağından etli bir sebze yemeği",
+  "mean": "Patlıcanın ortası açılıp kıymalı harçla doldurularak fırınlanır",
+  "theme": "Etsiz zeytinyağlı versiyonu imam bayıldı olarak bilinir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "MANTI",
+  "d": 1,
+  "sub": "Türk mutfağından hamur işi bir yemek",
+  "mean": "Küçük hamur parçalarının içine kıyma konur, üstüne yoğurt ve sos dökülür",
+  "theme": "Kayseri'nin bir kaşığa kırk tane sığacak kadar küçük olanı meşhurdur"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "LAHMACUN",
+  "d": 1,
+  "sub": "Güneydoğu mutfağından ince hamurlu bir yiyecek",
+  "mean": "Kıymalı harç sürülüp taş fırında pişirilir, maydanozla dürülerek yenir",
+  "theme": "Adı Arapça hamurlu et anlamına gelen bir ifadeden türemiştir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "BAKLAVA",
+  "d": 1,
+  "sub": "Türk mutfağından şerbetli bir tatlı",
+  "mean": "İncecik yufkalar arasına fıstık ya da ceviz serpilerek yapılır",
+  "theme": "Gaziantep'te yapılanı Avrupa Birliği'nde coğrafi işaret tescili aldı"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "ŞEHRİYELİ PİRİNÇ PİLAVI",
+  "d": 4,
+  "sub": "Sofraların vazgeçilmezi olan bir yan yemek",
+  "mean": "Tereyağında kavrulan ince arpa biçimli makarna ile tane tane pişen garnitür",
+  "theme": "Kuru fasulyenin en sadık eşlikçisi olarak bilinir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "SU BÖREĞİ",
+  "d": 1,
+  "sub": "Türk mutfağından bir hamur işi",
+  "mean": "Yufkalar haşlanıp kat kat dizilir, arasına peynir konur",
+  "theme": "Yapımı emek istediğinden ustalık göstergesi olarak kabul edilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "SİMİT",
+  "d": 1,
+  "sub": "Sokaklarda satılan susamlı bir yiyecek",
+  "mean": "Halka biçimli, pekmeze batırılıp susama bulanmış unlu mamul",
+  "theme": "Martılar vapurda yolcuların bundan attığı parçaları havada kapar"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "DÖNER",
+  "d": 1,
+  "sub": "Türk mutfağından meşhur bir et yemeği",
+  "mean": "Dikey şişe dizilen etler kendi ekseninde çevrilerek ateşte pişirilir",
+  "theme": "Almanya'da en çok tüketilen fast food ürünlerinden biri olmuştur"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "SUCUK",
+  "d": 1,
+  "sub": "Kahvaltılarda sevilen baharatlı bir yiyecek",
+  "mean": "Kıyma ve baharatın bağırsağa doldurulup kurutulmasıyla yapılır",
+  "theme": "Kayseri ve Afyon üretimiyle ünlüdür; yumurtalısı kahvaltı klasiğidir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "MENEMEN",
+  "d": 1,
+  "sub": "Türk kahvaltılarında sık yapılan bir yemek",
+  "mean": "Domates, biber ve yumurtanın tavada pişirilmesiyle hazırlanır",
+  "theme": "İçine soğan konup konmayacağı sosyal medyada büyük tartışma konusudur"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "GÖZLEME",
+  "d": 1,
+  "sub": "Köy kahvaltılarının sevilen bir hamur işi",
+  "mean": "Açılan yufkaya peynir, patates ya da ıspanak konup sacda pişirilir",
+  "theme": "Otoyol mola yerlerinde yazmalı kadınların yaptığı görüntüyle bilinir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "CACIK",
+  "d": 1,
+  "sub": "Türk mutfağında yemeğin yanında sunulan bir eşlikçi",
+  "mean": "Yoğurt, salatalık, sarımsak ve nane ile yapılan serinletici yiyecek",
+  "theme": "Yunan mutfağındaki tzatziki bunun daha yoğun bir akrabasıdır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "ÇİĞ KÖFTE",
+  "d": 1,
+  "sub": "Güneydoğu kökenli, dürüm olarak da yenen bir yiyecek",
+  "mean": "İnce bulgur ve isotla uzun süre yoğrularak hazırlanır",
+  "theme": "Günümüzde satılanlar genellikle etsizdir; marul ve nar ekşisiyle sunulur"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "AŞURE",
+  "d": 2,
+  "sub": "Muharrem ayında yapılan bir tatlı",
+  "mean": "Buğday, nohut, kuru meyve ve baklagillerle yapılan karışık tatlı",
+  "theme": "Rivayete göre Nuh tufanından sonra gemide kalan malzemelerle yapılmıştır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "İMAM BAYILDI",
+  "d": 2,
+  "sub": "Türk mutfağından zeytinyağlı bir yemek",
+  "mean": "Patlıcanların içine bol soğan ve domates doldurulup pişirilir",
+  "theme": "Adının, bir din adamının yemeğin lezzetinden kendinden geçmesinden geldiği anlatılır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "İSKENDER KEBAP",
+  "d": 2,
+  "sub": "Bursa ile özdeşleşmiş bir et yemeği",
+  "mean": "Pide üzerine ince döner dilimleri dizilip domates sosu ve yağ dökülür",
+  "theme": "Adını 19. yüzyılda yemeği geliştiren ustadan alır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KÜNEFE",
+  "d": 2,
+  "sub": "Hatay mutfağından sıcak servis edilen bir tatlı",
+  "mean": "Tel kadayıf arasına tuzsuz peynir konup şerbetle pişirilir",
+  "theme": "Ayrıca Antep fıstığı serpilerek, peynirin uzaması görülecek şekilde yenir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "FIRIN SÜTLAÇ",
+  "d": 2,
+  "sub": "Muhallebicilerin vazgeçilmez bir tatlısı",
+  "mean": "Pirinç ve süt ile hazırlanıp üstü kızarana kadar pişirilen tatlı",
+  "theme": "Toprak kaplarda servis edilir, üzerine tarçın serpilebilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "TARHANA",
+  "d": 2,
+  "sub": "Kışlık hazırlanan geleneksel bir yiyecek",
+  "mean": "Yoğurt, un ve sebzelerin karıştırılıp kurutulmasıyla elde edilir",
+  "theme": "Anadolu'da kışın sıcak bir şekilde kaşıkla içilir; Maraş'ınki ünlüdür"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "PASTIRMA",
+  "d": 2,
+  "sub": "Kayseri ile özdeşleşmiş bir şarküteri ürünü",
+  "mean": "Kurutulan dana etinin çemen ile kaplanmasıyla yapılır",
+  "theme": "Yumurtayla birlikte tavada pişirilmesi kahvaltılarda sevilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "İRMİK HELVASI",
+  "d": 2,
+  "sub": "Türk kültüründe özel günlerde yapılan bir tatlı",
+  "mean": "Tereyağında kavrulup şerbetle demlendirilen taneli tatlı",
+  "theme": "Cenazelerde ve mevlitlerde komşulara dağıtılması gelenektir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "LOKMA",
+  "d": 2,
+  "sub": "Şerbetli, kızartma bir tatlı",
+  "mean": "Hamur toplar hâlinde yağda kızartılıp şerbete batırılır",
+  "theme": "Özellikle İzmir'de hayır için dağıtılması yaygın bir gelenektir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "EZOGELİN",
+  "d": 2,
+  "sub": "Türk mutfağından kaşıkla yenen bir yemek",
+  "mean": "Kırmızı baklagil, bulgur ve pirinçle yapılır, nane ve pul biberle tatlanır",
+  "theme": "Adını Gaziantep'te yaşamış bir kadının hüzünlü hikâyesinden alır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KISIR",
+  "d": 2,
+  "sub": "Türk mutfağından soğuk servis edilen bir meze",
+  "mean": "İnce bulgur, salça, nar ekşisi ve yeşilliklerle hazırlanır",
+  "theme": "Kadınların gün toplantılarının en popüler ikramlarındandır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KUMPİR",
+  "d": 2,
+  "sub": "Ortaköy ile özdeşleşmiş bir sokak lezzeti",
+  "mean": "Fırında pişen büyük patatesin içi tereyağı ve kaşarla ezilip malzemelerle doldurulur",
+  "theme": "Üzerine mısır, turşu, zeytin ve rus salatası gibi garnitürler eklenir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "TÜRK LOKUMU",
+  "d": 2,
+  "sub": "Osmanlı'dan beri bilinen bir şekerleme",
+  "mean": "Nişasta ve şekerle yapılan yumuşak, pudralı küpler",
+  "theme": "Bayramlarda kahvenin yanında ikram edilir; Hacı Bekir ile özdeşleşmiştir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "MUSAKKA",
+  "d": 2,
+  "sub": "Türk ve Balkan mutfağından fırın yemeği",
+  "mean": "Patlıcan dilimleri arasına kıyma serilerek pişirilir",
+  "theme": "Yunan versiyonunda üzerine beşamel sos eklenir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "ETLİ KURU FASULYE",
+  "d": 2,
+  "sub": "Türk mutfağının milli yemeği olarak anılan bir tencere yemeği",
+  "mean": "Beyaz baklagil kuşbaşı veya kemikli etle salçalı bir şekilde pişirilir",
+  "theme": "Pilavla birlikte yenmesi bir gelenektir; esnaf lokantalarının yıldızıdır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "HÜNKAR BEĞENDİ",
+  "d": 3,
+  "sub": "Osmanlı saray mutfağından bir et yemeği",
+  "mean": "Közlenmiş patlıcanlı beşamel püresinin üstüne kuzu eti yahnisi konur",
+  "theme": "Fransız İmparatoriçe Eugenie'nin ziyareti için yapıldığı rivayet edilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KEŞKEK",
+  "d": 3,
+  "sub": "Düğün ve bayramlarda yapılan geleneksel bir yemek",
+  "mean": "Buğday ve etin uzun süre pişirilip tokmakla dövülmesiyle yapılır",
+  "theme": "Bu yemeğin geleneği UNESCO Somut Olmayan Kültürel Miras listesindedir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "ALİ NAZİK",
+  "d": 3,
+  "sub": "Gaziantep mutfağından bir kebap türü",
+  "mean": "Közlenmiş patlıcanlı yoğurt üzerine kuşbaşı et konarak servis edilir",
+  "theme": "Adı, Yavuz Sultan Selim'in kendisine sunulan yemeği beğenmesine dair rivayetle anılır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KUZU TANDIR",
+  "d": 3,
+  "sub": "Anadolu mutfağından fırında pişen bir et yemeği",
+  "mean": "Hayvanın eti kuyu fırında saatlerce kendi yağında pişirilir",
+  "theme": "Lokantalarda genellikle pilav ve közlenmiş biberle sunulur"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "TAVUK GÖĞSÜ",
+  "d": 3,
+  "sub": "Osmanlı saray mutfağından şaşırtıcı bir tatlı",
+  "mean": "Sütlü muhallebinin içinde ince didiklenmiş beyaz et bulunur",
+  "theme": "Dünyada içinde et bulunan nadir tatlılardan biri olarak bilinir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KAZANDİBİ",
+  "d": 3,
+  "sub": "Muhallebicilerde satılan bir tatlı",
+  "mean": "Tabanı karamelize edilip yakılan sütlü muhallebiden yapılır",
+  "theme": "Adını, tencerenin altında oluşan kızarmış tabakadan alır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "MIHLAMA",
+  "d": 3,
+  "sub": "Karadeniz mutfağından bir kahvaltı yemeği",
+  "mean": "Mısır unu, tereyağı ve uzayan peynirle yapılır",
+  "theme": "Bazı yörelerde kuymak adıyla da bilinir; bakır sahanda servis edilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "PİŞMANİYE",
+  "d": 3,
+  "sub": "Kocaeli ile özdeşleşmiş bir tatlı",
+  "mean": "İnce tellerden oluşan, pamuk görünümlü un ve şeker helvası",
+  "theme": "Adının, yapımının zorluğundan yakınan bir gelinin hikâyesinden geldiği anlatılır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "ŞAKŞUKA",
+  "d": 3,
+  "sub": "Türk mutfağından soğuk servis edilen bir meze",
+  "mean": "Kızarmış patlıcan, kabak ve biber domates sosuyla buluşturulur",
+  "theme": "Kuzey Afrika ve İsrail'de aynı adı taşıyan yemek yumurtalı hazırlanır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "ÇILBIR",
+  "d": 3,
+  "sub": "Osmanlı saray mutfağından bir yumurta yemeği",
+  "mean": "Haşlanmış yumurtalar sarımsaklı yoğurdun üstüne konup kızgın yağ dökülür",
+  "theme": "Fatih Sultan Mehmet döneminin saray kayıtlarında da yer alır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "DİLBER DUDAĞI",
+  "d": 3,
+  "sub": "Şerbetli tatlılar ailesinden bir hamur işi",
+  "mean": "İçi fıstıkla doldurulup yarım ay şeklinde kapatılan kızartma tatlı",
+  "theme": "Adını, şeklinin güzel bir kadının ağzına benzetilmesinden alır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "ZEYTİNYAĞLI YAPRAK SARMA",
+  "d": 4,
+  "sub": "Türk mutfağından soğuk yenen bir meze",
+  "mean": "Haşlanmış asma yeşilliklerinin içine baharatlı pirinç harcı konup ince ince dürülür",
+  "theme": "Bayram sofralarının klasiğidir; incecik olanları ustalık göstergesidir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KAYMAKLI EKMEK KADAYIFI",
+  "d": 4,
+  "sub": "Türk mutfağından şerbetli bir tatlı",
+  "mean": "Şerbetle ıslatılmış özel somun dilimlerinin üstüne manda ürünü eklenir",
+  "theme": "Afyon'un manda sütünden elde edilen yoğun kremasıyla sunulanları meşhurdur"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "HÖŞMERİM",
+  "d": 4,
+  "sub": "Marmara yöresinden bir peynir tatlısı",
+  "mean": "Tuzsuz taze peynir, irmik ve şekerle yapılan helva benzeri tatlı",
+  "theme": "Balıkesir ve Sakarya yöresinde, özellikle otoyol duraklarında satılır"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "SAKIZLI MUHALLEBİ",
+  "d": 4,
+  "sub": "Pudingle karıştırılan ama ondan farklı bir sütlü tatlı",
+  "mean": "Damla reçinesiyle aromalandırılmış nişastalı tatlı",
+  "theme": "Bu aroma Ege'deki Chios Adası'nda yetişen mastika ağaçlarından elde edilir"
+ },
+ {
+  "cat": "Yiyecekler ve Yemekler",
+  "a": "KEMALPAŞA TATLISI",
+  "d": 4,
+  "sub": "Bursa yöresinin ünlü bir şerbetli lezzeti",
+  "mean": "Peynirli hamur topları şerbette haşlanarak hazırlanır",
+  "theme": "Adını aldığı ilçenin eski adı Mihaliç'tir; ilçe 1922'de Gazi Paşa'ya hürmeten yeniden adlandırıldı"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ELMA",
+  "d": 1,
+  "sub": "Yaygın bir ağaç meyvesi",
+  "mean": "Kırmızı, yeşil ya da sarı olabilen, kıtır kıtır yenen meyve",
+  "theme": "Newton'un kafasına düşen bu meyvenin onu yerçekimi üzerine düşündürdüğü anlatılır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "MUZ",
+  "d": 1,
+  "sub": "Tropik iklimden gelen bir meyve",
+  "mean": "Sarı kabuğu soyularak yenen, uzun ve kıvrık meyve",
+  "theme": "Türkiye'de Anamur ve Alanya'da yetiştirilir; potasyum açısından zengindir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KARPUZ",
+  "d": 1,
+  "sub": "Yazın sevilen iri bir meyve",
+  "mean": "Yeşil kabuğun içinde kırmızı, sulu ve çekirdekli bir iç bulunur",
+  "theme": "Diyarbakır'da yetişen dev boyutluları festivallere konu olur"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ÇİLEK",
+  "d": 1,
+  "sub": "İlkbahar sonunda yetişen kırmızı bir meyve",
+  "mean": "Küçük, tatlı ve dışı minik tohumlarla kaplı meyve",
+  "theme": "Pasta süslemelerinde ve reçellerde sıkça kullanılır; Bartın'ınki ünlüdür"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "PORTAKAL",
+  "d": 1,
+  "sub": "Kışın sevilen turunçgillerden bir meyve",
+  "mean": "C vitamini deposu olarak bilinen, suyu sıkılan turuncu meyve",
+  "theme": "Finike ve Dörtyol'da bol miktarda yetiştirilir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "DOMATES",
+  "d": 1,
+  "sub": "Mutfakta en çok kullanılan kırmızı bir ürün",
+  "mean": "Salatanın ve salçanın ana malzemesidir",
+  "theme": "Botanik olarak meyve sayılır; Amerika kıtasından dünyaya yayılmıştır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "PATATES",
+  "d": 1,
+  "sub": "Toprak altında yetişen bir yumru",
+  "mean": "Kızartması, haşlaması ve püresi yapılan nişastalı besin",
+  "theme": "Niğde ve Nevşehir'de yoğun olarak üretilir; Güney Amerika kökenlidir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "SALATALIK",
+  "d": 1,
+  "sub": "Yazın sıkça tüketilen yeşil bir sebze",
+  "mean": "Serinletici, sulu yapısıyla mevsim karışımlarında ve cacıkta kullanılır",
+  "theme": "İçeriğinin yüzde doksan beşten fazlası sudur"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "HAVUÇ",
+  "d": 1,
+  "sub": "Toprak altında yetişen turuncu bir sebze",
+  "mean": "Görmeye iyi geldiği bilinen, A vitamini açısından zengin kök",
+  "theme": "Tavşanların en sevdiği yiyecek olarak çizgi filmlerde sıkça gösterilir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "PATLICAN",
+  "d": 1,
+  "sub": "Türk mutfağında çok sevilen mor bir sebze",
+  "mean": "Közlenir, kızartılır, dolması ve beğendisi yapılır",
+  "theme": "Türk mutfağında yüzlerce farklı yemeğinin yapıldığı söylenir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KİRAZ",
+  "d": 1,
+  "sub": "Yaz başında yetişen kırmızı bir meyve",
+  "mean": "Sapları genellikle çift olan küçük ve çekirdekli meyve",
+  "theme": "Türkiye, bu meyvenin dünyadaki en büyük üreticisidir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ÜZÜM",
+  "d": 1,
+  "sub": "Salkım hâlinde yetişen bir meyve",
+  "mean": "Asmada yetişen, kurusu ve pekmezi yapılan meyve",
+  "theme": "Manisa'nın çekirdeksiz kurusu dünyaya ihraç edilir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ISPANAK",
+  "d": 1,
+  "sub": "Kışın tüketilen yeşil yapraklı bir sebze",
+  "mean": "Demir açısından zengin olduğu bilinen, yumurtayla da pişirilen sebze",
+  "theme": "Temel Reis bunu yiyince kasları büyür ve güçlenir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ARMUT",
+  "d": 1,
+  "sub": "Yaygın bir ağaç meyvesi",
+  "mean": "Alt kısmı geniş, üstü daralan, sulu ve tatlı meyve",
+  "theme": "Ağacın dibine düşmesiyle ilgili ünlü bir atasözüne konu olmuştur"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "AYVA",
+  "d": 2,
+  "sub": "Sonbaharda yetişen sarı bir meyve",
+  "mean": "Sert ve buruk tadı nedeniyle çoğunlukla tatlısı ya da reçeli yapılır",
+  "theme": "Kaymaklı fırın tatlısı meşhurdur; yaprağının çayı öksürüğe iyi gelir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "NAR",
+  "d": 2,
+  "sub": "Sonbaharda yetişen kırmızı bir meyve",
+  "mean": "İçi yüzlerce kırmızı taneyle dolu, sulu meyve",
+  "theme": "Ekşisi salatalarda kullanılır; bereket ve bolluğun simgesidir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "İNCİR",
+  "d": 2,
+  "sub": "Yazın sonunda olgunlaşan tatlı bir meyve",
+  "mean": "Kurusu da tüketilen, yumuşak ve içi minik çekirdekli meyve",
+  "theme": "Aydın, bu meyvenin kurusunun üretiminde dünya lideridir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "BROKOLİ",
+  "d": 2,
+  "sub": "Lahanagiller ailesinden yeşil bir sebze",
+  "mean": "Küçük ağaçları andıran, buharda pişirilen besleyici sebze",
+  "theme": "İtalyancadan gelen adı filiz anlamına gelir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ENGİNAR",
+  "d": 2,
+  "sub": "Ege mutfağında sevilen bir sebze",
+  "mean": "Yaprakları ayıklanıp kalbi zeytinyağlı olarak pişirilir",
+  "theme": "Aslında açmamış bir çiçek tomurcuğudur; İzmir Urla'da festivali yapılır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KEREVİZ",
+  "d": 2,
+  "sub": "Kökü ve sapı yenen bir sebze",
+  "mean": "Zeytinyağlı yemeği portakallı da yapılan yumru",
+  "theme": "Sapı diyet listelerinde düşük kalorili atıştırmalık olarak yer alır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "PIRASA",
+  "d": 2,
+  "sub": "Kışın tüketilen uzun bir sebze",
+  "mean": "Beyaz gövdeli, yeşil yapraklı, soğana akraba sebze",
+  "theme": "Zeytinyağlısı pirinç ve havuçla yapılır; Galler'in ulusal simgesidir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "BAMYA",
+  "d": 2,
+  "sub": "Yazın tüketilen küçük yeşil bir sebze",
+  "mean": "Kesilince salgıladığı yapışkan sıvıyla tanınan sebze",
+  "theme": "Kurusu ipe dizilerek saklanır; Amasya'nın minik olanları ünlüdür"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "BAL KABAĞI",
+  "d": 2,
+  "sub": "Sonbaharda yetişen iri turuncu bir sebze",
+  "mean": "Tatlısı tahin ve cevizle servis edilen sebze",
+  "theme": "Cadılar Bayramı'nda içi oyularak yüz şeklinde fener yapılır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "MANDALİNA",
+  "d": 1,
+  "sub": "Kışın yenen turunçgillerden bir meyve",
+  "mean": "Kabuğu kolayca soyulan, dilimli küçük turuncu meyve",
+  "theme": "Çin kökenlidir; Ege'de Seferihisar yöresi ile ünlüdür"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KAYISI",
+  "d": 2,
+  "sub": "Yazın yetişen turuncu bir meyve",
+  "mean": "Kadifemsi kabuklu, çekirdekli meyve; kurusu da çok sevilir",
+  "theme": "Malatya, bu meyvenin kurusunun dünyadaki en büyük üretim merkezidir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "DOLMALIK BİBER",
+  "d": 2,
+  "sub": "Yeşil ve iri gövdeli bir sebze",
+  "mean": "İçi boşaltılarak pirinç ya da kıymayla doldurulan sebze",
+  "theme": "Acı olmayan bu tür, sarması yapılanların yanı sıra kızartma olarak da kullanılır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KARNABAHAR",
+  "d": 2,
+  "sub": "Lahanagiller ailesinden beyaz bir sebze",
+  "mean": "Kızartması, graten ve yemeği yapılan, beyaz çiçekli sebze",
+  "theme": "Pişerken çıkardığı kokusuyla tanınır; adı Farsça kökenlidir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "AVOKADO",
+  "d": 2,
+  "sub": "Tropik kökenli yeşil bir meyve",
+  "mean": "Yağlı, kremamsı iç yapısıyla tost ve salatalarda kullanılır",
+  "theme": "Meksika kökenlidir; Türkiye'de Alanya ve Mersin'de yetiştirilir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KIVIRCIK MARUL",
+  "d": 2,
+  "sub": "Salatalarda kullanılan yapraklı bir sebze",
+  "mean": "Kenarları dalgalı, açık yeşil yapraklı salata yeşilliği",
+  "theme": "Göbek ve aysberg gibi çeşitlerden yaprak yapısıyla ayrılır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "TAZE SOĞAN",
+  "d": 1,
+  "sub": "Bahar aylarında tüketilen ince bir sebze",
+  "mean": "Yeşil sapı ve küçük beyaz başıyla salataya eklenir",
+  "theme": "Kurusu olgunlaşmadan toplanan bu sebze kebapların yanında da sunulur"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "HİNDİSTAN CEVİZİ",
+  "d": 2,
+  "sub": "Tropik bölgelerde palmiyede yetişen bir meyve",
+  "mean": "Sert, kıllı kabuğunun içinde beyaz bir öz ve tatlı bir sıvı bulunur",
+  "theme": "Rendesi tatlılarda kullanılır; okyanusta yüzerek yeni adalara ulaşabilir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KARA DUT",
+  "d": 2,
+  "sub": "Yazın yetişen koyu renkli küçük bir meyve",
+  "mean": "Eli ve ağzı boyayan, mayhoş tatlı bir meyve",
+  "theme": "Şerbeti ve pekmezi yapılır; kumaşa bulaşan lekesi zor çıkar"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "MUŞMULA",
+  "d": 4,
+  "sub": "Kışa doğru olgunlaşan kahverengi bir meyve",
+  "mean": "Ağaçta sert kalır, ancak toplandıktan sonra yumuşayınca yenir",
+  "theme": "Yaşlı ve buruşuk yüzler için benzetme olarak da kullanılır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KUŞBURNU",
+  "d": 3,
+  "sub": "Dağlarda yaygın bir yabani meyve",
+  "mean": "Kırmızı küçük meyvelerinden marmelat ve çay yapılır",
+  "theme": "Portakaldan kat kat fazla C vitamini içerdiği bilinir; yabani gülün meyvesidir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "TRABZON HURMASI",
+  "d": 3,
+  "sub": "Sonbaharda olgunlaşan turuncu bir meyve",
+  "mean": "Tam olgunlaşınca jöle kıvamına gelen, tatlı ve yumuşak meyve",
+  "theme": "Japonya'da kaki adıyla bilinir ve Doğu Asya kökenlidir; Karadeniz'de bolca yetişir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "YENİ DÜNYA",
+  "d": 3,
+  "sub": "İlkbaharda olgunlaşan sarı bir meyve",
+  "mean": "Küçük, sulu, ekşimsi tatlı; içinde büyük parlak çekirdekler bulunur",
+  "theme": "Malta eriği olarak da bilinir; ağacı kışın çiçek açar"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ÇARKIFELEK MEYVESİ",
+  "d": 3,
+  "sub": "Tropik kökenli egzotik bir yiyecek",
+  "mean": "Buruşuk mor kabuğunun içinde ekşimsi, çekirdekli jöle bulunur",
+  "theme": "İngilizcede passion fruit olarak bilinir; çiçeği saat kadranını andırır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "BRÜKSEL LAHANASI",
+  "d": 3,
+  "sub": "Mini boyutlu yeşil bir sebze",
+  "mean": "Bir sap üzerinde sıralanan küçük top şeklinde yapraklı sebze",
+  "theme": "Adını Belçika'nın başkentinden alır; çocukların sevmediği sebzeler listesinin başındadır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "BÖĞÜRTLEN",
+  "d": 3,
+  "sub": "Dikenli çalılarda yetişen siyah bir meyve",
+  "mean": "Yabani olarak da toplanan, küçük tanelerden oluşan orman meyvesi",
+  "theme": "Reçeli yapılır; yolda toplanırken eller morarır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "AHUDUDU",
+  "d": 3,
+  "sub": "Kırmızı orman meyvelerinden biri",
+  "mean": "Yumuşak, içi boş, küçük tanecikli tatlı meyve",
+  "theme": "Frambuaz olarak da bilinir; koparıldığında içi oyuk kalır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "KUŞKONMAZ",
+  "d": 3,
+  "sub": "İlkbaharda toplanan ince bir sebze",
+  "mean": "Yeşil ya da beyaz, uzun saplarının uçları yenen sebze",
+  "theme": "Lif yapısı nedeniyle tüketildikten sonra idrara kendine özgü bir koku verir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "SEMİZOTU",
+  "d": 3,
+  "sub": "Yazın tüketilen etli yapraklı bir yeşillik",
+  "mean": "Yoğurtlu salatası ve zeytinyağlısı yapılan bitki",
+  "theme": "Omega-3 açısından zengin olan nadir bitkilerden biri olarak bilinir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "TOPİNAMBUR",
+  "d": 4,
+  "sub": "Kışın tüketilen yumru köklü bir sebze",
+  "mean": "Zencefile benzeyen, patatese yakın tatta zeytinyağlısı yapılan yumru",
+  "theme": "Yer elması olarak da bilinir; ayçiçeğinin yakın akrabasıdır"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ŞEKER PANCARI",
+  "d": 3,
+  "sub": "Tarlada yetişen yumru köklü bir bitki",
+  "mean": "Türkiye'de beyaz tatlandırıcının ana hammaddesi olarak kullanılır",
+  "theme": "Konya ve Eskişehir'de geniş alanlarda üretilir ve fabrikalarda işlenir"
+ },
+ {
+  "cat": "Meyveler ve Sebzeler",
+  "a": "ACUR",
+  "d": 4,
+  "sub": "Kavunla akraba yeşil bir sebze",
+  "mean": "Salatalığa benzeyen uzun, tüylü kabuklu sebze; turşusu yapılır",
+  "theme": "Ege ve Akdeniz yörelerinde yazın çiğ olarak salatalarda tüketilir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "GÜL",
+  "d": 1,
+  "sub": "Dikenli gövdesiyle bilinen bir çiçek",
+  "mean": "Sevgililer Günü'nde en çok hediye edilen çiçek",
+  "theme": "Isparta, bu çiçekten elde edilen yağın üretiminde dünyada öne çıkar"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "LALE",
+  "d": 1,
+  "sub": "İlkbaharda soğandan açan bir çiçek",
+  "mean": "Kadeh biçimli, renk renk açan bahar çiçeği",
+  "theme": "İstanbul Emirgan'da her nisan festivali yapılır; Osmanlı'da bir döneme adını vermiştir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "PAPATYA",
+  "d": 1,
+  "sub": "Kır çiçeklerinden biri",
+  "mean": "Beyaz taç yapraklı, sarı göbekli çiçek",
+  "theme": "Yapraklarını tek tek koparıp seviyor sevmiyor oyunu oynanır; çayı yatıştırıcıdır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "AFRİKA MENEKŞESİ",
+  "d": 2,
+  "sub": "Saksıda yetiştirilen bir salon bitkisi",
+  "mean": "Tüylü yaprakları ve mor, pembe ya da beyaz küçük çiçekleriyle bilinir",
+  "theme": "Tanzanya kökenlidir; yapraklarına su değmemesi önerilir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "KARANFİL",
+  "d": 1,
+  "sub": "Kokulu bir çiçek",
+  "mean": "Kenarları tırtıklı taç yapraklarıyla bilinen çiçek",
+  "theme": "Aynı adı taşıyan bir baharat da vardır; Portekiz'deki 1974 devrimine adını verdi"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ORKİDE",
+  "d": 1,
+  "sub": "Saksıda yetiştirilen zarif bir çiçek",
+  "mean": "Hediye olarak sevilen, havada kökleri olan egzotik çiçek",
+  "theme": "Dünyanın en büyük çiçekli bitki ailelerinden birine aittir; vanilya da bu ailedendir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "KAKTÜS",
+  "d": 1,
+  "sub": "Çöl iklimine uyum sağlamış bir bitki",
+  "mean": "Dikenli, gövdesinde su depolayan bitki",
+  "theme": "Yaprakları zamanla dikenlere dönüşmüştür; bazı türleri yüzyıllarca yaşar"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "LAVANTA",
+  "d": 1,
+  "sub": "Kokusu ile ünlü mor bir bitki",
+  "mean": "Kurutulup dolaplara konur ve rahatlatıcı yağı elde edilir",
+  "theme": "Isparta Kuyucak köyü, mor tarlaları ile turistlerin akınına uğrar"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "NANE",
+  "d": 1,
+  "sub": "Mutfakta kullanılan kokulu bir bitki",
+  "mean": "Yaprakları ferahlatıcı aromasıyla çay, ayran ve yemeklere eklenir",
+  "theme": "Kurusu çorbaların üzerine serpilir; limonla demlenince soğuk algınlığına iyi gelir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "KEKİK",
+  "d": 1,
+  "sub": "Dağlarda yetişen aromatik bir bitki",
+  "mean": "Köfte ve etlere baharat olarak katılır, çayı da yapılır",
+  "theme": "Yağı güçlü antiseptik özelliğiyle bilinir; Ege yamaçlarında bolca yetişir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ZEYTİN AĞACI",
+  "d": 1,
+  "sub": "Akdeniz iklimine özgü uzun ömürlü bir bitki",
+  "mean": "Meyvesinden yağ elde edilen, gümüşi yapraklı ağaç",
+  "theme": "Dalı barışın simgesidir; bazı örnekleri iki bin yıldan fazla yaşamıştır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "FISTIK ÇAMI",
+  "d": 2,
+  "sub": "Kıyı bölgelerinde görülen bir iğne yapraklı ağaç",
+  "mean": "Kozalaklarından iç pilav ve dolmalarda kullanılan küçük beyaz tohumlar elde edilir",
+  "theme": "Şemsiye biçimli tepesiyle tanınır; İzmir Kozak yaylası ünlüdür"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "SÜMBÜL",
+  "d": 2,
+  "sub": "İlkbaharda soğandan açan bir çiçek",
+  "mean": "Salkım hâlinde, yoğun kokulu küçük çiçekler açar",
+  "theme": "Yılbaşı sonrası saksıda zorlanarak evlerde de açtırılır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "NERGİS",
+  "d": 2,
+  "sub": "Kışın sonunda açan bir çiçek",
+  "mean": "Beyaz yapraklı, ortası sarı kadeh şeklinde olan kokulu çiçek",
+  "theme": "Adını, suda kendi yansımasına âşık olan mitolojik gençten alır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ZAMBAK",
+  "d": 2,
+  "sub": "Büyük ve kokulu çiçekleriyle bilinen bir bitki",
+  "mean": "Huni biçimli beyaz çiçekleriyle saflığın simgesidir",
+  "theme": "Kedilere zehirli olduğu için evde bulundurulurken dikkat edilmelidir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "SARDUNYA",
+  "d": 2,
+  "sub": "Balkon saksılarında sık görülen bir çiçek",
+  "mean": "Kırmızı, pembe ya da beyaz kümeler hâlinde açan, kokulu yapraklı bitki",
+  "theme": "Akdeniz evlerinin pencere önlerinin vazgeçilmezidir; yaprağı ezilince keskin kokar"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "BEGONYA",
+  "d": 2,
+  "sub": "Gölgeyi seven bir süs bitkisi",
+  "mean": "Etli yaprakları ve renkli çiçekleriyle saksılarda yetiştirilir",
+  "theme": "Adını 17. yüzyılda yaşamış Fransız vali Michel Bégon'dan alır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "MANOLYA",
+  "d": 2,
+  "sub": "İri çiçekleriyle bilinen bir ağaç",
+  "mean": "Büyük, beyaz ya da pembe çiçekler açan süs ağacı",
+  "theme": "Arılar ortaya çıkmadan önce evrimleşmiş en eski çiçekli bitkilerdendir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "FESLEĞEN",
+  "d": 2,
+  "sub": "Mutfakta ve balkonda yetiştirilen aromatik bir bitki",
+  "mean": "İtalyan mutfağında pesto sosunun ana malzemesidir",
+  "theme": "Halk arasında reyhan olarak da bilinir; sivrisinekleri uzaklaştırdığına inanılır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ÇINAR",
+  "d": 2,
+  "sub": "Uzun ömürlü ve geniş gölgeli bir ağaç",
+  "mean": "Köy meydanlarında gölgesinde oturulan, el biçimli yapraklı ağaç",
+  "theme": "Osmanlı'nın simgesi sayılır; İstanbul'da yüzlerce yıllık örnekleri bulunur"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "MEŞE",
+  "d": 2,
+  "sub": "Sert odunuyla bilinen bir ağaç",
+  "mean": "Meyvesi palamut olan, uzun ömürlü orman ağacı",
+  "theme": "Şarap ve viski fıçıları bu ağacın odunundan yapılır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "SÖĞÜT",
+  "d": 2,
+  "sub": "Su kenarlarında yetişen bir ağaç",
+  "mean": "Dalları aşağı sarkan, ince yapraklı ağaç",
+  "theme": "Kabuğundan elde edilen madde aspirinin ilk hammaddesi olmuştur"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "SARMAŞIK",
+  "d": 2,
+  "sub": "Duvarlara tutunarak büyüyen bir bitki",
+  "mean": "Eski binaların cephelerini yeşil bir örtüyle kaplayan tırmanıcı bitki",
+  "theme": "Amerika'da köklü üniversitelerden oluşan Ivy League adını bu bitkiden alır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "YOSUN",
+  "d": 2,
+  "sub": "Nemli yerlerde yetişen küçük bir bitki",
+  "mean": "Taşların ve ağaçların gölgede kalan yüzeylerini yeşil halı gibi kaplar",
+  "theme": "Ormanda kaybolanlar için ağaçların genellikle kuzey yüzünde bulunduğu söylenir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "BAMBU",
+  "d": 2,
+  "sub": "Asya'da yaygın, çok hızlı büyüyen bir bitki",
+  "mean": "İçi boş, boğumlu gövdesiyle inşaat ve mobilyada kullanılır",
+  "theme": "Botanik olarak bir çimen türüdür ve bir günde bir metreye yakın uzayabilir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "GELİNCİK",
+  "d": 2,
+  "sub": "Tarlalarda açan kırmızı bir kır çiçeği",
+  "mean": "İnce saplı, kırmızı yapraklı ve ortası siyah olan çiçek",
+  "theme": "Birinci Dünya Savaşı'nda ölenleri anma simgesidir; aynı adı taşıyan bir hayvan da vardır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "MİMOZA",
+  "d": 2,
+  "sub": "Kış sonunda sarı çiçek açan bir ağaç",
+  "mean": "Ponpon gibi küçük, kokulu sarı çiçek salkımları açar",
+  "theme": "İtalya'da 8 Mart Dünya Kadınlar Günü'nün simge çiçeğidir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ORTANCA",
+  "d": 2,
+  "sub": "Gölgeli bahçelerin top çiçekli bitkisi",
+  "mean": "Büyük, yuvarlak çiçek kümeleri açan bir çalı",
+  "theme": "Toprağın asitliğine göre çiçeklerinin rengi maviden pembeye değişir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "KARDELEN",
+  "d": 2,
+  "sub": "Kış sonunda karların arasında açan bir çiçek",
+  "mean": "Beyaz, sarkık küçük çiçeğiyle baharın müjdecisi sayılır",
+  "theme": "Bazı türleri koruma altındadır; toplanması ve ihracı izne tabidir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "NİLÜFER",
+  "d": 2,
+  "sub": "Durgun sularda yetişen bir bitki",
+  "mean": "Yuvarlak yaprakları su yüzeyinde yüzen, güzel çiçekli bitki",
+  "theme": "Bursa'dan geçen bir çaya ve bir ilçeye adını vermiştir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "MOR SALKIM",
+  "d": 2,
+  "sub": "Pergola ve duvarlarda yetişen tırmanıcı bir bitki",
+  "mean": "İlkbaharda aşağı sarkan, kokulu çiçek demetleri açar",
+  "theme": "İstanbul'un eski yalı ve köşklerinin bahar simgelerindendir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ISIRGAN OTU",
+  "d": 3,
+  "sub": "Yabani olarak yetişen bir bitki",
+  "mean": "Tüylerine dokunulunca ciltte yanma ve kaşıntı yapar",
+  "theme": "Çayı ve kavurması yapılır; demir açısından zengin olduğu bilinir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "DEVE TABANI",
+  "d": 3,
+  "sub": "Büyük yapraklı bir salon bitkisi",
+  "mean": "Delikli ve yarık iri yaprakları olan, tropik kökenli ev bitkisi",
+  "theme": "Monstera olarak da bilinir; bir hayvanın ayağına benzetilen yaprakları vardır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ATATÜRK ÇİÇEĞİ",
+  "d": 3,
+  "sub": "Yılbaşı döneminde sıkça görülen bir saksı bitkisi",
+  "mean": "Üstteki yaprakları kırmızıya dönen, Meksika kökenli süs bitkisi",
+  "theme": "Adını, Kurucu Önder'in vefat ettiği ay olan kasımda renk vermesinden aldığı söylenir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "AKŞAM SEFASI",
+  "d": 3,
+  "sub": "Gün batımında açan bir bahçe çiçeği",
+  "mean": "Çiçekleri gün batarken açılıp sabah kapanan, kokulu bitki",
+  "theme": "Dört saat çiçeği olarak da bilinir; tohumları siyah ve buruşuktur"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "KASIMPATI",
+  "d": 3,
+  "sub": "Sonbaharda açan bir çiçek",
+  "mean": "Yoğun taç yapraklı, renk renk açan süs çiçeği",
+  "theme": "Krizantem olarak da bilinir; Japonya'da imparatorluk simgesidir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "HANIMELİ",
+  "d": 3,
+  "sub": "Çit ve duvarlarda yetişen sarılıcı bir bitki",
+  "mean": "Akşamları güzel kokan, borulu çiçekleri emilince bal tadı veren bitki",
+  "theme": "Çocukların çiçeklerinin dibini emerek nektarını tattığı bitkidir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ERGUVAN",
+  "d": 3,
+  "sub": "İlkbaharda pembe-mor çiçek açan bir ağaç",
+  "mean": "Yapraklanmadan önce dalları çiçekle kaplanan süs ağacı",
+  "theme": "Boğaz kıyılarının nisan ayındaki simgesidir; Yahuda ağacı olarak da bilinir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ARDIÇ",
+  "d": 3,
+  "sub": "Dağlık bölgelerde görülen iğne yapraklı bir bitki",
+  "mean": "Mavimsi küçük kozalak meyveleri baharat ve içkide kullanılır",
+  "theme": "Cin içkisine aromasını veren meyvesiyle ünlüdür"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "LÜBNAN SEDİRİ",
+  "d": 4,
+  "sub": "Toroslarda yetişen uzun ömürlü bir iğne yapraklı ağaç",
+  "mean": "Güzel kokulu, çürümeye dayanıklı odunuyla bilinen dev ağaç",
+  "theme": "Bir Orta Doğu ülkesinin bayrağında yer alır; Toros dağlarında doğal ormanları vardır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "PAŞA KILICI",
+  "d": 3,
+  "sub": "Bakımı kolay bir salon bitkisi",
+  "mean": "Dik, sert ve kenarları sarı çizgili uzun yapraklı bitki",
+  "theme": "Gece de oksijen verdiği söylenir; kayınvalide dili olarak da anılır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ÇOBAN PÜSKÜLÜ",
+  "d": 3,
+  "sub": "Yılbaşı süslerinde kullanılan dikenli bir bitki",
+  "mean": "Parlak, dikenli yaprakları ve kırmızı meyveleri olan çalı",
+  "theme": "Kuzey ülkelerinde Noel çelenklerinin vazgeçilmezidir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "DÖRT YAPRAKLI YONCA",
+  "d": 4,
+  "sub": "Çayırlarda nadir rastlanan bir bitki biçimi",
+  "mean": "Bulana şans getirdiğine inanılan, alışılmışın dışında bir tane",
+  "theme": "Her on bin tanede yaklaşık bir tane bulunduğu tahmin edilir"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "VENÜS SİNEK KAPANI",
+  "d": 4,
+  "sub": "Etçil bitkilerden biri",
+  "mean": "Yaprakları aniden birleşerek üzerine konan böcekleri tutsak eder",
+  "theme": "Doğal yaşam alanı yalnızca ABD'nin Karolina eyaletlerindeki bataklıklardır"
+ },
+ {
+  "cat": "Bitkiler ve Çiçekler",
+  "a": "ŞEBBOY",
+  "d": 4,
+  "sub": "Bahar başında açan kokulu bir çiçek",
+  "mean": "Sarı ya da kahverengimsi çiçekleriyle eski bahçelerde yetiştirilir",
+  "theme": "Divan şiirinde sıkça anılır; adı Farsçada gece kokusu anlamına gelir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "GÖMLEK",
+  "d": 1,
+  "sub": "Üst giyimde kullanılan bir parça",
+  "mean": "Yakalı, önden düğmeli ve genellikle kollu bir giysi",
+  "theme": "Resmî giyimde kravatla birlikte ceketin altına giyilir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "KOT PANTOLON",
+  "d": 1,
+  "sub": "Sağlam kumaştan yapılan bir alt giysi",
+  "mean": "Mavi pamuklu bezden yapılan, perçinli bacaklı giysi",
+  "theme": "Levi Strauss ve Jacob Davis 1873'te madenciler için bunun patentini aldı"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "MİNİ ETEK",
+  "d": 1,
+  "sub": "Kadın giyiminde bir alt parça",
+  "mean": "Diz üstünde biten kısa bir giysi",
+  "theme": "1960'larda İngiliz modacı Mary Quant ile popülerleşti"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ELBİSE",
+  "d": 1,
+  "sub": "Kadın giyiminde tek parça bir kıyafet",
+  "mean": "Üst ve alt kısmı birleşik olan, davetlerde sıkça tercih edilen giysi",
+  "theme": "Coco Chanel'in küçük siyah modeli moda tarihinin klasiğidir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "DERİ CEKET",
+  "d": 1,
+  "sub": "Asi ve rock tarzıyla özdeşleşmiş bir dış giysi",
+  "mean": "Hayvan postundan yapılan, fermuarlı ya da düğmeli üstlük",
+  "theme": "Marlon Brando ve James Dean'in filmlerinde giydiği modellerle ikonlaştı"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ŞİŞME MONT",
+  "d": 2,
+  "sub": "Kış aylarında giyilen kalın bir dış giysi",
+  "mean": "İçi kaz tüyü ya da elyafla doldurulmuş, bölmeli dikişli kaban",
+  "theme": "Hafifliğine rağmen yüksek ısı yalıtımı sağlar; ilk modern örnekleri 1930'larda çıktı"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ÇORAP",
+  "d": 1,
+  "sub": "Ayağa giyilen bir giysi",
+  "mean": "Ayakkabı içinde ayağı koruyan ve sıcak tutan örme parça",
+  "theme": "Çamaşır makinesinde tekinin kaybolması ünlü bir ev gizemidir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "AYAKKABI",
+  "d": 1,
+  "sub": "Ayağa giyilen bir eşya",
+  "mean": "Ayağı yerden ve dış etkilerden koruyan, bağcıklı ya da bağcıksız giyecek",
+  "theme": "Külkedisi masalında prensin aradığı kızı bulmasını sağlar"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "HASIR ŞAPKA",
+  "d": 2,
+  "sub": "Yaz aylarında başa takılan bir aksesuar",
+  "mean": "Kurutulmuş sap ya da liflerden örülen, güneşten koruyan başlık",
+  "theme": "Panama türü aslında Ekvador'da örülür"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ATKI",
+  "d": 1,
+  "sub": "Kışın boyna takılan bir aksesuar",
+  "mean": "Boynu soğuktan koruyan uzun örgü ya da kumaş parça",
+  "theme": "Futbol taraftarları takımlarının renklerindekini tribünde sallar"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ELDİVEN",
+  "d": 1,
+  "sub": "Ellere giyilen bir aksesuar",
+  "mean": "Parmak bölmeli olup elleri soğuktan ve kirden korur",
+  "theme": "Düelloya davet etmek için yere atılması eski bir gelenektir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "KRAVAT",
+  "d": 1,
+  "sub": "Erkek giyiminde bir aksesuar",
+  "mean": "Gömlek yakasının altından bağlanarak göğse sarkan şerit",
+  "theme": "Adının, 17. yüzyılda Fransa'daki Hırvat askerlerinden geldiği kabul edilir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "TİŞÖRT",
+  "d": 1,
+  "sub": "Gündelik giyimde kullanılan bir üst parça",
+  "mean": "Yakasız, kısa kollu ve pamuklu, başa geçirilerek giyilen giysi",
+  "theme": "Adını, yere serildiğinde İngiliz alfabesindeki bir harfi andıran biçiminden alır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "KEMER",
+  "d": 1,
+  "sub": "Bele takılan bir aksesuar",
+  "mean": "Pantolonun düşmesini engelleyen, tokalı şerit",
+  "theme": "Mimaride de iki ayağı birbirine bağlayan yay biçimli yapıya aynı ad verilir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "GÜNEŞ GÖZLÜĞÜ",
+  "d": 1,
+  "sub": "Yazın sıkça kullanılan bir aksesuar",
+  "mean": "Koyu camlarıyla parlak ışıktan ve morötesi ışınlardan korunmayı sağlar",
+  "theme": "Ray-Ban'ın pilotlar için tasarladığı modeli dünya klasiği oldu"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "BLUZ",
+  "d": 2,
+  "sub": "Kadın giyiminde bir üst parça",
+  "mean": "Kumaştan yapılan, gömleğe benzeyen ama daha süslü olabilen giysi",
+  "theme": "Etek ya da pantolonla kombinlenerek iş ve günlük hayatta giyilir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "YELEK",
+  "d": 2,
+  "sub": "Gömleğin üstüne giyilen bir parça",
+  "mean": "Kolsuz, önden düğmeli ve genellikle ceketin altına giyilen giysi",
+  "theme": "Üç parça takım elbisenin ortadaki katmanıdır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "PALTO",
+  "d": 2,
+  "sub": "Kışın giyilen uzun bir dış giysi",
+  "mean": "Dizlere kadar inen, yünlü ve kalın üstlük",
+  "theme": "Gogol'ün ünlü öyküsü bu giysiyi kaybeden bir memuru anlatır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "HIRKA",
+  "d": 2,
+  "sub": "Serin havalarda giyilen bir üst giysi",
+  "mean": "Önden açık, düğmeli ya da düğmesiz örgü giysi",
+  "theme": "İstanbul'da bir camide Hz. Muhammed'e ait olduğuna inanılan biri korunur"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "BERE",
+  "d": 2,
+  "sub": "Başa takılan yumuşak bir aksesuar",
+  "mean": "Yuvarlak, siperliksiz ve genellikle yünlü başlık",
+  "theme": "Fransız ressamların simgesidir; bazı askeri birlikler renkleriyle anılır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ŞORT",
+  "d": 2,
+  "sub": "Yaz giyiminde bir alt parça",
+  "mean": "Bacakların büyük kısmını açıkta bırakan kısa pantolon",
+  "theme": "Bermuda türü, adını Atlantik'teki bir İngiliz ada grubundan alır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "PİJAMA",
+  "d": 2,
+  "sub": "Gece giyilen bir kıyafet",
+  "mean": "Uyurken giyilen, üst ve alttan oluşan rahat takım",
+  "theme": "Adı Farsçadan Hint İngilizcesine geçmiş olup bacak giysisi anlamına gelir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "YAĞMURLUK",
+  "d": 2,
+  "sub": "Kötü havada giyilen bir dış giysi",
+  "mean": "Su geçirmez kumaştan yapılan, kapüşonlu olabilen üstlük",
+  "theme": "Plastik pançoları konser ve lunapark gibi yerlerde satılır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ŞALVAR",
+  "d": 2,
+  "sub": "Geleneksel Anadolu giyiminde bir alt parça",
+  "mean": "Bol, ağı düşük ve paçaları bağlanan rahat giysi",
+  "theme": "Köy kadınları ve zeybek kıyafetlerinde yaygın olarak görülür"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "GELİNLİK",
+  "d": 2,
+  "sub": "Hayatın özel bir günü için giyilen bir kıyafet",
+  "mean": "Düğünde kadının giydiği, çoğunlukla beyaz uzun giysi",
+  "theme": "Beyaz rengin moda olması, Kraliçe Victoria'nın 1840'taki düğünüyle başladı"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "PAPYON",
+  "d": 2,
+  "sub": "Resmî giyimde boyna takılan bir aksesuar",
+  "mean": "Kelebek biçiminde bağlanan küçük boyun bağı",
+  "theme": "Smokinle birlikte giyilir; adı Fransızcada kelebek anlamına gelir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "FERMUAR",
+  "d": 2,
+  "sub": "Giysilerde kullanılan bir kapama aracı",
+  "mean": "Dişleri birbirine geçerek iki kumaş kenarını kapatan sürgülü düzenek",
+  "theme": "Japon YKK firması dünyanın en büyük üreticisidir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "KOLYE",
+  "d": 2,
+  "sub": "Boyna takılan bir takı",
+  "mean": "Zincir ya da ip üzerine dizilmiş süs eşyası",
+  "theme": "Titanik filmindeki Okyanusun Kalbi adlı mücevher bu türdendir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ALTIN BİLEZİK",
+  "d": 2,
+  "sub": "Kadınların kol ucuna taktığı değerli bir takı",
+  "mean": "Türk düğünlerinde geline takılan, sarı metal halka",
+  "theme": "Halk arasında ekonomik güvence ve yatırım aracı olarak görülür"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "DESENLİ İPEK EŞARP",
+  "d": 4,
+  "sub": "Başa ya da boyna bağlanan zarif bir aksesuar",
+  "mean": "Kozadan elde edilen parlak kumaştan yapılmış, motifli örtü",
+  "theme": "Bursa ve Hermès bu tür aksesuarlarla ünlenmiştir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "TAYT",
+  "d": 2,
+  "sub": "Vücuda tam oturan bir alt giysi",
+  "mean": "Esnek kumaştan yapılmış, bacağı saran ince giysi",
+  "theme": "Spor salonlarında ve yogada çokça tercih edilir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "TULUM",
+  "d": 2,
+  "sub": "Tek parça bir giysi",
+  "mean": "Üst ve alt kısmı birleşik, pantolonlu kıyafet",
+  "theme": "Aynı ad Karadeniz'e özgü, deri torbalı bir nefesli çalgıyı da anlatır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "HALHAL",
+  "d": 4,
+  "sub": "Geleneksel bir takı",
+  "mean": "Ayak bileğine takılan halka biçimli süs",
+  "theme": "Doğu kültürlerinde dans eden kadınların takısıdır; çıkardığı sesle bilinir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "DEFİLE",
+  "d": 2,
+  "sub": "Moda dünyasında yapılan bir etkinlik",
+  "mean": "Mankenlerin podyumda yeni koleksiyonları sergilediği gösteri",
+  "theme": "Paris, Milano ve New York'ta her sezon büyük haftalar düzenlenir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "TRENÇKOT",
+  "d": 3,
+  "sub": "Askerî kökenli bir dış giysi",
+  "mean": "Kemerli, çift düğmeli, su geçirmez gabardin pardösü",
+  "theme": "Birinci Dünya Savaşı'nda siperlerdeki İngiliz subaylarca giyilerek ünlendi"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "KAŞKOL",
+  "d": 3,
+  "sub": "Boyna takılan bir aksesuar",
+  "mean": "İnce kumaştan yapılan, şık bir boyun atkısı",
+  "theme": "Adı Fransızcada boynu gizleyen anlamına gelen ifadeden gelir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "KAFTAN",
+  "d": 3,
+  "sub": "Osmanlı kökenli bir dış giysi",
+  "mean": "Uzun, bol ve önden açık, işlemeli bir giysi",
+  "theme": "Topkapı Sarayı'nda padişahlara ait zengin örnekleri sergilenir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "ABİYE",
+  "d": 3,
+  "sub": "Gece davetlerine uygun bir kıyafet",
+  "mean": "Özel günlerde giyilen, şık ve uzun kadın giysisi",
+  "theme": "Adı Fransızcadan gelir ve giyinmiş anlamını taşır"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "KOL DÜĞMESİ",
+  "d": 3,
+  "sub": "Resmî gömleklerle kullanılan bir aksesuar",
+  "mean": "Gömleğin manşetlerini birleştiren süslü küçük takı",
+  "theme": "Fransız manşetli gömleklerde kullanılır; damadın hediyesi olabilir"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "BROŞ",
+  "d": 3,
+  "sub": "Giysiye takılan bir süs",
+  "mean": "İğneli bir takı olup yakaya ya da göğse iliştirilir",
+  "theme": "Kraliçe II. Elizabeth, bu takıları siyasi mesajlar vermek için kullanmasıyla bilinirdi"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "İSPANYOL PAÇA",
+  "d": 3,
+  "sub": "Pantolon kesimlerinden biri",
+  "mean": "Dizden sonra genişleyen, çan biçimli bacak kesimi",
+  "theme": "1970'lerin disko modasının simgesidir ve zaman zaman geri döner"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "HAZIR GİYİM",
+  "d": 3,
+  "sub": "Moda sektörünün bir dalı",
+  "mean": "Standart bedenlerde seri olarak üretilen kıyafetler",
+  "theme": "Terzi dikimi kıyafetlerin yerini alarak 20. yüzyılda yaygınlaştı"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "BALIKÇI YAKA KAZAK",
+  "d": 4,
+  "sub": "Kışın giyilen sıcak bir üst giysi",
+  "mean": "Boğazı kıvrılarak çeneye kadar uzanan örgü giysi",
+  "theme": "Steve Jobs'un siyah renkli modeli neredeyse imzası hâline geldi"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "DİZ ÜSTÜ ÇİZME",
+  "d": 3,
+  "sub": "Kadın modasında bir ayak giyimi",
+  "mean": "Bacağı uzun bir şekilde saran, yüksek konçlu ayak giysisi",
+  "theme": "Pretty Woman filminde Julia Roberts'ın giydiği siyah modeli ünlüdür"
+ },
+ {
+  "cat": "Moda ve Giyim",
+  "a": "SEZON SONU İNDİRİMİ",
+  "d": 4,
+  "sub": "Mağazalarla ilgili bir alışveriş dönemi",
+  "mean": "Eski koleksiyonun ucuzlatılarak satıldığı fırsat zamanı",
+  "theme": "Genellikle ocak ve temmuz aylarında başlar, kuyruklar oluşur"
+ }
+]
