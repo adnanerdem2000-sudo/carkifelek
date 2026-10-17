@@ -1,0 +1,82 @@
+/* =========================================================================
+   TÜRK DAMASI — ahşap tahta, neon çerçeve, parlak taşlar
+   ========================================================================= */
+.g-wrap.dm { grid-template-columns: minmax(0, 1fr); width: 100%; gap: 10px; --dm-size: min(100%, 640px, max(300px, calc(100svh - 300px))); }
+.dm > * { justify-self: center; }
+.dm-status { min-height: 44px; width: 100%; }
+.dm-status .g-turn { max-width: 100%; flex-wrap: wrap; justify-content: center; }
+
+/* ---------- oyuncu şeritleri (üstte rakip, altta sen) ---------- */
+.dm-side { width: var(--dm-size); display: flex; justify-content: center; min-width: 0; }
+.dm-chip { width: 100%; min-height: 46px; padding-right: 14px; position: relative; }
+.dm-chip b { flex: 1; max-width: none !important; }
+.dm-cnt { display: inline-flex; align-items: baseline; gap: 4px; margin-left: auto; white-space: nowrap; }
+.dm-cnt small { color: var(--ink-dim); font-weight: 800; font-size: 12px; }
+.dm-kc { display: inline-flex; align-items: center; gap: 2px; margin-left: 6px; font-weight: 900; color: var(--gold); font-size: 14px; }
+.dm-kc .dm-crown { width: 16px; height: 16px; position: static; transform: none; filter: none; }
+.dm-mini { width: 20px; height: 20px; flex: none; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--pc) 35%, #fff), var(--pc) 50%, color-mix(in srgb, var(--pc) 55%, #000));
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,.35), 0 1px 2px rgba(0,0,0,.5); }
+.dm-dot { position: absolute; top: -5px; right: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--pc); box-shadow: 0 0 10px var(--pc); animation: dmBlink 1s ease-in-out infinite; }
+@keyframes dmBlink { 50% { opacity: .3; } }
+
+/* ---------- tahta ---------- */
+.dm-frame { width: var(--dm-size); padding: clamp(6px, 1.8vw, 14px); border-radius: 20px;
+  background: linear-gradient(135deg, #5a2f14, #3a1c0a 50%, #5a2f14);
+  box-shadow: 0 0 0 2px #ff9a3c, 0 0 0 5px #24100a, 0 0 34px rgba(255,154,60,.55), 0 0 80px rgba(139,61,255,.25), inset 0 2px 0 rgba(255,255,255,.18), inset 0 -3px 6px rgba(0,0,0,.5); }
+.dm-board { position: relative; width: 100%; aspect-ratio: 1; border-radius: 8px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.6), 0 4px 14px rgba(0,0,0,.6); }
+.dm-cells { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(8, 1fr); }
+.dm-cell { position: relative; -webkit-tap-highlight-color: transparent; }
+.dm-cell.dm-wl { background: linear-gradient(105deg, rgba(255,255,255,.07), transparent 40%, rgba(0,0,0,.05) 70%, transparent),
+  repeating-linear-gradient(92deg, rgba(120,60,20,.10) 0 2px, transparent 2px 7px), #e6b77f; }
+.dm-cell.dm-wd { background: linear-gradient(105deg, rgba(255,255,255,.06), transparent 45%, rgba(0,0,0,.08) 75%, transparent),
+  repeating-linear-gradient(88deg, rgba(60,25,5,.16) 0 2px, transparent 2px 6px), #b4733d; }
+.dm-rk, .dm-fl { position: absolute; font-size: clamp(8px, 1.6vw, 11px); font-weight: 900; color: rgba(60,25,5,.55); line-height: 1; pointer-events: none; }
+.dm-rk { top: 3px; left: 3px; }
+.dm-fl { bottom: 3px; right: 4px; }
+.dm-board.dm-act .dm-cell.dm-tap { cursor: pointer; }
+
+/* son hamle */
+.dm-cell.dm-lp::after, .dm-cell.dm-lt::after { content: ""; position: absolute; inset: 0; background: rgba(255,225,74,.28); box-shadow: inset 0 0 0 2px rgba(255,225,74,.55); }
+.dm-cell.dm-lt::after { background: rgba(255,225,74,.42); box-shadow: inset 0 0 0 3px rgba(255,200,40,.9); }
+.dm-cell.dm-lc::before { content: "✕"; position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; font-size: clamp(18px, 5.5vw, 34px); color: rgba(190,25,40,.5); }
+/* seçim ve hedefler */
+.dm-cell.dm-so::after { content: ""; position: absolute; inset: 0; background: rgba(43,255,136,.18); box-shadow: inset 0 0 0 3px rgba(43,255,136,.8); }
+.dm-cell.dm-st::after { content: ""; position: absolute; inset: 30%; border-radius: 50%; background: radial-gradient(circle, #fff 0 25%, var(--good) 30% 60%, transparent 64%);
+  box-shadow: 0 0 14px var(--good); animation: dmPulse 1s ease-in-out infinite; z-index: 3; }
+.dm-cell.dm-fn::after { content: ""; position: absolute; inset: 36%; border-radius: 50%; border: 2px dashed rgba(43,255,136,.85); }
+@keyframes dmPulse { 50% { transform: scale(.78); opacity: .75; } }
+
+/* ---------- taşlar ---------- */
+.dm-pieces { position: absolute; inset: 0; pointer-events: none; }
+.dm-pc { position: absolute; width: 12.5%; height: 12.5%; display: grid; place-items: center; z-index: 2; will-change: transform; }
+.dm-pc > i { position: absolute; inset: 11%; border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255,255,255,.85) 0 7%, rgba(255,255,255,0) 22%),
+    radial-gradient(circle at 50% 50%, transparent 0 52%, rgba(0,0,0,.22) 54% 58%, transparent 60%),
+    radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--pc) 45%, #fff), var(--pc) 48%, color-mix(in srgb, var(--pc) 50%, #000) 100%);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--pc) 40%, #000), 0 5px 8px rgba(0,0,0,.55), inset 0 -3px 5px rgba(0,0,0,.3), inset 0 2px 2px rgba(255,255,255,.4);
+  transition: transform .15s, box-shadow .2s; }
+.dm-pc.dm-k > i { box-shadow: 0 3px 0 color-mix(in srgb, var(--pc) 40%, #000), 0 5px 0 color-mix(in srgb, var(--pc) 25%, #000), 0 8px 10px rgba(0,0,0,.55), inset 0 -3px 5px rgba(0,0,0,.3), inset 0 0 0 3px rgba(255,214,90,.85); }
+.dm-crown { position: relative; width: 48%; height: 48%; fill: #ffd84a; stroke: #7a4300; stroke-width: 1.2; filter: drop-shadow(0 1px 1px rgba(0,0,0,.6)); }
+.dm-pc.dm-crowned .dm-crown { animation: dmCrown .6s cubic-bezier(.2,1.8,.4,1); }
+@keyframes dmCrown { from { transform: scale(0) rotate(-30deg); } }
+.dm-pc.dm-can > i { animation: dmCan 1.3s ease-in-out infinite; }
+@keyframes dmCan { 50% { box-shadow: 0 3px 0 color-mix(in srgb, var(--pc) 40%, #000), 0 0 0 3px rgba(255,255,255,.9), 0 0 18px #fff; } }
+.dm-pc.dm-sel { z-index: 4; }
+.dm-pc.dm-sel > i { transform: translateY(-6%) scale(1.08); box-shadow: 0 0 0 3px var(--good), 0 0 20px var(--good), 0 8px 12px rgba(0,0,0,.55), inset 0 -3px 5px rgba(0,0,0,.3); }
+.dm-pc.dm-thr > i { animation: dmThr .8s ease-in-out infinite; }
+@keyframes dmThr { 50% { box-shadow: 0 0 0 3px var(--bad), 0 0 18px var(--bad), 0 5px 8px rgba(0,0,0,.55); } }
+.dm-pc.dm-gone { opacity: .35; filter: grayscale(.7); }
+.dm-pc.dm-ghost { z-index: 3; }
+
+@media (max-width: 760px) {
+  .g-wrap.dm { gap: 8px; --dm-size: min(100%, 640px); }
+  .dm-frame { padding: 6px; border-radius: 14px; }
+  .dm-board { border-radius: 6px; }
+  .dm-status .g-turn { font-size: 13.5px; padding: 8px 12px; }
+  .dm-chip { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dm-pc > i, .dm-cell.dm-st::after, .dm-dot { animation: none !important; }
+}

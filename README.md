@@ -1,32 +1,38 @@
-# Çarkıfelek Stüdyo
+# Oyun Salonu — Çarkıfelek ve arkadaşları
 
-Tarayıcıda oynanan, ışıklı ve sesli Türkçe Çarkıfelek yarışma oyunu.
+Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan Türkçe oyun salonu.
 
 **Oyna:** https://adnanerdem2000-sudo.github.io/carkifelek/
 
-- **Arkadaşlarla online:** biri oda kurar, diğerleri 5 harfli oda kodu ya da davet linkiyle katılır (2–4 kişi, farklı telefonlardan)
-- Aynı cihazda 1–4 kişi; hızlı, standart ve uzun mod
-- Telefona uygun arayüz
-- 14 dilimli çark (100–1000 puan, PAS, İFLAS), Web Audio ile üretilen sesler
-- 30 kategoride 1.339 benzersiz bulmaca, tekrar etmeyen seçim (geçmiş tarayıcıda saklanır)
-- Her el sonunda yenilenen ipucu marketi; ipuçları cevabı sızdırmaya karşı denetlenir
+## Nasıl oynanır
+- **Arkadaşlarla online:** biri adını yazıp **Oda kur**'a basar, çıkan 5 harfli kodu ya da **Paylaş** linkini gönderir. Diğerleri linke dokunup katılır. Kurucu lobide oyunu seçer ve başlatır; oyun bitince lobiye dönüp başka oyun seçilebilir.
+- **Bu cihazda:** aynı telefonda sırayla ya da bilgisayara karşı.
 
-## Dosyalar
-| Dosya | Görevi |
-|---|---|
-| `index.html` | Sayfa yapısı |
-| `style.css` | Stüdyo görünümü ve animasyonlar |
-| `script.js` | Oyun motoru: çark, puanlar, market, ses |
-| `puzzles.js` | Bulmaca havuzu |
-| `veri/` | Bulmaca kaynakları, doğrulayıcı ve birleştirme aracı |
+## Oyunlar
+| Oyun | Kişi | Not |
+|---|---|---|
+| 🎡 Çarkıfelek | 1–4 | Çark, bulmaca, ipucu marketi; 1.339 bulmaca |
+| 🐾 Patili Yarış | 1–6 | Sevimli hayvanlarla engelli koşu, güçler, market |
+| 🦎 Bukalemun Saklambaç | 2–6 | Şekil değiştir, kendini boya, ebe arasın |
+| ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
+| 🏠 Emlak Kralı | 2–4 | Zar, şehir, ev, kira |
+| 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |
+| 🎲 Zar Turnuvası | 1–4 | Beş zar, 13 kategori |
+| 🟦 Kutu Kapmaca | 2–4 | Çizgi çek, kutu kap |
+| ⚫ Ters Yüz | 2 | Taşları çevir |
+| 🔴 Dört Taş | 2 | Dört taşı diz |
+| 🎯 Kızma Birader | 2–4 | Klasik |
+| 🪨 Mangala | 2 | Geleneksel Türk oyunu |
+| ♟️ Türk Daması | 2 | Resmî kurallar |
+| 🧠 Bilgi Yarışması | 1–6 | 591 soru, herkes aynı anda |
+| 🪢 Adam Asmaca Yarışı | 1–4 | Sırayla harf tahmini |
+| 🔤 Kelime Avı | 1–4 | 5 harfli gizli kelime, herkes aynı anda |
 
-## Bulmaca eklemek
-1. `veri/parts/` içine yeni bir `.json` dosyası ekle:
-   `{"cat":"Meslekler","a":"İTFAİYECİ","d":1,"sub":"...","mean":"...","theme":"..."}`
-2. `node veri/validate.js veri/parts/yeni.json` ile denetle.
-3. `node veri/build.js` ile `puzzles.js` dosyasını yeniden üret.
+Çoğu oyunda bilgisayar rakip vardır.
 
-## Online oyun nasıl çalışır
-Ayrı bir sunucu gerekmez. Oda kurucunun tarayıcısı oyunu yönetir; cihazlar herkese açık, ücretsiz MQTT aracıları (broker.emqx.io, broker.hivemq.com, test.mosquitto.org) üzerinden WebSocket ile haberleşir. Gizli cevap katılımcıların cihazına gönderilmez. Bağlantı koparsa cihazlar kendiliğinden yeniden bağlanır; sayfayı yenileyen oyuncu aynı koltuğa döner.
+## Teknik
+Kurulum gerekmez; `index.html` dosyasını açmak yeterli. Online oyunda ayrı sunucu yoktur: oda kurucunun tarayıcısı oyunu yönetir, cihazlar herkese açık ücretsiz MQTT aracıları (broker.emqx.io, broker.hivemq.com, test.mosquitto.org) üzerinden WebSocket ile haberleşir. Gizli bilgiler (cevaplar, gemiler, eller) diğer cihazlara gönderilmez. Bağlantı koparsa cihazlar yeniden bağlanır, sayfayı yenileyen oyuncu koltuğuna döner, bağlantısı kopan oyuncunun sırası otomatik geçer.
 
-Bilgisayarda oynamak için `index.html` dosyasını tarayıcıda açman yeterli; internet gerekmez.
+- `core.js`: oda sistemi, online bağlantı, menü/lobi, ortak sonuç ekranı
+- `games/*.js`: her oyun ayrı modül (`CFX.registerGame`)
+- `veri/`: Çarkıfelek bulmaca kaynakları ve denetim araçları

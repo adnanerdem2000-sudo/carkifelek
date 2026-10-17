@@ -1,0 +1,97 @@
+/* ---------- Mangala ---------- */
+.mg { --edge: var(--gold); }
+.mg-frame { width: min(100%, 920px); display: grid; gap: 6px; }
+.mg-tag { display: flex; font-size: 12.5px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); padding-inline: 8%; }
+.mg-tag.top { justify-content: center; }
+.mg-tag.bot { justify-content: center; }
+.mg-tag span { --pc: var(--teal); display: inline-flex; align-items: center; gap: 6px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mg-tag span::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--pc); box-shadow: 0 0 8px var(--pc); }
+
+/* Ahşap tahta, neon kenar (rengi sıradaki oyuncu) */
+.mg-board { --sz: 16px; position: relative; display: grid; gap: clamp(6px, 1.2vw, 12px); padding: clamp(10px, 1.8vw, 18px); border-radius: 28px;
+  background:
+    radial-gradient(120% 70% at 50% 0%, rgba(255,220,170,.18), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.28)),
+    repeating-linear-gradient(91deg, #7b4520 0 7px, #8c532a 7px 15px, #6c3b1a 15px 19px, #93592c 19px 29px, #7f4822 29px 34px),
+    #7b4520;
+  box-shadow: 0 0 0 3px #2a1206, 0 0 0 5px var(--edge), 0 0 30px color-mix(in srgb, var(--edge) 55%, transparent), 0 14px 30px rgba(0,0,0,.5),
+    inset 0 2px 0 rgba(255,230,190,.25), inset 0 -8px 16px rgba(0,0,0,.35);
+  transition: box-shadow .4s; user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+.mg-board.h { grid-template-columns: 1.15fr repeat(6, 1fr) 1.15fr; }
+.mg-board.h .mg-pit:not(.mg-store) { aspect-ratio: 1; }
+.mg-board.v { --ph: clamp(52px, calc((100svh - 400px) / 7.4), 84px); grid-template-columns: 1fr 1fr; grid-template-rows: calc(var(--ph) * 1.05) repeat(6, var(--ph)) calc(var(--ph) * 1.05); gap: 6px 10px; padding: 10px; border-radius: 24px; }
+
+/* Kuyular */
+.mg-pit { --pc: var(--teal); position: relative; min-width: 0; min-height: 44px; padding: 0; margin: 0; font: inherit; color: var(--ink); border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--pc) 30%, #2a1206);
+  background: radial-gradient(ellipse at 50% 38%, #24100a 0%, #3c1e0d 55%, #55301a 100%);
+  box-shadow: inset 0 7px 14px rgba(0,0,0,.75), inset 0 -2px 0 rgba(255,220,180,.08), 0 1px 0 rgba(255,230,190,.22);
+  transition: box-shadow .25s, border-color .25s, transform .15s; }
+.mg-board.v .mg-pit { border-radius: 999px; }
+.mg-store { border-radius: 999px; background: radial-gradient(ellipse at 50% 40%, #1f0d07 0%, #361a0b 60%, #4f2c17 100%); border-color: color-mix(in srgb, var(--pc) 55%, #2a1206); }
+.mg-board.h .mg-store { border-radius: 60px; }
+button.mg-pit:disabled { cursor: default; }
+.mg-pit.can { cursor: pointer; border-color: var(--pc); box-shadow: inset 0 7px 14px rgba(0,0,0,.6), 0 0 0 2px var(--pc); }
+.mg-pit.can::after { content: ""; position: absolute; inset: -5px; border-radius: inherit; box-shadow: 0 0 16px 2px var(--pc); pointer-events: none; animation: mgPulse 1.4s ease-in-out infinite; will-change: opacity; }
+.mg-pit.can:hover, .mg-pit.can:focus-visible { transform: translateY(-2px); outline: none; box-shadow: inset 0 7px 14px rgba(0,0,0,.5), 0 0 0 3px #fff; }
+.mg-pit.can:active { transform: scale(.96); }
+@keyframes mgPulse { 50% { opacity: .25; } }
+.mg-pit.from { box-shadow: inset 0 7px 14px rgba(0,0,0,.75), 0 0 0 2px rgba(255,255,255,.55); }
+.mg-pit.last { box-shadow: inset 0 7px 14px rgba(0,0,0,.6), 0 0 0 2px var(--yellow), 0 0 14px rgba(255,225,74,.6); }
+.mg-pit.cap { border-color: var(--pink); box-shadow: inset 0 0 18px rgba(255,63,164,.6), 0 0 0 3px var(--pink), 0 0 26px var(--pink); animation: mgShake .35s ease-in-out infinite; }
+@keyframes mgShake { 25% { transform: rotate(-3deg); } 75% { transform: rotate(3deg); } }
+.mg-pit.bump { animation: mgBump .22s ease-out; }
+@keyframes mgBump { 40% { transform: scale(1.07); } }
+
+/* Taşlar: parlak çakıllar */
+.mg-stones { position: absolute; inset: 12%; pointer-events: none; }
+.mg-store .mg-stones { inset: 16% 14% 18%; }
+.mg-board.v .mg-pit .mg-stones { inset: 14% 30% 14% 12%; }
+.mg-board.v .mg-store .mg-stones { inset: 14% 17% 14% 36%; }
+.mg-st { --c1: #8ff7ea; --c2: #0d8077; position: absolute; width: var(--sz); height: calc(var(--sz) * .84); transform: translate(-50%, -50%) rotate(var(--rot, 0deg));
+  border-radius: 52% 48% 50% 46%; background: radial-gradient(circle at 32% 28%, #fff 0 7%, var(--c1) 26%, var(--c2) 100%);
+  box-shadow: 0 2px 2px rgba(0,0,0,.55), inset 0 -2px 3px rgba(0,0,0,.25); }
+.mg-st.c1 { --c1: #ffb8dc; --c2: #a8125f; }
+.mg-st.c2 { --c1: #ffe8a0; --c2: #b87000; }
+.mg-st.c3 { --c1: #bcd6ff; --c2: #2753c9; }
+.mg-st.c4 { --c1: #dfc6ff; --c2: #6527c4; }
+.mg-st.c5 { --c1: #bfffd5; --c2: #1d8e4a; }
+.mg-st.new { animation: mgDrop .26s cubic-bezier(.3,1.6,.5,1); }
+@keyframes mgDrop { from { transform: translate(-50%, -120%) rotate(var(--rot, 0deg)) scale(1.5); opacity: .3; } }
+
+/* Sayılar */
+.mg-cnt { position: absolute; right: 2px; bottom: 2px; min-width: 22px; height: 20px; padding: 0 5px; border-radius: 10px; display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 12px; line-height: 1; color: #fff; background: rgba(10,4,2,.72); border: 1px solid color-mix(in srgb, var(--pc) 50%, transparent); pointer-events: none; font-variant-numeric: tabular-nums; }
+.mg-pit.empty .mg-cnt { opacity: .55; }
+.mg-store .mg-cnt { left: 50%; right: auto; bottom: 6px; transform: translateX(-50%); min-width: 38px; height: 28px; font-size: 18px; border-radius: 14px; color: var(--yellow); border-color: var(--pc); box-shadow: 0 0 10px color-mix(in srgb, var(--pc) 50%, transparent); }
+.mg-lbl { position: absolute; top: 7px; left: 50%; transform: translateX(-50%); max-width: 86%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; color: var(--pc); text-shadow: 0 0 6px color-mix(in srgb, var(--pc) 60%, transparent); pointer-events: none; }
+.mg-board.h .mg-lbl { top: 9px; max-width: 84%; }
+.mg-board.h .mg-store .mg-stones { inset: 22% 14% 22%; }
+.mg-board.v .mg-store .mg-cnt { left: auto; right: 10px; bottom: 50%; transform: translateY(50%); }
+.mg-board.v .mg-lbl { top: 50%; left: 14px; transform: translateY(-50%); max-width: 32%; font-size: 11px; }
+
+/* Avuç: dağıtılan taşları taşıyan gösterge */
+.mg-hand { --pc: var(--yellow); --st: 110ms; position: absolute; left: 0; top: 0; z-index: 5; width: calc(var(--sz) * 1.9); height: calc(var(--sz) * 1.9); border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, color-mix(in srgb, var(--pc) 40%, transparent), transparent 70%); opacity: 0; transition: transform var(--st) ease-out; }
+.mg-hand.instant { transition: none; }
+.mg-hand.show { opacity: 1; }
+.mg-hand .mg-st { left: 50%; top: 50%; width: calc(var(--sz) * 1.15); height: calc(var(--sz) * 1); box-shadow: 0 6px 8px rgba(0,0,0,.55), 0 0 12px var(--pc); }
+.mg-hand b { position: absolute; right: -8px; top: -8px; min-width: 20px; height: 20px; padding: 0 4px; border-radius: 10px; background: var(--pc); color: #1b0030; font-family: var(--font-display); font-weight: 400; font-size: 12px; display: grid; place-items: center; }
+
+/* Galibiyet noktaları */
+.mg-wins { display: inline-flex; gap: 3px; }
+.mg-wins i { width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--pc); opacity: .7; }
+.mg-wins i.on { background: var(--yellow); border-color: var(--yellow); box-shadow: 0 0 6px var(--yellow); opacity: 1; }
+
+@media (max-width: 760px) {
+  .mg-board.h { gap: 5px; padding: 9px; border-radius: 20px; }
+  .mg-cnt { min-width: 18px; height: 17px; font-size: 10.5px; padding: 0 4px; right: 0; bottom: 0; }
+  .mg-store .mg-cnt { min-width: 30px; height: 24px; font-size: 15px; }
+}
+.mg-board.v .mg-pit .mg-cnt { right: 8px; bottom: 50%; transform: translateY(50%); min-width: 24px; height: 22px; font-size: 13px; }
+.mg-frame.v .mg-tag { padding: 0 6px; }
+.mg-frame.v .mg-tag.top { justify-content: flex-end; }
+.mg-frame.v .mg-tag.bot { justify-content: flex-start; }
+.anim-low .mg-pit.can::after { animation: none; }
+@media (prefers-reduced-motion: reduce) { .mg-pit.can::after, .mg-pit.cap { animation: none; } }

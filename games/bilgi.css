@@ -1,0 +1,173 @@
+/* Bilgi Yarışması — neon TV yarışma stüdyosu. Tüm sınıflar bq- önekli. */
+.bq { width: 100%; max-width: 900px; margin: 0 auto; gap: 12px; }
+.bq-stage { width: 100%; display: grid; gap: 12px; min-width: 0; }
+
+/* ---------- soru kartı ---------- */
+.bq-card { position: relative; padding: 14px 18px 20px; border-radius: 24px; min-width: 0;
+  background: radial-gradient(120% 140% at 50% 0%, rgba(139,61,255,.45), rgba(20,8,52,.92) 60%), #140834;
+  border: 2px solid rgba(160,110,255,.75);
+  box-shadow: 0 0 0 4px rgba(25,227,208,.12), 0 0 34px rgba(139,61,255,.55), inset 0 1px 0 rgba(255,255,255,.25), inset 0 -30px 60px rgba(47,123,255,.12);
+  animation: bqIn .45s cubic-bezier(.2,1.3,.4,1) both; }
+.bq-card::before { content: ""; position: absolute; inset: 6px; border-radius: 19px; pointer-events: none;
+  background: radial-gradient(circle, rgba(255,225,74,.8) 0 1.6px, transparent 2.4px) 0 0 / 22px 100% repeat-x;
+  opacity: .35; mask: linear-gradient(#000 0 6px, transparent 6px calc(100% - 6px), #000 calc(100% - 6px)); -webkit-mask: linear-gradient(#000 0 6px, transparent 6px calc(100% - 6px), #000 calc(100% - 6px)); }
+@keyframes bqIn { from { opacity: 0; transform: translateY(14px) scale(.96); } }
+.bq-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 52px; }
+.bq-num { font-family: var(--font-display); color: var(--yellow); font-size: 15px; letter-spacing: .04em; text-shadow: 0 0 10px rgba(255,225,74,.6); }
+.bq-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 999px; background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.2); font-weight: 800; font-size: 13.5px; white-space: nowrap; }
+.bq-diff { padding: 3px 9px; border-radius: 8px; font-size: 11px; font-weight: 900; letter-spacing: .1em; border: 1.5px solid currentColor; }
+.bq-diff.d1 { color: var(--good); } .bq-diff.d2 { color: var(--yellow); } .bq-diff.d3 { color: var(--pink); }
+.bq-ring { position: relative; width: 52px; height: 52px; margin-left: auto; flex: none; display: grid; place-items: center; }
+.bq-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.bq-ring circle { fill: none; stroke-width: 4.5; }
+.bq-ring .bg { stroke: rgba(255,255,255,.12); fill: rgba(0,0,0,.35); }
+.bq-ring .fg { stroke: var(--teal); stroke-linecap: round; stroke-dasharray: 119.38; stroke-dashoffset: 0; transition: stroke-dashoffset .12s linear, stroke .3s; filter: drop-shadow(0 0 4px var(--teal)); }
+.bq-ring b { position: relative; font-family: var(--font-display); font-weight: 400; font-size: 19px; font-variant-numeric: tabular-nums; }
+.bq-ring.warn .fg { stroke: var(--bad); filter: drop-shadow(0 0 6px var(--bad)); }
+.bq-ring.warn b { color: var(--bad); animation: bqBeat 1s ease-in-out infinite; }
+@keyframes bqBeat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.3); } }
+.bq-bar { height: 7px; margin-top: 8px; border-radius: 99px; background: rgba(255,255,255,.1); overflow: hidden; }
+.bq-bar i { display: block; height: 100%; width: 100%; transform-origin: left center; transition: transform .12s linear;
+  background: linear-gradient(90deg, var(--teal), var(--electric), var(--yellow)); box-shadow: 0 0 10px var(--teal); }
+.bq-bar.warn i { background: linear-gradient(90deg, var(--bad), #ff8a00); box-shadow: 0 0 10px var(--bad); }
+.bq-q { margin: 16px 4px 2px; text-align: center; font-family: var(--font-body); font-weight: 900; line-height: 1.28;
+  font-size: clamp(19px, 1.2vw + 15px, 29px); text-wrap: balance; overflow-wrap: anywhere; text-shadow: 0 2px 0 rgba(0,0,0,.4); }
+
+/* ---------- cevap düğmeleri ---------- */
+.bq-answers { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.bq-ans { --ac: var(--pink); position: relative; display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 10px 14px 10px 10px; min-width: 0;
+  border-radius: 18px; border: 2px solid var(--ac); color: var(--ink); text-align: left; font-weight: 800; font-size: 17px; line-height: 1.25;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 26%, #1c0b45), #110530);
+  box-shadow: 0 4px 0 color-mix(in srgb, var(--ac) 45%, #000), 0 0 14px color-mix(in srgb, var(--ac) 30%, transparent);
+  transition: transform .12s, box-shadow .2s, opacity .3s, filter .3s, background .3s; animation: bqIn .4s cubic-bezier(.2,1.3,.4,1) both; }
+.bq-ans.a0 { --ac: var(--pink); } .bq-ans.a1 { --ac: var(--teal); animation-delay: .05s; } .bq-ans.a2 { --ac: var(--yellow); animation-delay: .1s; } .bq-ans.a3 { --ac: #5aa2ff; animation-delay: .15s; }
+.bq-ans:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 6px 0 color-mix(in srgb, var(--ac) 45%, #000), 0 0 26px color-mix(in srgb, var(--ac) 55%, transparent); }
+.bq-ans:not(:disabled):active { transform: translateY(3px); box-shadow: 0 1px 0 color-mix(in srgb, var(--ac) 45%, #000); }
+.bq-ans:disabled { cursor: default; }
+.bq-key { flex: none; width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; font-family: var(--font-display); font-weight: 400; font-size: 18px;
+  background: var(--ac); color: #14062e; box-shadow: inset 0 -3px 0 rgba(0,0,0,.25), 0 0 10px color-mix(in srgb, var(--ac) 60%, transparent); }
+.bq-txt { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.bq-picks { display: flex; align-items: center; gap: 3px; flex: none; margin-left: auto; }
+.bq-picks .av { width: 22px; height: 22px; font-size: 11px; margin-left: -6px; border: 2px solid #14062e; }
+.bq-picks .av:first-child { margin-left: 0; }
+.bq-picks em { font-style: normal; font-size: 12px; font-weight: 900; padding: 2px 7px; border-radius: 99px; background: rgba(0,0,0,.45); margin-left: 4px; white-space: nowrap; }
+/* soru sırasında: seçilen kilitli, diğerleri sönük */
+[data-phase="question"] .bq-ans:disabled:not(.picked) { opacity: .55; filter: saturate(.6); }
+.bq-ans.picked { border-color: #fff; background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 55%, #1c0b45), color-mix(in srgb, var(--ac) 25%, #110530));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ac) 70%, transparent), 0 0 30px color-mix(in srgb, var(--ac) 70%, transparent); }
+[data-phase="question"] .bq-ans.picked::after { content: "🔒 KİLİTLİ"; position: absolute; top: -10px; right: 12px; padding: 2px 8px; border-radius: 8px; font-size: 10.5px; font-weight: 900; letter-spacing: .06em; background: #fff; color: #14062e; }
+/* açıklama anı */
+.bq-ans.ok { --ac: var(--good); opacity: 1; filter: none; border-color: var(--good); background: linear-gradient(180deg, rgba(43,255,136,.55), rgba(10,90,50,.9));
+  box-shadow: 0 0 0 3px rgba(43,255,136,.4), 0 0 34px rgba(43,255,136,.7); animation: bqOk .9s ease-in-out 2; }
+.bq-ans.ok .bq-key { background: var(--good); }
+.bq-ans.ok .bq-key::after { content: "✓"; position: absolute; }
+.bq-ans.ok .bq-key { color: transparent; position: relative; }
+.bq-ans.ok .bq-key::after { color: #08361d; font-family: var(--font-body); font-weight: 900; font-size: 22px; }
+.bq-ans.bad { --ac: var(--bad); border-color: var(--bad); background: linear-gradient(180deg, rgba(255,59,92,.55), rgba(90,10,25,.9)); box-shadow: 0 0 26px rgba(255,59,92,.6); animation: bqShake .45s; }
+.bq-ans.bad .bq-key { background: var(--bad); }
+.bq-ans.dim { opacity: .4; filter: grayscale(.7); }
+@keyframes bqOk { 50% { transform: scale(1.025); box-shadow: 0 0 0 5px rgba(43,255,136,.25), 0 0 50px rgba(43,255,136,.9); } }
+@keyframes bqShake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+
+/* sonuç şeridi */
+.bq-result { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 0; }
+.bq-rr { --pc: var(--teal); display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px 5px 5px; border-radius: 999px; background: rgba(0,0,0,.4); border: 2px solid rgba(255,255,255,.15);
+  font-size: 13.5px; animation: bqPop .4s cubic-bezier(.2,1.6,.4,1) both; max-width: 100%; }
+.bq-rr:nth-child(2) { animation-delay: .07s; } .bq-rr:nth-child(3) { animation-delay: .14s; } .bq-rr:nth-child(4) { animation-delay: .21s; } .bq-rr:nth-child(5) { animation-delay: .28s; } .bq-rr:nth-child(6) { animation-delay: .35s; }
+.bq-rr .av { width: 26px; height: 26px; font-size: 13px; }
+.bq-rr b { max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bq-rr em { font-style: normal; font-family: var(--font-display); font-size: 14px; }
+.bq-rr small { color: var(--ink-dim); font-weight: 700; }
+.bq-rr.ok { border-color: var(--good); } .bq-rr.ok em { color: var(--good); }
+.bq-rr.no { border-color: rgba(255,59,92,.6); } .bq-rr.no em { color: var(--bad); }
+.bq-rr.none em { color: var(--ink-dim); font-family: var(--font-body); font-weight: 800; }
+.bq-rr.me { box-shadow: 0 0 14px var(--pc); }
+.bq-fire { font-style: normal; font-weight: 900; color: #ffb627; font-size: 12.5px; }
+@keyframes bqPop { from { opacity: 0; transform: scale(.6); } }
+
+/* ---------- oyuncular ---------- */
+.bq-players { gap: 6px; }
+.bq-pc { position: relative; }
+.bq-pc .g-num { font-size: 16px; }
+.bq-you { font-size: 10.5px; font-weight: 900; letter-spacing: .05em; padding: 1px 6px; border-radius: 6px; background: var(--pc); color: #14062e; text-transform: uppercase; }
+.bq-streak { font-size: 12px; font-weight: 900; color: #ffb627; }
+.bq-tag { display: inline-grid; place-items: center; min-width: 24px; height: 22px; padding: 0 6px; border-radius: 8px; font-size: 12px; font-weight: 900; }
+.bq-tag.done { background: var(--good); color: #08361d; animation: bqPop .3s both; }
+.bq-tag.wait { background: rgba(255,255,255,.12); color: var(--ink-dim); animation: bqDots 1.2s ease-in-out infinite; }
+.bq-tag.off { background: rgba(255,59,92,.25); color: var(--bad); }
+.bq-tag.gain { background: rgba(43,255,136,.18); color: var(--good); border: 1px solid var(--good); animation: bqRise .6s both; }
+.bq-tag.miss { background: rgba(255,59,92,.18); color: var(--bad); }
+@keyframes bqDots { 50% { opacity: .4; } }
+@keyframes bqRise { from { opacity: 0; transform: translateY(8px); } }
+.g-turn.bq-wrong { color: #ffd0d8; border: 2px solid var(--bad); }
+
+/* ---------- giriş ---------- */
+.bq-intro { text-align: center; padding: 26px 16px 30px; border-radius: 26px; background: radial-gradient(90% 120% at 50% 0%, rgba(255,63,164,.3), rgba(20,8,52,.9) 65%);
+  border: 2px solid rgba(255,63,164,.6); box-shadow: 0 0 40px rgba(255,63,164,.35); animation: bqIn .5s both; }
+.bq-logo { display: grid; gap: 2px; font-family: var(--font-display); line-height: 1; animation: bqZoom .7s cubic-bezier(.2,1.5,.4,1) both; }
+.bq-logo span:first-child { font-size: clamp(44px, 12vw, 86px); background: linear-gradient(180deg, #fff6b0, var(--gold) 55%, #ff7a1a); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 3px 0 #7a2a00) drop-shadow(0 0 18px rgba(255,182,39,.6)); }
+.bq-logo span:last-child { font-size: clamp(22px, 6vw, 42px); color: var(--teal); text-shadow: 0 0 14px var(--teal), 0 0 2px #fff; letter-spacing: .08em; }
+.bq-introsub { margin: 16px 0 6px; font-weight: 900; font-size: 17px; }
+.bq-introhelp { margin: 0 auto 18px; max-width: 460px; color: var(--ink-dim); font-weight: 700; font-size: 14px; }
+.bq-ready { display: inline-block; font-family: var(--font-display); font-size: clamp(20px, 5vw, 30px); color: #1b0030; padding: 8px 22px; border-radius: 14px;
+  background: linear-gradient(90deg, var(--yellow), #ffb627, var(--yellow)); box-shadow: 0 0 26px rgba(255,225,74,.6); animation: bqBlink 1s steps(2) infinite; }
+@keyframes bqZoom { from { transform: scale(.3) rotate(-6deg); opacity: 0; } }
+@keyframes bqBlink { 50% { filter: brightness(1.35); transform: scale(1.04); } }
+
+/* ---------- soru öncesi ---------- */
+.bq-pre { display: grid; justify-items: center; gap: 8px; padding: 34px 16px 38px; border-radius: 26px; text-align: center;
+  background: radial-gradient(80% 120% at 50% 20%, rgba(25,227,208,.25), rgba(20,8,52,.92) 65%); border: 2px solid rgba(25,227,208,.55); box-shadow: 0 0 40px rgba(25,227,208,.3); animation: bqIn .35s both; }
+.bq-pre-n { font-family: var(--font-display); font-size: clamp(30px, 8vw, 54px); color: var(--yellow); text-shadow: 0 0 18px rgba(255,225,74,.6); line-height: 1; }
+.bq-pre-n small { font-size: .5em; color: var(--ink-dim); text-shadow: none; }
+.bq-pre-icon { font-size: clamp(56px, 14vw, 88px); line-height: 1; animation: bqZoom .6s cubic-bezier(.2,1.6,.4,1) .1s both; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }
+.bq-pre-cat { font-family: var(--font-display); font-weight: 400; font-size: clamp(20px, 5vw, 30px); letter-spacing: .05em; }
+
+/* ---------- sıralama ---------- */
+.bq-board { padding: 18px 16px 20px; border-radius: 26px; background: radial-gradient(100% 100% at 50% 0%, rgba(255,182,39,.22), rgba(20,8,52,.92) 60%);
+  border: 2px solid rgba(255,182,39,.6); box-shadow: 0 0 36px rgba(255,182,39,.3); animation: bqIn .4s both; }
+.bq-board h2 { margin: 0 0 14px; text-align: center; font-family: var(--font-display); font-weight: 400; font-size: clamp(22px, 5vw, 32px); color: var(--yellow); text-shadow: 0 0 14px rgba(255,225,74,.5); display: grid; gap: 4px; }
+.bq-board h2 small { font-family: var(--font-body); font-weight: 800; font-size: 13.5px; color: var(--ink-dim); text-shadow: none; letter-spacing: .02em; }
+.bq-board ol { list-style: none; margin: 0 auto; padding: 0; display: grid; gap: 8px; max-width: 620px; }
+.bq-board li { --pc: var(--teal); display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 16px; background: rgba(0,0,0,.35); border: 2px solid color-mix(in srgb, var(--pc) 45%, transparent);
+  animation: bqSlide .45s cubic-bezier(.2,1.2,.4,1) var(--d) both; }
+.bq-board li:first-child { background: linear-gradient(90deg, rgba(255,225,74,.2), rgba(0,0,0,.35)); border-color: var(--yellow); }
+.bq-board li.me { box-shadow: 0 0 16px color-mix(in srgb, var(--pc) 60%, transparent); }
+.bq-rk { width: 30px; text-align: center; font-family: var(--font-display); font-size: 20px; flex: none; }
+.bq-board .av { width: 34px; height: 34px; font-size: 16px; }
+.bq-bn { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.bq-bn b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bq-bn small { color: var(--ink-dim); font-weight: 700; font-size: 12px; }
+.bq-bbar { display: block; height: 5px; border-radius: 9px; background: var(--pc); width: var(--w); box-shadow: 0 0 8px var(--pc); animation: bqGrow .9s ease-out calc(var(--d) + .2s) both; }
+.bq-bs { font-family: var(--font-display); color: var(--yellow); font-size: 20px; font-variant-numeric: tabular-nums; flex: none; }
+@keyframes bqSlide { from { opacity: 0; transform: translateX(-24px); } }
+@keyframes bqGrow { from { width: 0; } }
+
+/* ---------- masaüstü ---------- */
+@media (min-width: 760px) {
+  .bq-answers { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bq-ans { min-height: 80px; font-size: 18.5px; padding: 12px 16px 12px 12px; }
+  .bq-key { width: 44px; height: 44px; font-size: 20px; }
+  .bq-card { padding: 18px 26px 26px; }
+  .bq-q { margin-top: 20px; }
+}
+@media (max-width: 759px) {
+  .bq-result { display: none; }     /* telefonda oyuncu çipleri zaten +puan / ✗ gösterir */
+  .bq-pc { gap: 6px; padding: 4px 9px 4px 4px; }
+  .bq-pc .av { width: 24px; height: 24px; font-size: 12px; }
+  .bq-pc b { max-width: 78px; font-size: 12.5px; }
+  .bq-pc .g-num { font-size: 14px; }
+  .bq-tag { min-width: 22px; height: 20px; font-size: 11px; padding: 0 5px; }
+}
+@media (max-width: 420px) {
+  .bq-card { padding: 12px 12px 16px; border-radius: 20px; }
+  .bq-meta { gap: 6px; min-height: 46px; }
+  .bq-ring { width: 46px; height: 46px; }
+  .bq-ring b { font-size: 17px; }
+  .bq-chip { font-size: 12.5px; padding: 3px 9px; }
+  .bq-num { font-size: 13.5px; }
+  .bq-ans { font-size: 16px; min-height: 58px; gap: 10px; }
+  .bq-key { width: 34px; height: 34px; font-size: 16px; }
+  .bq-rr b { max-width: 80px; }
+}
+body.anim-low .bq-ans.ok, body.anim-low .bq-ring.warn b, body.anim-low .bq-ready { animation: none; }
+@media (prefers-reduced-motion: reduce) { .bq-ans.ok, .bq-ring.warn b, .bq-ready, .bq-tag.wait { animation: none; } }

@@ -1,0 +1,62 @@
+/* ---------- Kutu Kapmaca ---------- */
+.kk { width: 100%; }
+.kk-chip { padding-right: 14px; }
+.kk-chip b { font-size: 15px; }
+.kk-nm { display: flex; flex-direction: column; min-width: 0; line-height: 1.1; }
+.kk-nm small { color: var(--ink-dim); font-size: 11.5px; font-weight: 800; white-space: nowrap; }
+.kk-you { font-style: normal; color: var(--yellow); }
+.kk-chip .g-num { font-size: 22px; min-width: 1.2em; text-align: right; }
+
+.kk-board { width: min(100%, 600px); aspect-ratio: 1; border-radius: 24px; padding: 6px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(25,227,208,.12), transparent 60%),
+    linear-gradient(rgba(25,227,208,.05) 1px, transparent 1px) 0 0 / 22px 22px,
+    linear-gradient(90deg, rgba(25,227,208,.05) 1px, transparent 1px) 0 0 / 22px 22px,
+    linear-gradient(170deg, #120734, #07031a);
+  border: 1px solid rgba(25,227,208,.28);
+  box-shadow: 0 0 0 3px rgba(0,0,0,.35), 0 0 36px rgba(25,227,208,.18), inset 0 0 40px rgba(0,0,0,.6); }
+.kk-svg { display: block; width: 100%; height: 100%; overflow: hidden; touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
+
+/* noktalar */
+.kk-dots circle { fill: #eafcff; stroke: #19e3d0; stroke-width: 3; pointer-events: none; }
+
+/* çizgiler */
+.kk-hit { fill: transparent; pointer-events: all; }
+.kk-svg.can .kk-seg:not(.on) { cursor: pointer; }
+.kk-ln { stroke: rgba(185,168,230,.13); stroke-width: 5; stroke-linecap: round; stroke-dasharray: .1 .12; pointer-events: none; transition: stroke .15s, stroke-width .15s; }
+.kk-svg.can .kk-seg:not(.on):hover .kk-ln { stroke: var(--turn); stroke-opacity: .55; stroke-width: 10; stroke-dasharray: none; }
+.kk-svg.can .kk-seg:not(.on):active .kk-ln { stroke: var(--turn); stroke-opacity: .85; stroke-width: 12; stroke-dasharray: none; }
+@media (hover: none) { .kk-svg.can .kk-seg:not(.on):hover .kk-ln { stroke: rgba(185,168,230,.13); stroke-width: 5; stroke-dasharray: .1 .12; stroke-opacity: 1; } }
+.kk-seg.on .kk-ln { stroke: var(--lc); stroke-width: 11; stroke-dasharray: none; stroke-opacity: 1; }
+.kk-seg.on.new .kk-ln { stroke-dasharray: 1 1; animation: kkDraw .38s cubic-bezier(.3,.8,.4,1) both; }
+@keyframes kkDraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.kk-seg.last .kk-ln { animation: kkPulse 1.1s ease-in-out infinite; }
+.kk-seg.last.new .kk-ln { animation: kkDraw .38s cubic-bezier(.3,.8,.4,1) both, kkPulse 1.1s .38s ease-in-out infinite; }
+@keyframes kkPulse { 50% { stroke-width: 16; stroke: #fff; } }
+
+/* kutular */
+.kk-fill { fill: transparent; stroke: transparent; stroke-width: 3; transition: fill .25s; }
+.kk-box { transform-box: fill-box; transform-origin: center; }
+.kk-box text { text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.kk-star { font-size: 34px; opacity: 0; transition: opacity .2s; }
+.kk-box.bonus .kk-star { opacity: .9; animation: kkTwinkle 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes kkTwinkle { 50% { opacity: .55; transform: scale(.88); } }
+.kk-ini { font-family: var(--font-display); font-size: 44px; fill: var(--pc, #fff); paint-order: stroke; stroke: rgba(0,0,0,.35); stroke-width: 4px; }
+.kk-box.own .kk-fill { fill: color-mix(in srgb, var(--pc) 30%, transparent); stroke: color-mix(in srgb, var(--pc) 70%, transparent); }
+.kk-box.own.bonus .kk-star { font-size: 22px; opacity: 1; animation: none; transform: translate(26px, -26px); }
+.kk-box.pop { animation: kkPop .5s cubic-bezier(.2,1.6,.4,1); }
+@keyframes kkPop { 0% { transform: scale(.2); opacity: 0; } 60% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); } }
+.kk-box.hot .kk-fill { fill: color-mix(in srgb, var(--turn) 12%, transparent); animation: kkHot 1.2s ease-in-out infinite; }
+@keyframes kkHot { 50% { fill: color-mix(in srgb, var(--turn) 26%, transparent); } }
+.kk-svg.n8 .kk-ini { font-size: 46px; }
+.kk-ini.two, .kk-svg.n8 .kk-ini.two { font-size: 34px; }
+
+body.anim-low .kk-seg.last .kk-ln, body.anim-low .kk-box.bonus .kk-star, body.anim-low .kk-box.hot .kk-fill { animation: none; }
+@media (prefers-reduced-motion: reduce) { .kk-seg.last .kk-ln, .kk-box.bonus .kk-star, .kk-box.hot .kk-fill { animation: none; } }
+
+@media (max-width: 760px) {
+  .kk-board { border-radius: 16px; padding: 2px; }
+  .kk-chip { padding: 4px 10px 4px 4px; gap: 6px; }
+  .kk-chip .g-num { font-size: 19px; }
+  .kk-nm b { max-width: 84px; font-size: 13.5px; }
+}
