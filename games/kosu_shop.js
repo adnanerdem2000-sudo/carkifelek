@@ -28,15 +28,20 @@ const SLOTS = [
   { k: 'shoes', n: 'Ayakkabı', i: '👟' },
   { k: 'costume', n: 'Kostüm', i: '🦸' },
   { k: 'acc', n: 'Aksesuar', i: '🎈' },
-  { k: 'trail', n: 'İz Efekti', i: '✨' }
+  { k: 'trail', n: 'İz Efekti', i: '✨' },
+  { k: 'dance', n: 'Zafer Dansı', i: '💃' }
 ];
 const WORLDS = {
   cayir: { n: 'Çiçekli Çayır', i: '🌼', loc: "Çiçekli Çayır'da" },
-  seker: { n: 'Şeker Diyarı', i: '🍭', loc: "Şeker Diyarı'nda" },
-  buzul: { n: 'Buzul Tepeleri', i: '❄️', loc: "Buzul Tepeleri'nde" },
+  seker: { n: 'Şeker Ormanı', i: '🍭', loc: "Şeker Ormanı'nda" },
+  buzul: { n: 'Buzul Vadisi', i: '❄️', loc: "Buzul Vadisi'nde" },
   volkan: { n: 'Volkan Adası', i: '🌋', loc: "Volkan Adası'nda" },
+  uzay: { n: 'Uzay Limanı', i: '🚀', loc: "Uzay Limanı'nda" },
   gece: { n: 'Gece Şehri', i: '🌃', loc: "Gece Şehri'nde" }
 };
+const LENGTHS = { kisa: { n: 'Kısa', f: .8 }, orta: { n: 'Orta', f: 1 }, uzun: { n: 'Uzun', f: 1.3 } };
+// rekor/liderlik anahtarı: orta uzunluk eski kayıtlarla uyumlu kalsın diye yalnız dünya adı
+const boardKey = (world, len) => (!len || len === 'orta' ? world : world + '.' + len);
 const WORLD_IDS = Object.keys(WORLDS);
 const START_GOLD = 150;
 
@@ -66,6 +71,8 @@ add('skin', 'lav', 'Lav', 2, 800, 'pal', ['#ff5a2a', '#ffd36b']);
 add('skin', 'golge', 'Gölge', 2, 900, 'pal', ['#3a3444', '#6d667b']);
 add('skin', 'altin', 'Altın', 3, 2200, 'gold', ['#ffc93c', '#fff2b0']);
 add('skin', 'galaksi', 'Galaksi', 3, 2800, 'galaxy', ['#5b3cc4', '#a98bff'], { rot: true });
+add('skin', 'robot', 'Robot Kaplama', 2, 1050, 'robot', ['#b9c4d2', '#e8eef5']);
+add('skin', 'pastel', 'Unicorn Pastel', 3, 2400, 'pastel', ['#ffd1ec', '#ffffff']);
 // Şapkalar
 add('hat', 'kep', 'Kırmızı Kep', 0, 80, 'cap', ['#e8433a', '#ffffff']);
 add('hat', 'kep_mavi', 'Mavi Kep', 0, 80, 'cap', ['#2f7bff', '#ffe14a']);
@@ -162,6 +169,14 @@ add('trail', 'iz_nota', 'Nota İzi', 1, 300, 'notes', ['#8b3dff', '#19e3d0']);
 add('trail', 'iz_gokkusagi', 'Gökkuşağı İzi', 2, 900, 'rainbow', []);
 add('trail', 'iz_ates', 'Ateş İzi', 2, 850, 'fire', ['#ff8a00', '#ffe14a']);
 add('trail', 'iz_simsek', 'Şimşek İzi', 3, 2000, 'sparks', ['#7ff3ff', '#ffffff'], { rot: true });
+// Zafer dansları (bitişte ve podyumda oynanır; varsayılan: sevinç zıplaması)
+add('dance', 'dans_alkis', 'Alkış Yağmuru', 0, 90, 'clap');
+add('dance', 'dans_donus', 'Fırıldak', 0, 120, 'spin');
+add('dance', 'dans_salla', 'Kalça Sallama', 1, 280, 'salsa');
+add('dance', 'dans_robot', 'Robot Dansı', 1, 320, 'robot');
+add('dance', 'dans_takla', 'Ters Takla', 2, 760, 'flip');
+add('dance', 'dans_disko', 'Disko Ateşi', 2, 860, 'disco');
+add('dance', 'dans_kalp', 'Kalp Yağmuru', 3, 1800, 'hearts');
 
 const BYID = {}; C.forEach(it => { BYID[it.id] = it; });
 const CHARS = C.filter(it => it.s === 'char').map(it => it.id);
@@ -173,17 +188,21 @@ const ACH = [
   { id: 'podyum', n: 'Podyum Müdavimi', d: '10 kez ilk 3\'e gir.', g: 150, item: 'madalya', ok: s => s.podiums >= 10 },
   { id: 'seri_galip', n: 'Şampiyon', d: '10 yarış kazan.', g: 300, item: 'pelerin', ok: s => s.wins >= 10 },
   { id: 'maratoncu', n: 'Maratoncu', d: '30 yarış bitir.', g: 300, item: 'altin_ayk', ok: s => s.finishes >= 30 },
-  { id: 'gezgin', n: 'Dünya Gezgini', d: '5 dünyanın hepsinde yarış bitir.', g: 200, item: 'gezgin', ok: s => WORLD_IDS.every(w => (s.worlds || {})[w]) },
+  { id: 'gezgin', n: 'Dünya Gezgini', d: 'Altı dünyanın hepsinde yarış bitir.', g: 200, item: 'gezgin', ok: s => WORLD_IDS.every(w => (s.worlds || {})[w]) },
   { id: 'hiz', n: 'Hız Tutkunu', d: 'Bir parkuru par süresinin altında bitir.', g: 100, ok: s => s.underPar >= 1 },
   { id: 'kusursuz', n: 'Kusursuz', d: 'Hiç tökezlemeden bir yarış kazan.', g: 150, ok: s => s.cleanWins >= 1 },
   { id: 'muzcu', n: 'Muz Ustası', d: 'Muz kabuğuyla 10 rakip kaydır.', g: 150, ok: s => s.bananaHits >= 10 },
   { id: 'kalkan', n: 'Kalkan Duvarı', d: 'Kalkanla 10 saldırı engelle.', g: 150, ok: s => s.blocks >= 10 },
   { id: 'simsek_kral', n: 'Şimşek Kral', d: 'Şimşekle 5 rakibi çarp.', g: 150, ok: s => s.zapHits >= 5 },
-  { id: 'turbo', n: 'Turbo Tutkunu', d: '25 kez turbo kullan.', g: 100, ok: s => (s.pw.turbo || 0) >= 25 },
+  { id: 'turbo', n: 'Roket Tutkunu', d: '25 kez Roket Ayakkabı kullan.', g: 100, ok: s => (s.pw.turbo || 0) >= 25 },
   { id: 'altin_avcisi', n: 'Altın Avcısı', d: 'Parkurlarda toplam 500 altın topla.', g: 200, ok: s => s.coins >= 500 },
   { id: 'koleksiyon', n: 'Koleksiyoncu', d: '20 eşyaya sahip ol.', g: 250, ok: (s, p) => p.owned.filter(id => BYID[id] && !BYID[id].free).length >= 20 },
   { id: 'moda', n: 'Moda İkonu', d: 'Aynı anda 6 farklı bölmede eşya giy.', g: 100, ok: (s, p) => ['skin', 'hat', 'glasses', 'shirt', 'pants', 'shoes', 'costume', 'acc', 'trail'].filter(k => p.look[k]).length >= 6 },
-  { id: 'zengin', n: 'Zengin Pati', d: 'Aynı anda 3.000 altına sahip ol.', g: 100, ok: (s, p) => p.gold >= 3000 }
+  { id: 'zengin', n: 'Zengin Pati', d: 'Aynı anda 3.000 altına sahip ol.', g: 100, ok: (s, p) => p.gold >= 3000 },
+  { id: 'yumurta', n: 'Yumurta Avcısı', d: '5 sürpriz yumurta aç.', g: 120, ok: s => (s.eggs || 0) >= 5 },
+  { id: 'seviye5', n: 'Tecrübeli Pati', d: '5. seviyeye ulaş.', g: 150, ok: (s, p) => levelOf(p.xp).lvl >= 5 },
+  { id: 'sadik', n: 'Sadık Koşucu', d: '3 gün üst üste oyuna gir.', g: 100, ok: (s, p) => ((p.login || {}).streak || 0) >= 3 },
+  { id: 'kukreme_ach', n: 'Kükreyen Boğa', d: 'Boğa Kükremesiyle 5 rakibi sersemlet.', g: 120, ok: s => (s.roarHits || 0) >= 5 }
 ];
 
 /* ------------------------------------------------------------------ günlük görevler */
@@ -196,10 +215,13 @@ const QUESTS = [
   { id: 'altin', d: 'Parkurda {n} altın topla', goal: 40, g: 50, m: 'coins' },
   { id: 'temiz', d: 'Hiç tökezlemeden bir yarış bitir', goal: 1, g: 70, m: 'clean' },
   { id: 'isabet', d: 'Rakiplerine {n} kez isabet ettir', goal: 4, g: 60, m: 'hitgiven' },
-  { id: 'turbo', d: '{n} kez turbo kullan', goal: 3, g: 40, m: 'pw_turbo' },
+  { id: 'turbo', d: '{n} kez Roket Ayakkabı kullan', goal: 3, g: 40, m: 'pw_turbo' },
   { id: 'par', d: 'Bir parkuru par süresinin altında bitir', goal: 1, g: 80, m: 'underpar' },
   { id: 'zipla', d: '{n} kez zıpla', goal: 150, g: 40, m: 'jumps' },
-  { id: 'dunya', d: '{w} bir yarış bitir', goal: 1, g: 60, m: 'world' }
+  { id: 'dunya', d: '{w} bir yarış bitir', goal: 1, g: 60, m: 'world' },
+  { id: 'uzun', d: 'Uzun bir parkurda yarış bitir', goal: 1, g: 80, m: 'long' },
+  { id: 'kalkanq', d: 'Kalkanla {n} saldırı engelle', goal: 1, g: 70, m: 'blocks' },
+  { id: 'kutu', d: '{n} güç kutusu aç', goal: 8, g: 50, m: 'boxes' }
 ];
 
 /* ------------------------------------------------------------------ yardımcılar */
@@ -207,17 +229,27 @@ function hashStr(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h
 function mulberry(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 function today(d) { d = d || new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; }
 const fmtG = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+function weekKey(date) {          // ISO hafta: 2026-W42
+  const p = String(date || today()).split('-').map(Number), d = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+  const day = d.getUTCDay() || 7; d.setUTCDate(d.getUTCDate() + 4 - day);
+  const y0 = new Date(Date.UTC(d.getUTCFullYear(), 0, 1)), w = Math.ceil(((d - y0) / 864e5 + 1) / 7);
+  return `${d.getUTCFullYear()}-W${String(w).padStart(2, '0')}`;
+}
+function addDays(date, n) { const p = String(date).split('-').map(Number), d = new Date(Date.UTC(p[0], p[1] - 1, p[2] + n)); return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`; }
+// seviye: her seviye bir öncekinden biraz daha fazla deneyim ister
+const xpNeed = l => 120 + 60 * (l - 1);
+function levelOf(xp) { let lvl = 1, rest = Math.max(0, Math.floor(+xp || 0)); while (rest >= xpNeed(lvl)) { rest -= xpNeed(lvl); lvl++; } return { lvl, cur: rest, need: xpNeed(lvl) }; }
 function fmtMs(ms) { if (ms == null || !isFinite(ms)) return '—'; const s = ms / 1000, m = Math.floor(s / 60); return `${m}:${(s - m * 60).toFixed(2).padStart(5, '0')}`; }
 
-const DEFAULT_LOOK = { char: 'tilki', skin: null, hat: null, glasses: null, shirt: null, pants: null, shoes: null, costume: null, acc: null, trail: null };
+const DEFAULT_LOOK = { char: 'tilki', skin: null, hat: null, glasses: null, shirt: null, pants: null, shoes: null, costume: null, acc: null, trail: null, dance: null };
 const LOOK_KEYS = Object.keys(DEFAULT_LOOK);
 
 function defaultProfile() {
   return {
     v: 1, gold: START_GOLD, owned: C.filter(it => it.free).map(it => it.id),
     look: Object.assign({}, DEFAULT_LOOK),
-    stats: { races: 0, finishes: 0, wins: 0, podiums: 0, coins: 0, hits: 0, hitGiven: 0, bananaHits: 0, zapHits: 0, blocks: 0, jumps: 0, underPar: 0, cleanWins: 0, goldEarned: 0, pw: {}, worlds: {} },
-    best: {}, ach: {}, daily: null, board: {}, seen: {}
+    stats: { races: 0, finishes: 0, wins: 0, podiums: 0, coins: 0, hits: 0, hitGiven: 0, bananaHits: 0, zapHits: 0, roarHits: 0, blocks: 0, jumps: 0, underPar: 0, cleanWins: 0, goldEarned: 0, eggs: 0, boxes: 0, longs: 0, pw: {}, worlds: {} },
+    best: {}, ach: {}, daily: null, board: {}, seen: {}, xp: 0, login: { last: '', streak: 0 }
   };
 }
 // Bozuk / eski kayıtları onar (eksik alanları varsayılanla doldur)
@@ -233,6 +265,8 @@ function fixProfile(p) {
   out.look = sanitizeLook(p.look);
   LOOK_KEYS.forEach(k => { const v = out.look[k]; if (v && !out.owned.includes(v)) out.look[k] = k === 'char' ? 'tilki' : null; });
   out.gold = Math.max(0, Math.floor(+out.gold || 0));
+  out.xp = Math.max(0, Math.floor(+out.xp || 0));
+  out.login = (p.login && typeof p.login === 'object') ? { last: String(p.login.last || ''), streak: Math.max(0, p.login.streak | 0) } : { last: '', streak: 0 };
   ['best', 'ach', 'board', 'seen'].forEach(k => { if (!out[k] || typeof out[k] !== 'object') out[k] = {}; });
   return out;
 }
@@ -271,12 +305,15 @@ function botLook(rng) {
   if (rng() < .3) look.acc = pickOf('acc');
   if (rng() < .2) look.skin = pickOf('skin');
   if (rng() < .2) look.trail = pickOf('trail');
+  if (rng() < .5) look.dance = pickOf('dance');
   return look;
 }
 
-/* ------------------------------------------------------------------ günün vitrini */
+/* ------------------------------------------------------------------ haftanın vitrini
+   Her hafta (ISO haftası) değişir: 1 vitrine özel nadir eşya + epik/nadir/sıradan
+   seçki, hepsi %25 indirimli.                                                   */
 function dailyShop(date) {
-  const rng = mulberry(hashStr('vitrin:' + date));
+  const rng = mulberry(hashStr('vitrin:' + weekKey(date || today())));
   const pool = C.filter(it => !it.free && !it.ach);
   const rare = pool.filter(it => it.rot), normal = pool.filter(it => !it.rot);
   const out = [];
@@ -287,7 +324,7 @@ function dailyShop(date) {
   take(normal.filter(it => it.r === 0), 2);
   return out;
 }
-const DISCOUNT = .8;
+const DISCOUNT = .75;
 function priceOf(id, date) {
   const it = BYID[id]; if (!it) return Infinity;
   if (dailyShop(date || today()).includes(id)) return Math.round(it.p * DISCOUNT / 5) * 5;
@@ -301,7 +338,7 @@ function canBuy(p, id, date) {
   if (it.ach) return { ok: false, err: 'Bu eşya yalnız başarımla açılır.' };
   if (it.free) return { ok: false, err: 'Bu eşya zaten ücretsiz.' };
   date = date || today();
-  if (it.rot && !dailyShop(date).includes(id)) return { ok: false, err: 'Bu nadir eşya yalnız günün vitrininde satılır.' };
+  if (it.rot && !dailyShop(date).includes(id)) return { ok: false, err: 'Bu nadir eşya yalnız haftanın vitrininde satılır.' };
   const price = priceOf(id, date);
   if (p.gold < price) return { ok: false, err: `Yetersiz altın (${fmtG(price - p.gold)} eksik).` };
   return { ok: true, price };
@@ -317,6 +354,38 @@ function equip(p, id) {
   p.look[it.s] = id;
   checkAch(p);
   return true;
+}
+/* ------------------------------------------------------------------ sürpriz yumurta
+   Rastgele bir kozmetik (nadirliğe göre ağırlıklı). Zaten sahip olunan çıkarsa
+   fiyatının %40'ı altın olarak geri verilir.                                    */
+const EGG_PRICE = 250;
+const EGG_W = [62, 27, 9, 2];
+function eggPool() { return C.filter(it => !it.free && !it.ach && it.s !== 'char'); }
+function openEgg(p, rng) {
+  rng = rng || Math.random;
+  if (p.gold < EGG_PRICE) return { ok: false, err: `Yetersiz altın (${fmtG(EGG_PRICE - p.gold)} eksik).` };
+  let x = rng() * EGG_W.reduce((a, b) => a + b, 0), r = 0;
+  for (; r < 3; r++) { x -= EGG_W[r]; if (x <= 0) break; }
+  const pool = eggPool().filter(it => it.r === r);
+  const it = pool[Math.floor(rng() * pool.length)] || eggPool()[0];
+  p.gold -= EGG_PRICE; p.stats.eggs = (p.stats.eggs || 0) + 1;
+  const dup = p.owned.includes(it.id);
+  const refund = dup ? Math.max(30, Math.round(it.p * .4 / 5) * 5) : 0;
+  if (dup) p.gold += refund; else p.owned.push(it.id);
+  const unlocked = checkAch(p);
+  return { ok: true, id: it.id, it, dup, refund, unlocked };
+}
+/* ------------------------------------------------------------------ günlük giriş ödülü */
+function claimLogin(p, date) {
+  date = date || today();
+  p.login = p.login || { last: '', streak: 0 };
+  if (p.login.last === date) return null;
+  const streak = p.login.last === addDays(date, -1) ? (p.login.streak | 0) + 1 : 1;
+  p.login = { last: date, streak };
+  const bonus = Math.min(120, 30 + 15 * (streak - 1));
+  p.gold += bonus; p.stats.goldEarned += bonus;
+  const unlocked = checkAch(p);
+  return { bonus, streak, unlocked };
 }
 function unequip(p, slot) { if (slot === 'char' || !(slot in p.look)) return false; p.look[slot] = null; return true; }
 
@@ -344,11 +413,13 @@ const PLACE_G = [45, 32, 24, 18, 14, 11];
 function calcReward(r) {
   const lines = [];
   const add2 = (k, label, g) => { g = Math.max(0, Math.round(g)); if (g > 0) lines.push({ k, label, g }); };
+  const lf = (LENGTHS[r.len] || LENGTHS.orta).f;
   if (r.finished) {
-    add2('fin', 'Yarışı bitirdin', 20);
-    if (r.n > 1) add2('place', `${r.place}. sıra`, (PLACE_G[r.place - 1] || 8) * (0.75 + 0.05 * Math.min(6, r.n)));
-    else add2('place', 'Zamana karşı', 15);
-    if (r.par && r.ms < r.par) add2('time', 'Hız bonusu (par altı)', Math.min(45, (r.par - r.ms) / 1000 * 3));
+    add2('fin', 'Yarışı bitirdin', 20 * lf);
+    if (r.n > 1) add2('place', `${r.place}. sıra`, (PLACE_G[r.place - 1] || 8) * (0.75 + 0.05 * Math.min(6, r.n)) * lf);
+    else add2('place', 'Zamana karşı', 15 * lf);
+    // süre: par süresine yaklaştıkça artar, par altında her saniye +3
+    if (r.par && r.ms) add2('time', r.ms < r.par ? 'Hız bonusu (par altı)' : 'Süre bonusu', r.ms < r.par ? Math.min(45, (r.par - r.ms) / 1000 * 3) + 10 : Math.max(0, 10 - (r.ms - r.par) / 1000));
     if (!r.hits) add2('clean', 'Kusursuz koşu', 12);
     if (r.pb) add2('pb', 'Kişisel rekor!', 15);
   } else add2('dnf', 'Katılım', 6);
@@ -364,10 +435,11 @@ function calcReward(r) {
 function applyRace(p, race) {
   const s = p.stats, date = race.date || today();
   const pwUsed = Object.values(race.pw || {}).reduce((a, b) => a + b, 0);
-  const prevBest = p.best[race.world];
+  const bk = boardKey(race.world, race.len);
+  const prevBest = p.best[bk];
   const pb = !!(race.finished && race.ms && (!prevBest || race.ms < prevBest));
-  if (pb) p.best[race.world] = race.ms;
-  const reward = calcReward({ place: race.place, n: race.n, ms: race.ms, finished: race.finished, par: race.par, hits: race.hits, pwUsed, coins: race.coins, pb: pb && !!prevBest });
+  if (pb) p.best[bk] = race.ms;
+  const reward = calcReward({ place: race.place, n: race.n, ms: race.ms, finished: race.finished, par: race.par, hits: race.hits, pwUsed, coins: race.coins, pb: pb && !!prevBest, len: race.len });
   // istatistik
   s.races++;
   if (race.finished) { s.finishes++; s.worlds[race.world] = (s.worlds[race.world] || 0) + 1; }
@@ -379,13 +451,16 @@ function applyRace(p, race) {
   if (under) s.underPar++;
   s.coins += race.coins || 0; s.hits += race.hits || 0; s.jumps += race.jumps || 0;
   s.hitGiven += race.hitGiven || 0; s.bananaHits += race.bananaHits || 0; s.zapHits += race.zapHits || 0; s.blocks += race.blocks || 0;
+  s.roarHits = (s.roarHits || 0) + (race.roarHits || 0); s.boxes = (s.boxes || 0) + (race.boxes || 0);
+  if (race.finished && race.len === 'uzun') s.longs = (s.longs || 0) + 1;
   Object.entries(race.pw || {}).forEach(([k, v]) => { s.pw[k] = (s.pw[k] || 0) + v; });
   // görevler
   const daily = ensureDaily(p, date), qDone = [];
   const metric = {
     finish: race.finished ? 1 : 0, pw: pwUsed, pw_muz: (race.pw || {}).muz || 0, pw_turbo: (race.pw || {}).turbo || 0,
     podium: race.finished && race.place <= 3 && race.n > 1 ? 1 : 0, win: win ? 1 : 0, coins: race.coins || 0,
-    clean: race.finished && !race.hits ? 1 : 0, hitgiven: race.hitGiven || 0, underpar: under ? 1 : 0, jumps: race.jumps || 0
+    clean: race.finished && !race.hits ? 1 : 0, hitgiven: race.hitGiven || 0, underpar: under ? 1 : 0, jumps: race.jumps || 0,
+    long: race.finished && race.len === 'uzun' ? 1 : 0, blocks: race.blocks || 0, boxes: race.boxes || 0
   };
   let questGold = 0;
   daily.q.forEach(q => {
@@ -397,10 +472,16 @@ function applyRace(p, race) {
   });
   p.gold += reward.total + questGold;
   s.goldEarned += reward.total + questGold;
+  // deneyim ve seviye (seviye atlayınca altın ödülü)
+  const lv0 = levelOf(p.xp).lvl;
+  const xp = Math.round(30 + (race.finished ? 20 : 0) + (race.n > 1 ? (race.n - race.place) * 8 : 10) + (under ? 15 : 0));
+  p.xp = (p.xp || 0) + xp;
+  const lv1 = levelOf(p.xp).lvl, lvlUps = [];
+  for (let l = lv0 + 1; l <= lv1; l++) { const g = 40 + 10 * l; p.gold += g; s.goldEarned += g; lvlUps.push({ lvl: l, g }); }
   // liderlik
-  (race.names || []).forEach(x => { if (x.ms) boardAdd(p, race.world, x.name, x.ms, x.me, date); });
+  (race.names || []).forEach(x => { if (x.ms) boardAdd(p, bk, x.name, x.ms, x.me, date); });
   const ach = checkAch(p);
-  return { reward, quests: qDone, questGold, ach, pb, gold: p.gold };
+  return { reward, quests: qDone, questGold, ach, pb, gold: p.gold, xp, lvlUps, level: levelOf(p.xp) };
 }
 // başarımları denetle; yeni açılanların altın ve eşyasını ver
 function checkAch(p) {
@@ -424,7 +505,7 @@ function checkAch(p) {
 
 /* ------------------------------------------------------------------ yerel liderlik */
 function boardAdd(p, world, name, ms, me, date) {
-  if (!WORLDS[world] || !name || !(ms > 0)) return;
+  if (!WORLDS[String(world).split('.')[0]] || !name || !(ms > 0)) return;
   const list = p.board[world] = p.board[world] || [];
   const key = String(name).slice(0, 16);
   const cur = list.find(x => x.name === key);
@@ -436,8 +517,8 @@ function boardAdd(p, world, name, ms, me, date) {
 
 /* ------------------------------------------------------------------ dışa aktar */
 NS.shop = {
-  RARITY, SLOTS, WORLDS, WORLD_IDS, CATALOG: C, BYID, CHARS, ACH, QUESTS, DEFAULT_LOOK, LOOK_KEYS, START_GOLD, DISCOUNT,
-  hashStr, mulberry, today, fmtG, fmtMs,
+  RARITY, SLOTS, WORLDS, WORLD_IDS, LENGTHS, CATALOG: C, BYID, CHARS, ACH, QUESTS, DEFAULT_LOOK, LOOK_KEYS, START_GOLD, DISCOUNT, EGG_PRICE, EGG_W,
+  hashStr, mulberry, today, weekKey, addDays, fmtG, fmtMs, boardKey, levelOf, xpNeed, eggPool, openEgg, claimLogin,
   defaultProfile, fixProfile, load, save, sanitizeLook, botLook,
   dailyShop, priceOf, canBuy, buy, equip, unequip,
   ensureDaily, questInfo, calcReward, applyRace, checkAch, boardAdd
