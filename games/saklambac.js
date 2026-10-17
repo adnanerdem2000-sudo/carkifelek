@@ -192,7 +192,99 @@ const SHAPES = {
     { rr: [-13, -26, 26, 30, 5], r: 'c2d' }] },
   cam: { name: 'Çam fidanı', r: 42, parts: () => [
     { rr: [-11, 58, 22, 38, 4], r: 'c2' },
-    { d: 'M0 -102 L46 -40 L22 -40 L66 14 L36 14 L86 70 L-86 70 L-36 14 L-66 14 L-22 -40 L-46 -40 Z', r: 'body' }] }
+    { d: 'M0 -102 L46 -40 L22 -40 L66 14 L36 14 L86 70 L-86 70 L-36 14 L-66 14 L-22 -40 L-46 -40 Z', r: 'body' }] },
+  /* ---- oyuncak odası ---- */
+  blok: { name: 'Oyuncak blok', r: 30, parts: () => [
+    { d: 'M-72 -48 L-42 -80 L82 -80 L52 -48 Z', r: 'c1l' },
+    { d: 'M52 -48 L82 -80 L82 42 L52 74 Z', r: 'c1d' },
+    { d: 'M-72 -48 L52 -48 L52 74 L-72 74 Z', r: 'body' },
+    { star: [-10, 14, 36, 15, 5], r: 'c2' }] },
+  ayicik: { name: 'Ayıcık', r: 34, parts: () => [
+    { e: [-46, -70, 20, 20, 0], r: 'c1d' }, { e: [46, -70, 20, 20, 0], r: 'c1d' },
+    { e: [-62, 30, 20, 34, -.5], r: 'c1d' }, { e: [62, 30, 20, 34, .5], r: 'c1d' },
+    { e: [0, 42, 54, 50, 0], r: 'body' },
+    { e: [0, 50, 26, 24, 0], r: 'c2', no: 1 },
+    { e: [-36, 88, 22, 14, 0], r: 'c1d' }, { e: [36, 88, 22, 14, 0], r: 'c1d' },
+    { e: [0, -38, 46, 42, 0], r: 'c1' },
+    { e: [0, -24, 22, 16, 0], r: 'c2' },
+    { dots: [[-16, -46, 6], [16, -46, 6], [0, -30, 7]], r: '#2d2d3a', no: 1 },
+    { e: [-30, -54, 8, 5, -.4], r: 'hl' }] },
+  araba: { name: 'Oyuncak araba', r: 36, parts: () => [
+    { d: 'M-95 20 L-95 -4 Q-90 -20 -60 -22 L-36 -56 Q-30 -62 -20 -62 L34 -62 Q44 -62 52 -52 L72 -22 Q95 -20 98 0 L98 20 Q98 30 88 30 L-85 30 Q-95 30 -95 20 Z', r: 'body' },
+    { d: 'M-28 -50 L-8 -50 L-8 -26 L-46 -26 Z M2 -50 L30 -50 L52 -26 L2 -26 Z', r: 'c2l' },
+    { e: [86, -6, 9, 8, 0], r: '#fff27a', no: 1 },
+    { e: [-55, 32, 23, 23, 0], r: '#2d2d3a' }, { e: [55, 32, 23, 23, 0], r: '#2d2d3a' },
+    { e: [-55, 32, 9, 9, 0], r: 'c2', no: 1 }, { e: [55, 32, 9, 9, 0], r: 'c2', no: 1 }] },
+  kalem: { name: 'Boya kalemi', r: 30, parts: () => [
+    { d: 'M-22 -50 L22 -50 L7 -94 L-7 -94 Z', r: 'c1d' },
+    { rr: [-24, -52, 48, 148, 8], r: 'body' },
+    { rr: [-24, -8, 48, 58, 3], r: 'c2' },
+    { d: 'M-24 2 L24 2 M-24 40 L24 40', r: 'c2d', w: 5, no: 1 }] },
+  kitap: { name: 'Kitap', r: 32, parts: () => [
+    { d: 'M54 -80 L68 -72 L68 92 L54 86 Z', r: '#fff6e0' },
+    { rr: [-62, -86, 118, 172, 7], r: 'body' },
+    { rr: [-72, -86, 18, 172, 6], r: 'c1d' },
+    { rr: [-38, -56, 76, 26, 5], r: 'c2' },
+    { e: [0, 24, 20, 20, 0], r: 'c2' }] },
+  ordek: { name: 'Lastik ördek', r: 30, parts: () => [
+    { d: 'M-82 26 Q-96 -18 -64 -2 Q-24 18 18 10 Q60 0 82 22 Q92 62 40 82 L-40 82 Q-82 70 -82 26 Z', r: 'body' },
+    { d: 'M-34 28 Q-2 12 22 40 Q-6 56 -34 28 Z', r: 'c1d', no: 1 },
+    { e: [30, -30, 38, 36, 0], r: 'c1' },
+    { d: 'M62 -32 Q98 -32 94 -18 Q82 -8 62 -12 Z', r: 'c2' },
+    { dots: [[40, -40, 7]], r: '#2d2d3a', no: 1 },
+    { e: [16, -46, 9, 6, -.5], r: 'hl' }] },
+  halka: { name: 'Halka kulesi', r: 32, parts: () => [
+    { rr: [-62, 80, 124, 18, 6], r: 'c2d' },
+    { rr: [-8, -96, 16, 180, 6], r: 'c2d' },
+    { rr: [-72, 48, 144, 34, 17], r: 'body' },
+    { rr: [-60, 16, 120, 32, 16], r: 'c2' },
+    { rr: [-48, -16, 96, 32, 16], r: 'body' },
+    { rr: [-36, -46, 72, 30, 15], r: 'c2' },
+    { e: [0, -66, 20, 20, 0], r: 'c1' }] },
+  davul: { name: 'Oyuncak davul', r: 32, parts: () => [
+    { d: 'M-60 -96 L10 -52 M60 -96 L-10 -52', r: '#e0a868', w: 8 },
+    { d: 'M-76 -40 L76 -40 L76 62 Q0 82 -76 62 Z', r: 'body' },
+    { d: 'M-76 -30 L-50 52 L-25 -30 L0 56 L25 -30 L50 52 L76 -30', r: 'c2', w: 5, no: 1 },
+    { rr: [-80, 52, 160, 14, 7], r: 'c2' },
+    { e: [0, -40, 78, 20, 0], r: 'c2' },
+    { e: [0, -40, 64, 13, 0], r: '#fff6e0', no: 1 }] },
+  /* ---- plaj ---- */
+  kova: { name: 'Kova', r: 30, parts: () => [
+    { d: 'M-56 -40 Q0 -104 56 -40', r: 'c2', w: 7 },
+    { d: 'M-62 -40 L62 -40 L48 90 L-48 90 Z', r: 'body' },
+    { rr: [-70, -54, 140, 22, 9], r: 'c1l' },
+    { e: [0, -46, 56, 7, 0], r: '#e6c98a', no: 1 },
+    { star: [0, 30, 22, 10, 5], r: 'c2' }] },
+  kumkale: { name: 'Kumdan kale', r: 40, parts: () => [
+    { d: 'M0 -72 L0 -102', r: '#7a4a2a', w: 4 },
+    { d: 'M0 -102 L28 -93 L0 -84 Z', r: 'c2' },
+    { d: 'M-90 92 L-90 -10 L-80 -10 L-80 -24 L-71 -24 L-71 -10 L-63 -10 L-63 -24 L-54 -24 L-54 -10 L-46 -10 L-46 20 L-26 20 L-26 -56 L-16 -56 L-16 -72 L-6 -72 L-6 -56 L6 -56 L6 -72 L16 -72 L16 -56 L26 -56 L26 20 L46 20 L46 -10 L54 -10 L54 -24 L63 -24 L63 -10 L71 -10 L71 -24 L80 -24 L80 -10 L90 -10 L90 92 Z', r: 'body' },
+    { d: 'M-14 92 L-14 52 Q0 36 14 52 L14 92 Z', r: 'c1d' },
+    { rr: [-74, 10, 12, 16, 5], r: 'c1d', no: 1 }, { rr: [62, 10, 12, 16, 5], r: 'c1d', no: 1 }, { rr: [-6, -36, 12, 16, 5], r: 'c1d', no: 1 }] },
+  kabuk: { name: 'Deniz kabuğu', r: 26, parts: () => [
+    { d: 'M0 84 L-22 70 Q-96 30 -82 -30 Q-62 -86 0 -88 Q62 -86 82 -30 Q96 30 22 70 Z', r: 'body' },
+    { d: 'M0 78 L-58 -42 M0 78 L-30 -72 M0 78 L0 -84 M0 78 L30 -72 M0 78 L58 -42', r: 'c1d', w: 5, no: 1 },
+    { d: 'M-26 70 L26 70 L14 94 L-14 94 Z', r: 'c2' }] },
+  yildiz: { name: 'Deniz yıldızı', r: 28, parts: () => [
+    { star: [0, 6, 98, 40, 5], r: 'body' },
+    { dots: [[0, -50, 7], [0, -24, 6], [46, -10, 6], [-46, -10, 6], [28, 44, 6], [-28, 44, 6]], r: 'c2', no: 1 }] },
+  simit: { name: 'Simit (can simidi)', r: 34, parts: () => [
+    { ring: [0, 10, 96, 68, 42, 26], r: 'body' },
+    { d: 'M-70 -30 Q-40 -50 -10 -56', r: '#ffffff', w: 8, no: 1, a: .5 }] },
+  dondurma: { name: 'Dondurma', r: 30, parts: () => [
+    { d: 'M-42 -6 L42 -6 L0 96 Z', r: 'c2' },
+    { d: 'M-30 14 L18 60 M-14 -4 L30 34 M30 14 L-18 60 M14 -4 L-30 34', r: 'c2d', w: 4, no: 1 },
+    { e: [0, -40, 52, 48, 0], r: 'body' },
+    { d: 'M-50 -22 Q-42 4 -32 -6 Q-22 14 -8 -2 Q4 18 16 -2 Q28 12 36 -6 Q46 2 50 -22 Z', r: 'c1' },
+    { d: 'M8 -96 Q14 -110 22 -112', r: '#2f8f4e', w: 4, no: 1 },
+    { e: [6, -88, 13, 13, 0], r: '#ff4f6d' }, { e: [-20, -60, 12, 8, -.5], r: 'hl' }] },
+  palmiye: { name: 'Palmiye', r: 46, parts: () => [
+    { d: 'M-12 96 Q-22 30 0 -40 L16 -40 Q2 30 12 96 Z', r: 'c2' },
+    { d: 'M-12 70 L10 66 M-12 40 L8 36 M-8 10 L10 6 M-4 -16 L12 -20', r: 'c2d', w: 4, no: 1 },
+    { e: [-42, -54, 50, 15, -.35], r: 'body' }, { e: [52, -54, 50, 15, .35], r: 'body' },
+    { e: [-30, -76, 42, 13, -1], r: 'body' }, { e: [42, -78, 42, 13, 1], r: 'body' },
+    { e: [6, -86, 13, 40, 0], r: 'body' },
+    { dots: [[-2, -42, 10], [16, -40, 10]], r: '#7a4a2a' }] }
 };
 const SHAPE_IDS = Object.keys(SHAPES);
 // Hitbox yarıçapı (dünya birimi): şekil yarıçapı × boy
@@ -211,6 +303,8 @@ function pathOf(part) {
   if (part.rr) { const [x, y, w, h, r] = part.rr; rrPath(p, x, y, w, h, r); return p; }
   if (part.poly) { part.poly.forEach(([x, y], i) => i ? p.lineTo(x, y) : p.moveTo(x, y)); p.closePath(); return p; }
   if (part.blob) { blobPts(...part.blob).forEach(([x, y], i) => i ? p.lineTo(x, y) : p.moveTo(x, y)); p.closePath(); return p; }
+  if (part.star) { const [cx, cy, ro, ri, n] = part.star; for (let i = 0; i < n * 2; i++) { const a = -Math.PI / 2 + i * Math.PI / n, r = i % 2 ? ri : ro; const x = cx + Math.cos(a) * r, y = cy + Math.sin(a) * r; i ? p.lineTo(x, y) : p.moveTo(x, y); } p.closePath(); return p; }
+  if (part.ring) { const [cx, cy, rx, ry, ix, iy] = part.ring; p.ellipse(cx, cy, rx, ry, 0, 0, TAU); p.moveTo(cx + ix, cy); p.ellipse(cx, cy, ix, iy, 0, TAU, 0, true); return p; }
   if (part.dots) { part.dots.forEach(([x, y, r]) => { p.moveTo(x + r, y); p.arc(x, y, r, 0, TAU); }); return p; }
   return p;
 }
@@ -423,7 +517,7 @@ function genDecoys(map, seed) {
   const add = (sp, x, y, i) => {
     const [c1, c2, pat] = lookOf(sp, i), sc = sp.sc ? sp.sc[0] + r() * (sp.sc[1] - sp.sc[0]) : .9 + r() * .2;
     const R = SHAPES[sp.s].r * sc;
-    let rot = sp.rot ? sp.rot[0] + r() * (sp.rot[1] - sp.rot[0]) : (r() - .5) * 10;
+    let rot = sp.rots ? sp.rots[i % sp.rots.length] + (r() - .5) * 8 : sp.rot ? sp.rot[0] + r() * (sp.rot[1] - sp.rot[0]) : (r() - .5) * 10;
     if (sp.fall && r() < sp.fall) rot = r() < .5 ? 90 : -90;
     if (!ok(x, y, R)) return false;
     out.push({ shape: sp.s, x: Math.round(x), y: Math.round(y), rot: Math.round(rot), scale: +sc.toFixed(2), c1, c2, pat: pat || 'duz' });
@@ -505,7 +599,7 @@ const L = (c1, c2, p) => [c1, c2, p || 'duz'];
 const MAPS = {
   /* ================================================================ LUNAPARK */
   lunapark: {
-    id: 'lunapark', name: 'Lunapark', icon: '🎡', top: 132,
+    id: 'lunapark', spawn: [800, 835], name: 'Lunapark', icon: '🎡', top: 132,
     base: { p: 'tugla', c1: '#ecd9b8', c2: '#d4b98f', s: 38 }, baseName: 'Arnavut kaldırımı',
     catalog: ['balon', 'top', 'varil', 'cop', 'lamba', 'icecek', 'hediye', 'koni', 'pamuk', 'semsiye'],
     regions: [
@@ -631,7 +725,7 @@ const MAPS = {
 
   /* ================================================================ MUTFAK */
   mutfak: {
-    id: 'mutfak', name: 'Mutfak', icon: '🍳', top: 100,
+    id: 'mutfak', spawn: [820, 780], name: 'Mutfak', icon: '🍳', top: 100,
     base: { p: 'kare', c1: '#f4efe4', c2: '#3a3a4a', s: 84 }, baseName: 'Damalı yer karosu',
     catalog: ['tencere', 'kupa', 'sise', 'elma', 'limon', 'saksi', 'kaktus', 'havlu', 'caydanlik', 'kavanoz'],
     regions: [
@@ -735,7 +829,7 @@ const MAPS = {
 
   /* ================================================================ ORMAN KAMPI */
   orman: {
-    id: 'orman', name: 'Orman Kampı', icon: '🏕️', top: 132,
+    id: 'orman', spawn: [640, 690], name: 'Orman Kampı', icon: '🏕️', top: 132,
     base: { p: 'cim', c1: '#86d061', c2: '#6db94c', s: 40 }, baseName: 'Çimen',
     catalog: ['kaya', 'cali', 'mantar', 'kutuk', 'cadir', 'fener', 'sandik', 'cam', 'kupa', 'tencere'],
     regions: [
@@ -818,12 +912,193 @@ const MAPS = {
       // ateş böcekleri
       D.sprinkle(g, r, 14, [0, 140, W, 90], (x, y) => { D.glow(g, x, y, 10, 'rgba(255,250,150,.8)'); D.circle(g, x, y, 1.8, '#fffbd0'); });
     }
+  },
+  /* ================================================================ OYUNCAK ODASI */
+  oyuncak: {
+    id: 'oyuncak', spawn: [800, 640], name: 'Oyuncak Odası', icon: '🧸', top: 124,
+    base: { p: 'tahta', c1: '#e8b77c', c2: '#c98f52', s: 96 }, baseName: 'Ahşap parke',
+    catalog: ['blok', 'ayicik', 'araba', 'top', 'kalem', 'kitap', 'ordek', 'halka', 'davul', 'kupa'],
+    regions: [
+      { k: 'rect', x: 515, y: 165, w: 630, h: 390, r: 22, f: { p: 'duz', c1: '#8fd673' }, n: 'Yollu oyun halısı', edge: ['#5aa84a', 12], lift: 5, cols: ['#8fd673', '#6b7280'] },
+      { k: 'ell', cx: 705, cy: 362, rx: 62, ry: 42, f: { p: 'su', c1: '#5cc4e8', c2: '#b4ecff', s: 36 }, n: 'Halıdaki gölet' },
+      { k: 'line', pts: [[585, 232], [1078, 232], [1078, 490], [585, 490], [585, 232]], smooth: false, w: 48, f: { p: 'duz', c1: '#6b7280' }, n: 'Oyuncak yol' },
+      { k: 'line', pts: [[832, 232], [832, 490]], smooth: false, w: 44, f: { p: 'duz', c1: '#6b7280' }, n: 'Oyuncak yol' },
+      { k: 'ell', cx: 300, cy: 770, rx: 175, ry: 175, f: { p: 'duz', c1: '#ffd84a' }, n: 'Gökkuşağı halı', lift: 4, cols: ['#ff4f6d', '#ff9a3c', '#ffd84a', '#5cc85a', '#4fb7f0', '#9b5cff'] },
+      { k: 'rect', x: 1200, y: 610, w: 370, h: 300, r: 8, f: { p: 'kare', c1: '#4fb7f0', c2: '#ffd84a', s: 180 }, n: 'Yapboz minder', cols: ['#4fb7f0', '#ffd84a', '#ff4f6d', '#5cc85a'] },
+      { k: 'rect', x: 150, y: 300, w: 230, h: 165, rot: -8, f: { p: 'duz', c1: '#ffffff' }, n: 'Resim kâğıdı', lift: 3 },
+      { k: 'ell', cx: 1350, cy: 300, rx: 120, ry: 82, f: { p: 'su', c1: '#7fd0ff', c2: '#c6ecff', s: 40 }, n: 'Oyuncak küvet', edge: ['#ffffff', 16], lift: 8 },
+      { k: 'ell', cx: 1070, cy: 860, rx: 92, ry: 62, f: { p: 'puan', c1: '#9b5cff', c2: '#ffd84a', s: 30 }, n: 'Yıldızlı minder', lift: 8, edge: ['#6a3fb5', 8] },
+      { k: 'rect', x: 40, y: 128, w: 420, h: 70, f: { p: 'cizgili', c1: '#ff8fc8', c2: '#ffb3d9', s: 30, a: 90 }, n: 'Pembe kilim' }
+    ],
+    decoys: [
+      { s: 'blok', area: [1385, 760, 150, 120], n: 7, looks: [L('#ff4f6d', '#ffd84a'), L('#4fb7f0', '#ffffff'), L('#5cc85a', '#ffd84a'), L('#ffd84a', '#ff4f6d'), L('#9b5cff', '#ffffff'), L('#ff9a3c', '#3d6bff')], rot: [-6, 6] },
+      { s: 'blok', pts: [[470, 585], [1185, 185], [560, 660]], looks: [L('#ff4f6d', '#ffffff'), L('#3d6bff', '#ffd84a'), L('#5cc85a', '#ffffff')] },
+      { s: 'ayicik', pts: [[300, 700], [215, 830], [385, 840], [1500, 520]], looks: [L('#b98a5a', '#f6e7c8'), L('#e0a868', '#fff6e0'), L('#ff8fc8', '#ffffff'), L('#f6e7c8', '#ff8fc8')], rot: [-8, 8] },
+      { s: 'araba', pts: [[660, 232], [950, 232], [1078, 360], [760, 490], [585, 410], [832, 330]], rots: [0, 180, 90, 180, -90, 90], looks: [L('#ff4f6d', '#c6ecff'), L('#3d6bff', '#fff27a'), L('#ffd84a', '#c6ecff'), L('#5cc85a', '#ffffff')], sc: [.85, .95] },
+      { s: 'top', area: [760, 800, 180, 70], n: 4, looks: [L('#ff4f6d', '#ffffff', 'puan'), L('#ffd84a', '#3d6bff', 'cizgili'), L('#3d6bff', '#ffffff'), L('#5cc85a', '#ffffff', 'kare')] },
+      { s: 'kalem', area: [265, 390, 115, 70], n: 5, looks: [L('#ff4f6d', '#ffffff'), L('#3d6bff', '#ffffff'), L('#5cc85a', '#ffffff'), L('#ffd84a', '#ffffff'), L('#9b5cff', '#ffffff')], rot: [-80, 80] },
+      { s: 'kitap', box: [60, 150, 390, 40], n: 4, looks: [L('#d63a3a', '#ffd84a'), L('#3d6bff', '#ffffff'), L('#2f8f4e', '#fff27a'), L('#9b5cff', '#ff8fc8')], rot: [-8, 8] },
+      { s: 'kitap', pts: [[1160, 950], [480, 960]], looks: [L('#ff9a3c', '#ffffff'), L('#2bd9c0', '#27357a')], fall: .6 },
+      { s: 'ordek', area: [1350, 300, 80, 45], n: 4, looks: [L('#ffd84a', '#ff9a3c'), L('#ff8fc8', '#ff9a3c'), L('#ffffff', '#ff9a3c'), L('#4fb7f0', '#ffd84a')], rot: [-10, 10] },
+      { s: 'halka', pts: [[475, 300], [1185, 560], [130, 560]], looks: [L('#ff4f6d', '#ffd84a'), L('#3d6bff', '#5cc85a'), L('#9b5cff', '#ff9a3c')] },
+      { s: 'davul', pts: [[620, 640], [1110, 640]], looks: [L('#ff4f6d', '#ffd84a'), L('#3d6bff', '#ffffff')] },
+      { s: 'kupa', pts: [[1250, 470], [960, 950], [90, 950]], looks: [L('#ffffff', '#ff8fc8', 'puan'), L('#ffd84a', '#7a4a2a'), L('#4fb7f0', '#ffffff', 'cizgili')], fall: .3 }
+    ],
+    back(g) {
+      g.fillStyle = '#bfe3ff'; g.fillRect(0, 0, W, 124);
+      const r = mulberry(61);
+      for (let i = 0; i < 40; i++) { const x = r() * W, y = r() * 100; if (r() < .5) D.text(g, '★', x, y, 12, 'rgba(255,255,255,.75)', null, 'sans-serif'); else { D.circle(g, x, y, 6, 'rgba(255,255,255,.6)'); D.circle(g, x + 7, y - 3, 7, 'rgba(255,255,255,.6)'); D.circle(g, x + 14, y, 5, 'rgba(255,255,255,.6)'); } }
+      // kitaplık
+      D.rr(g, 36, 6, 410, 112, 6, '#a8703a', '#6b4422', 4); D.rr(g, 46, 14, 390, 96, 3, '#7a4a2a');
+      const bc = ['#ff4f6d', '#ffd84a', '#4fb7f0', '#5cc85a', '#9b5cff', '#ff9a3c', '#2bd9c0', '#ff8fc8'];
+      [16, 58].forEach(y0 => { let x = 52; while (x < 420) { const w = 12 + r() * 10, h = 30 + r() * 8; D.rr(g, x, y0 + 38 - h, w, h, 2, bc[Math.floor(r() * bc.length)], 'rgba(0,0,0,.35)', 1.2); x += w + 2 + (r() < .12 ? 16 : 0); } g.fillStyle = '#a8703a'; g.fillRect(46, y0 + 38, 390, 6); });
+      D.circle(g, 405, 34, 14, '#4fb7f0', '#27357a', 2); D.circle(g, 400, 30, 6, '#5cc85a');
+      // pencere
+      const sg = g.createLinearGradient(0, 10, 0, 100); sg.addColorStop(0, '#6fc3ff'); sg.addColorStop(1, '#d6f0ff');
+      D.rr(g, 640, 10, 260, 92, 8, sg, '#ffffff', 8); D.circle(g, 850, 36, 14, '#ffe14a');
+      g.strokeStyle = '#fff'; g.lineWidth = 6; g.beginPath(); g.moveTo(770, 10); g.lineTo(770, 102); g.stroke();
+      [[612, 1], [928, -1]].forEach(([x, sgn]) => { g.fillStyle = '#ffd84a'; g.beginPath(); g.moveTo(x - 24 * sgn, 2); g.lineTo(x + 34 * sgn, 2); g.quadraticCurveTo(x + 10 * sgn, 60, x + 30 * sgn, 112); g.lineTo(x - 24 * sgn, 112); g.fill(); });
+      // roket posteri
+      g.save(); g.translate(1030, 58); g.rotate(-.05); D.rr(g, -50, -44, 100, 88, 4, '#fff6e0', '#e0c9a0', 2);
+      g.fillStyle = '#ff4f6d'; g.beginPath(); g.moveTo(0, -32); g.quadraticCurveTo(16, -10, 12, 20); g.lineTo(-12, 20); g.quadraticCurveTo(-16, -10, 0, -32); g.fill(); D.circle(g, 0, -6, 6, '#4fb7f0', '#27357a', 2);
+      g.fillStyle = '#ff9a3c'; g.beginPath(); g.moveTo(-8, 20); g.lineTo(0, 36); g.lineTo(8, 20); g.fill(); for (let i = 0; i < 6; i++) D.text(g, '★', -38 + r() * 76, -36 + r() * 70, 8, '#ffd84a', null, 'sans-serif'); g.restore();
+      // boy cetveli
+      for (let i = 0; i < 7; i++) D.rr(g, 1140, 6 + i * 16, 26, 16, 2, bc[i]);
+      // raf: robot ve uçak
+      g.fillStyle = '#a8703a'; g.fillRect(1250, 84, 220, 8);
+      D.rr(g, 1280, 40, 36, 30, 6, '#c9ced6', '#6b7480', 2); D.rr(g, 1286, 70, 24, 14, 3, '#8a9099'); D.circle(g, 1292, 52, 4, '#ff4f6d'); D.circle(g, 1304, 52, 4, '#ff4f6d'); g.strokeStyle = '#6b7480'; g.lineWidth = 2; g.beginPath(); g.moveTo(1298, 40); g.lineTo(1298, 30); g.stroke(); D.circle(g, 1298, 28, 3, '#ffd84a');
+      g.fillStyle = '#3d6bff'; D.rr(g, 1360, 58, 70, 14, 7, '#3d6bff', '#27357a', 2); D.rr(g, 1385, 44, 16, 42, 5, '#ffd84a', '#8a6a00', 2);
+      // süpürgelik
+      g.fillStyle = '#ffffff'; g.fillRect(0, 108, W, 16); g.fillStyle = 'rgba(0,0,0,.12)'; g.fillRect(0, 122, W, 4);
+    },
+    decor(g) {
+      const r = mulberry(71);
+      // yol çizgileri ve yaya geçidi
+      g.strokeStyle = '#ffffff'; g.lineWidth = 4; g.setLineDash([16, 14]);
+      g.beginPath(); g.moveTo(585, 232); g.lineTo(1078, 232); g.lineTo(1078, 490); g.lineTo(585, 490); g.closePath(); g.moveTo(832, 232); g.lineTo(832, 490); g.stroke(); g.setLineDash([]);
+      for (let i = 0; i < 5; i++) g.fillRect(680 + i * 12, 470, 7, 40);
+      // halıdaki evler ve ağaçlar
+      [[700, 288, '#ff4f6d'], [960, 300, '#3d6bff'], [960, 420, '#ffd84a'], [720, 430, '#9b5cff']].forEach(([x, y, c]) => { D.rr(g, x - 22, y - 10, 44, 34, 3, '#fff6e0', 'rgba(0,0,0,.35)', 1.5); g.fillStyle = c; g.beginPath(); g.moveTo(x - 28, y - 8); g.lineTo(x, y - 32); g.lineTo(x + 28, y - 8); g.fill(); D.rr(g, x - 6, y + 6, 12, 18, 2, '#b98a5a'); });
+      [[620, 200], [1110, 520], [560, 520], [900, 200], [1110, 200]].forEach(([x, y]) => { D.circle(g, x, y, 14, '#3f9a52'); D.circle(g, x - 4, y - 4, 6, '#5cc85a'); });
+      // gökkuşağı halı
+      ['#ff4f6d', '#ff9a3c', '#ffd84a', '#5cc85a', '#4fb7f0', '#9b5cff', '#ffffff'].forEach((c, i) => D.circle(g, 300, 770, 175 - i * 25, c));
+      D.text(g, '☁', 300, 772, 40, '#ffffff', null, 'sans-serif');
+      // yapboz minder parçaları
+      const pc = ['#4fb7f0', '#ffd84a', '#ff4f6d', '#5cc85a'];
+      for (let yy = 0; yy < 3; yy++) for (let xx = 0; xx < 4; xx++) { const x = 1200 + xx * 92.5, y = 610 + yy * 100; D.rr(g, x + 2, y + 2, 88.5, 96, 6, pc[(xx + yy * 3) % 4], 'rgba(0,0,0,.18)', 2); if (xx < 3) D.circle(g, x + 92.5, y + 50, 11, pc[(xx + yy * 3) % 4]); if (yy < 2) D.circle(g, x + 46, y + 100, 11, pc[(xx + yy * 3) % 4]); }
+      // resim kâğıdına karalamalar
+      g.save(); g.translate(265, 382); g.rotate(-8 * Math.PI / 180); g.lineCap = 'round'; g.lineJoin = 'round';
+      g.strokeStyle = '#ffd84a'; g.lineWidth = 5; D.circle(g, -70, -40, 18, null, '#ffb627', 5); for (let i = 0; i < 8; i++) { const a = i / 8 * TAU; g.beginPath(); g.moveTo(-70 + Math.cos(a) * 24, -40 + Math.sin(a) * 24); g.lineTo(-70 + Math.cos(a) * 34, -40 + Math.sin(a) * 34); g.stroke(); }
+      g.strokeStyle = '#ff4f6d'; g.lineWidth = 4; g.beginPath(); g.moveTo(-10, 40); g.lineTo(-10, 0); g.lineTo(20, -24); g.lineTo(50, 0); g.lineTo(50, 40); g.closePath(); g.stroke();
+      g.strokeStyle = '#5cc85a'; g.beginPath(); g.moveTo(-100, 60); g.bezierCurveTo(-40, 50, 40, 70, 100, 58); g.stroke();
+      g.strokeStyle = '#3d6bff'; g.beginPath(); g.moveTo(70, -50); g.quadraticCurveTo(80, -60, 90, -50); g.moveTo(54, -40); g.quadraticCurveTo(62, -48, 70, -40); g.stroke(); g.restore();
+      // küvet köpükleri
+      for (let i = 0; i < 16; i++) { const a = r() * TAU, d = .55 + r() * .4; D.circle(g, 1350 + Math.cos(a) * 118 * d, 300 + Math.sin(a) * 80 * d, 5 + r() * 8, 'rgba(255,255,255,.75)', 'rgba(150,200,230,.6)', 1.2); }
+      // tren rayı
+      g.strokeStyle = '#9c6b3f'; g.lineWidth = 7; for (let i = 0; i < 36; i++) { const a = i / 36 * TAU, x = 760 + Math.cos(a) * 190, y = 800 + Math.sin(a) * 90, nx = Math.cos(a), ny = Math.sin(a) * 2.1, l = Math.hypot(nx, ny); g.beginPath(); g.moveTo(x - nx / l * 16, y - ny / l * 16); g.lineTo(x + nx / l * 16, y + ny / l * 16); g.stroke(); }
+      g.strokeStyle = '#8a9099'; g.lineWidth = 4; [178, 202].forEach(rx => { g.beginPath(); g.ellipse(760, 800, rx, rx * 90 / 190, 0, 0, TAU); g.stroke(); });
+      g.save(); g.translate(950, 800); g.rotate(Math.PI / 2); D.rr(g, -26, -16, 52, 32, 6, '#d63a3a', '#6a1a1a', 2); D.rr(g, -14, -26, 24, 14, 3, '#2d2d3a'); D.circle(g, -16, 16, 6, '#2d2d3a'); D.circle(g, 16, 16, 6, '#2d2d3a'); g.restore();
+      // minder kenar püskülleri
+      [[978, 860], [1162, 860]].forEach(([x, y]) => D.circle(g, x, y, 8, '#ffd84a', '#b5651d', 2));
+      // yere dağılmış minik parçalar
+      D.sprinkle(g, r, 30, [0, 560, W, 440], (x, y) => { const c = pickRnd(r, ['#ff4f6d', '#ffd84a', '#4fb7f0', '#5cc85a']); D.rr(g, x, y, 10, 7, 2, c, 'rgba(0,0,0,.3)', 1); });
+      D.sprinkle(g, r, 10, [0, 560, W, 440], (x, y) => { D.circle(g, x, y, 5, 'rgba(120,200,255,.8)', '#fff', 1); });
+    }
+  },
+
+  /* ================================================================ PLAJ */
+  plaj: {
+    id: 'plaj', spawn: [700, 560], name: 'Plaj', icon: '🏖️', top: 128,
+    base: { p: 'benek', c1: '#f3dca6', c2: '#e6c98a', s: 46 }, baseName: 'Kum',
+    catalog: ['semsiye', 'top', 'kova', 'kumkale', 'kabuk', 'yildiz', 'simit', 'dondurma', 'palmiye', 'icecek'],
+    regions: [
+      { k: 'poly', pts: wavePoly(118, 432, 12, 120, 1.3), f: { p: 'benek', c1: '#e2c48a', c2: '#d2ae6e', s: 40 }, n: 'Islak kum' },
+      { k: 'poly', pts: wavePoly(118, 345, 16, 92, 0), f: { p: 'su', c1: '#3fb0e6', c2: '#a6e4ff', s: 64 }, n: 'Deniz' },
+      { k: 'poly', pts: wavePoly(118, 205, 8, 70, 2), f: { p: 'su', c1: '#2a8fd0', c2: '#78c8f0', s: 70 }, n: 'Derin deniz' },
+      { k: 'blob', cx: 180, cy: 470, rx: 92, ry: 52, b: 5, amp: .12, ph: .7, f: { p: 'su', c1: '#5cc4e8', c2: '#b4ecff', s: 36 }, n: 'Gelgit havuzu', edge: ['#a7adb6', 10] },
+      { k: 'rect', x: 300, y: 540, w: 112, h: 200, rot: -12, f: { p: 'cizgili', c1: '#ff4f6d', c2: '#ffffff', s: 30, a: 0 }, n: 'Çizgili havlu', lift: 3 },
+      { k: 'rect', x: 560, y: 610, w: 112, h: 200, rot: 8, f: { p: 'puan', c1: '#4fb7f0', c2: '#ffffff', s: 30 }, n: 'Puantiyeli havlu', lift: 3 },
+      { k: 'rect', x: 1040, y: 560, w: 120, h: 200, rot: -5, f: { p: 'kare', c1: '#ffd84a', c2: '#ff9a3c', s: 40 }, n: 'Kareli havlu', lift: 3 },
+      { k: 'rect', x: 1235, y: 660, w: 112, h: 190, rot: 14, f: { p: 'zigzag', c1: '#9b5cff', c2: '#ffffff', s: 36 }, n: 'Zikzak havlu', lift: 3 },
+      { k: 'ell', cx: 830, cy: 790, rx: 92, ry: 56, f: { p: 'benek', c1: '#dcbb7c', c2: '#c49f5c', s: 34 }, n: 'Kazılmış kum' },
+      { k: 'ell', cx: 1460, cy: 500, rx: 104, ry: 104, f: { p: 'radyal', c1: '#e0a868', c2: '#c98a4f', n: 16 }, n: 'Hasır büfe çatısı', lift: 14 },
+      { k: 'rect', x: -10, y: 905, w: 1620, h: 110, f: { p: 'tahta', c1: '#c98a4f', c2: '#8a5a2a', s: 44, a: 90 }, n: 'Tahta iskele yolu', lift: 6 }
+    ],
+    decoys: [
+      { s: 'semsiye', pts: [[350, 520], [618, 595], [1105, 540], [1300, 640], [930, 650]], looks: [L('#ff4f6d', '#ffffff', 'cizgili'), L('#4fb7f0', '#ffffff', 'cizgili'), L('#ffd84a', '#ff9a3c', 'cizgili'), L('#5cc85a', '#ffffff', 'puan')], rot: [-4, 4] },
+      { s: 'top', area: [830, 500, 110, 50], n: 3, looks: [L('#ffffff', '#ff4f6d', 'cizgili'), L('#ffffff', '#3d6bff', 'cizgili'), L('#ffd84a', '#4fb7f0', 'cizgili')] },
+      { s: 'top', pts: [[600, 285], [460, 840]], looks: [L('#ff9a3c', '#ffffff', 'cizgili'), L('#ffffff', '#5cc85a', 'cizgili')] },
+      { s: 'kova', area: [830, 790, 130, 70], n: 4, looks: [L('#ff4f6d', '#ffd84a'), L('#3d6bff', '#ffd84a'), L('#5cc85a', '#ffffff'), L('#ff8fc8', '#ffffff')] },
+      { s: 'kumkale', area: [830, 780, 120, 60], n: 3, looks: [L('#e6c98a', '#ff4f6d', 'benek'), L('#dcbb7c', '#3d6bff', 'benek'), L('#f0d39a', '#ffd84a')], rot: [-3, 3] },
+      { s: 'kabuk', box: [380, 380, 760, 50], n: 6, looks: [L('#ffd6e6', '#ff8fc8'), L('#fff6e0', '#e0a868'), L('#ffffff', '#c9a0ff'), L('#ffe1c4', '#ff9a3c')], rot: [-30, 30] },
+      { s: 'yildiz', area: [180, 470, 70, 32], n: 3, looks: [L('#ff9a3c', '#ffd84a'), L('#ff4f6d', '#ffffff'), L('#9b5cff', '#ffd84a')], rot: [-30, 30] },
+      { s: 'yildiz', pts: [[1180, 420], [60, 640]], looks: [L('#ff9a3c', '#ffffff'), L('#ff8fc8', '#ffd84a')], rot: [-30, 30] },
+      { s: 'simit', pts: [[300, 255], [900, 290], [1320, 240], [480, 700]], looks: [L('#ff4f6d', '#ffffff', 'cizgili'), L('#ffd84a', '#ff8fc8', 'puan'), L('#5cc85a', '#ffffff', 'cizgili'), L('#4fb7f0', '#ffffff')] },
+      { s: 'dondurma', area: [1460, 640, 95, 40], n: 3, looks: [L('#ff8fc8', '#e0a868'), L('#b6e35a', '#e0a868'), L('#fff6d8', '#e0a868'), L('#7a4a2a', '#e0a868')] },
+      { s: 'palmiye', pts: [[60, 570], [140, 780], [1560, 780], [1530, 330 + 300]], looks: [L('#2f8f4e', '#9c6b3f'), L('#5cc85a', '#b98a5a')], sc: [.95, 1.15] },
+      { s: 'icecek', area: [1455, 615, 110, 30], n: 2, looks: [L('#ff9a3c', '#ffffff', 'cizgili'), L('#2bd9c0', '#ffffff')], fall: .1 },
+      { s: 'icecek', pts: [[420, 720], [700, 740]], looks: [L('#ff4f6d', '#ffffff', 'puan'), L('#ffd84a', '#ffffff')], fall: .2 }
+    ],
+    back(g) {
+      const gr = g.createLinearGradient(0, 0, 0, 130); gr.addColorStop(0, '#62c6ff'); gr.addColorStop(1, '#d8f5ff');
+      g.fillStyle = gr; g.fillRect(0, 0, W, 130);
+      D.glow(g, 1380, 42, 110, 'rgba(255,240,150,.85)'); D.circle(g, 1380, 42, 30, '#ffe14a');
+      g.strokeStyle = 'rgba(255,225,74,.7)'; g.lineWidth = 4; for (let i = 0; i < 12; i++) { const a = i / 12 * TAU; g.beginPath(); g.moveTo(1380 + Math.cos(a) * 38, 42 + Math.sin(a) * 38); g.lineTo(1380 + Math.cos(a) * 52, 42 + Math.sin(a) * 52); g.stroke(); }
+      [[180, 30], [560, 20], [880, 40], [1120, 22]].forEach(([x, y]) => { [[0, 0, 15], [18, -7, 19], [38, 0, 14]].forEach(([dx, dy, rr]) => D.circle(g, x + dx, y + dy, rr, 'rgba(255,255,255,.95)')); });
+      g.strokeStyle = '#3a4a6a'; g.lineWidth = 2.5; [[400, 52], [430, 40], [980, 60], [700, 30]].forEach(([x, y]) => { g.beginPath(); g.moveTo(x - 10, y); g.quadraticCurveTo(x - 5, y - 7, x, y); g.quadraticCurveTo(x + 5, y - 7, x + 10, y); g.stroke(); });
+      g.fillStyle = '#2a8fd0'; g.fillRect(0, 98, W, 34);
+      g.fillStyle = '#5cbf6a'; g.beginPath(); g.ellipse(260, 100, 70, 14, 0, Math.PI, 0); g.fill();
+      g.strokeStyle = '#7a4a2a'; g.lineWidth = 3; g.beginPath(); g.moveTo(262, 92); g.quadraticCurveTo(266, 74, 260, 62); g.stroke();
+      g.fillStyle = '#2f8f4e'; [[-1, -.3], [1, .3], [0, -1.2]].forEach(([s2, a]) => { g.save(); g.translate(260, 62); g.rotate(a); g.beginPath(); g.ellipse(s2 * 12, 0, 16, 5, 0, 0, TAU); g.fill(); g.restore(); });
+      [[620, 106, '#ffffff'], [1050, 112, '#ff8fc8'], [1450, 104, '#ffd84a']].forEach(([x, y, c]) => { g.fillStyle = '#7a4a2a'; g.beginPath(); g.moveTo(x - 16, y); g.lineTo(x + 16, y); g.lineTo(x + 10, y + 7); g.lineTo(x - 10, y + 7); g.fill(); g.fillStyle = c; g.beginPath(); g.moveTo(x, y - 2); g.lineTo(x, y - 26); g.lineTo(x + 14, y - 2); g.fill(); });
+      g.strokeStyle = 'rgba(255,255,255,.6)'; g.lineWidth = 2; for (let x = 0; x < W; x += 60) { g.beginPath(); g.moveTo(x, 120); g.quadraticCurveTo(x + 15, 116, x + 30, 120); g.stroke(); }
+    },
+    decor(g) {
+      const r = mulberry(81);
+      // köpük çizgisi
+      const foam = (y0, amp, k, ph, col, w) => { g.strokeStyle = col; g.lineWidth = w; g.lineCap = 'round'; g.beginPath(); for (let x = -10; x <= W + 10; x += 8) { const y = y0 + amp * Math.sin(x / k + ph) + amp * .4 * Math.sin(x / (k * .41) + ph * 2); x === -10 ? g.moveTo(x, y) : g.lineTo(x, y); } g.stroke(); };
+      foam(345, 16, 92, 0, 'rgba(255,255,255,.95)', 9); foam(356, 16, 92, 0, 'rgba(255,255,255,.45)', 5); foam(300, 10, 80, 1, 'rgba(255,255,255,.35)', 4);
+      D.sprinkle(g, r, 40, [0, 350, W, 70], (x, y) => D.circle(g, x, y + 8 * Math.sin(x / 92), 2 + r() * 3, 'rgba(255,255,255,.6)'));
+      // şamandıra dizisi
+      for (let i = 0; i < 18; i++) D.circle(g, 1000 + i * 34, 175 + Math.sin(i * .7) * 4, 7, i % 2 ? '#ffffff' : '#ff4f6d', 'rgba(0,0,0,.3)', 1.5);
+      // parıltılar ve balık gölgeleri
+      D.sprinkle(g, r, 30, [0, 130, W, 200], (x, y) => { g.strokeStyle = 'rgba(255,255,255,.85)'; g.lineWidth = 2; g.beginPath(); g.moveTo(x - 5, y); g.lineTo(x + 5, y); g.moveTo(x, y - 5); g.lineTo(x, y + 5); g.stroke(); });
+      [[520, 200], [760, 250], [1150, 300]].forEach(([x, y]) => { D.ell(g, x, y, 16, 7, 'rgba(20,60,120,.25)'); g.fillStyle = 'rgba(20,60,120,.25)'; g.beginPath(); g.moveTo(x + 14, y); g.lineTo(x + 26, y - 7); g.lineTo(x + 26, y + 7); g.fill(); });
+      // kum dalgacıkları ve çakıllar
+      g.strokeStyle = 'rgba(200,160,100,.35)'; g.lineWidth = 2;
+      D.sprinkle(g, r, 40, [0, 440, W, 460], (x, y) => { g.beginPath(); g.arc(x, y, 14, Math.PI * 1.15, Math.PI * 1.85); g.stroke(); });
+      D.sprinkle(g, r, 40, [0, 440, W, 460], (x, y) => D.ell(g, x, y, 3 + r() * 3, 2 + r() * 2, pickRnd(r, ['#c9ced6', '#b98a5a', '#ffffff', '#a7adb6']), r() * 3));
+      // ayak izi patikası
+      for (let i = 0; i < 12; i++) { const x = 480 + i * 34, y = 880 - i * 22 + (i % 2) * 12; D.ell(g, x, y, 6, 9, 'rgba(160,120,70,.35)', -.6); }
+      // voleybol filesi
+      g.strokeStyle = '#ffffff'; g.lineWidth = 3; g.strokeRect(720, 450, 220, 120);
+      g.strokeStyle = '#2d2d3a'; g.lineWidth = 3; g.beginPath(); g.moveTo(830, 440); g.lineTo(830, 580); g.stroke(); g.setLineDash([4, 4]); g.lineWidth = 6; g.strokeStyle = 'rgba(45,45,58,.5)'; g.beginPath(); g.moveTo(830, 446); g.lineTo(830, 574); g.stroke(); g.setLineDash([]);
+      D.circle(g, 830, 440, 6, '#ff4f6d', '#6a1a1a', 2); D.circle(g, 830, 580, 6, '#ff4f6d', '#6a1a1a', 2);
+      // cankurtaran kulesi
+      g.save(); g.translate(1230, 430); D.shadowBlob(g, 6, 40, 46, 12); g.strokeStyle = '#ffffff'; g.lineWidth = 7; g.beginPath(); g.moveTo(-30, 40); g.lineTo(-18, -10); g.moveTo(30, 40); g.lineTo(18, -10); g.moveTo(-24, 14); g.lineTo(24, 14); g.stroke();
+      D.rr(g, -30, -40, 60, 34, 5, '#ff4f6d', '#8a1a2a', 3); g.fillStyle = '#ffffff'; g.fillRect(-30, -28, 60, 8); D.rr(g, -36, -48, 72, 10, 4, '#ffffff', '#8a9099', 2); D.text(g, '+', 0, -18, 14, '#ffffff', '#8a1a2a'); g.restore();
+      // büfe çatısı püskülleri ve tabela
+      D.scallops(g, 1460, 500, 104, 30, '#c98a4f', '#e0a868'); D.circle(g, 1460, 500, 14, '#9c6b3f', '#5b3a1e', 3);
+      D.rr(g, 1410, 600, 100, 26, 6, '#5b3a1e', '#ffd84a', 2.5); D.text(g, 'BÜFE', 1460, 613, 14, '#ffe14a');
+      // havlu saçakları
+      [[356, 640, -12], [616, 710, 8], [1100, 660, -5], [1291, 755, 14]].forEach(([cx, cy, rot]) => { g.save(); g.translate(cx, cy); g.rotate(rot * Math.PI / 180); g.strokeStyle = 'rgba(255,255,255,.9)'; g.lineWidth = 2.5; for (let x = -50; x <= 50; x += 8) { g.beginPath(); g.moveTo(x, -100); g.lineTo(x, -110); g.moveTo(x, 100); g.lineTo(x, 110); g.stroke(); } g.restore(); });
+      // iskele direkleri ve ip
+      for (let x = 20; x < W; x += 140) D.circle(g, x, 905, 9, '#7a4a2a', '#4a2a12', 2);
+      g.strokeStyle = '#f6e7c8'; g.lineWidth = 3; g.beginPath(); for (let x = 20; x < W - 140; x += 140) { g.moveTo(x, 905); g.quadraticCurveTo(x + 70, 918, x + 140, 905); } g.stroke();
+      D.rr(g, 720, 940, 160, 40, 8, '#2bd9c0', '#0e7a6a', 3); D.text(g, 'PLAJ', 800, 961, 22, '#ffffff', '#0e7a6a');
+    }
   }
+
 };
 function pickRnd(r, arr) { return arr[Math.floor(r() * arr.length)]; }
+function wavePoly(yTop, yBase, amp, k, ph) {
+  const pts = [[-10, yTop], [W + 10, yTop]];
+  for (let x = W + 10; x >= -10; x -= 10) pts.push([x, yBase + amp * Math.sin(x / k + ph) + amp * .4 * Math.sin(x / (k * .41) + ph * 2)]);
+  return pts;
+}
 Object.values(MAPS).forEach(m => { m.regions.forEach(prepRegion); m.baseRegion = prepRegion({ k: 'rect', x: 0, y: 0, w: W, h: H, f: m.base, n: m.baseName }); });
 const MAP_IDS = Object.keys(MAPS);
-const MAP_NAMES = { lunapark: 'Lunapark', mutfak: 'Mutfak', orman: 'Orman Kampı' };
+const MAP_NAMES = { lunapark: 'Lunapark', mutfak: 'Mutfak', orman: 'Orman Kampı', oyuncak: 'Oyuncak Odası', plaj: 'Plaj' };
 const decoyCache = new Map();
 function decoysOf(mapId, seed) {
   const key = mapId + ':' + seed;
@@ -832,7 +1107,66 @@ function decoysOf(mapId, seed) {
 }
 
 /* ------------------------------------------------------------------ KURALLAR (yöneten cihaz) */
-const COME_MS = 3200, REVEAL_MS = 6500, PROBE_GAP = 550, PENALTY_MS = 3000, SURVIVE_CAP = 120;
+const COME_MS = 3200, REVEAL_MS = 7500, PROBE_GAP = 550, PENALTY_MS = 3000, SURVIVE_CAP = 120;
+const SPEED = 270, BOT_SPEED = 170, REACH = 135, LIGHT_R = 235, FLEE_MIN = 230, HOT_MS = 5000, CATCH_AHEAD = 62;
+const HOT_LEVELS = ['Buz gibi', 'Soğuk', 'Ilık', 'Sıcak', 'Yanıyor!'];
+// Yöneten cihazdaki arayüz (botun konumunu hızlı kanaldan yaymak için)
+let uiRef = null;
+function fastOut(o) { if (uiRef && uiRef.fast && uiRef.mode === 'online') { try { uiRef.fast(o); } catch { /* */ } } }
+// Kamuflaj puanı (0–100) ve ipucu: zemin rengi + yakındaki aynı şekilli süse benzerlik
+const lum = h => { const c = hex2rgb(h); return (c[0] * .299 + c[1] * .587 + c[2] * .114) / 255; };
+function camoScore(map, decoys, m) {
+  if (!m || !m.spot) return { score: 0, tip: 'Önce haritada bir yer seç.' };
+  const x = m.spot.x, y = m.spot.y, gr = groundAt(map, x, y), gc = groundCols(gr);
+  const g1 = Math.min(...gc.map(c => cdist(m.c1, c))), g2 = Math.min(...gc.map(c => cdist(m.c2, c)));
+  const groundScore = clamp(1 - g1 * 2.6 - g2 * .7, 0, 1) * .82;
+  let best = null, bestM = 9;
+  for (const d of decoys) {
+    if (d.shape !== m.shape) continue;
+    const dd = dist(d.x, d.y, x, y); if (dd > 320) continue;
+    const mm = cdist(m.c1, d.c1) * 2.2 + cdist(m.c2, d.c2) * 1.1 + (d.pat !== m.pat ? .25 : 0) + Math.abs(d.scale - m.scale) * .8 + Math.max(0, dd - 200) / 600;
+    if (mm < bestM) { bestM = mm; best = d; }
+  }
+  const decoyScore = best ? clamp(1 - bestM, 0, 1) : 0;
+  const score = Math.round(Math.max(groundScore, decoyScore) * 100);
+  let tip;
+  const patName = id => (PATS.find(p => p.id === id) || {}).name || id;
+  if (best && (decoyScore >= groundScore - .15 || groundScore < .7)) {
+    const nm = SHAPES[best.shape].name.toLocaleLowerCase('tr-TR'), dl = lum(m.c1) - lum(best.c1);
+    if (score >= 88) tip = 'Harika! Neredeyse görünmezsin. 🦎';
+    else if (dl > .07) tip = `Biraz daha koyu bir ton dene (yandaki ${nm} gibi).`;
+    else if (dl < -.07) tip = `Biraz daha açık bir ton dene (yandaki ${nm} gibi).`;
+    else if (cdist(m.c1, best.c1) > .08) tip = `Ana rengi yandaki ${nm} rengine benzet — 💧 ile alabilirsin.`;
+    else if (best.pat !== m.pat) tip = `Deseni “${patName(best.pat)}” yap.`;
+    else if (cdist(m.c2, best.c2) > .1) tip = 'İkinci rengi de yandaki eşyaya benzet.';
+    else if (Math.abs(best.scale - m.scale) > .07) tip = best.scale > m.scale ? 'Biraz büyü.' : 'Biraz küçül.';
+    else tip = 'Çok iyi! Biraz daha yaklaşırsan grubun parçası olursun.';
+  } else {
+    const dl = lum(m.c1) - lum(gc[0]);
+    if (score >= 75) tip = best ? 'Zemine çok iyi uyuyorsun!' : 'Zemine iyi uyuyorsun! Ama yakında aynı şekilden eşya yok.';
+    else if (dl > .1) tip = `Biraz daha koyu bir ton dene (${gr.n.toLocaleLowerCase('tr-TR')}).`;
+    else if (dl < -.1) tip = `Biraz daha açık bir ton dene (${gr.n.toLocaleLowerCase('tr-TR')}).`;
+    else tip = best ? `Rengini zemine ya da yandaki ${SHAPES[best.shape].name.toLocaleLowerCase('tr-TR')} eşyasına benzet.` : `Yakında başka “${SHAPES[m.shape].name}” yok — aynı eşyaların yanına geç ya da şekil değiştir.`;
+  }
+  return { score, tip };
+}
+// Hızlı kanaldan (ya da yerelden) gelen Ebe konumu: yöneten cihazda hız denetimiyle kaydedilir
+function hostSeekerUpdate(seat, x, y, h) {
+  const R0 = window.CFX && window.CFX.Room, g = R0 && R0.game;
+  if (!g || !g.state || g.def.id !== 'saklambac' || !R0.isRunner()) return;
+  const st = g.state;
+  if (st.phase !== 'seek' || seat !== st.seeker || !Number.isFinite(x) || !Number.isFinite(y)) return;
+  const now = Date.now(), sp = st.spos, maxd = SPEED * (now - sp.t) / 1000 * 1.35 + 90, d = dist(x, y, sp.x, sp.y);
+  if (d > maxd) { const k = maxd / d; x = sp.x + (x - sp.x) * k; y = sp.y + (y - sp.y) * k; }
+  st.spos = { x: Math.round(x), y: Math.round(y), h: Number.isFinite(h) ? +h.toFixed(2) : sp.h, t: now };
+}
+function validAvatar(st, ax, ay) {
+  if (!Number.isFinite(ax) || !Number.isFinite(ay)) return null;
+  const now = Date.now(), sp = st.spos, maxd = SPEED * (now - sp.t) / 1000 * 1.35 + 110;
+  if (dist(ax, ay, sp.x, sp.y) > maxd) return null;
+  st.spos = { x: Math.round(ax), y: Math.round(ay), h: sp.h, t: now };
+  return st.spos;
+}
 const optNum = (v, allowed, def) => { const n = parseInt(v, 10); return allowed.includes(n) ? n : def; };
 const hiderIds = st => Object.keys(st.hiders).map(Number);
 function lookOf(h) { return { shape: h.shape, x: h.spot ? h.spot.x : 0, y: h.spot ? h.spot.y : 0, rot: h.rot, scale: h.scale, c1: h.c1, c2: h.c2, pat: h.pat }; }
@@ -889,7 +1223,11 @@ function botProbeTarget(st) {
     const camo = Math.min(gm * 1.1, sm);
     const unfamiliar = !o.orig && Math.random() < .3 ? .55 : 0;
     const s = camo * 2.1 + twin + unfamiliar + Math.random() * .75;
-    return Math.exp(3 * s);
+    const sp = st.spos, dd = sp ? dist(sp.x, sp.y, o.x, o.y) : 0;
+    let w = Math.exp(3 * s) * Math.exp(-dd / 650);
+    const hb = st.bot && st.bot.hot;
+    if (hb) { const dh = dist(hb.x, hb.y, o.x, o.y); if (hb.lvl >= 3 && dh < 340) w *= 3; else if (hb.lvl <= 1 && dh < 450) w *= .35; }
+    return w;
   });
   let tot = ws.reduce((a, b) => a + b, 0), r = Math.random() * tot, k = 0;
   while (k < ws.length - 1 && (r -= ws[k]) > 0) k++;
@@ -921,9 +1259,10 @@ function startRound(st, ctx) {
   st.hiders = {};
   st.players.forEach((p, i) => {
     if (i === st.seeker) return;
-    st.hiders[i] = { spot: null, shape: pickR(map.catalog), rot: 0, scale: 1, c1: pickR(PALETTE), c2: pickR(PALETTE), pat: 'duz', ready: false, found: false, foundAt: 0, taunt: false, auto: false };
+    st.hiders[i] = { spot: null, shape: pickR(map.catalog), rot: 0, scale: 1, c1: pickR(PALETTE), c2: pickR(PALETTE), pat: 'duz', ready: false, found: false, foundAt: 0, taunt: false, auto: false, fled: false };
   });
-  st.probes = []; st.taunts = []; st.discOrder = []; st.lastProbeAt = 0; st.seekStart = 0;
+  st.probes = []; st.taunts = []; st.discOrder = []; st.lastProbeAt = 0; st.seekStart = 0; st.tracks = []; st.hot = null; st.hotUsed = false;
+  st.spos = { x: (map.spawn || [800, 900])[0], y: (map.spawn || [800, 900])[1], h: -Math.PI / 2, t: Date.now() }; st.bot = null;
   st.probesLeft = st.probesMax ? st.probesMax : null;
   st.last = null;
   setPhase(st, 'hide', st.hideS * 1000);
@@ -956,6 +1295,7 @@ function endHide(st, ctx) {
   if (st.phase !== 'hide') return;
   hiderIds(st).forEach(k => { const h = st.hiders[k]; if (!h.spot) { h.spot = randomSpot(st, h.shape, h.scale); h.auto = true; } h.ready = true; });
   setPhase(st, 'come', COME_MS);
+  const sp0 = MAPS[st.mapId].spawn || [800, 900]; st.spos = { x: sp0[0], y: sp0[1], h: -Math.PI / 2, t: Date.now() };
   ctx.emit({ t: 'phase', ph: 'come', round: st.round, seeker: st.seeker }, `Herkes yerinde! Ebe ${pname(st, st.seeker)} geliyor…`);
   arm(st, ctx); ctx.sync();
 }
@@ -969,10 +1309,12 @@ function startSeek(st, ctx) {
   setPhase(st, 'seek', st.seekS * 1000);
   st.seekStart = Date.now();
   st.discOrder = shuf(hiderIds(st));
+  st.spos.t = Date.now();
+  st.bot = { mode: 'wait', until: Date.now() + rnd(1400, 2400), tx: st.spos.x, ty: st.spos.y, hotAt: Date.now() + rnd(.25, .55) * st.seekS * 1000 };
   ctx.emit({ t: 'phase', ph: 'seek', round: st.round, seeker: st.seeker },
     `Arama başladı! ${st.probesMax ? st.probesMax + ' arama hakkı' : 'Sınırsız arama (her boş arama 3 sn)'}, ${st.seekS} sn.`, 'gold');
   arm(st, ctx);
-  if (sk && sk.isBot) schedBotSeek(st, ctx, true);
+  seekLoop(st, ctx);
   hiderIds(st).forEach(pi => {
     if (!st.players[pi].isBot || Math.random() > .35) return;
     const pid = st.pid;
@@ -980,14 +1322,81 @@ function startSeek(st, ctx) {
   });
   ctx.sync();
 }
-function schedBotSeek(st, ctx, first) {
+function seekLoop(st, ctx) {
   const pid = st.pid;
-  ctx.later(first ? rnd(2600, 4200) : rnd(3000, 6000), () => {
-    if (st.pid !== pid || st.phase !== 'seek') return;
-    const t = botProbeTarget(st);
-    doProbe(st, st.seeker, t.x, t.y, ctx);
-    if (st.pid === pid && st.phase === 'seek') schedBotSeek(st, ctx, false);
-  });
+  const step = () => { if (st.pid !== pid || st.phase !== 'seek') return; tickSeek(st, ctx, .125); if (st.pid === pid && st.phase === 'seek') ctx.later(125, step); };
+  ctx.later(125, step);
+}
+function tickSeek(st, ctx, dt) {
+  const sk = st.players[st.seeker];
+  if (sk && sk.isBot) botSeekStep(st, ctx, dt);
+  st.tick = (st.tick || 0) + 1;
+  if (st.tick % 4 === 0) botFleeCheck(st, ctx);
+}
+// Bilgisayar Ebe: şüpheli bir noktaya yürür, etrafına bakar, sonra yakalamayı dener
+function botSeekStep(st, ctx, dt) {
+  const b = st.bot, now = Date.now(); if (!b) return;
+  const p = st.spos;
+  if (b.mode === 'wait') {
+    if (!st.hotUsed && now >= b.hotAt) { doHot(st, st.seeker, p.x, p.y, ctx); if (st.phase !== 'seek') return; }
+    if (now >= b.until) { const t = botProbeTarget(st); b.tx = clamp(t.x, 20, W - 20); b.ty = clamp(t.y, MAPS[st.mapId].top + 10, H - 20); b.mode = 'walk'; b.wob = rnd(0, TAU); }
+  } else if (b.mode === 'walk') {
+    const d = dist(p.x, p.y, b.tx, b.ty);
+    if (d < 50) { b.mode = 'look'; b.until = now + rnd(700, 1500); }
+    else {
+      b.wob += dt * 3; const base = Math.atan2(b.ty - p.y, b.tx - p.x), hd = base + Math.sin(b.wob) * .25 * Math.min(1, d / 200);
+      const stp = Math.min(d - 40, BOT_SPEED * dt);
+      st.spos = { x: Math.round(p.x + Math.cos(hd) * stp), y: Math.round(p.y + Math.sin(hd) * stp), h: +hd.toFixed(2), t: now };
+    }
+  } else if (b.mode === 'look') {
+    const look = Math.atan2(b.ty - p.y, b.tx - p.x) + Math.sin(now / 260) * .5;
+    st.spos = { x: p.x, y: p.y, h: +look.toFixed(2), t: now };
+    if (now >= b.until) { b.mode = 'wait'; b.until = now + rnd(400, 1100); doProbe(st, st.seeker, b.tx, b.ty, ctx); }
+  }
+  const q = st.spos;
+  if (typeof onSeekerPos === 'function') onSeekerPos(st.seeker, q.x, q.y, q.h, true);
+  fastOut({ t: 'pos', sk: st.seeker, x: q.x, y: q.y, h: q.h });
+}
+// Bilgisayar saklanan: Ebe çok yaklaşırsa bazen "Kaç!" der
+function botFleeCheck(st, ctx) {
+  for (const k of hiderIds(st)) {
+    const h = st.hiders[k];
+    if (!st.players[k].isBot || h.found || h.fled || !h.spot) continue;
+    if (dist(st.spos.x, st.spos.y, h.spot.x, h.spot.y) > 210 || Math.random() > .1) continue;
+    const map = MAPS[st.mapId], decoys = decoysOf(st.mapId, st.seed).filter(d => d.shape === h.shape && dist(d.x, d.y, st.spos.x, st.spos.y) > 450);
+    const d = decoys.length ? pickR(decoys) : null;
+    const a = rnd(0, TAU), dd = d ? propR(d) + propR(h) + rnd(5, 40) : 0;
+    const nx = d ? d.x + Math.cos(a) * dd : rnd(60, W - 60), ny = d ? d.y + Math.sin(a) * dd : rnd(map.top + 60, H - 60);
+    doFlee(st, k, nx, ny, ctx);
+  }
+}
+function doHot(st, pi, ax, ay, ctx) {
+  if (st.phase !== 'seek' || pi !== st.seeker || st.hotUsed) return false;
+  const p = validAvatar(st, ax, ay) || st.spos;
+  const left = hiderIds(st).filter(k => !st.hiders[k].found && st.hiders[k].spot);
+  const d = left.length ? Math.min(...left.map(k => dist(p.x, p.y, st.hiders[k].spot.x, st.hiders[k].spot.y))) : 9999;
+  const lvl = d < 170 ? 4 : d < 330 ? 3 : d < 520 ? 2 : d < 800 ? 1 : 0;
+  st.hotUsed = true; st.hot = { lvl, label: HOT_LEVELS[lvl], at: Date.now(), x: p.x, y: p.y };
+  if (st.bot) st.bot.hot = { lvl, x: p.x, y: p.y };
+  ctx.emit({ t: 'hot', lvl, label: HOT_LEVELS[lvl], x: p.x, y: p.y }, `🌡️ Ebe Sıcak-Soğuk kullandı: ${HOT_LEVELS[lvl]}`, 'gold');
+  ctx.sync();
+  return true;
+}
+function doFlee(st, pi, x, y, ctx) {
+  const h = st.hiders[pi], map = MAPS[st.mapId];
+  if (st.phase !== 'seek' || !h || h.found || h.fled || !h.spot) return false;
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return false;
+  const ns = clampSpot(map, x, y);
+  if (dist(ns.x, ns.y, st.spos.x, st.spos.y) < FLEE_MIN) return false;
+  if (dist(ns.x, ns.y, h.spot.x, h.spot.y) < 60) return false;
+  const o = h.spot, a = Math.atan2(ns.y - o.y, ns.x - o.x), L2 = dist(o.x, o.y, ns.x, ns.y), now = Date.now();
+  const tr = [];
+  for (let i = 0; i < 5; i++) { const f = Math.min(.45, 42 * (i + 1) / Math.max(L2, 1)); const side = i % 2 ? 1 : -1; tr.push({ x: Math.round(o.x + Math.cos(a) * L2 * f + Math.cos(a + Math.PI / 2) * side * 9), y: Math.round(o.y + Math.sin(a) * L2 * f + Math.sin(a + Math.PI / 2) * side * 9), a: +a.toFixed(2), at: now + i * 120 }); }
+  st.tracks = (st.tracks || []).filter(t => now - t.at < 3000).concat(tr);
+  h.spot = ns; h.fled = true;
+  ctx.emit({ t: 'flee', tracks: tr.map(t => ({ x: t.x, y: t.y, a: t.a })) }, '🏃 Bir saklanan yer değiştirdi! Ayak izleri 3 saniye görünür.', 'gold');
+  ctx.sync();
+  return true;
 }
 function doProbe(st, pi, x, y, ctx) {
   if (st.phase !== 'seek' || pi !== st.seeker) return false;
@@ -1104,8 +1513,15 @@ const RULES = {
     } else if (a.t === 'unready') {
       if (st.phase !== 'hide' || !h || !h.ready) return;
       h.ready = false; ctx.emit({ t: 'unready', pi }, `${pname(st, pi)} kılığını düzenliyor.`); ctx.sync();
-    } else if (a.t === 'probe') {
+    } else if (a.t === 'catch') {
+      if (st.phase !== 'seek' || pi !== st.seeker) return;
+      const p = validAvatar(st, +a.ax, +a.ay);
+      if (!p || !Number.isFinite(+a.x) || !Number.isFinite(+a.y) || dist(+a.x, +a.y, p.x, p.y) > REACH + 12) { ctx.emit({ t: 'reject', pi }); return; }
       doProbe(st, pi, +a.x, +a.y, ctx);
+    } else if (a.t === 'hot') {
+      doHot(st, pi, +a.ax, +a.ay, ctx);
+    } else if (a.t === 'flee') {
+      if (!doFlee(st, pi, +a.x, +a.y, ctx)) ctx.emit({ t: 'noflee', pi });
     } else if (a.t === 'taunt') {
       doTaunt(st, pi, ctx);
     }
@@ -1126,9 +1542,14 @@ const RULES = {
           seeker: i === st.seeker, ready: h ? h.ready : false, found: h ? h.found : false };
       }),
       hiderCount: ids.length, readyCount: ids.filter(k => st.hiders[k].ready).length, foundCount: ids.filter(k => st.hiders[k].found).length,
-      last: st.phase === 'reveal' || st.phase === 'over' ? st.last : null
+      last: st.phase === 'reveal' || st.phase === 'over' ? st.last : null,
+      endsAt: st.endsAt, reach: REACH, light: LIGHT_R, probeR: PROBE_R,
+      spos: (st.phase === 'come' || st.phase === 'seek') && st.spos ? { x: st.spos.x, y: st.spos.y, h: st.spos.h } : null,
+      hot: st.phase === 'seek' && st.hot && now - st.hot.at < HOT_MS ? { lvl: st.hot.lvl, label: st.hot.label, age: now - st.hot.at, x: st.hot.x, y: st.hot.y } : null,
+      hotUsed: !!st.hotUsed,
+      tracks: st.phase === 'seek' ? (st.tracks || []).filter(t => now - t.at < 3000).map(t => ({ x: t.x, y: t.y, a: t.a, age: now - t.at })) : []
     };
-    if (role === 'hider' && st.hiders[me]) { const h = st.hiders[me]; v.mine = Object.assign(lookOf(h), { spot: h.spot ? { x: h.spot.x, y: h.spot.y } : null, ready: h.ready, found: h.found, taunt: h.taunt, auto: h.auto }); }
+    if (role === 'hider' && st.hiders[me]) { const h = st.hiders[me]; v.mine = Object.assign(lookOf(h), { spot: h.spot ? { x: h.spot.x, y: h.spot.y } : null, ready: h.ready, found: h.found, taunt: h.taunt, auto: h.auto, fled: h.fled }); }
     if (st.phase === 'seek') {
       // Kimliksiz, karışık sıralı kılıklar (izleyicinin kendisi hariç)
       v.disguises = st.discOrder.filter(k => !st.hiders[k].found && k !== me).map(k => lookOf(st.hiders[k]));
@@ -1153,24 +1574,33 @@ const RULES = {
     if (st.phase === 'over') return;
     arm(st, ctx);
     if (st.phase === 'hide') hiderIds(st).forEach(pi => { if (st.players[pi].isBot && !st.hiders[pi].ready) schedBotHide(st, pi, ctx); });
-    if (st.phase === 'seek' && st.players[st.seeker] && st.players[st.seeker].isBot) schedBotSeek(st, ctx, true);
+    if (st.phase === 'seek') { st.spos.t = Date.now(); seekLoop(st, ctx); }
   }
 };
 
 /* ------------------------------------------------------------------ ARAYÜZ (her cihaz) */
 let root = null, ui = null, V = null, built = '', phaseKey = '';
-let cv = null, cg = null, stageEl = null, lensCv = null;
-let scene = null;                                    // { mapId, seed, map, decoys, ground, k }
+let cv = null, cg = null, stageEl = null, lensCv = null, miniCv = null, fogCv = null;
+let scene = null;                                    // { mapId, seed, map, decoys, ground, k, thumb }
 let cam = { s: .5, x: 0, y: 0 }, sw = 300, sh = 300, dpr = 1;
-let draft = null, draftFor = '', tab = 'yer', slot = 'c1', picking = false, armed = true;
-let anims = [], raf = 0, dirty = true, deadline = 0, lastSec = -1, hudT = null, sendT = null, toastT = null, lastTap = 0, frameN = 0;
-let pointers = new Map(), gest = null, hover = null, ro = null, pendingHide = null;
+let draft = null, draftFor = '', tab = 'yer', slot = 'c1', picking = false, sheetOpen = true, fleeMode = false;
+let anims = [], raf = 0, dirty = true, deadline = 0, lastSec = -1, hudT = null, sendT = null, toastT = null, popT = null, lastTap = 0, frameN = 0, lastT = 0;
+let pointers = new Map(), gest = null, hover = null, ro = null, pendingHide = null, introT = null;
+// Ebe avatarı: av = bu cihazdaki Ebe'nin kendi karakteri; sv = diğer cihazlarda çizilen (yumuşatılmış) konum
+let av = null, sv = null, keys = new Set(), joy = { on: false, id: null, dx: 0, dy: 0 }, walkTo = null, lastSend = 0, lastSent = null, lastCatch = 0;
+let fogMini = null, lastMark = null, paintAnim = null, heartAt = 0, danger = false, outroAt = 0, glide = null;
 const q = s => root && root.querySelector(s);
 const qa = s => root ? [...root.querySelectorAll(s)] : [];
 const now = () => performance.now();
 const mmss = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
 const lookFrom = m => ({ shape: m.shape, x: m.spot ? m.spot.x : 0, y: m.spot ? m.spot.y : 0, rot: m.rot, scale: m.scale, c1: m.c1, c2: m.c2, pat: m.pat });
 const isHiding = () => V && V.role === 'hider' && V.phase === 'hide' && V.mine && !V.mine.ready;
+const isSeeking = () => V && V.role === 'seeker' && V.phase === 'seek';
+const isTouch = () => (window.matchMedia && matchMedia('(pointer: coarse)').matches) || navigator.maxTouchPoints > 0;
+const phoneW = () => innerWidth <= 860;
+const ease = u => 1 - Math.pow(1 - clamp(u, 0, 1), 3);
+const lerpAng = (a, b, k) => { let d = b - a; while (d > Math.PI) d -= TAU; while (d < -Math.PI) d += TAU; return a + d * k; };
+const hostClock = () => (ui && ui.hostNow ? ui.hostNow() : Date.now());
 
 /* ---------- sahne (zemin tuvali) ---------- */
 function ensureScene(mapId, seed) {
@@ -1184,7 +1614,8 @@ function ensureScene(mapId, seed) {
     paintRegion(g, map.baseRegion, k);
     map.regions.forEach(rg => paintRegion(g, rg, k));
     map.back(g); map.decor(g);
-    scene = { mapId, seed, map, ground: c, k, decoys: decoysOf(mapId, seed) };
+    const th = document.createElement('canvas'); th.width = 320; th.height = 200; th.getContext('2d').drawImage(c, 0, 0, 320, 200);
+    scene = { mapId, seed, map, ground: c, k, thumb: th, decoys: decoysOf(mapId, seed) };
   } else { scene.seed = seed; scene.decoys = decoysOf(mapId, seed); }
 }
 // Ortamdan renk al: önce dokunulan süs eşyası, yoksa zemin pikseli
@@ -1208,8 +1639,12 @@ function nearColors(spot) {
   return out.slice(0, 8);
 }
 
-/* ---------- kamera ---------- */
-function camLimits() { const contain = Math.min(sw / W, sh / H), cover = Math.max(sw / W, sh / H); return { contain, cover, min: contain * .96, max: Math.max(2.6, cover * 3) }; }
+/* ---------- kamera: dar ekranda harita her zaman ekranı kaplar (siyah bant yok) ---------- */
+function camLimits() {
+  const contain = Math.min(sw / W, sh / H), cover = Math.max(sw / W, sh / H);
+  const min = sw / sh < 1.25 ? cover : contain * .98;
+  return { contain, cover, min, max: Math.max(2.6, cover * 3) };
+}
 function clampCam() {
   const L2 = camLimits(); cam.s = clamp(cam.s, L2.min, L2.max);
   const vw = sw / cam.s, vh = sh / cam.s;
@@ -1218,7 +1653,7 @@ function clampCam() {
 }
 function fitCam(mode) {
   const L2 = camLimits();
-  cam.s = mode === 'all' ? L2.contain : Math.min(L2.cover, L2.contain * 1.9);
+  cam.s = mode === 'all' ? L2.min : Math.max(L2.min, Math.min(L2.cover, L2.contain * 1.9));
   cam.x = W / 2 - sw / 2 / cam.s; cam.y = H / 2 - sh / 2 / cam.s + (scene ? scene.map.top * .35 : 0);
   clampCam(); requestDraw();
 }
@@ -1226,9 +1661,10 @@ function fitReveal() {
   const pts = (V && V.all || []).filter(a => a.x || a.y);
   if (!pts.length) { fitCam('all'); return; }
   const m = 150, x0 = Math.min(...pts.map(p => p.x)) - m, x1 = Math.max(...pts.map(p => p.x)) + m, y0 = Math.min(...pts.map(p => p.y)) - m - 40, y1 = Math.max(...pts.map(p => p.y)) + m;
-  const L2 = camLimits(), s = clamp(Math.min(sw / (x1 - x0), sh / (y1 - y0)), L2.contain, Math.max(L2.contain, L2.cover * 1.6));
+  const L2 = camLimits(), s = clamp(Math.min(sw / (x1 - x0), sh / (y1 - y0)), L2.min, Math.max(L2.min, L2.cover * 1.6));
   centerOn((x0 + x1) / 2, (y0 + y1) / 2, s);
 }
+function seekZoom() { const L2 = camLimits(); return Math.max(L2.min, phoneW() ? L2.cover * 1.05 : Math.max(L2.contain * 1.55, .8)); }
 function centerOn(x, y, s) { if (s) cam.s = s; cam.x = x - sw / 2 / cam.s; cam.y = y - sh / 2 / cam.s; clampCam(); requestDraw(); }
 function zoomAt(sx, sy, f) { const wx = cam.x + sx / cam.s, wy = cam.y + sy / cam.s; const L2 = camLimits(); cam.s = clamp(cam.s * f, L2.min, L2.max); cam.x = wx - sx / cam.s; cam.y = wy - sy / cam.s; clampCam(); requestDraw(); }
 const toWorld = (sx, sy) => [cam.x + sx / cam.s, cam.y + sy / cam.s];
@@ -1243,30 +1679,159 @@ function resize() {
   requestDraw();
 }
 
+/* ---------- Ebe karakteri ---------- */
+// Yöneten cihazdaki kurallar bu fonksiyonu bot Ebe için çağırır; hızlı kanal da buraya düşer
+function onSeekerPos(seat, x, y, h, instant) {
+  if (!V || seat !== V.seeker || V.role === 'seeker') return;
+  if (!sv || instant === 'snap') sv = { x, y, h: h || 0, tx: x, ty: y, th: h || 0, walk: 0, at: now() };
+  else { sv.tx = x; sv.ty = y; if (Number.isFinite(h)) sv.th = h; sv.at = now(); }
+}
+function onFast(m, api) {
+  if (!m || m.t !== 'pos') return;
+  hostSeekerUpdate(m.seat, +m.x, +m.y, +m.h);                     // yöneten cihazda hız denetimi
+  onSeekerPos(m.sk != null ? m.sk : m.seat, +m.x, +m.y, +m.h);
+}
+function seekerPos() { if (isSeeking() && av) return av; return sv; }
+function stepSeeker(dt) {
+  if (!isSeeking() || !av || !scene) return;
+  let vx = 0, vy = 0;
+  if (keys.has('ArrowLeft') || keys.has('KeyA')) vx -= 1;
+  if (keys.has('ArrowRight') || keys.has('KeyD')) vx += 1;
+  if (keys.has('ArrowUp') || keys.has('KeyW')) vy -= 1;
+  if (keys.has('ArrowDown') || keys.has('KeyS')) vy += 1;
+  if (joy.on) { vx = joy.dx; vy = joy.dy; }
+  let mag = Math.hypot(vx, vy);
+  if (mag > 0.05) walkTo = null;
+  else if (walkTo) { const dx = walkTo[0] - av.x, dy = walkTo[1] - av.y, d = Math.hypot(dx, dy); if (d < 8) walkTo = null; else { vx = dx / d; vy = dy / d; mag = Math.min(1, d / 40); } }
+  if (mag > 1) { vx /= mag; vy /= mag; mag = 1; }
+  if (mag > .05) {
+    const sp = SPEED * Math.min(1, mag) * .97;
+    av.x = clamp(av.x + vx / Math.max(mag, 1e-6) * Math.min(1, mag) * sp * dt, 20, W - 20);
+    av.y = clamp(av.y + vy / Math.max(mag, 1e-6) * Math.min(1, mag) * sp * dt, scene.map.top + 10, H - 16);
+    av.h = lerpAng(av.h, Math.atan2(vy, vx), Math.min(1, dt * 12));
+    av.walk = Math.min(1, (av.walk || 0) + dt * 5);
+  } else av.walk = Math.max(0, (av.walk || 0) - dt * 5);
+  // kamera karakteri takip eder
+  const lift = isTouch() ? Math.min(70, sh * .1) : 0, tx = av.x - sw / 2 / cam.s, ty = av.y - (sh / 2 - lift) / cam.s, k = 1 - Math.exp(-dt * 7);
+  cam.x += (tx - cam.x) * k; cam.y += (ty - cam.y) * k; clampCam();
+  // keşfedilen alanlar (mini harita)
+  if (!lastMark || dist(lastMark[0], lastMark[1], av.x, av.y) > 18) { markExplored(av.x, av.y); lastMark = [av.x, av.y]; }
+  // konumu yay (≈8/sn)
+  const t = now();
+  if (t - lastSend > 120 && (!lastSent || dist(lastSent[0], lastSent[1], av.x, av.y) > 1.5 || Math.abs(lastSent[2] - av.h) > .05 || t - lastSend > 1000)) sendPos();
+}
+function sendPos() {
+  if (!av || !ui) return;
+  lastSend = now(); lastSent = [av.x, av.y, av.h];
+  const x = Math.round(av.x), y = Math.round(av.y), h = +av.h.toFixed(2);
+  if (ui.isHost) hostSeekerUpdate(V.me, x, y, h);
+  if (ui.fast) ui.fast({ t: 'pos', sk: V.me, x, y, h });
+}
+function stepOthers(dt) {
+  if (!sv) return;
+  const k = 1 - Math.exp(-dt * 9), ox = sv.x, oy = sv.y;
+  sv.x += (sv.tx - sv.x) * k; sv.y += (sv.ty - sv.y) * k; sv.h = lerpAng(sv.h, sv.th, k);
+  const sp = Math.hypot(sv.x - ox, sv.y - oy) / Math.max(dt, 1e-3);
+  sv.walk = clamp(sp / 120, 0, 1);
+  // Ebe yaklaşıyor: kalp atışı
+  const m = V && V.mine;
+  if (V && V.role === 'hider' && V.phase === 'seek' && m && m.spot && !m.found) {
+    const d = dist(sv.x, sv.y, m.spot.x, m.spot.y), near = d < 300;
+    if (near !== danger) { danger = near; stageEl.classList.toggle('danger', near); const w = q('.sk-warn'); if (w) w.hidden = !near; }
+    if (near) { const gap = 380 + d * 2; if (now() - heartAt > gap) { heartAt = now(); heartbeat(d); } }
+  } else if (danger) { danger = false; stageEl.classList.remove('danger'); const w = q('.sk-warn'); if (w) w.hidden = true; }
+}
+function heartbeat(d) {
+  try {
+    if (!Sound.ctx || !Sound.enabled || Sound.ctx.state !== 'running') return;
+    const g = .35 + (300 - d) / 300 * .4;
+    Sound.tone(70, .14, { type: 'sine', gain: g }); Sound.tone(58, .16, { type: 'sine', gain: g * .8, when: .16 });
+  } catch { /* ses yok */ }
+}
+function markExplored(x, y) {
+  if (!fogMini) return;
+  const g = fogMini.getContext('2d'), k = fogMini.width / W;
+  g.globalCompositeOperation = 'destination-out';
+  const gr = g.createRadialGradient(x * k, y * k, 0, x * k, y * k, LIGHT_R * k * 1.05);
+  gr.addColorStop(0, 'rgba(0,0,0,1)'); gr.addColorStop(.75, 'rgba(0,0,0,.95)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = gr; g.fillRect(0, 0, fogMini.width, fogMini.height); g.globalCompositeOperation = 'source-over';
+}
+function resetExplored() {
+  fogMini = document.createElement('canvas'); fogMini.width = 320; fogMini.height = 200;
+  const g = fogMini.getContext('2d'); g.fillStyle = 'rgba(8,3,26,.82)'; g.fillRect(0, 0, 320, 200); lastMark = null;
+}
+function catchPoint(px, py) {
+  if (!av) return null;
+  if (px != null && dist(px, py, av.x, av.y) <= REACH) return [px, py];
+  return [av.x + Math.cos(av.h) * CATCH_AHEAD, av.y + Math.sin(av.h) * CATCH_AHEAD];
+}
+function doCatch(px, py) {
+  if (!isSeeking() || !av) return;
+  if (now() - lastCatch < 600) return;
+  lastCatch = now();
+  const p = catchPoint(px, py);
+  sendPos();
+  anims.push({ t: 'aim', x: p[0], y: p[1], start: now(), dur: 500 });
+  ui.send({ t: 'catch', x: Math.round(p[0]), y: Math.round(p[1]), ax: Math.round(av.x), ay: Math.round(av.y) });
+  Sound.whoosh(); requestDraw();
+}
+function drawSeeker(g, x, y, h, walk, color, t, cs) {
+  const bob = Math.abs(Math.sin(t / 95)) * 5 * walk, face = Math.cos(h) >= 0 ? 1 : -1;
+  g.save(); g.translate(x, y);
+  g.fillStyle = 'rgba(30,10,40,.28)'; g.beginPath(); g.ellipse(0, 26, 34, 10, 0, 0, TAU); g.fill();
+  g.translate(0, -bob); g.scale(face, 1);
+  drawChameleon(g, 0, 0, 44, color, t / 300);
+  // el feneri
+  g.save(); g.translate(30, 12); g.rotate(face > 0 ? clamp(Math.sin(h) * .8, -.9, .9) : clamp(-Math.sin(h) * .8, -.9, .9) * -1);
+  const p = new Path2D(); rrPath(p, -4, -6, 28, 12, 4); g.fillStyle = '#5b6370'; g.fill(p); g.strokeStyle = '#2d2d3a'; g.lineWidth = 2; g.stroke(p);
+  g.fillStyle = '#fff27a'; g.beginPath(); g.ellipse(25, 0, 4, 8, 0, 0, TAU); g.fill(); g.stroke();
+  g.restore(); g.restore();
+  if (cs) pill(g, cs, x, y - 52 / Math.max(.6, cs) * .6 - 34, '👁 EBE', color, '#12052e', 12);
+}
+function lightCone(g, x, y, h, alpha) {
+  const L = LIGHT_R * 1.55;
+  const gr = g.createRadialGradient(x, y, 10, x, y, L);
+  gr.addColorStop(0, `rgba(255,244,170,${alpha})`); gr.addColorStop(1, 'rgba(255,244,170,0)');
+  g.fillStyle = gr; g.beginPath(); g.moveTo(x, y); g.arc(x, y, L, h - .5, h + .5); g.closePath(); g.fill();
+}
+
 /* ---------- çizim ---------- */
 function requestDraw() { dirty = true; if (!raf && root) raf = requestAnimationFrame(frame); }
-function frame() {
+function frame(ts) {
   raf = 0; if (!root || !cv) return;
-  const t = now(); anims = anims.filter(a => t - a.start < a.dur);
+  const t = now(), dt = clamp((t - (lastT || t)) / 1000, 0, .1); lastT = t;
+  anims = anims.filter(a => t - a.start < a.dur + (a.delay || 0));
   frameN++;
-  const live = anims.length > 0 || (V && (V.phase === 'hide' || V.phase === 'come' || V.phase === 'seek') && V.role === 'hider') || (V && V.phase === 'reveal');
-  if (dirty || (live && frameN % 2 === 0)) {
+  const seekish = V && (V.phase === 'seek' || V.phase === 'come');
+  if (isSeeking()) stepSeeker(dt);
+  if (glide) { const u = ease((t - glide.start) / glide.dur); cam.x = glide.x0 + (glide.x1 - glide.x0) * u; cam.y = glide.y0 + (glide.y1 - glide.y0) * u; clampCam(); if (u >= 1) glide = null; }
+  if (seekish && V.role !== 'seeker') stepOthers(dt);
+  const live = anims.length > 0 || seekish || (V && V.role === 'hider' && V.phase === 'hide') || (V && V.phase === 'reveal');
+  if (dirty || live) {
     dirty = false;
     drawScene(cg, sw, sh, cam, dpr, false);
-    if (lensCv && V && V.role === 'hider' && (V.phase === 'hide' || V.phase === 'come')) drawLens();
+    if (lensCv && V && V.role === 'hider' && (V.phase === 'hide' || V.phase === 'come') && frameN % 2 === 0) drawLens();
+    if (miniCv && isSeeking() && frameN % 3 === 0) drawMini();
   }
   if (live || dirty) raf = requestAnimationFrame(frame);
+}
+function myLook() {
+  if (!V || !V.mine) return null;
+  const m = isHiding() && draft ? draft : V.mine;
+  if (!m.spot) return null;
+  const p = lookFrom(m);
+  if (paintAnim) { const u = (now() - paintAnim.start) / 380; if (u < 1) { p.c1 = mix(paintAnim.c1, p.c1, ease(u)); p.c2 = mix(paintAnim.c2, p.c2, ease(u)); } else paintAnim = null; }
+  return p;
 }
 function sceneItems() {
   const items = []; if (!V || !scene) return items;
   const ph = V.phase;
   scene.decoys.forEach(d => items.push({ p: d }));
-  if (V.role === 'hider' && V.mine && (ph === 'hide' || ph === 'come' || ph === 'seek') && !V.mine.found) {
-    const m = isHiding() && draft ? draft : V.mine;
-    if (m.spot) items.push({ p: lookFrom(m), me: true });
-  }
+  if (V.role === 'hider' && V.mine && (ph === 'hide' || ph === 'come' || ph === 'seek') && !V.mine.found) { const p = myLook(); if (p) items.push({ p, me: true }); }
   if (ph === 'seek') { (V.disguises || []).forEach(d => items.push({ p: d })); (V.found || []).forEach(f => items.push({ p: f, cham: f })); }
-  if (ph === 'reveal' || ph === 'over') (V.all || []).forEach(a => items.push({ p: a, rev: a, cham: a.found ? a : null }));
+  if (ph === 'reveal' || ph === 'over') (V.all || []).forEach((a, i) => items.push({ p: a, rev: a, idx: i }));
+  const sp = seekerPos();
+  if ((ph === 'seek' || ph === 'come') && sp) items.push({ p: { x: sp.x, y: sp.y + 18 }, seeker: sp });
   return items.sort((a, b) => a.p.y - b.p.y);
 }
 function pill(g, s, x, y, text, bg, fg = '#fff', size = 13) {
@@ -1279,15 +1844,49 @@ function pill(g, s, x, y, text, bg, fg = '#fff', size = 13) {
   g.fillStyle = fg; g.fillText(text, 0, 1);
   g.restore();
 }
+function drawMe(g, p, t) {
+  const poof = anims.find(a => a.t === 'poof');
+  const R = propR(p), col = V.players[V.me] ? V.players[V.me].color : '#7ee05a';
+  if (poof) {
+    const u = (t - poof.start) / poof.dur;
+    if (u < .42) { g.save(); g.translate(p.x, p.y); g.rotate(u * 14); const k = 1 - u * 1.5; drawChameleon(g, 0, 0, Math.max(10, R * 1.3 * k), col, t / 300); g.restore(); }
+    else { const v = (u - .42) / .58, k = v < .6 ? .3 + v / .6 * .9 : 1.2 - (v - .6) / .4 * .2; drawProp(g, Object.assign({}, p, { scale: (p.scale || 1) * k })); }
+    g.save(); g.translate(p.x, p.y); g.globalAlpha = Math.max(0, 1 - u);
+    for (let i = 0; i < 8; i++) { const a = i / 8 * TAU, rr = R * (.4 + u * 1.3); D.circle(g, Math.cos(a) * rr, Math.sin(a) * rr * .8, R * (.35 - u * .2), 'rgba(255,255,255,.85)'); }
+    g.restore();
+    return;
+  }
+  drawProp(g, p);
+  // yalnızca kendi ekranında: minik bukalemun gözleri
+  const blink = (t % 3300) < 150, ex = R * .22, ey = p.y - R * .28, er = Math.max(3.2, R * .12);
+  for (const sx of [-1, 1]) {
+    D.circle(g, p.x + sx * ex, ey, er, '#ffffff', 'rgba(20,10,30,.7)', 1.5);
+    if (blink) { g.strokeStyle = '#1b0a2a'; g.lineWidth = 2; g.beginPath(); g.moveTo(p.x + sx * ex - er * .8, ey); g.lineTo(p.x + sx * ex + er * .8, ey); g.stroke(); }
+    else { const look = sv && V.phase === 'seek' ? Math.atan2(sv.y - ey, sv.x - p.x) : Math.sin(t / 900) * 1.5; D.circle(g, p.x + sx * ex + Math.cos(look) * er * .35, ey + Math.sin(look) * er * .35, er * .5, '#1b0a2a'); }
+  }
+}
 function drawScene(g, w, h, cm, pr, lens) {
   g.setTransform(pr, 0, 0, pr, 0, 0);
   g.fillStyle = '#1a0b3d'; g.fillRect(0, 0, w, h);
   if (!scene) return;
   g.save(); g.scale(cm.s, cm.s); g.translate(-cm.x, -cm.y);
   g.drawImage(scene.ground, 0, 0, W, H);
-  const t = now();
-  const items = sceneItems();
+  const t = now(), items = sceneItems(), seekerMe = isSeeking() && !lens;
+  const sp = seekerPos(), skCol = V && V.players[V.seeker] ? V.players[V.seeker].color : '#ffe14a';
+  // diğerlerinin ekranında Ebe'nin fener ışığı
+  if (sp && !seekerMe && V.phase === 'seek' && !lens) lightCone(g, sp.x, sp.y, sp.h, .22);
   for (const it of items) {
+    if (it.seeker) { drawSeeker(g, it.seeker.x, it.seeker.y, it.seeker.h || 0, it.seeker.walk || 0, skCol, t, lens || seekerMe ? 0 : cm.s); continue; }
+    if (it.me) { drawMe(g, it.p, t); continue; }
+    if (it.rev) {
+      const out = anims.find(a => a.t === 'out' && a.pi === it.rev.pi);
+      const u = out ? (t - out.start - out.delay) / out.dur : 1;
+      if (u < 0) { drawProp(g, it.p); continue; }
+      if (u < .3) { drawProp(g, Object.assign({}, it.p, { scale: (it.p.scale || 1) * (1 - u / .3 * .7) })); }
+      const k = u < .3 ? 0 : u < .65 ? (u - .3) / .35 * 1.25 : 1.25 - .25 * Math.min(1, (u - .65) / .35);
+      if (k > 0) drawChameleon(g, it.p.x, it.p.y + 4, Math.max(28, propR(it.p) * 1.2) * k, it.rev.color, t / 400, false);
+      continue;
+    }
     if (it.cham) {
       const pop = anims.find(a => a.t === 'pop' && Math.abs(a.x - it.p.x) < 2 && Math.abs(a.y - it.p.y) < 2);
       let k = 1; if (pop) { const u = (t - pop.start) / pop.dur; k = u < .35 ? u / .35 * 1.25 : 1.25 - .25 * Math.min(1, (u - .35) / .3); }
@@ -1296,37 +1895,63 @@ function drawScene(g, w, h, cm, pr, lens) {
       drawChameleon(g, it.p.x, it.p.y + R * .1, Math.max(26, R * 1.15) * k, it.cham.color, t / 400);
     } else drawProp(g, it.p);
   }
-  // arama izleri
+  g.restore();
+  // Ebe için sis (yalnızca fenerin aydınlattığı yer net)
+  if (seekerMe && av) drawFog(g, w, h, cm, pr);
+  g.save(); g.setTransform(pr * cm.s, 0, 0, pr * cm.s, -cm.x * cm.s * pr, -cm.y * cm.s * pr);
+  // yakalama izleri
   if (V && V.probes) for (const p of V.probes) {
     g.save(); g.translate(p.x, p.y);
-    if (p.hit) { g.strokeStyle = 'rgba(255,225,74,.95)'; g.lineWidth = 4 / Math.max(.5, cm.s) * .6 + 2; g.setLineDash([]); g.beginPath(); g.arc(0, 0, PROBE_R, 0, TAU); g.stroke(); }
+    if (p.hit) { g.strokeStyle = 'rgba(255,225,74,.95)'; g.lineWidth = 3.5; g.beginPath(); g.arc(0, 0, PROBE_R, 0, TAU); g.stroke(); }
     else {
-      g.fillStyle = 'rgba(20,6,40,.18)'; g.beginPath(); g.arc(0, 0, PROBE_R, 0, TAU); g.fill();
-      g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 2.5; g.setLineDash([8, 7]); g.stroke(); g.setLineDash([]);
-      g.strokeStyle = '#2a0f3c'; g.lineWidth = 9; g.lineCap = 'round'; g.beginPath(); g.moveTo(-12, -12); g.lineTo(12, 12); g.moveTo(12, -12); g.lineTo(-12, 12); g.stroke();
+      g.strokeStyle = 'rgba(255,255,255,.75)'; g.lineWidth = 2.5; g.setLineDash([8, 7]); g.beginPath(); g.arc(0, 0, PROBE_R, 0, TAU); g.stroke(); g.setLineDash([]);
+      g.strokeStyle = '#2a0f3c'; g.lineWidth = 9; g.lineCap = 'round'; g.beginPath(); g.moveTo(-11, -11); g.lineTo(11, 11); g.moveTo(11, -11); g.lineTo(-11, 11); g.stroke();
       g.strokeStyle = '#ff5c7a'; g.lineWidth = 5; g.stroke();
     }
     g.restore();
   }
-  // kendi kılığın
+  // kaçış ayak izleri
+  for (const tr of (V && V.tracks) || []) {
+    const age = tr.age + (t - (V._at || t)); if (age > 3000 || age < 0) continue;
+    g.save(); g.translate(tr.x, tr.y); g.rotate(tr.a + Math.PI / 2); g.globalAlpha = 1 - age / 3000;
+    g.shadowColor = 'rgba(255,240,170,.9)'; g.shadowBlur = 8; g.fillStyle = '#5b2a1a'; g.beginPath(); g.ellipse(0, 0, 6, 10, 0, 0, TAU); g.fill(); [[-4, -12], [0, -14], [4, -12]].forEach(([a, b2]) => { g.beginPath(); g.arc(a, b2, 2.4, 0, TAU); g.fill(); });
+    g.restore();
+  }
+  // Ebe: yakalama alanı ve yürüme hedefi
+  if (seekerMe && av) {
+    const cp = catchPoint(hover && dist(hover[0], hover[1], av.x, av.y) <= REACH ? hover[0] : null, hover ? hover[1] : null);
+    g.save(); g.translate(cp[0], cp[1]); g.strokeStyle = 'rgba(255,225,74,.95)'; g.lineWidth = 3; g.setLineDash([7, 6]); g.lineDashOffset = -t / 50;
+    g.beginPath(); g.arc(0, 0, PROBE_R, 0, TAU); g.stroke(); g.setLineDash([]); g.restore();
+    g.strokeStyle = 'rgba(255,255,255,.18)'; g.lineWidth = 2; g.beginPath(); g.arc(av.x, av.y, REACH, 0, TAU); g.stroke();
+    if (walkTo) { g.strokeStyle = 'rgba(126,224,90,.9)'; g.lineWidth = 3; g.beginPath(); g.arc(walkTo[0], walkTo[1], 10 + Math.sin(t / 150) * 3, 0, TAU); g.stroke(); }
+  }
+  // kendi kılığın: etiket ve halka
   const meIt = items.find(i => i.me);
   if (meIt && !lens) {
     const R = propR(meIt.p) + 12, col = V.players[V.me] ? V.players[V.me].color : '#fff';
-    g.save(); g.translate(meIt.p.x, meIt.p.y); g.strokeStyle = col; g.lineWidth = 3.2 / Math.min(1, cm.s) * .7 + 1; g.setLineDash([10, 8]); g.lineDashOffset = -t / 40;
+    g.save(); g.translate(meIt.p.x, meIt.p.y); g.strokeStyle = col; g.lineWidth = 3; g.setLineDash([10, 8]); g.lineDashOffset = -t / 40;
     g.beginPath(); g.arc(0, 0, R, 0, TAU); g.stroke(); g.setLineDash([]); g.restore();
     pill(g, cm.s, meIt.p.x, meIt.p.y - R - 12 / cm.s, V.phase === 'seek' ? 'SEN (gizli)' : 'SEN', col, '#12052e');
   }
-  // tur sonu: herkesin kılığı ve adı
+  // kaçış modu: Ebe'nin yasak çemberi
+  if (fleeMode && sp && !lens) {
+    g.save(); g.fillStyle = 'rgba(255,59,92,.14)'; g.strokeStyle = 'rgba(255,59,92,.9)'; g.lineWidth = 3; g.setLineDash([9, 7]);
+    g.beginPath(); g.arc(sp.x, sp.y, FLEE_MIN, 0, TAU); g.fill(); g.stroke(); g.restore();
+    if (hover) { const ok = dist(hover[0], hover[1], sp.x, sp.y) >= FLEE_MIN; g.strokeStyle = ok ? 'rgba(126,224,90,.95)' : 'rgba(255,59,92,.95)'; g.lineWidth = 3; g.beginPath(); g.arc(hover[0], hover[1], 30, 0, TAU); g.stroke(); }
+  }
+  // tur sonu etiketleri
   for (const it of items) if (it.rev) {
-    const R = propR(it.p) + 10;
-    g.save(); g.translate(it.p.x, it.p.y); g.strokeStyle = it.rev.color; g.lineWidth = 4; g.globalAlpha = .6 + .4 * Math.sin(t / 220);
-    g.beginPath(); g.arc(0, 0, R, 0, TAU); g.stroke(); g.restore();
-    pill(g, cm.s, it.p.x, it.p.y - R - 12 / cm.s, (it.rev.found ? '💥 ' : '🦎 ') + it.rev.name, it.rev.color, '#12052e');
+    const out = anims.find(a => a.t === 'out' && a.pi === it.rev.pi);
+    if (out && t - out.start - out.delay < out.dur * .35) continue;
+    const R = propR(it.p) + 14;
+    pill(g, cm.s, it.p.x, it.p.y - R - 14 / cm.s, `${it.rev.found ? '💥' : '🦎'} ${it.rev.name} · ${it.rev.found ? 'Bulundu' : 'Hayatta kaldı!'}`, it.rev.found ? '#ffb3c1' : it.rev.color, '#12052e');
   }
   if (V && V.phase === 'seek') (V.found || []).forEach(f => pill(g, cm.s, f.x, f.y - propR(f) - 22 / cm.s, '💥 ' + f.name, f.color, '#12052e'));
+  // sıcak-soğuk göstergesi
+  if (V && V.hot && sp) { const age = V.hot.age + (t - (V._at || t)); if (age < HOT_MS) { const cols = ['#9fe8ff', '#4fb7f0', '#ffd84a', '#ff9a3c', '#ff3b5c']; pill(g, cm.s, sp.x, sp.y - 70, `🌡️ ${V.hot.label}`, cols[V.hot.lvl], '#12052e', 16); } }
   // canlandırmalar
   for (const a of anims) {
-    const u = (t - a.start) / a.dur;
+    const u = (t - a.start - (a.delay || 0)) / a.dur; if (u < 0) continue;
     if (a.t === 'probe' || a.t === 'aim') {
       const rr = PROBE_R * (.55 + .45 * Math.min(1, u * 2.2)), al = 1 - Math.max(0, (u - .6) / .4);
       g.save(); g.translate(a.x, a.y); g.globalAlpha = al;
@@ -1339,27 +1964,57 @@ function drawScene(g, w, h, cm, pr, lens) {
     } else if (a.t === 'ripple') {
       g.save(); g.translate(a.x, a.y);
       for (let i = 0; i < 3; i++) { const v = (u * 2.2 + i * .33) % 1; g.globalAlpha = (1 - v) * (1 - u * .6); g.strokeStyle = '#ffe14a'; g.lineWidth = 5; g.beginPath(); g.arc(0, 0, 14 + v * 90, 0, TAU); g.stroke(); }
-      g.globalAlpha = 1 - u; g.restore(); pill(g, cm.s, a.x, a.y, '🔊 kıkır kıkır!', '#ffb627', '#3a1500', 14);
-    } else if (a.t === 'pop') {
-      g.save(); g.translate(a.x, a.y); g.globalAlpha = 1 - u; g.strokeStyle = '#ffe14a'; g.lineWidth = 4;
+      g.restore(); pill(g, cm.s, a.x, a.y, '🔊 kıkır kıkır!', '#ffb627', '#3a1500', 14);
+    } else if (a.t === 'pop' || a.t === 'outfx') {
+      g.save(); g.translate(a.x, a.y); g.globalAlpha = 1 - u; g.strokeStyle = a.t === 'pop' ? '#ffe14a' : '#ffffff'; g.lineWidth = 4;
       for (let i = 0; i < 10; i++) { const ang = i / 10 * TAU, r1 = 30 + u * 50, r2 = r1 + 18; g.beginPath(); g.moveTo(Math.cos(ang) * r1, Math.sin(ang) * r1); g.lineTo(Math.cos(ang) * r2, Math.sin(ang) * r2); g.stroke(); }
+      g.restore();
+    } else if (a.t === 'hotfx') {
+      g.save(); g.translate(a.x, a.y); const cols = ['#9fe8ff', '#4fb7f0', '#ffd84a', '#ff9a3c', '#ff3b5c'];
+      for (let i = 0; i < 2; i++) { const v = (u * 1.6 + i * .5) % 1; g.globalAlpha = (1 - v) * (1 - u); g.strokeStyle = cols[a.lvl]; g.lineWidth = 6; g.beginPath(); g.arc(0, 0, 40 + v * 260, 0, TAU); g.stroke(); }
       g.restore();
     }
   }
-  // fare önizlemesi
-  if (!lens && hover && V) {
-    if (V.phase === 'seek' && V.role === 'seeker' && armed) { g.save(); g.translate(hover[0], hover[1]); g.strokeStyle = 'rgba(255,225,74,.9)'; g.lineWidth = 3; g.setLineDash([6, 6]); g.beginPath(); g.arc(0, 0, PROBE_R, 0, TAU); g.stroke(); g.restore(); }
-    if (picking) { const s = sampleAt(hover[0], hover[1]); if (s) { g.save(); g.translate(hover[0], hover[1] - 46 / cm.s); g.scale(1 / cm.s, 1 / cm.s); g.fillStyle = s.c1; g.strokeStyle = '#fff'; g.lineWidth = 4; g.beginPath(); g.arc(0, 0, 22, 0, TAU); g.fill(); g.stroke(); g.restore(); } }
-  }
+  if (!lens && hover && picking) { const s = sampleAt(hover[0], hover[1]); if (s) { g.save(); g.translate(hover[0], hover[1] - 46 / cm.s); g.scale(1 / cm.s, 1 / cm.s); g.fillStyle = s.c1; g.strokeStyle = '#fff'; g.lineWidth = 4; g.beginPath(); g.arc(0, 0, 22, 0, TAU); g.fill(); g.stroke(); g.restore(); } }
   g.restore();
 }
+function drawFog(g, w, h, cm, pr) {
+  if (!fogCv) fogCv = document.createElement('canvas');
+  if (fogCv.width !== cv.width || fogCv.height !== cv.height) { fogCv.width = cv.width; fogCv.height = cv.height; }
+  const f = fogCv.getContext('2d'), s = cm.s * pr;
+  const x = (av.x - cm.x) * s, y = (av.y - cm.y) * s, r = LIGHT_R * s;
+  f.setTransform(1, 0, 0, 1, 0, 0); f.globalCompositeOperation = 'source-over'; f.clearRect(0, 0, fogCv.width, fogCv.height);
+  f.fillStyle = 'rgba(6,2,22,.8)'; f.fillRect(0, 0, fogCv.width, fogCv.height);
+  f.globalCompositeOperation = 'destination-out';
+  let gr = f.createRadialGradient(x, y, r * .25, x, y, r);
+  gr.addColorStop(0, 'rgba(0,0,0,1)'); gr.addColorStop(.7, 'rgba(0,0,0,.92)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+  f.fillStyle = gr; f.beginPath(); f.arc(x, y, r, 0, TAU); f.fill();
+  const L = r * 1.6; gr = f.createRadialGradient(x, y, r * .4, x, y, L);
+  gr.addColorStop(0, 'rgba(0,0,0,.95)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+  f.fillStyle = gr; f.beginPath(); f.moveTo(x, y); f.arc(x, y, L, av.h - .48, av.h + .48); f.closePath(); f.fill();
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(fogCv, 0, 0);
+  const gl = g.createRadialGradient(x, y, 0, x, y, r); gl.addColorStop(0, 'rgba(255,240,170,.10)'); gl.addColorStop(1, 'rgba(255,240,170,0)');
+  g.fillStyle = gl; g.fillRect(x - r, y - r, 2 * r, 2 * r); g.restore();
+}
+function drawMini() {
+  if (!scene || !fogMini) return;
+  const w = miniCv.clientWidth || 120, h = miniCv.clientHeight || 75, pr = 2;
+  if (miniCv.width !== w * pr) { miniCv.width = w * pr; miniCv.height = h * pr; }
+  const g = miniCv.getContext('2d'); g.setTransform(pr, 0, 0, pr, 0, 0);
+  g.drawImage(scene.thumb, 0, 0, w, h); g.drawImage(fogMini, 0, 0, w, h);
+  const k = w / W;
+  for (const p of V.probes || []) { g.fillStyle = p.hit ? '#ffe14a' : '#ff5c7a'; g.fillRect(p.x * k - 1.5, p.y * k - 1.5, 3, 3); }
+  g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 1; g.strokeRect(cam.x * k, cam.y * k, sw / cam.s * k, sh / cam.s * k);
+  if (av) { D.circle(g, av.x * k, av.y * k, 3.5, V.players[V.me] ? V.players[V.me].color : '#fff', '#fff', 1.5); }
+}
 function drawLens() {
-  const m = isHiding() && draft ? draft : V.mine; if (!m) return;
+  const m = myLook(); if (!m && !(V.mine && !V.mine.spot)) return;
   const lg = lensCv.getContext('2d'), w = lensCv.clientWidth || 110, h = lensCv.clientHeight || 110, pr = Math.min(2.5, window.devicePixelRatio || 1);
+  if (!w) return;
   if (lensCv.width !== Math.round(w * pr)) { lensCv.width = Math.round(w * pr); lensCv.height = Math.round(h * pr); }
-  if (!m.spot) { lg.setTransform(pr, 0, 0, pr, 0, 0); lg.fillStyle = '#12052e'; lg.fillRect(0, 0, w, h); lg.fillStyle = '#b9a8e6'; lg.font = '800 12px Nunito,sans-serif'; lg.textAlign = 'center'; lg.fillText('Yer seçilmedi', w / 2, h / 2); return; }
+  if (!m) { lg.setTransform(pr, 0, 0, pr, 0, 0); lg.fillStyle = '#12052e'; lg.fillRect(0, 0, w, h); lg.fillStyle = '#b9a8e6'; lg.font = '800 12px Nunito,sans-serif'; lg.textAlign = 'center'; lg.fillText('Yer seçilmedi', w / 2, h / 2); return; }
   const s = Math.max(1, w / (propR(m) * 5));
-  drawScene(lg, w, h, { s, x: m.spot.x - w / 2 / s, y: m.spot.y - h / 2 / s }, pr, true);
+  drawScene(lg, w, h, { s, x: m.x - w / 2 / s, y: m.y - h / 2 / s }, pr, true);
 }
 function drawIcon(c, look) {
   const pr = 2, w = c.clientWidth || 52, h = c.clientHeight || 52;
@@ -1377,7 +2032,7 @@ function drawPatIcon(c, pat, c1, c2) {
   g.strokeStyle = shade(c1, -.5); g.lineWidth = 10; g.stroke(p); g.restore();
 }
 
-/* ---------- giriş: kaydır, yakınlaştır, dokun ---------- */
+/* ---------- giriş: kaydır, yakınlaştır, dokun, joystik, klavye ---------- */
 function ptr(e) { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
 function onDown(e) {
   if (!V) return;
@@ -1396,7 +2051,7 @@ function onDown(e) {
 function onMove(e) {
   if (!V) return;
   const [x, y] = ptr(e);
-  if (e.pointerType === 'mouse' && !pointers.size) { hover = toWorld(x, y); if ((V.phase === 'seek' && V.role === 'seeker') || picking) requestDraw(); return; }
+  if (e.pointerType === 'mouse' && !pointers.size) { hover = toWorld(x, y); requestDraw(); return; }
   if (!pointers.has(e.pointerId)) return;
   pointers.get(e.pointerId).x = x; pointers.get(e.pointerId).y = y;
   if (gest && gest.t === 'pinch' && pointers.size >= 2) {
@@ -1410,6 +2065,7 @@ function onMove(e) {
     if (!gest.moved && Math.hypot(dx, dy) > 7) gest.moved = true;
     if (!gest.moved) return;
     if (gest.drag && isHiding()) { const [wx, wy] = toWorld(x, y); draft.spot = clampSpot(scene.map, wx, wy); updateHideInfo(); requestDraw(); }
+    else if (isSeeking()) { const [wx, wy] = toWorld(x, y); walkTo = [wx, wy]; }       // Ebe: parmağı sürükleyerek yürü
     else { cam.x = gest.cam0.x - dx / cam.s; cam.y = gest.cam0.y - dy / cam.s; clampCam(); requestDraw(); }
   }
 }
@@ -1419,7 +2075,7 @@ function onUp(e) {
   pointers.delete(e.pointerId);
   if (gest && gest.t === 'one' && gest.id === e.pointerId) {
     if (!gest.moved && e.type === 'pointerup' && now() - gest.t0 < 700) { const [wx, wy] = toWorld(x, y); onTap(wx, wy); }
-    else if (gest.drag && gest.moved) sendCfg(true);
+    else if (gest.drag && gest.moved) { sendCfg(true); updateHideInfo(); }
     gest = null;
   } else if (gest && gest.t === 'pinch') {
     if (pointers.size === 1) { const [id, p] = [...pointers.entries()][0]; gest = { t: 'one', id, sx: p.x, sy: p.y, cam0: { ...cam }, moved: true, drag: false, t0: 0 }; }
@@ -1429,33 +2085,69 @@ function onUp(e) {
 }
 function onWheel(e) { if (!V) return; e.preventDefault(); const [x, y] = ptr(e); zoomAt(x, y, Math.exp(-e.deltaY * .0016)); }
 function onLeaveCanvas() { if (hover) { hover = null; requestDraw(); } }
+function joyDown(e) {
+  if (!isSeeking()) return; e.preventDefault(); e.stopPropagation(); Sound.init();
+  const el = e.currentTarget; try { el.setPointerCapture(e.pointerId); } catch { /* */ }
+  joy.on = true; joy.id = e.pointerId; joyMove(e);
+}
+function joyMove(e) {
+  if (!joy.on || e.pointerId !== joy.id) return;
+  const el = q('.sk-joy'), r = el.getBoundingClientRect(), R = r.width / 2;
+  let dx = (e.clientX - r.left - R) / R, dy = (e.clientY - r.top - R) / R; const l = Math.hypot(dx, dy);
+  if (l > 1) { dx /= l; dy /= l; }
+  joy.dx = Math.abs(dx) < .12 && Math.abs(dy) < .12 ? 0 : dx; joy.dy = Math.abs(dx) < .12 && Math.abs(dy) < .12 ? 0 : dy;
+  const k = el.querySelector('i'); if (k) k.style.transform = `translate(${dx * R * .55}px, ${dy * R * .55}px)`;
+}
+function joyUp(e) { if (e.pointerId !== joy.id) return; joy.on = false; joy.dx = joy.dy = 0; const k = q('.sk-joy i'); if (k) k.style.transform = ''; }
+function onKey(e) {
+  if (!V || !root || e.target.closest && e.target.closest('input,textarea,select')) return;
+  const codes = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'KeyA', 'KeyD', 'KeyW', 'KeyS'];
+  if (!isSeeking()) { keys.clear(); return; }
+  if (e.type === 'keydown') {
+    if (codes.includes(e.code)) { keys.add(e.code); e.preventDefault(); requestDraw(); }
+    else if (e.code === 'Space' || e.code === 'Enter') { e.preventDefault(); if (!e.repeat) doCatch(); }
+    else if (e.code === 'KeyH' && !e.repeat) useHot();
+  } else keys.delete(e.code);
+}
+function onBlur() { keys.clear(); joy.on = false; joy.dx = joy.dy = 0; }
 
 function toast(text, cls) {
   const t = q('.sk-toast'); if (!t) return;
   t.textContent = text; t.className = 'sk-toast show ' + (cls || ''); clearTimeout(toastT);
   toastT = setTimeout(() => { if (t) t.className = 'sk-toast'; }, 1700);
 }
+// Haritanın üstünde kısa, küçük duyuru (ekranı uzun süre kapatmaz)
+function pop(text, cls) {
+  const p = q('.sk-pop'); if (!p) return;
+  p.textContent = text; p.className = 'sk-pop'; void p.offsetWidth; p.className = 'sk-pop show ' + (cls || '');
+  clearTimeout(popT); popT = setTimeout(() => { if (p) p.className = 'sk-pop'; }, 1150);
+}
 function onTap(wx, wy) {
   if (!V || !scene) return;
   if (picking && isHiding()) {
     const s = sampleAt(wx, wy); picking = false;
-    if (s) { draft[slot] = s.c1; if (s.c2 && slot === 'c1' && HEX.test(s.c2)) draft._sugg = s.c2; toast(`Renk alındı: ${s.from}`, 'ok'); Sound.buy(); sendCfg(true); }
-    renderTab(); requestDraw(); return;
+    if (s) { paintAnim = { c1: draft.c1, c2: draft.c2, start: now() }; draft[slot] = s.c1; toast(`Renk alındı: ${s.from}`, 'ok'); Sound.buy(); sendCfg(true); }
+    renderTab(); updateHideInfo(); requestDraw(); return;
   }
   if (isHiding()) {
     if (wy < scene.map.top + 10) { toast('Burası gökyüzü/duvar — saklanamazsın!', 'bad'); Sound.bad(); return; }
-    draft.spot = clampSpot(scene.map, wx, wy); Sound.tick(.4); sendCfg(true); updateHideInfo(); requestDraw();
-    if (tab === 'yer' && !q('.sk-tabbody [data-shape]')) { /* yer sekmesi açık kalır */ }
-    return;
+    const first = !draft.spot;
+    draft.spot = clampSpot(scene.map, wx, wy); Sound.tick(.4); sendCfg(true); updateHideInfo();
+    if (first) { anims.push({ t: 'poof', start: now(), dur: 700 }); Sound.special(); }
+    requestDraw(); return;
   }
-  if (V.phase === 'seek' && V.role === 'seeker') {
-    if (!armed) { toast('Aramak için önce 🔍 ARA düğmesini aç.', 'bad'); return; }
-    if (now() - lastTap < 520) return;
-    lastTap = now();
-    anims.push({ t: 'aim', x: wx, y: wy, start: now(), dur: 500 });
-    ui.send({ t: 'probe', x: Math.round(wx), y: Math.round(wy) }); requestDraw();
+  if (fleeMode && V.phase === 'seek' && V.role === 'hider') {
+    const sp = seekerPos();
+    if (wy < scene.map.top + 10) { toast('Oraya kaçamazsın!', 'bad'); return; }
+    if (sp && dist(wx, wy, sp.x, sp.y) < FLEE_MIN) { toast('Ebe\'ye çok yakın — başka yere kaç!', 'bad'); Sound.bad(); return; }
+    fleeMode = false; ui.send({ t: 'flee', x: Math.round(wx), y: Math.round(wy) }); renderSide(); requestDraw(); return;
+  }
+  if (isSeeking() && av) {
+    if (dist(wx, wy, av.x, av.y) <= REACH) doCatch(wx, wy);
+    else { walkTo = [wx, wy]; requestDraw(); }
   }
 }
+function useHot() { if (!isSeeking() || !av || V.hotUsed) return; sendPos(); ui.send({ t: 'hot', ax: Math.round(av.x), ay: Math.round(av.y) }); }
 function sendCfg(now2) {
   if (!draft || !isHiding()) return;
   clearTimeout(sendT);
@@ -1487,22 +2179,30 @@ function mountDom() {
     <div class="sk-main">
       <div class="sk-stage">
         <canvas class="sk-cv" aria-label="Saklambaç haritası"></canvas>
-        <div class="sk-mapname"></div><div class="sk-stimer">⏱ <b>0:00</b></div>
-        <div class="sk-zoom"><button type="button" data-z="in" aria-label="Yakınlaştır">+</button><button type="button" data-z="out" aria-label="Uzaklaştır">−</button><button type="button" data-z="all" class="sk-zall">Tümü</button><button type="button" data-z="me" aria-label="Benim yerim" hidden>🎯</button></div>
+        <div class="sk-tl"><div class="sk-mapname"></div><div class="sk-stimer">⏱ <b>0:00</b></div><canvas class="sk-mini" hidden aria-label="Mini harita"></canvas></div>
+        <div class="sk-zoom"><button type="button" data-z="out" aria-label="Uzaklaştır">−</button><button type="button" data-z="in" aria-label="Yakınlaştır">+</button><button type="button" data-z="all" aria-label="Tüm harita">⤢</button><button type="button" data-z="me" aria-label="Benim yerim" hidden>🎯</button><button type="button" data-z="ebe" aria-label="Ebe'yi göster" hidden>👁</button></div>
         <div class="sk-fab"></div>
+        <div class="sk-joy" hidden aria-label="Yürüme kolu"><i></i></div>
+        <div class="sk-act" hidden><button type="button" class="sk-hotbtn" data-act="hot">🌡️<small>Sıcak-Soğuk</small></button><button type="button" class="sk-catch" data-act="catch">YAKALA</button></div>
+        <div class="sk-warn" hidden>💓 Ebe yaklaşıyor!</div>
+        <div class="sk-pop" aria-live="polite"></div>
         <div class="sk-toast" aria-live="polite"></div>
         <div class="sk-black" hidden>${CHAM_SVG}<h3 class="sk-bh">Gözlerini kapat!</h3><p class="sk-bp">Sayıyor: <b class="sk-count">10</b></p><p class="sk-bready"></p></div>
+        <div class="sk-intro" hidden></div>
       </div>
       <aside class="sk-side g-panel"></aside>
     </div>
   </div>`;
-  cv = q('.sk-cv'); cg = cv.getContext('2d'); stageEl = q('.sk-stage');
+  cv = q('.sk-cv'); cg = cv.getContext('2d'); stageEl = q('.sk-stage'); miniCv = q('.sk-mini');
   cv.addEventListener('pointerdown', onDown); cv.addEventListener('pointermove', onMove);
   cv.addEventListener('pointerup', onUp); cv.addEventListener('pointercancel', onUp); cv.addEventListener('pointerleave', onLeaveCanvas);
   cv.addEventListener('wheel', onWheel, { passive: false });
   cv.addEventListener('contextmenu', e => e.preventDefault());
+  const j = q('.sk-joy'); j.addEventListener('pointerdown', joyDown); j.addEventListener('pointermove', joyMove); j.addEventListener('pointerup', joyUp); j.addEventListener('pointercancel', joyUp);
+  q('.sk-intro').addEventListener('click', () => { q('.sk-intro').hidden = true; });
   if (window.ResizeObserver) { ro = new ResizeObserver(() => resize()); ro.observe(stageEl); }
   addEventListener('resize', resize);
+  document.addEventListener('keydown', onKey); document.addEventListener('keyup', onKey); addEventListener('blur', onBlur);
 }
 function layoutKind(v) {
   if (v.phase === 'reveal' || v.phase === 'over') return 'reveal';
@@ -1513,7 +2213,9 @@ function buildSide(kind) {
   built = kind; lensCv = null;
   const side = q('.sk-side');
   if (kind === 'hide') {
-    side.innerHTML = `<div class="sk-lensrow"><canvas class="sk-lens"></canvas><div class="sk-lensinfo"><b class="sk-h">Kılığın</b><span class="sk-gi"></span><span class="sk-ri"></span></div></div>
+    side.innerHTML = `<button type="button" class="sk-grip" data-act="sheet" aria-label="Araç panelini aç/kapat"><i></i></button>
+      <div class="sk-lensrow"><canvas class="sk-lens"></canvas><div class="sk-lensinfo"><b class="sk-h">Kılığın</b><span class="sk-gi"></span><span class="sk-ri"></span></div></div>
+      <div class="sk-camo"><div class="sk-camotop"><span>Kamuflaj</span><b class="sk-camopct">0%</b></div><div class="sk-camobar"><i></i></div><p class="sk-camotip"></p></div>
       <div class="sk-tabs" role="tablist"><button type="button" data-tab="yer">📍 Yer</button><button type="button" data-tab="sekil">🧸 Şekil</button><button type="button" data-tab="boya">🎨 Boya</button></div>
       <div class="sk-tabbody"></div>
       <div class="sk-readyrow"></div>`;
@@ -1526,9 +2228,8 @@ function renderTab() {
   qa('.sk-tabs [data-tab]').forEach(b => { b.classList.toggle('on', b.dataset.tab === tab); b.setAttribute('aria-selected', b.dataset.tab === tab); });
   const dis = lock ? 'disabled' : '';
   if (tab === 'yer') {
-    body.innerHTML = `<p class="sk-p">Haritaya <b>dokunarak</b> saklanacağın yeri seç. Kendi eşyanı sürükleyerek taşıyabilir, haritayı kaydırıp iki parmakla yakınlaştırabilirsin.</p>
-      <p class="sk-tip">💡 Aynı eşyalardan oluşan bir grubun arasına saklan, sonra onlar gibi boyan!</p>
-      <div class="sk-row"><button type="button" class="btn btn-ghost" data-act="goto" ${m.spot ? '' : 'disabled'}>🎯 Yerime git</button><button type="button" class="btn btn-ghost" data-act="randspot" ${dis}>🎲 Rastgele yer</button></div>`;
+    body.innerHTML = `<p class="sk-p">Haritaya <b>dokunarak</b> yerini seç; kendi eşyanı sürükleyerek taşı. 💡 Aynı eşyalardan oluşan bir grubun yanına saklanmak en iyisi!</p>
+      <div class="sk-row"><button type="button" class="btn btn-ghost" data-act="goto" ${m.spot ? '' : 'disabled'}>🎯 Yerime git</button><button type="button" class="btn btn-ghost" data-act="randspot" ${dis}>🎲 Rastgele</button></div>`;
   } else if (tab === 'sekil') {
     body.innerHTML = `<div class="sk-shapes">${scene.map.catalog.map(id => `<button type="button" class="sk-shape ${m.shape === id ? 'on' : ''}" data-shape="${id}" ${dis}><canvas></canvas><span>${esc(SHAPES[id].name)}</span></button>`).join('')}</div>
       <div class="sk-ctl"><span>Açı</span><button type="button" data-act="rotl" ${dis} aria-label="Sola çevir">⟲</button><input type="range" min="0" max="359" step="1" value="${m.rot}" data-in="rot" ${dis} aria-label="Açı"><button type="button" data-act="rotr" ${dis} aria-label="Sağa çevir">⟳</button><b data-val="rot">${m.rot}°</b></div>
@@ -1537,9 +2238,9 @@ function renderTab() {
   } else {
     const near = nearColors(m.spot);
     body.innerHTML = `<div class="sk-slots"><button type="button" data-slot="c1" class="${slot === 'c1' ? 'on' : ''}" ${dis}><i style="background:${m.c1}"></i>Ana renk</button><button type="button" data-slot="c2" class="${slot === 'c2' ? 'on' : ''}" ${dis}><i style="background:${m.c2}"></i>İkinci renk</button></div>
-      <div class="sk-pal">${PALETTE.map(c => `<button type="button" data-col="${c}" style="--c:${c}" class="${m[slot] === c ? 'on' : ''}" aria-label="Renk ${c}" ${dis}></button>`).join('')}</div>
       <button type="button" class="btn ${picking ? 'btn-solve' : 'btn-vowel'} sk-pick" data-act="pick" ${dis}>${picking ? '👆 Haritada bir yere dokun…' : '💧 Ortamdan renk al'}</button>
-      ${near.length ? `<div class="sk-near"><span>Yakındaki renkler</span><div class="sk-nearcols">${near.map(n => `<button type="button" data-col="${n.c}" style="--c:${n.c}" title="${esc(n.why)}" aria-label="${esc(n.why)} rengi" ${dis}></button>`).join('')}</div></div>` : '<p class="sk-tip">Önce bir yer seçersen etrafındaki renkleri burada görürsün.</p>'}
+      ${near.length ? `<div class="sk-near"><span>Yakındaki renkler</span><div class="sk-nearcols">${near.map(n => `<button type="button" data-col="${n.c}" style="--c:${n.c}" title="${esc(n.why)}" aria-label="${esc(n.why)} rengi" ${dis}></button>`).join('')}</div></div>` : ''}
+      <div class="sk-pal">${PALETTE.map(c => `<button type="button" data-col="${c}" style="--c:${c}" class="${m[slot] === c ? 'on' : ''}" aria-label="Renk ${c}" ${dis}></button>`).join('')}</div>
       <div class="sk-pats">${PATS.map(p => `<button type="button" data-pat="${p.id}" class="${m.pat === p.id ? 'on' : ''}" ${dis}><canvas></canvas><span>${p.name}</span></button>`).join('')}</div>`;
     qa('.sk-pats [data-pat]').forEach(b => drawPatIcon(b.querySelector('canvas'), b.dataset.pat, m.c1, m.c2));
   }
@@ -1548,13 +2249,19 @@ function updateHideInfo() {
   if (!V || !V.mine) return;
   const m = isHiding() && draft ? draft : V.mine;
   const gi = q('.sk-gi'); if (gi) gi.textContent = m.spot && scene ? `Zemin: ${groundAt(scene.map, m.spot.x, m.spot.y).n}` : 'Henüz yer seçmedin';
-  const zm = q('[data-z="me"]'); if (zm) zm.hidden = !m.spot;
   const ri = q('.sk-ri'); if (ri) ri.textContent = `${V.readyCount}/${V.hiderCount} saklanan hazır`;
+  const zm = q('[data-z="me"]'); if (zm) zm.hidden = !m.spot;
+  if (scene && q('.sk-camo')) {
+    const c = camoScore(scene.map, scene.decoys, m);
+    q('.sk-camopct').textContent = c.score + '%';
+    const bar = q('.sk-camobar i'); bar.style.width = c.score + '%'; bar.style.background = c.score >= 75 ? 'linear-gradient(90deg,#46b83a,#8ff06a)' : c.score >= 45 ? 'linear-gradient(90deg,#ffb627,#ffe14a)' : 'linear-gradient(90deg,#ff3b5c,#ff8a5c)';
+    q('.sk-camotip').textContent = c.tip;
+  }
   const rr = q('.sk-readyrow');
   if (rr) {
     if (V.phase === 'come') rr.innerHTML = '<button type="button" class="btn btn-ghost sk-ready" disabled>🔒 Kılığın kilitlendi</button>';
     else if (V.mine.ready) rr.innerHTML = '<p class="sk-okmsg">✔ Saklandın! Diğerleri bekleniyor…</p><button type="button" class="btn btn-ghost sk-ready" data-act="unready">✎ Kılığı düzenle</button>';
-    else rr.innerHTML = `<button type="button" class="btn btn-spin sk-ready" data-act="ready" ${m.spot ? '' : 'disabled'}>${m.spot ? '✔ HAZIRIM' : '📍 Önce bir yer seç'}</button>`;
+    else rr.innerHTML = `<button type="button" class="btn btn-spin sk-ready" data-act="ready" ${m.spot ? '' : 'disabled'}>${m.spot ? '✔ HAZIRIM' : '📍 Önce haritada bir yer seç'}</button>`;
   }
   requestDraw();
 }
@@ -1563,7 +2270,7 @@ function renderHud() {
   q('.sk-players').innerHTML = v.players.map((p, i) => {
     let tag;
     if (p.seeker) tag = '<span class="sk-tag ebe">👁 Ebe</span>';
-    else if (v.phase === 'hide') tag = `<span class="sk-tag ${p.ready ? 'ok' : ''}">${p.ready ? '✓ hazır' : '⏳'}</span>`;
+    else if (v.phase === 'hide') tag = `<span class="sk-tag ${p.ready ? 'ok' : ''}">${p.ready ? '✓' : '⏳'}</span>`;
     else if (v.phase === 'seek' || v.phase === 'reveal' || v.phase === 'over') tag = `<span class="sk-tag ${p.found ? 'bad' : 'ok'}">${p.found ? '💥' : '🦎'}</span>`;
     else tag = '<span class="sk-tag">🦎</span>';
     return `<div class="g-chip ${p.seeker ? 'active' : ''} ${i === me ? 'me' : ''} ${p.online === false ? 'off' : ''}" style="--pc:${p.color}"><span class="av" style="--pc:${p.color}">${initial(p.name)}</span><b>${esc(p.name)}${i === me ? '<small> · sen</small>' : ''}</b>${tag}<span class="g-num">${p.score}</span></div>`;
@@ -1571,24 +2278,31 @@ function renderHud() {
   const sk = v.players[v.seeker], skn = sk ? esc(sk.name) : '?';
   let st = '', cls = '';
   if (v.phase === 'hide') {
-    if (v.role === 'hider') { if (v.mine && v.mine.ready) st = '✔ Saklandın! Diğerleri bekleniyor…'; else { st = '🦎 Saklan! Yer seç, şekil değiştir, kendini boya'; cls = 'mine'; } }
-    else if (v.role === 'seeker') { st = '🙈 Sen Ebe\'sin — gözlerini kapat ve say!'; }
+    if (v.role === 'hider') { if (v.mine && v.mine.ready) st = '✔ Saklandın! Diğerleri bekleniyor…'; else { st = '🦎 Saklan! Yer seç, şekil değiştir, boyan'; cls = 'mine'; } }
+    else if (v.role === 'seeker') st = '🙈 Sen Ebe\'sin — gözlerini kapat ve say!';
     else st = `Saklananlar kılık değiştiriyor… Ebe: ${skn}`;
   } else if (v.phase === 'come') st = v.role === 'seeker' ? '👀 Hazır ol, geliyorsun!' : `🤫 Ebe ${skn} geliyor… kıpırdama!`;
   else if (v.phase === 'seek') {
-    if (v.role === 'seeker') { st = '🔍 Ara! Şüphelendiğin yere dokun'; cls = 'mine'; }
-    else if (v.role === 'hider') st = v.mine && v.mine.found ? '💥 Bulundun! Artık izliyorsun' : `🤫 Kıpırdama! Ebe ${skn} arıyor…`;
+    if (v.role === 'seeker') { st = isTouch() ? '🔦 Yürü ve YAKALA! Şüpheli eşyaya yaklaş' : '🔦 WASD/oklarla yürü, boşlukla YAKALA!'; cls = 'mine'; }
+    else if (v.role === 'hider') st = v.mine && v.mine.found ? '💥 Bulundun! Artık izliyorsun' : `🤫 Kıpırdama! Ebe ${skn} geziniyor…`;
     else st = `Ebe ${skn} arıyor…`;
   } else if (v.phase === 'reveal') { st = `🎉 Tur ${v.round} bitti — kılıklar açıldı!`; cls = 'win'; }
   else { st = '🏆 Oyun bitti!'; cls = 'win'; }
   q('.sk-status').innerHTML = `<span class="g-turn ${cls}">${st}</span>`;
   const pr = q('.sk-probes'); pr.hidden = v.phase !== 'seek' && v.phase !== 'reveal';
   pr.querySelector('b').textContent = v.probesLeft == null ? '∞' : v.probesLeft;
-  pr.title = v.probesLeft == null ? 'Sınırsız arama: her boş arama 3 saniye götürür' : 'Kalan arama hakkı';
+  pr.title = v.probesLeft == null ? 'Sınırsız yakalama: her boş deneme 3 saniye götürür' : 'Kalan yakalama hakkı';
   const fd = q('.sk-found'); fd.hidden = v.phase !== 'seek' && v.phase !== 'reveal' && v.phase !== 'over';
   fd.querySelector('b').textContent = `${v.foundCount}/${v.hiderCount}`;
+  q('.sk-mapname').textContent = `${MAPS[v.mapId].icon} ${MAPS[v.mapId].name} · ${v.round}/${v.total}`;
   const zm = q('[data-z="me"]'); if (zm) { const m = isHiding() && draft ? draft : v.mine; zm.hidden = !(v.role === 'hider' && m && m.spot && !m.found && v.phase !== 'reveal' && v.phase !== 'over'); }
-  q('.sk-mapname').textContent = `${MAPS[v.mapId].icon} ${MAPS[v.mapId].name} · Tur ${v.round}/${v.total}`;
+  const ze = q('[data-z="ebe"]'); if (ze) ze.hidden = !(v.phase === 'seek' && v.role !== 'seeker');
+  q('[data-z="all"]').hidden = isSeeking();
+  const hud = q('.sk-hud'); if (hud) root.querySelector('.sk').style.setProperty('--hudh', hud.offsetHeight + 'px');
+  const seeking = isSeeking();
+  q('.sk-act').hidden = !seeking; q('.sk-joy').hidden = !(seeking && isTouch());
+  miniCv.hidden = !seeking;
+  const hb = q('.sk-hotbtn'); if (hb) { hb.disabled = !!v.hotUsed; hb.classList.toggle('used', !!v.hotUsed); }
 }
 function renderSide() {
   const v = V, info = q('.sk-info');
@@ -1598,25 +2312,25 @@ function renderSide() {
   if (built === 'wait') {
     const seeker = v.role === 'seeker';
     info.innerHTML = `<h3 class="sk-h">${seeker ? '🙈 Ebe sensin!' : '⏳ Saklanıyorlar'}</h3>
-      <p class="sk-p">${seeker ? 'Saklananlar şu an haritada bir yer seçiyor, eşyaya dönüşüp kendilerini boyuyor. Süre bitince arama başlar.' : `Ebe <b>${skn}</b> gözlerini kapattı. Saklananlar kılık değiştiriyor.`}</p>
+      <p class="sk-p">${seeker ? 'Saklananlar şu an yer seçiyor, eşyaya dönüşüp boyanıyor. Süre bitince el fenerinle haritada gezip onları yakalayacaksın.' : `Ebe <b>${skn}</b> gözlerini kapattı. Saklananlar kılık değiştiriyor.`}</p>
       <div class="sk-big"><b>${v.readyCount}/${v.hiderCount}</b><span>saklanan hazır</span></div>
-      <ul class="sk-rules"><li>🔍 Arama hakkı: <b>${v.probesMax ? v.probesMax : 'Sınırsız'}</b>${v.probesMax ? '' : ' (boş arama −3 sn)'}</li><li>⏱ Arama süresi: <b>${v.seekS} sn</b></li><li>💡 Süslerle aynı görünen ama biraz farklı duran eşyalara dikkat!</li></ul>`;
+      <ul class="sk-rules"><li>🔦 Fener ışığında her şey net, gerisi karanlık</li><li>✋ Yakalama hakkı: <b>${v.probesMax ? v.probesMax : 'Sınırsız'}</b>${v.probesMax ? '' : ' (boş deneme −3 sn)'}</li><li>🌡️ Turda bir kez Sıcak-Soğuk kullanabilirsin</li><li>⏱ Arama süresi: <b>${v.seekS} sn</b></li></ul>`;
     fab.innerHTML = '';
   } else if (built === 'seek') {
     const found = v.found || [];
     if (v.role === 'seeker') {
-      info.innerHTML = `<h3 class="sk-h">🔍 Ara!</h3><p class="sk-p">Şüphelendiğin eşyaya <b>dokun</b>: büyüteç dairesinin içinde bir saklanan varsa bulunur. ${v.probesMax ? 'Boş aramalar hak götürür.' : 'Boş arama 3 saniye götürür.'}</p>
-        <div class="sk-big"><b>${v.probesLeft == null ? '∞' : v.probesLeft}</b><span>${v.probesLeft == null ? 'sınırsız arama' : 'arama hakkı kaldı'}</span></div>${foundList(found, v)}`;
-      fab.innerHTML = `<button type="button" class="sk-fbtn ara ${armed ? 'on' : ''}" data-act="arm">🔍 ARA <small>${armed ? 'açık' : 'kapalı'}</small></button>`;
+      info.innerHTML = `<h3 class="sk-h">🔦 Ara ve yakala!</h3><p class="sk-p">${isTouch() ? 'Sol alttaki kolla yürü (ya da haritaya dokun), şüpheli eşyanın yanına gelince <b>YAKALA</b>!' : '<b>WASD / oklar</b> ile yürü ya da haritaya tıkla. Yakındaki bir eşyaya tıkla veya <b>boşluk</b> tuşuyla önündeki daireyi yakala. <b>H</b>: Sıcak-Soğuk.'} ${v.probesMax ? 'Boş denemeler hak götürür.' : 'Boş deneme 3 saniye götürür.'}</p>
+        <div class="sk-big"><b>${v.probesLeft == null ? '∞' : v.probesLeft}</b><span>${v.probesLeft == null ? 'sınırsız deneme' : 'yakalama hakkı kaldı'}</span></div>${foundList(found, v)}`;
+      fab.innerHTML = '';
     } else if (v.role === 'hider') {
       const m = v.mine || {};
-      info.innerHTML = `<h3 class="sk-h">${m.found ? '💥 Bulundun!' : '🤫 Kıpırdama!'}</h3><p class="sk-p">${m.found ? 'Artık izleyicisin. Bakalım diğerleri dayanabilecek mi?' : `Ebe <b>${skn}</b> arıyor. Aramaları canlı görüyorsun. Sona kadar dayanırsan +150 puan!`}</p>
-        ${m.found ? '' : `<p class="sk-tip">🔊 <b>Ses çıkar</b>: Ebe'nin ekranında yakınında bir ses dalgası belirir. Bulunmazsan +50 bonus!</p>`}${foundList(found, v)}`;
-      fab.innerHTML = m.found ? '' : `<button type="button" class="sk-fbtn taunt" data-act="taunt" ${m.taunt ? 'disabled' : ''}>🔊 ${m.taunt ? 'Ses çıkardın' : 'Ses çıkar'} <small>+50</small></button>`;
+      info.innerHTML = `<h3 class="sk-h">${m.found ? '💥 Bulundun!' : '🤫 Kıpırdama!'}</h3><p class="sk-p">${m.found ? 'Artık izleyicisin. Bakalım diğerleri dayanabilecek mi?' : `Ebe <b>${skn}</b> fenerle geziniyor; onu canlı görüyorsun. Sona kadar dayanırsan +150 puan!`}</p>
+        ${m.found ? '' : `<p class="sk-tip">🏃 <b>Kaç!</b> Turda bir kez başka bir yere geçebilirsin (Ebe'nin yanına değil). Arkanda 3 saniyelik ayak izi kalır.<br>🔊 <b>Ses çıkar</b>: bulunmazsan +50 bonus!</p>`}${foundList(found, v)}`;
+      fab.innerHTML = m.found ? '' : `<button type="button" class="sk-fbtn flee ${fleeMode ? 'on' : ''}" data-act="flee" ${m.fled ? 'disabled' : ''}>🏃 ${m.fled ? 'Kaçtın' : fleeMode ? 'Yeni yere dokun' : 'Kaç!'}</button><button type="button" class="sk-fbtn taunt" data-act="taunt" ${m.taunt ? 'disabled' : ''}>🔊 ${m.taunt ? 'Ses çıktı' : 'Ses'} <small>+50</small></button>`;
     } else { info.innerHTML = `<h3 class="sk-h">👀 İzliyorsun</h3><p class="sk-p">Ebe <b>${skn}</b> arıyor.</p>${foundList(found, v)}`; fab.innerHTML = ''; }
   } else if (built === 'reveal') {
     const L2 = v.last || { rows: [] };
-    const why = { all: 'Ebe herkesi buldu!', time: 'Süre doldu!', probes: 'Arama hakları bitti!', left: 'Ebe oyundan düştü.', skip: 'Ebe bağlı değildi, tur geçildi.' }[L2.reason] || 'Tur bitti';
+    const why = { all: 'Ebe herkesi buldu!', time: 'Süre doldu!', probes: 'Yakalama hakları bitti!', left: 'Ebe oyundan düştü.', skip: 'Ebe bağlı değildi, tur geçildi.' }[L2.reason] || 'Tur bitti';
     const rows = L2.rows.slice().sort((a, b) => b.pts - a.pts);
     info.innerHTML = `<h3 class="sk-h">${v.phase === 'over' ? '🏆 Oyun bitti' : `🎉 Tur ${v.round}/${v.total} bitti`}</h3><p class="sk-p">${why} <b>${L2.foundN || 0}/${L2.total || 0}</b> saklanan bulundu.</p>
       <ol class="sk-res">${rows.map(r => { const p = v.players[r.pi]; return `<li style="--pc:${p.color}"><span class="av" style="--pc:${p.color}">${initial(p.name)}</span><span class="sk-rn"><b>${r.role === 'seeker' ? '👁 ' : r.found ? '💥 ' : '🦎 '}${esc(p.name)}</b><small>${esc(r.note)}</small></span><span class="sk-pts">+${r.pts}</span></li>`; }).join('')}</ol>
@@ -1635,14 +2349,25 @@ function renderBlack() {
   q('.sk-bh').textContent = V.phase === 'come' ? 'Hazır ol!' : V.role === 'seeker' ? 'Gözlerini kapat!' : 'Saklanıyorlar…';
   q('.sk-bready').textContent = `${V.readyCount}/${V.hiderCount} kişi hazır`;
 }
+function showIntro(v) {
+  const el = q('.sk-intro'); if (!el) return;
+  const sk = v.players[v.seeker] || { name: '?', color: '#fff' }, map = MAPS[v.mapId];
+  el.innerHTML = `<div class="sk-icard"><small>TUR ${v.round}/${v.total}</small><h3>${map.icon} ${esc(map.name)}</h3>
+    <div class="sk-iebe"><canvas width="120" height="96"></canvas><div><span>Ebe</span><b style="color:${sk.color}">${esc(sk.name)}${v.seeker === v.me ? ' (sen!)' : ''}</b></div></div>
+    <div class="sk-ichips"><span>🦎 Saklanma ${v.hideS} sn</span><span>🔦 Arama ${v.seekS} sn</span><span>✋ ${v.probesMax ? v.probesMax + ' hak' : 'Sınırsız'}</span></div>
+    <p>${v.role === 'seeker' ? 'Gözlerini kapat ve say!' : v.role === 'hider' ? 'Bir yer seç, eşyaya dönüş, boyan!' : 'İzle ve eğlen!'}</p></div>`;
+  el.hidden = false; el.classList.remove('bye');
+  const c = el.querySelector('canvas'), g = c.getContext('2d'); g.clearRect(0, 0, 120, 96); drawChameleon(g, 58, 46, 46, sk.color, 0, v.role !== 'hider' && v.seeker === v.me);
+  clearTimeout(introT); introT = setTimeout(() => { if (!el) return; el.classList.add('bye'); introT = setTimeout(() => { if (el) { el.hidden = true; el.classList.remove('bye'); } }, 380); }, 2300);
+}
 function hudTick() {
   if (!V || !root) return;
-  const left = Math.max(0, deadline - now()), secs = Math.ceil(left / 1000);
+  const left = Math.max(0, V.endsAt ? V.endsAt - hostClock() : deadline - now()), secs = Math.ceil(left / 1000);
   const tm = q('.sk-timer b'); if (tm) tm.textContent = V.phase === 'over' ? '—' : mmss(secs);
   const tm2 = q('.sk-stimer b'); if (tm2) tm2.textContent = V.phase === 'over' ? '—' : mmss(secs);
-  q('.sk-stimer').classList.toggle('urgent', (V.phase === 'hide' || V.phase === 'seek') && secs <= 10);
-  const bar = q('.sk-bar i'); if (bar) bar.style.width = (V.phase === 'over' ? 0 : clamp(left / (V.dur || 1), 0, 1) * 100) + '%';
   const urgent = (V.phase === 'hide' || V.phase === 'seek') && secs <= 10;
+  q('.sk-stimer').classList.toggle('urgent', urgent);
+  const bar = q('.sk-bar i'); if (bar) bar.style.width = (V.phase === 'over' ? 0 : clamp(left / (V.dur || 1), 0, 1) * 100) + '%';
   q('.sk-timer').classList.toggle('urgent', urgent); q('.sk-bar').classList.toggle('urgent', urgent);
   q('.sk-bar').dataset.ph = V.phase;
   const cnt = q('.sk-count'); if (cnt) cnt.textContent = secs;
@@ -1657,26 +2382,53 @@ function render(v) {
   const prevPhase = V ? `${V.round}:${V.phase}` : '';
   V = v;
   if (!v || !v.mapId) return;
+  v._at = now();
   ensureScene(v.mapId, v.seed);
   const kind = layoutKind(v);
   const pk = `${v.round}:${v.phase}`;
   if (v.role === 'hider' && v.phase === 'hide') {
-    if (draftFor !== String(v.round)) { draft = Object.assign({}, v.mine, { spot: v.mine.spot ? { ...v.mine.spot } : null }); draftFor = String(v.round); picking = false; tab = draft.spot ? 'sekil' : 'yer'; slot = 'c1'; }
+    if (draftFor !== String(v.round)) { draft = Object.assign({}, v.mine, { spot: v.mine.spot ? { ...v.mine.spot } : null }); draftFor = String(v.round); picking = false; tab = draft.spot ? 'sekil' : 'yer'; slot = 'c1'; sheetOpen = true; }
     else if (v.mine.ready) { draft = Object.assign({}, v.mine, { spot: v.mine.spot ? { ...v.mine.spot } : null }); }
   }
   if (built !== kind) buildSide(kind);
-  root.querySelector('.sk').dataset.kind = kind; root.querySelector('.sk').dataset.role = v.role;
+  const skEl = root.querySelector('.sk');
+  skEl.dataset.kind = kind; skEl.dataset.role = v.role; skEl.classList.toggle('sheet-min', kind === 'hide' && !sheetOpen);
+  skEl.classList.toggle('touch', isTouch());
   if (pk !== phaseKey) {
-    phaseKey = pk; armed = true; picking = picking && v.phase === 'hide';
-    requestAnimationFrame(() => { resize(); if (v.phase === 'reveal') fitReveal(); else if (v.phase === 'seek' || v.phase === 'hide') fitCam(); });
+    phaseKey = pk; picking = picking && v.phase === 'hide'; fleeMode = false; walkTo = null; keys.clear(); glide = null;
+    if (danger) { danger = false; stageEl.classList.remove('danger'); } q('.sk-warn').hidden = true;
+    if (v.phase === 'come' || v.phase === 'seek') { if (v.spos) { sv = { x: v.spos.x, y: v.spos.y, h: v.spos.h || 0, tx: v.spos.x, ty: v.spos.y, th: v.spos.h || 0, walk: 0 }; } }
+    else sv = null;
+    if (v.phase === 'seek' && v.role === 'seeker') { av = v.spos ? { x: v.spos.x, y: v.spos.y, h: v.spos.h || -Math.PI / 2, walk: 0 } : { x: W / 2, y: H - 80, h: -Math.PI / 2, walk: 0 }; resetExplored(); markExplored(av.x, av.y); lastSent = null; }
+    else if (v.phase !== 'seek') av = null;
+    requestAnimationFrame(() => {
+      resize();
+      if (v.phase === 'reveal') fitReveal();
+      else if (v.phase === 'seek' && v.role === 'seeker' && av) centerOn(av.x, av.y, seekZoom());
+      else if (v.phase === 'seek' || v.phase === 'hide') fitCam();
+    });
     if (prevPhase && v.phase === 'hide') anims = [];
-    if (v.phase === 'hide' || v.phase === 'seek') requestAnimationFrame(() => { if (!root) return; const sk = q('.sk'), r = stageEl.getBoundingClientRect(); if (sk.getBoundingClientRect().top < -8 || r.bottom > innerHeight + 2) { try { sk.scrollIntoView({ block: 'start' }); } catch { /* */ } } });
+    if (v.phase === 'reveal') scheduleOutro(v);
+    if (v.phase === 'hide' || v.phase === 'seek') { const fixScroll = () => { if (!root) return; const sk = q('.sk'), r = stageEl.getBoundingClientRect(), top = sk.getBoundingClientRect().top; if (top < -8 && !(phoneW() && v.phase === 'hide') || r.bottom > innerHeight + 2 || (phoneW() && top > 8)) { try { sk.scrollIntoView({ block: 'start' }); } catch { /* */ } } }; requestAnimationFrame(fixScroll); setTimeout(fixScroll, 400); }
     (v.taunts || []).forEach(t => { if (t.age < 3000) anims.push({ t: 'ripple', x: t.x, y: t.y, start: now() - t.age, dur: 2600 }); });
   }
+  if (v.role === 'seeker' && v.phase === 'seek' && !av && v.spos) { av = { x: v.spos.x, y: v.spos.y, h: v.spos.h || 0, walk: 0 }; resetExplored(); }
   deadline = now() + v.left;
   if (pendingHide && pendingHide.round === v.round) { const e = pendingHide; pendingHide = null; onEvent(e); }
   renderHud(); renderSide(); renderBlack(); hudTick();
   requestDraw();
+}
+function scheduleOutro(v) {
+  if (now() - outroAt < 1000) return; outroAt = now();
+  const gap = phoneW() ? 780 : 560;
+  (v.all || []).forEach((a, i) => {
+    const d0 = 500 + i * gap;
+    anims.push({ t: 'out', pi: a.pi, start: now(), delay: d0, dur: 900 });
+    anims.push({ t: 'outfx', x: a.x, y: a.y, start: now(), delay: d0 + 250, dur: 700 });
+    // görünmeyen saklananın üstüne kamera kayar
+    setTimeout(() => { if (!root || !V || V.phase !== 'reveal') return; const vx = (a.x - cam.x) * cam.s, vy = (a.y - cam.y) * cam.s; if (vx < 60 || vy < 70 || vx > sw - 60 || vy > sh - 50) glide = { x0: cam.x, y0: cam.y, x1: a.x - sw / 2 / cam.s, y1: a.y - sh / 2 / cam.s, start: now(), dur: 420 }; }, Math.max(0, d0 - 430));
+    setTimeout(() => { if (root) { if (a.found) Sound.tick(.6); else Sound.good(); } }, d0 + 250);
+  });
 }
 
 /* ---------- düğmeler ---------- */
@@ -1685,94 +2437,108 @@ function onClick(e) {
   const z = e.target.closest('[data-z]');
   if (z) {
     Sound.init(); const k = z.dataset.z;
-    if (k === 'in') zoomAt(sw / 2, sh / 2, 1.35); else if (k === 'out') zoomAt(sw / 2, sh / 2, 1 / 1.35); else if (k === 'all') fitCam('all');
+    if (k === 'in') zoomAt(sw / 2, sh / 2, 1.3); else if (k === 'out') zoomAt(sw / 2, sh / 2, 1 / 1.3); else if (k === 'all') fitCam('all');
     else if (k === 'me') { const m = isHiding() && draft ? draft : V.mine; if (m && m.spot) centerOn(m.spot.x, m.spot.y, Math.max(cam.s, camLimits().cover * 1.2)); }
+    else if (k === 'ebe') { const p = seekerPos(); if (p) centerOn(p.x, p.y); }
     return;
   }
-  const tb = e.target.closest('[data-tab]'); if (tb) { tab = tb.dataset.tab; picking = false; Sound.tick(.3); renderTab(); return; }
+  const tb = e.target.closest('[data-tab]'); if (tb) { tab = tb.dataset.tab; picking = false; Sound.tick(.3); if (!sheetOpen) { sheetOpen = true; root.querySelector('.sk').classList.remove('sheet-min'); requestAnimationFrame(resize); } renderTab(); return; }
   const b = e.target.closest('button'); if (!b || b.disabled) return;
   const act = b.dataset.act;
-  if (act === 'arm') { armed = !armed; Sound.tick(.5); renderSide(); requestDraw(); return; }
+  if (act === 'sheet') { sheetOpen = !sheetOpen; root.querySelector('.sk').classList.toggle('sheet-min', !sheetOpen); Sound.tick(.3); requestAnimationFrame(resize); return; }
+  if (act === 'catch') { doCatch(); return; }
+  if (act === 'hot') { useHot(); return; }
+  if (act === 'flee') { fleeMode = !fleeMode; if (fleeMode) toast('Kaçacağın yere dokun (kırmızı çemberin dışına)'); renderSide(); requestDraw(); return; }
   if (act === 'taunt') { ui.send({ t: 'taunt' }); b.disabled = true; return; }
   if (act === 'unready') { ui.send({ t: 'unready' }); return; }
   if (act === 'goto') { const m = isHiding() ? draft : V.mine; if (m && m.spot) centerOn(m.spot.x, m.spot.y, Math.max(cam.s, camLimits().cover * 1.2)); return; }
   if (!isHiding()) return;
   if (act === 'ready') { if (!draft.spot) return; clearTimeout(sendT); sendCfg(true); ui.send({ t: 'ready' }); Sound.special(); picking = false; return; }
-  if (act === 'randspot') { const sh2 = SHAPES[draft.shape]; let p = null; for (let t = 0; t < 80 && !p; t++) { const x = rnd(60, W - 60), y = rnd(scene.map.top + 50, H - 50); if (scene.decoys.every(d => dist(d.x, d.y, x, y) > propR(d) + sh2.r)) p = { x: Math.round(x), y: Math.round(y) }; } draft.spot = p || clampSpot(scene.map, W / 2, H / 2); centerOn(draft.spot.x, draft.spot.y); sendCfg(true); Sound.whoosh(); updateHideInfo(); return; }
-  if (act === 'pick') { picking = !picking; renderTab(); if (picking) { const r = stageEl.getBoundingClientRect(); if (r.top < 0 || r.bottom > innerHeight) stageEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } toast(picking ? 'Haritada rengini almak istediğin yere dokun' : 'İptal edildi'); return; }
+  if (act === 'randspot') { const sh2 = SHAPES[draft.shape]; let p = null; for (let t = 0; t < 80 && !p; t++) { const x = rnd(60, W - 60), y = rnd(scene.map.top + 50, H - 50); if (scene.decoys.every(d => dist(d.x, d.y, x, y) > propR(d) + sh2.r)) p = { x: Math.round(x), y: Math.round(y) }; } const first = !draft.spot; draft.spot = p || clampSpot(scene.map, W / 2, H / 2); centerOn(draft.spot.x, draft.spot.y); sendCfg(true); Sound.whoosh(); if (first) anims.push({ t: 'poof', start: now(), dur: 700 }); updateHideInfo(); return; }
+  if (act === 'pick') { picking = !picking; renderTab(); toast(picking ? 'Haritada rengini almak istediğin yere dokun' : 'İptal edildi'); if (picking && phoneW() && sheetOpen) { sheetOpen = false; root.querySelector('.sk').classList.add('sheet-min'); requestAnimationFrame(resize); } return; }
+  const before = { c1: draft.c1, c2: draft.c2 };
   if (act === 'rotl' || act === 'rotr') { draft.rot = ((Math.round(draft.rot / 90) * 90 + (act === 'rotr' ? 90 : -90)) % 360 + 360) % 360; }
   else if (act === 'smaller' || act === 'bigger') draft.scale = +clamp(draft.scale + (act === 'bigger' ? .05 : -.05), .8, 1.3).toFixed(2);
-  else if (b.dataset.shape) { draft.shape = b.dataset.shape; Sound.tick(.5); }
+  else if (b.dataset.shape) { if (draft.shape !== b.dataset.shape) { draft.shape = b.dataset.shape; if (draft.spot) { anims = anims.filter(a => a.t !== 'poof'); anims.push({ t: 'poof', start: now(), dur: 700 }); } Sound.special(); } }
   else if (b.dataset.slot) { slot = b.dataset.slot; }
   else if (b.dataset.col) { draft[slot] = b.dataset.col; Sound.tick(.4); }
   else if (b.dataset.pat) { draft.pat = b.dataset.pat; Sound.tick(.4); }
   else return;
-  sendCfg(true); renderTab(); requestDraw();
+  if (before.c1 !== draft.c1 || before.c2 !== draft.c2) paintAnim = { c1: before.c1, c2: before.c2, start: now() };
+  sendCfg(true); renderTab(); updateHideInfo(); requestDraw();
 }
 function onInput(e) {
   const inp = e.target.closest('[data-in]'); if (!inp || !isHiding()) return;
   if (inp.dataset.in === 'rot') { draft.rot = +inp.value; const l = q('[data-val="rot"]'); if (l) l.textContent = draft.rot + '°'; }
   else { draft.scale = +(inp.value / 100).toFixed(2); const l = q('[data-val="scale"]'); if (l) l.textContent = '%' + inp.value; }
-  sendCfg(false); requestDraw();
+  sendCfg(false); updateHideInfo(); requestDraw();
 }
 
 function onEvent(e) {
   if (!root) return;
   const me = ui ? ui.me : -1;
   if (e.t === 'phase') {
-    if (e.ph === 'hide') { if (!V || V.round !== e.round) { pendingHide = e; return; } const seeker = e.seeker === me; banner(seeker ? 'GÖZLERİNİ KAPAT!' : me < 0 ? 'SAKLANIYORLAR' : 'SAKLAN!', seeker ? 'pink' : 'good'); Sound.special(); }
-    else if (e.ph === 'come') { banner('EBE GELİYOR…', 'pink'); Sound.stop(); }
-    else if (e.ph === 'seek') { Sound.whoosh(); banner(e.seeker === me ? 'ARA!' : 'KIPIRDAMA!', e.seeker === me ? 'good' : 'pink'); }
+    if (e.ph === 'hide') {
+      if (!V || V.round !== e.round) { pendingHide = e; return; }
+      showIntro(V); Sound.special();
+    } else if (e.ph === 'come') { pop('Ebe geliyor…', 'pink'); Sound.stop(); }
+    else if (e.ph === 'seek') { Sound.whoosh(); pop(e.seeker === me ? 'ARA!' : 'KIPIRDAMA!', e.seeker === me ? 'good' : 'pink'); }
   } else if (e.t === 'probe') {
     const t = now();
     anims.push({ t: 'probe', x: e.x, y: e.y, start: t, dur: 750 });
     if (e.hit) {
       const mine = e.found.some(f => f.pi === me);
       e.found.forEach(f => anims.push({ t: 'pop', x: f.x, y: f.y, start: t, dur: 950 }));
-      banner(`BULUNDU: ${e.found.map(f => f.name.toLocaleUpperCase('tr-TR')).join(', ')}!`, mine ? 'bad' : 'good');
+      pop(`BULUNDU: ${e.found.map(f => f.name.toLocaleUpperCase('tr-TR')).join(', ')}!`, mine ? 'bad' : 'good');
       if (mine) { Sound.bankrupt(); flash('bad'); } else { Sound.good(); }
       if (cv) { const [x, y] = toClient(e.found[0].x, e.found[0].y); FX.burst(x, y, 40); }
     } else {
       anims.push({ t: 'miss', x: e.x, y: e.y, start: t, dur: 1800 });
       if (V && V.role === 'seeker') Sound.bad();
-      else { Sound.tick(.2); const m = V && V.mine; if (m && m.spot && !m.found && dist(m.spot.x, m.spot.y, e.x, e.y) < PROBE_R + propR(m) + 70) { banner('AZ KALDI!', 'pink'); } }
-      if (e.pen && V && V.role === 'seeker') toast('Boş arama: −3 saniye!', 'bad');
+      else { Sound.tick(.2); const m = V && V.mine; if (m && m.spot && !m.found && dist(m.spot.x, m.spot.y, e.x, e.y) < PROBE_R + propR(m) + 70) pop('AZ KALDI!', 'pink'); }
+      if (e.pen && V && V.role === 'seeker') toast('Boş deneme: −3 saniye!', 'bad');
     }
     requestDraw();
   } else if (e.t === 'taunt') { anims.push({ t: 'ripple', x: e.x, y: e.y, start: now(), dur: 2600 }); Sound.special(); requestDraw(); }
+  else if (e.t === 'hot') { anims.push({ t: 'hotfx', x: e.x, y: e.y, lvl: e.lvl, start: now(), dur: 1600 }); pop(`🌡️ ${e.label}`, e.lvl >= 3 ? 'bad' : 'good'); Sound.special(); }
+  else if (e.t === 'flee') { Sound.whoosh(); pop('🏃 Biri kaçtı!', 'pink'); requestDraw(); }
+  else if (e.t === 'reject') { if (e.pi === me) toast('Çok uzaktan! Biraz daha yaklaş.', 'bad'); }
+  else if (e.t === 'noflee') { if (e.pi === me) { toast('Oraya kaçamazsın — Ebe çok yakın!', 'bad'); renderSide(); } }
   else if (e.t === 'reveal') {
     const msg = { all: 'HEPSİ BULUNDU!', time: 'SÜRE DOLDU!', probes: 'HAKLAR BİTTİ!', left: 'EBE DÜŞTÜ!', skip: 'TUR GEÇİLDİ' }[e.reason] || 'TUR BİTTİ';
-    banner(msg, e.reason === 'all' ? 'good' : 'pink'); Sound.solve(); if (e.reason !== 'all') FX.confetti(50);
+    pop(msg, e.reason === 'all' ? 'good' : 'pink'); Sound.solve(); if (e.reason !== 'all') FX.confetti(50);
   } else if (e.t === 'ready' || e.t === 'unready') { if (e.pi !== me) Sound.tick(.4); }
 }
 
 function mount(r, api) {
-  root = r; ui = api; V = null; built = ''; phaseKey = ''; scene = null; draft = null; draftFor = ''; anims = []; picking = false; armed = true; sw = 300; sh = 300; hover = null; pointers = new Map(); gest = null; lastSec = -1; pendingHide = null;
+  root = r; ui = api; uiRef = api; V = null; built = ''; phaseKey = ''; scene = null; draft = null; draftFor = ''; anims = []; picking = false; sheetOpen = true; fleeMode = false;
+  sw = 300; sh = 300; hover = null; pointers = new Map(); gest = null; lastSec = -1; pendingHide = null; av = null; sv = null; keys = new Set(); walkTo = null; danger = false; paintAnim = null; outroAt = 0;
   mountDom();
   root.addEventListener('click', onClick); root.addEventListener('input', onInput);
   hudT = setInterval(hudTick, 200);
 }
 function unmount() {
   if (root) { root.removeEventListener('click', onClick); root.removeEventListener('input', onInput); }
-  removeEventListener('resize', resize);
+  removeEventListener('resize', resize); removeEventListener('blur', onBlur);
+  document.removeEventListener('keydown', onKey); document.removeEventListener('keyup', onKey);
   if (ro) { ro.disconnect(); ro = null; }
-  clearInterval(hudT); clearTimeout(sendT); clearTimeout(toastT); if (raf) cancelAnimationFrame(raf);
-  raf = 0; root = null; ui = null; V = null; cv = null; cg = null; stageEl = null; lensCv = null; scene = null; built = ''; draft = null;
+  clearInterval(hudT); clearTimeout(sendT); clearTimeout(toastT); clearTimeout(popT); clearTimeout(introT); if (raf) cancelAnimationFrame(raf);
+  raf = 0; root = null; ui = null; uiRef = null; V = null; cv = null; cg = null; stageEl = null; lensCv = null; miniCv = null; scene = null; built = ''; draft = null; av = null; sv = null;
 }
 
 CFX.registerGame(Object.assign({
   id: 'saklambac', name: 'Bukalemun Saklambaç', icon: '🦎', color: '#7ee05a', min: 2, max: 6, hotseat: false, bot: true, localMin: 1,
-  tagline: 'Eşyaya dönüş, kendini boya, Ebe\'ye yakalanma!',
-  rules: 'Ebe gözlerini kapatıp sayarken saklananlar haritada bir yer seçer, bir eşyaya dönüşür ve kendini ortama göre boyar. Sonra Ebe süre ve arama hakkı bitene kadar şüphelendiği yerleri arar. Her tur Ebe değişir; bulan da saklanan da puan toplar.',
+  tagline: 'Eşyaya dönüş, kendini boya, Ebe\'nin fenerine yakalanma!',
+  rules: 'Ebe gözlerini kapatıp sayarken saklananlar haritada bir yer seçer, bir eşyaya dönüşür ve kendini ortama göre boyar. Sonra Ebe el feneriyle haritada gezerek şüphelendiği eşyaları yakalamaya çalışır; saklananlar bir kez kaçabilir. Her tur Ebe değişir; bulan da saklanan da puan toplar.',
   options: [
     { key: 'saklan', label: 'Saklanma süresi', def: '45', choices: [{ v: '30', label: '30 sn' }, { v: '45', label: '45 sn' }, { v: '60', label: '60 sn' }, { v: '90', label: '90 sn' }] },
     { key: 'ara', label: 'Arama süresi', def: '90', choices: [{ v: '60', label: '60 sn' }, { v: '90', label: '90 sn' }, { v: '120', label: '120 sn' }, { v: '180', label: '180 sn' }] },
-    { key: 'hak', label: 'Arama hakkı', def: '12', choices: [{ v: '8', label: '8' }, { v: '12', label: '12' }, { v: '20', label: '20' }, { v: '0', label: 'Sınırsız' }] },
+    { key: 'hak', label: 'Yakalama hakkı', def: '12', choices: [{ v: '8', label: '8' }, { v: '12', label: '12' }, { v: '20', label: '20' }, { v: '0', label: 'Sınırsız' }] },
     { key: 'tur', label: 'Tur', def: '1', choices: [{ v: '1', label: 'Herkes 1 kez Ebe' }, { v: '2', label: 'Herkes 2 kez Ebe' }] },
-    { key: 'harita', label: 'Harita', def: 'lunapark', choices: [{ v: 'lunapark', label: '🎡 Lunapark' }, { v: 'mutfak', label: '🍳 Mutfak' }, { v: 'orman', label: '🏕️ Orman Kampı' }, { v: 'rastgele', label: '🎲 Rastgele' }] }
+    { key: 'harita', label: 'Harita', def: 'lunapark', choices: [{ v: 'lunapark', label: '🎡 Lunapark' }, { v: 'mutfak', label: '🍳 Mutfak' }, { v: 'orman', label: '🏕️ Orman Kampı' }, { v: 'oyuncak', label: '🧸 Oyuncak Odası' }, { v: 'plaj', label: '🏖️ Plaj' }, { v: 'rastgele', label: '🎲 Rastgele' }] }
   ],
-  mount, render, onEvent, unmount,
+  mount, render, onEvent, onFast, unmount,
   // test ve geliştirme için dışa açık yardımcılar
-  _sk: { MAPS, SHAPES, decoysOf, groundAt, propR, PROBE_R, botDisguise, botProbeTarget, W, H, cam: () => cam, scene: () => scene, draft: () => draft, toClient: (x, y) => cv ? toClient(x, y) : null }
+  _sk: { MAPS, SHAPES, decoysOf, groundAt, propR, PROBE_R, REACH, LIGHT_R, FLEE_MIN, SPEED, camoScore, botDisguise, botProbeTarget, W, H, cam: () => cam, scene: () => scene, draft: () => draft, av: () => av, sv: () => sv, toClient: (x, y) => cv ? toClient(x, y) : null }
 }, RULES));
 })();
