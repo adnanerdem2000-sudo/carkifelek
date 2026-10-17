@@ -1,0 +1,174 @@
+/* =========================================================================
+   KOVALAMACA — neon stüdyoda rengârenk, gerçek zamanlı kovalamaca arenası
+   ========================================================================= */
+.g-wrap.kv { grid-template-columns: minmax(0, 1fr); justify-items: stretch; width: 100%; gap: 10px; }
+
+/* ---------- üst bilgi ---------- */
+.kv-hud { display: grid; gap: 8px; min-width: 0; }
+.kv-players { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.kv-chip { padding: 4px 10px 4px 4px; gap: 6px; }
+.kv-chip.me { background: rgba(255,255,255,.1); }
+.kv-chip b small { color: var(--ink-dim); font-weight: 700; }
+.kv-chip .g-num { font-size: 16px; min-width: 1.4em; text-align: right; }
+.kv-chip .g-num small { font-family: var(--font-body); font-weight: 900; font-size: 10px; margin-left: 1px; color: var(--ink-dim); }
+.kv-tag { font-size: 11.5px; font-weight: 900; padding: 3px 7px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--ink-dim); white-space: nowrap; }
+.kv-tag.ebe { background: linear-gradient(90deg, var(--yellow), var(--gold)); color: #3a1500; }
+.kv-tag.hot { background: linear-gradient(90deg, #ff8a3d, #ff3b5c); color: #fff; animation: kvHot .5s ease-in-out infinite alternate; }
+.kv-tag.ice { background: linear-gradient(90deg, #bff3ff, #5ad1ff); color: #06304a; }
+.kv-tag.frz { background: rgba(140,220,255,.2); color: #bff3ff; }
+.kv-tag.bad { background: rgba(255,59,92,.18); color: #ff8fa3; }
+@keyframes kvHot { to { box-shadow: 0 0 12px rgba(255,90,60,.8); } }
+.kv-status { display: flex; justify-content: center; min-width: 0; }
+.kv-status .g-turn { font-size: 14.5px; line-height: 1.25; text-align: center; max-width: 100%; }
+.kv-status .g-turn b { font-weight: 900; }
+.kv-status .g-turn.mine { font-size: 15px; }
+.kv-status .g-turn.mine.hot { background: linear-gradient(90deg, #ffb627, #ff5a3c, #ffb627); background-size: 200% 100%; color: #2a0600; box-shadow: 0 0 22px rgba(255,90,60,.55); }
+.kv-status .g-turn.mine.ice { background: linear-gradient(90deg, #bff3ff, #5ad1ff, #bff3ff); background-size: 200% 100%; color: #06304a; box-shadow: 0 0 22px rgba(90,209,255,.5); }
+
+/* ---------- sahne ---------- */
+.kv-main { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 12px; align-items: start; min-width: 0; }
+.kv-stage { position: relative; height: 620px; min-width: 0; border-radius: 20px; overflow: hidden; background: #160833;
+  border: 3px solid rgba(255,122,89,.65); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 30px rgba(255,122,89,.28);
+  touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; cursor: grab; }
+.kv-stage:active { cursor: grabbing; }
+.kv[data-mode="patates"] .kv-stage { border-color: rgba(255,90,60,.7); }
+.kv[data-mode="dondurma"] .kv-stage { border-color: rgba(90,209,255,.7); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 30px rgba(90,209,255,.28); }
+.kv-cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+.kv-tl { position: absolute; left: 8px; top: 8px; display: grid; gap: 5px; justify-items: start; pointer-events: none; max-width: calc(100% - 200px); }
+.kv-mode { padding: 4px 9px; border-radius: 10px; background: rgba(18,5,46,.66); border: 1px solid rgba(255,255,255,.14); font-weight: 900; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; backdrop-filter: blur(3px); }
+.kv-timer { padding: 4px 10px; border-radius: 11px; background: rgba(18,5,46,.66); border: 1px solid rgba(255,255,255,.18); font-family: var(--font-display); font-size: 16px; backdrop-filter: blur(3px); }
+.kv-timer b { font-weight: 400; color: var(--yellow); font-variant-numeric: tabular-nums; }
+.kv-timer.urgent { border-color: var(--bad); animation: kvPulse .5s ease-in-out infinite alternate; }
+.kv-timer.urgent b { color: #ff8fa3; }
+@keyframes kvPulse { to { box-shadow: 0 0 16px rgba(255,59,92,.7); transform: scale(1.05); } }
+.kv-bar { width: 120px; height: 6px; border-radius: 99px; background: rgba(0,0,0,.45); overflow: hidden; }
+.kv-bar i { display: block; height: 100%; width: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--yellow), #ff7a59); transition: width .2s linear; }
+.kv[data-mode="dondurma"] .kv-bar i { background: linear-gradient(90deg, #bff3ff, #5ad1ff); }
+.kv-fx { display: flex; flex-wrap: wrap; gap: 4px; }
+.kv-fxc { padding: 3px 8px; border-radius: 999px; font-weight: 900; font-size: 12px; background: rgba(18,5,46,.72); border: 1px solid rgba(255,255,255,.2); white-space: nowrap; }
+.kv-fxc.spd { border-color: #ff4f6d; }
+.kv-fxc.inv { border-color: #b8c6ff; }
+.kv-fxc.sh { border-color: #5aa2ff; }
+.kv-fxc.imm { border-color: var(--yellow); }
+
+.kv-mini { position: absolute; right: 8px; top: 8px; width: 176px; height: 121px; border-radius: 12px; border: 2px solid rgba(255,255,255,.6); box-shadow: 0 4px 12px rgba(0,0,0,.45); background: #160833; pointer-events: none; }
+
+/* yüzen joystick */
+.kv-joy { position: absolute; width: 104px; height: 104px; margin: -52px 0 0 -52px; border-radius: 50%; pointer-events: none; z-index: 3;
+  background: radial-gradient(circle, rgba(255,255,255,.14) 0 38%, rgba(255,255,255,.06) 39% 100%); border: 2px solid rgba(255,255,255,.45); box-shadow: 0 0 0 4px rgba(18,5,46,.3); }
+.kv-joy[hidden] { display: none; }
+.kv-joy i { position: absolute; left: 50%; top: 50%; width: 48px; height: 48px; margin: -24px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff1e8, #ff9a6c 45%, #d9481f); box-shadow: 0 4px 10px rgba(0,0,0,.45); }
+.kv-joyhint { position: absolute; left: 16px; bottom: 16px; display: grid; justify-items: center; gap: 4px; pointer-events: none; opacity: .75; animation: kvHint 1.6s ease-in-out infinite; }
+.kv-joyhint[hidden] { display: none; }
+.kv-joyhint i { width: 76px; height: 76px; border-radius: 50%; border: 2px dashed rgba(255,255,255,.55); background: radial-gradient(circle, rgba(255,154,108,.55) 0 30%, rgba(255,255,255,.05) 31%); }
+.kv-joyhint span { font-size: 11.5px; font-weight: 900; padding: 2px 8px; border-radius: 8px; background: rgba(18,5,46,.65); }
+@keyframes kvHint { 50% { transform: translateY(-4px); } }
+
+/* güç düğmesi */
+.kv-item { position: absolute; right: 12px; bottom: 12px; width: 88px; height: 88px; border-radius: 50%; border: 4px solid #fff3b0; cursor: pointer; z-index: 4; padding: 0;
+  display: grid; place-items: center; align-content: center; gap: 0; color: #3a1500; touch-action: manipulation;
+  background: radial-gradient(circle at 40% 30%, #fff6b0, #ffd34a 45%, #ff8a00); box-shadow: 0 6px 0 #9a4600, 0 0 26px rgba(255,170,0,.55); }
+.kv-item canvas { width: 48px; height: 48px; display: block; }
+.kv-item span { font-family: var(--font-display); font-size: 11px; line-height: 1; margin-top: -2px; }
+.kv-item:active:not(:disabled) { transform: translateY(4px) scale(.96); box-shadow: 0 2px 0 #9a4600; }
+.kv-item:disabled { filter: grayscale(.85) brightness(.6); cursor: default; opacity: .75; box-shadow: 0 4px 0 #3a2a10; }
+.kv-item[hidden] { display: none; }
+.kv-item.got { animation: kvGot .6s cubic-bezier(.2,1.6,.4,1); }
+@keyframes kvGot { 0% { transform: scale(.6); } 100% { transform: scale(1); } }
+
+.kv-pop { position: absolute; left: 50%; top: 34%; transform: translate(-50%, -50%) scale(.6); opacity: 0; pointer-events: none; z-index: 5; font-family: var(--font-display); font-size: clamp(24px, 6vw, 44px); color: var(--yellow);
+  text-shadow: 0 3px 0 #7a2a00, 0 0 18px rgba(255,200,0,.6); white-space: nowrap; text-align: center; }
+.kv-pop.show { animation: kvPop 1.15s ease-out forwards; }
+.kv-pop.good { color: var(--good); text-shadow: 0 3px 0 #04502a, 0 0 18px rgba(43,255,136,.6); }
+.kv-pop.bad { color: #ff7a90; text-shadow: 0 3px 0 #4a0010, 0 0 18px rgba(255,59,92,.7); }
+.kv-pop.pink { color: #ffd6ee; text-shadow: 0 3px 0 #6d0b4c, 0 0 18px var(--pink); }
+.kv-pop.ice { color: #dff8ff; text-shadow: 0 3px 0 #1a4a7a, 0 0 18px rgba(90,209,255,.8); }
+@keyframes kvPop { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.6); } 18% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } 30% { transform: translate(-50%, -50%) scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -75%) scale(.95); } }
+.kv-toast { position: absolute; left: 50%; bottom: 112px; transform: translate(-50%, 10px); opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none; z-index: 5; max-width: 80%;
+  padding: 8px 14px; border-radius: 14px; background: rgba(18,5,46,.92); border: 2px solid var(--teal); font-weight: 900; font-size: 14px; text-align: center; }
+.kv-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.kv-toast.bad { border-color: var(--bad); }
+.kv-toast.ok { border-color: var(--good); }
+
+/* geri sayım ve tur sonu kartları */
+.kv-count, .kv-end { position: absolute; inset: 0; display: grid; place-items: center; padding: 12px; z-index: 6; pointer-events: none; }
+.kv-count { background: radial-gradient(circle, rgba(30,8,70,.35), rgba(8,2,22,.55)); }
+.kv-end { background: radial-gradient(circle, rgba(30,8,70,.45), rgba(8,2,22,.62)); overflow-y: auto; }
+.kv-count[hidden], .kv-end[hidden] { display: none; }
+.kv-ccard, .kv-ecard { width: min(360px, 94%); text-align: center; padding: 14px 16px; border-radius: 22px; background: linear-gradient(170deg, #3b1385, #1a0b3d); border: 3px solid var(--yellow); box-shadow: 0 0 34px rgba(255,225,74,.45); animation: kvCard .45s cubic-bezier(.2,1.5,.4,1) both; }
+.kv[data-mode="dondurma"] .kv-ccard { border-color: #5ad1ff; box-shadow: 0 0 34px rgba(90,209,255,.45); }
+.kv[data-mode="patates"] .kv-ccard { border-color: #ff7a59; box-shadow: 0 0 34px rgba(255,122,89,.45); }
+@keyframes kvCard { 0% { transform: scale(.6) rotate(-4deg); } 100% { transform: none; } }
+.kv-ccard small, .kv-ecard small { font-family: var(--font-display); color: var(--teal); letter-spacing: .14em; font-size: 11.5px; }
+.kv-ccard h3, .kv-ecard h3 { margin: 2px 0 4px; font-family: var(--font-display); font-weight: 400; font-size: 24px; color: var(--yellow); line-height: 1.15; }
+.kv-cwho { margin: 0; font-weight: 800; color: var(--ink); }
+.kv-crole { margin: 6px 0 0; font-family: var(--font-display); font-size: 17px; color: var(--ink); }
+.kv-crole.me { color: var(--yellow); text-shadow: 0 0 14px rgba(255,200,0,.6); }
+.kv-cnum { display: block; font-family: var(--font-display); font-weight: 400; font-size: 64px; line-height: 1.05; color: #fff; text-shadow: 0 0 22px var(--pink), 0 4px 0 #6d0b4c; font-variant-numeric: tabular-nums; animation: kvBeat 1s ease-in-out infinite; }
+@keyframes kvBeat { 0% { transform: scale(1.2); } 30% { transform: scale(1); } }
+.kv-chint { margin: 0; font-size: 12.5px; font-weight: 800; color: var(--ink-dim); }
+.kv-esub { margin: 0 0 8px; font-weight: 800; color: var(--ink-dim); }
+.kv-enext { margin: 8px 0 0; font-weight: 800; color: var(--ink-dim); font-size: 13px; }
+.kv-res { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; text-align: left; }
+.kv-res li { display: flex; align-items: center; gap: 8px; padding: 6px 9px; border-radius: 13px; background: rgba(0,0,0,.3); border: 2px solid color-mix(in srgb, var(--pc) 45%, transparent); }
+.kv-res li.win { background: linear-gradient(90deg, rgba(255,225,74,.18), rgba(0,0,0,.3)); border-color: var(--yellow); }
+.kv-res .av { width: 28px; height: 28px; font-size: 13px; }
+.kv-rn { display: grid; min-width: 0; flex: 1; }
+.kv-rn b { font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kv-rn small { font-size: 11.5px; color: var(--ink-dim); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kv-pts { font-family: var(--font-display); color: var(--good); font-size: 16px; white-space: nowrap; }
+
+/* ---------- yan panel ---------- */
+.kv-side { display: grid; gap: 10px; align-content: start; max-height: 780px; overflow-y: auto; overscroll-behavior: contain; }
+.kv-h { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 19px; color: var(--yellow); }
+.kv-map { margin: 0; font-weight: 800; font-size: 13px; color: var(--ink-dim); }
+.kv-sub { margin: 0; color: var(--ink-dim); font-weight: 700; font-size: 13px; }
+.kv-rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; font-size: 13.5px; line-height: 1.35; }
+.kv-rules li { padding: 6px 10px; border-radius: 10px; background: rgba(0,0,0,.22); }
+.kv-legend { display: grid; gap: 4px; }
+.kv-lh { font-size: 12px; font-weight: 900; color: var(--ink-dim); letter-spacing: .06em; text-transform: uppercase; }
+.kv-li { display: flex; align-items: center; gap: 8px; padding: 3px 6px; border-radius: 10px; background: rgba(0,0,0,.18); }
+.kv-li canvas { width: 32px; height: 32px; flex: none; }
+.kv-li span { display: grid; min-width: 0; }
+.kv-li b { font-size: 13px; }
+.kv-li small { font-size: 11.5px; color: var(--ink-dim); font-weight: 700; }
+.kv-keys { margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--ink-dim); padding: 7px 10px; border-radius: 12px; background: rgba(0,0,0,.25); border-left: 3px solid #ff7a59; }
+.kv-board { display: grid; gap: 5px; }
+
+/* Uzun oyun adı + oda çipi telefonda sağdaki düğmeleri taşırmasın */
+body[data-game="kovalamaca"] .gtop .top-actions { flex: none; }
+body[data-game="kovalamaca"] .gtop .gtitle { flex: 1 1 auto; min-width: 0; }
+
+@media (max-width: 980px) {
+  .kv-main { grid-template-columns: minmax(0, 1fr); }
+  .kv-side { max-height: none; overflow: visible; }
+}
+@media (max-width: 760px) {
+  .g-wrap.kv { gap: 6px; }
+  .kv-stage { border-radius: 16px; border-width: 2px; }
+  .kv-mini { width: 112px; height: 77px; border-radius: 10px; }
+  .kv-tl { max-width: calc(100% - 136px); }
+  .kv-timer { font-size: 14px; padding: 3px 8px; }
+  .kv-bar { width: 92px; }
+  .kv-item { width: 80px; height: 80px; right: 10px; bottom: 10px; }
+  .kv-item canvas { width: 44px; height: 44px; }
+  .kv-toast { bottom: 100px; font-size: 13px; }
+}
+@media (max-width: 560px) {
+  .kv-hud { gap: 5px; }
+  .kv-players { gap: 4px; }
+  .kv-chip { padding: 3px 7px 3px 3px; gap: 4px; border-radius: 12px; }
+  .kv-chip .av { width: 22px; height: 22px; font-size: 11px; }
+  .kv-chip b { font-size: 12px; max-width: 58px; }
+  .kv-chip b small { display: none; }
+  .kv-chip .g-num { font-size: 13px; }
+  .kv-tag { font-size: 10px; padding: 2px 5px; }
+  .kv-status .g-turn { font-size: 12.5px; padding: 6px 10px; }
+  .kv-status .g-turn.mine { font-size: 12.5px; }
+  .kv-ccard h3, .kv-ecard h3 { font-size: 20px; }
+  .kv-cnum { font-size: 54px; }
+  .kv-mode { font-size: 11px; }
+  .kv-players.compact .kv-chip:not(.me) b { display: none; }
+  .kv-players.compact .kv-chip { padding-right: 8px; }
+}

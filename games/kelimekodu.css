@@ -1,0 +1,261 @@
+/* ===================== KELİME KODU (kod-) ===================== */
+.kod { width: 100%; --m: #3d8bff; --r: #ff4d5e; --paper: #f1e1b0; --paper2: #dcc285; --pink2: #ff7ab8; }
+.kod-body { width: 100%; min-width: 0; }
+.kod .g-status { min-height: 44px; }
+
+/* ---------- kurulum ---------- */
+.kod-setup { display: grid; gap: 12px; width: min(100%, 860px); margin: 0 auto; }
+.kod-shead { display: flex; gap: 12px; align-items: flex-start; background: linear-gradient(170deg, rgba(241,225,176,.16), rgba(0,0,0,.3)); border-color: rgba(241,225,176,.35); }
+.kod-shead b { font-family: var(--font-display); font-weight: 400; letter-spacing: .06em; color: var(--paper); }
+.kod-shead p { margin: 4px 0 0; color: var(--ink-dim); font-size: 13.5px; line-height: 1.4; }
+.kod-shead p b { font-family: var(--font-body); font-weight: 900; letter-spacing: 0; color: var(--ink); }
+.kod-folder { font-size: 34px; line-height: 1; }
+.kod-scols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.kod-scol { --tc: var(--m); display: grid; gap: 10px; align-content: start; padding: 12px; border-radius: var(--radius); min-width: 0;
+  background: linear-gradient(170deg, color-mix(in srgb, var(--tc) 22%, rgba(0,0,0,.4)), rgba(0,0,0,.35)); border: 2px solid color-mix(in srgb, var(--tc) 55%, transparent); }
+.kod-scol h3 { margin: 0; display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 400; font-size: 18px; letter-spacing: .04em; color: #fff; text-shadow: 0 0 12px var(--tc); }
+.kod-scol h3 small { margin-left: auto; font-family: var(--font-body); font-weight: 800; font-size: 12px; color: var(--ink-dim); text-shadow: none; }
+.kod-dot { width: 14px; height: 14px; border-radius: 4px; background: var(--tc); box-shadow: 0 0 10px var(--tc); transform: rotate(45deg); }
+.kod-slist { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.kod-slist li { display: flex; align-items: center; gap: 8px; padding: 5px 6px 5px 6px; border-radius: 12px; background: rgba(0,0,0,.3); min-height: 48px; min-width: 0; }
+.kod-slist li.me { box-shadow: inset 0 0 0 2px rgba(255,255,255,.45); }
+.kod-slist li.cap { background: linear-gradient(90deg, color-mix(in srgb, var(--tc) 35%, transparent), rgba(0,0,0,.3)); }
+.kod-slist li.off { opacity: .55; }
+.kod-slist li b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14.5px; }
+.kod-slist li b small { color: var(--ink-dim); font-weight: 700; }
+.kod-slist .kod-empty { color: var(--ink-dim); font-size: 13px; justify-content: center; }
+.kod-captag { font-size: 10.5px; font-weight: 900; letter-spacing: .05em; padding: 3px 7px; border-radius: 8px; background: var(--yellow); color: #2a1600; white-space: nowrap; }
+.kod-rowctl { display: flex; gap: 4px; flex: none; }
+.kod-mini { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); color: var(--ink); font-size: 18px; font-weight: 900; cursor: pointer; }
+.kod-mini:hover { background: rgba(255,255,255,.16); }
+.kod-join { width: 100%; min-height: 46px; }
+.kod-sfoot { display: grid; gap: 10px; justify-items: center; text-align: center; }
+.kod-smsg { margin: 0; color: var(--ink-dim); font-weight: 700; font-size: 13.5px; }
+.kod-smsg.bad { color: var(--bad); }
+.kod-sbtns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.kod-sbtns .btn { min-height: 48px; }
+
+/* ---------- oyun yerleşimi ---------- */
+.kod-game { display: grid; gap: 10px; width: 100%; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "s0 s1" "c c" "log log"; }
+.kod-s0 { grid-area: s0; min-width: 0; } .kod-s1 { grid-area: s1; min-width: 0; }
+.kod-center { grid-area: c; min-width: 0; display: grid; gap: 10px; }
+.kod-log { grid-area: log; }
+
+/* takım panelleri */
+.kod-team { --tc: var(--m); height: 100%; display: grid; gap: 6px; align-content: start; padding: 8px 10px; border-radius: 16px; min-width: 0;
+  background: linear-gradient(170deg, color-mix(in srgb, var(--tc) 26%, rgba(0,0,0,.45)), rgba(0,0,0,.4)); border: 2px solid color-mix(in srgb, var(--tc) 40%, transparent); transition: box-shadow .3s, border-color .3s; }
+.kod-team.active { border-color: var(--tc); box-shadow: 0 0 20px color-mix(in srgb, var(--tc) 70%, transparent), inset 0 0 0 1px var(--tc); }
+.kod-thead { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.kod-tname { font-family: var(--font-display); font-size: 16px; letter-spacing: .04em; color: #fff; text-shadow: 0 0 10px var(--tc); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.kod-wins { display: inline-flex; gap: 1px; font-size: 13px; color: rgba(255,255,255,.25); }
+.kod-wins .on { color: var(--yellow); text-shadow: 0 0 8px var(--gold); }
+.kod-left { margin-left: auto; display: flex; align-items: baseline; gap: 1px; flex: none; }
+.kod-left b { font-family: var(--font-display); font-weight: 400; font-size: 26px; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px var(--tc); }
+.kod-left small { color: var(--ink-dim); font-weight: 800; font-size: 12px; }
+.kod-bar { height: 6px; border-radius: 4px; background: rgba(0,0,0,.45); overflow: hidden; }
+.kod-bar i { display: block; height: 100%; background: var(--tc); box-shadow: 0 0 8px var(--tc); transition: width .5s; }
+.kod-mem { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.kod-mem li { display: flex; align-items: center; gap: 4px; min-width: 0; max-width: 100%; }
+.kod-mem li.off { opacity: .45; }
+.kod-mem li.me .kod-mn { color: #fff; text-decoration: underline; text-decoration-color: var(--tc); text-underline-offset: 3px; }
+.kod-av { width: 24px; height: 24px; font-size: 12px; }
+.kod-mn { font-size: 12.5px; font-weight: 800; color: var(--ink-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 76px; }
+.kod-mem li.cap .kod-mn { color: var(--yellow); }
+.kod-capb { font-size: 13px; }
+.kod-hist { display: none; list-style: none; margin: 4px 0 0; padding: 6px 0 0; border-top: 1px dashed rgba(255,255,255,.18); gap: 5px; }
+.kod-hist li, .kod-loglist li { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; }
+.kod-hist li b, .kod-loglist li b { font-family: "Courier New", ui-monospace, monospace; font-weight: 900; letter-spacing: .02em; color: #fff; }
+.kod-n { min-width: 22px; height: 22px; padding: 0 5px; border-radius: 7px; display: inline-grid; place-items: center; font-family: var(--font-display); font-size: 12px; background: var(--tc, var(--m)); color: #fff; }
+.kod-res { display: inline-flex; gap: 3px; }
+.kod-rc { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+.kod-rc.k0 { background: var(--m); } .kod-rc.k1 { background: var(--r); } .kod-rc.k2 { background: #cdb88a; } .kod-rc.k3 { background: #000; box-shadow: 0 0 0 1.5px var(--r); }
+.kod-empty { color: var(--ink-dim); font-size: 12.5px; }
+
+/* ipucu çubuğu */
+.kod-cluebar { --tc: var(--m); display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; padding: 8px 12px; min-height: 58px; border-radius: 16px; min-width: 0;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--tc) 28%, rgba(0,0,0,.55)), rgba(0,0,0,.45)); border: 2px solid color-mix(in srgb, var(--tc) 60%, transparent); position: relative; overflow: hidden; }
+.kod-cluebar.has { animation: kodClueIn .5s cubic-bezier(.2,1.4,.4,1); }
+.kod-cluebar.end { --tc: var(--gold); }
+@keyframes kodClueIn { from { transform: scale(.94); filter: brightness(1.8); } }
+.kod-cl { font-size: 10.5px; font-weight: 900; letter-spacing: .18em; color: var(--ink-dim); padding: 3px 6px; border: 1px solid rgba(255,255,255,.25); border-radius: 6px; }
+.kod-cw { font-family: var(--font-display); font-size: clamp(20px, 5.4vw, 32px); line-height: 1.05; color: #fff; text-shadow: 0 0 14px var(--tc); min-width: 0; overflow-wrap: anywhere; }
+.kod-cn { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; flex: none; font-family: var(--font-display); font-size: 22px; color: #fff; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--tc) 50%, #fff), var(--tc)); box-shadow: 0 0 14px var(--tc), inset 0 -3px 0 rgba(0,0,0,.25); }
+.kod-cwait { font-weight: 800; color: var(--ink); font-size: 15px; min-width: 0; }
+.kod-ell { display: inline-block; animation: kodBlink 1.2s steps(2) infinite; }
+@keyframes kodBlink { 50% { opacity: .2; } }
+.kod-dots { display: inline-flex; gap: 4px; }
+.kod-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--tc); box-shadow: 0 0 6px var(--tc); }
+.kod-dots i.used { background: rgba(255,255,255,.18); box-shadow: none; }
+.kod-timer { margin-left: auto; font-weight: 900; font-variant-numeric: tabular-nums; padding: 5px 10px; border-radius: 999px; background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.2); white-space: nowrap; }
+.kod-timer.low { color: #fff; background: var(--bad); border-color: var(--bad); animation: kodPulse .9s ease-in-out infinite; }
+@keyframes kodPulse { 50% { transform: scale(1.08); } }
+
+/* kaptan anahtarı uyarısı (tek cihaz) */
+.kod-keybar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 8px 10px 8px 14px; border-radius: 14px;
+  background: repeating-linear-gradient(-45deg, rgba(255,63,164,.28) 0 12px, rgba(0,0,0,.4) 12px 24px); border: 2px solid var(--pink); font-weight: 800; }
+.kod-keybar .btn { min-height: 44px; padding: 8px 16px; }
+
+/* ---------- tahta ---------- */
+.kod-boardwrap { position: relative; min-width: 0; }
+.kod-board { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(5px, 1.3vw, 10px); padding: clamp(6px, 1.6vw, 14px); border-radius: 18px;
+  background: radial-gradient(120% 90% at 50% 0%, #3b2a14, #1e140a 70%), #1e140a; box-shadow: inset 0 0 0 2px rgba(241,225,176,.18), inset 0 0 30px rgba(0,0,0,.7), 0 10px 30px rgba(0,0,0,.45); }
+.kod-board.noanim .kod-inner, .kod-board.noanim .kod-card { transition: none !important; animation: none !important; }
+.kod-card { position: relative; aspect-ratio: 5 / 4; perspective: 700px; border-radius: 8px; outline: none; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+.kod-inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .7s cubic-bezier(.3,1.35,.5,1); }
+.kod-card.rev .kod-inner { transform: rotateY(180deg); }
+.kod-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 4px 8px 8px 8px; overflow: visible; display: grid; place-items: center; }
+.kod-front { color: #2a1b08; background: linear-gradient(176deg, var(--paper), var(--paper2));
+  box-shadow: 0 3px 0 #8f6f30, 0 6px 12px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.6); transition: transform .15s, box-shadow .2s, filter .2s; }
+.kod-tab { position: absolute; top: -5px; left: 9%; width: 36%; height: 7px; border-radius: 5px 5px 0 0; background: var(--paper); box-shadow: inset 0 1px 0 rgba(255,255,255,.6); }
+.kod-clip { position: absolute; top: -6px; right: 12%; width: 8px; height: 18px; border: 2px solid #b9c2cc; border-radius: 6px; transform: rotate(8deg); box-shadow: 0 1px 2px rgba(0,0,0,.4); }
+.kod-word { max-width: 94%; padding: 2px 4px; border-radius: 2px; background: #fffaf0; border: 1px solid rgba(60,40,10,.18); box-shadow: 0 1px 0 rgba(0,0,0,.12);
+  font-family: "Courier New", ui-monospace, Menlo, monospace; font-weight: 900; font-size: clamp(10.5px, 2.8vw, 17px); letter-spacing: -.02em; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+.kod-card.l .kod-word { font-size: clamp(9.5px, 2.45vw, 16px); letter-spacing: -.04em; }
+.kod-card.xl .kod-word { font-size: clamp(9px, 2.2vw, 15px); letter-spacing: -.05em; padding: 2px 2px; }
+.kod-keylab { position: absolute; bottom: 5px; left: 0; right: 0; text-align: center; font-size: 9.5px; font-weight: 900; letter-spacing: .08em; opacity: .85; }
+.kod-props { position: absolute; top: 3px; left: 4px; display: flex; flex-direction: row; z-index: 2; }
+.kod-pav { width: 18px; height: 18px; font-size: 10px; margin-right: -5px; box-shadow: 0 0 0 1.5px #fff, 0 1px 3px rgba(0,0,0,.5); }
+
+/* arka yüz: açılan kart */
+.kod-back { transform: rotateY(180deg); align-content: center; gap: 2px; overflow: hidden; color: rgba(255,255,255,.88);
+  box-shadow: 0 3px 0 rgba(0,0,0,.45), 0 6px 12px rgba(0,0,0,.45), inset 0 0 0 2px rgba(255,255,255,.15); }
+.k0 .kod-back { background: radial-gradient(circle at 30% 20%, #6aa6ff, #2457c9 60%, #173a8c); --kb: #2457c9; }
+.k1 .kod-back { background: radial-gradient(circle at 30% 20%, #ff8a95, #d22b3e 60%, #8f1525); --kb: #d22b3e; }
+.k2 .kod-back { background: radial-gradient(circle at 30% 20%, #efe2bf, #cdb88a 65%, #a8915f); color: #5d4519; --kb: #cdb88a; }
+.k3 .kod-back { background: radial-gradient(circle at 50% 40%, #3a0c12, #0b0406 70%); color: #ff4d5e; --kb: #0b0406; box-shadow: 0 0 18px rgba(255,59,92,.7), inset 0 0 0 2px #ff3b5c; }
+.kod-bst { position: relative; display: grid; place-items: center; width: 100%; }
+.kod-stamp { width: min(48%, 64px); height: auto; transform: rotate(-12deg); }
+.kod-gl { fill: var(--kb); }
+.kod-spark { fill: #ffd34a; }
+.kod-blab { display: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-12deg); padding: 1px 6px; border: 2px solid currentColor; border-radius: 4px;
+  font-family: var(--font-display); font-weight: 400; font-size: 11px; letter-spacing: .06em; white-space: nowrap; background: color-mix(in srgb, var(--kb) 70%, transparent); }
+.kod-bword { position: relative; font-family: "Courier New", ui-monospace, monospace; font-weight: 900; font-size: clamp(8px, 2vw, 12px); letter-spacing: -.02em; opacity: .85; white-space: nowrap; max-width: 96%; overflow: hidden; }
+.kod-card.rev.last .kod-back { animation: kodLast 1.2s ease-in-out 2; }
+@keyframes kodLast { 50% { filter: brightness(1.35); } }
+.kod-card.boom { animation: kodBoom .6s; }
+@keyframes kodBoom { 20%, 60% { transform: translateX(-5px) rotate(-2deg); } 40%, 80% { transform: translateX(5px) rotate(2deg); } }
+
+/* kaptan anahtarı: açılmamış kartların rengi */
+.kod-card[class*=" kc"] .kod-front::after { content: ""; position: absolute; left: 4px; bottom: 4px; width: 10px; height: 10px; border-radius: 50%; }
+.kod-card.kc0 .kod-front { background: linear-gradient(176deg, #d8e6ff, #9dbcf5); box-shadow: inset 0 0 0 3px var(--m), 0 3px 0 #2c56a8, 0 6px 12px rgba(0,0,0,.45); color: #0d2556; }
+.kod-card.kc0 .kod-front::after { background: var(--m); }
+.kod-card.kc1 .kod-front { background: linear-gradient(176deg, #ffdade, #f59aa4); box-shadow: inset 0 0 0 3px var(--r), 0 3px 0 #a02033, 0 6px 12px rgba(0,0,0,.45); color: #5a0d17; }
+.kod-card.kc1 .kod-front::after { background: var(--r); }
+.kod-card.kc2 .kod-front { background: linear-gradient(176deg, #ece3cc, #cbbd99); box-shadow: inset 0 0 0 3px #a08a5a, 0 3px 0 #7d6a42, 0 6px 12px rgba(0,0,0,.45); color: #4a3a17; }
+.kod-card.kc2 .kod-front::after { background: #a08a5a; }
+.kod-card.kc3 .kod-front { background: linear-gradient(176deg, #3b3b42, #18181c); box-shadow: inset 0 0 0 3px var(--bad), 0 3px 0 #000, 0 0 14px rgba(255,59,92,.6); color: #ffb3bd; }
+.kod-card.kc3 .kod-front::after { content: "💣"; width: auto; height: auto; font-size: 10px; bottom: 2px; }
+.kod-card.kc3 .kod-word { background: #111; color: #fff; border-color: var(--bad); }
+.kod-card[class*=" kc"] .kod-tab { background: inherit; display: none; }
+/* not: preserve-3d öğesine opacity verilirse 3B düzleşir ve arka yüz gizlenmez; soluklaştırma yüze uygulanır */
+.kod-board.keyon .kod-card.rev .kod-back { filter: saturate(.6) brightness(.7); }
+
+/* tahmin: öneri ve onay */
+.kod-board.can .kod-card.pick { cursor: pointer; }
+.kod-board.can .kod-card.pick:hover .kod-front, .kod-board.can .kod-card.pick:focus-visible .kod-front { transform: translateY(-3px) rotate(-1deg); box-shadow: 0 6px 0 #8f6f30, 0 12px 18px rgba(0,0,0,.5), 0 0 0 3px var(--teal); }
+.kod-card.prop .kod-front { box-shadow: 0 3px 0 #8f6f30, 0 0 0 3px var(--yellow), 0 0 18px rgba(255,225,74,.6); }
+.kod-card.prop.mine .kod-front { box-shadow: 0 3px 0 #8f6f30, 0 0 0 3px #fff, 0 0 0 6px var(--yellow), 0 0 22px rgba(255,225,74,.8); }
+.kod-card.prop .kod-front { animation: kodPropBob 1.4s ease-in-out infinite; }
+@keyframes kodPropBob { 50% { transform: translateY(-2px); } }
+.kod-board.can .kod-card.prop .kod-front { place-items: start center; padding-top: 7%; }
+.kod-board.can .kod-card.prop .kod-keylab { display: none; }
+.kod-go { position: absolute; left: 5%; right: 5%; bottom: 6%; height: 46%; min-height: 26px; z-index: 3; border: 0; border-radius: 8px; cursor: pointer;
+  background: linear-gradient(180deg, #5dffa6, #14b85c); color: #032b12; font-family: var(--font-display); font-weight: 400; font-size: clamp(10px, 2.5vw, 15px); letter-spacing: .03em;
+  box-shadow: 0 3px 0 #0a6b34, 0 0 14px rgba(43,255,136,.6); animation: kodGo .4s cubic-bezier(.2,1.6,.4,1); }
+.kod-go:active { transform: translateY(2px); box-shadow: 0 1px 0 #0a6b34; }
+@keyframes kodGo { from { transform: scale(.4); opacity: 0; } }
+
+/* ---------- kontrol alanı ---------- */
+.kod-ctrl { min-width: 0; }
+.kod-ctrl:empty { display: none; }
+.kod-form, .kod-gctl, .kod-curtain { --tc: var(--m); border: 2px solid color-mix(in srgb, var(--tc) 60%, transparent); background: linear-gradient(170deg, color-mix(in srgb, var(--tc) 18%, rgba(0,0,0,.5)), rgba(0,0,0,.45)); }
+.kod-form { display: grid; gap: 8px; }
+.kod-form.nope { animation: kodBoom .45s; }
+.kod-flab { font-weight: 800; font-size: 14px; color: var(--ink); }
+.kod-frow { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+.kod-input { flex: 1 1 180px; min-width: 0; height: 50px; padding: 0 14px; border-radius: 12px; border: 2px solid rgba(255,255,255,.25); background: #fffaf0; color: #1f1405;
+  font-family: "Courier New", ui-monospace, monospace; font-weight: 900; font-size: 22px; letter-spacing: .04em; text-transform: uppercase; }
+.kod-input:focus { outline: none; border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(255,225,74,.35); }
+.kod-input::placeholder { color: rgba(31,20,5,.35); }
+.kod-step { display: flex; align-items: center; gap: 2px; padding: 3px; border-radius: 14px; background: rgba(0,0,0,.4); border: 1px solid rgba(255,255,255,.2); flex: none; }
+.kod-step button { width: 44px; height: 44px; border-radius: 11px; border: 0; background: rgba(255,255,255,.1); color: var(--ink); font-size: 24px; font-weight: 900; cursor: pointer; }
+.kod-step button:active { background: rgba(255,255,255,.22); }
+.kod-step b { min-width: 34px; text-align: center; font-family: var(--font-display); font-weight: 400; font-size: 24px; color: var(--yellow); }
+.kod-send { min-height: 50px; padding: 0 22px; flex: 1 0 auto; }
+.kod-err { margin: 0; min-height: 1.2em; color: #ff8a9c; font-weight: 800; font-size: 13.5px; }
+.kod-err:empty { min-height: 0; }
+.kod-gctl { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.kod-gctl p { margin: 0; font-weight: 700; font-size: 14px; color: var(--ink); flex: 1 1 220px; }
+.kod-gl2 { white-space: nowrap; color: var(--yellow); }
+.kod-gbtns { display: flex; gap: 8px; flex-wrap: wrap; }
+.kod-gbtns .btn { min-height: 48px; }
+.kod-confirms { display: flex; gap: 8px; flex-wrap: wrap; width: 100%; }
+.kod-confirms .btn { min-height: 46px; background: linear-gradient(180deg, #5dffa6, #14b85c); color: #032b12; box-shadow: 0 5px 0 #0a6b34; }
+.kod-confirms .btn b { font-family: "Courier New", ui-monospace, monospace; }
+.kod-wait { margin: 0; text-align: center; padding: 12px; border-radius: 14px; background: rgba(0,0,0,.3); color: var(--ink-dim); font-weight: 700; font-size: 14px; }
+.kod-wait b { color: var(--ink); }
+.kod-curtain { text-align: center; display: grid; gap: 8px; padding: 16px; background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 18px, rgba(0,0,0,0) 18px 36px),
+    linear-gradient(170deg, color-mix(in srgb, var(--tc) 30%, #12052e), #12052e); }
+.kod-curtain p { margin: 0; color: var(--ink-dim); font-size: 14px; }
+.kod-curtain .kod-cbig { font-family: var(--font-display); font-weight: 400; font-size: clamp(16px, 4vw, 22px); color: #fff; letter-spacing: .02em; }
+.kod-curtain.ask { border-color: var(--pink); box-shadow: 0 0 20px rgba(255,63,164,.45); }
+.kod-cbtns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.kod-cbtns .btn { min-height: 48px; }
+
+/* tur sonu */
+.kod-roundov { --tc: var(--gold); margin-top: 10px; }
+.kod-ribbon { display: grid; justify-items: center; gap: 4px; padding: 14px 16px; border-radius: 18px; text-align: center;
+  background: linear-gradient(170deg, color-mix(in srgb, var(--tc) 40%, #12052e), #12052e 80%); border: 3px solid var(--tc); box-shadow: 0 0 30px color-mix(in srgb, var(--tc) 60%, transparent);
+  animation: kodRib .6s cubic-bezier(.2,1.5,.4,1); }
+@keyframes kodRib { from { transform: scale(.6) rotate(-3deg); opacity: 0; } }
+.kod-rt { font-family: var(--font-display); font-size: clamp(22px, 6vw, 36px); color: #fff; text-shadow: 0 0 16px var(--tc); line-height: 1; }
+.kod-rs { font-weight: 900; letter-spacing: .2em; font-size: 12px; color: var(--yellow); }
+.kod-rw { font-weight: 800; color: var(--ink); }
+.kod-rscore { font-family: var(--font-display); font-size: 24px; }
+.kod-rnext { color: var(--ink-dim); font-weight: 700; font-size: 13px; }
+.kod-ribbon .btn { min-height: 46px; margin-top: 4px; }
+
+/* ipucu kaydı (telefon) */
+.kod-log h4 { margin: 0 0 6px; font-family: var(--font-display); font-weight: 400; font-size: 13px; letter-spacing: .08em; color: var(--paper); }
+.kod-loglist { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 220px; overflow: auto; }
+.kod-lt { font-size: 10px; font-weight: 900; letter-spacing: .08em; color: var(--tc); min-width: 58px; }
+
+/* ---------- geniş ekran ---------- */
+@media (min-width: 900px) {
+  .kod-game { grid-template-columns: minmax(170px, 210px) minmax(0, 1fr) minmax(170px, 210px); grid-template-areas: "s0 c s1"; align-items: start; gap: 14px; }
+  .kod-log { display: none; }
+  .kod-team { padding: 12px; gap: 8px; }
+  .kod-tname { font-size: 19px; }
+  .kod-left b { font-size: 34px; }
+  .kod-mem { flex-direction: column; gap: 6px; }
+  .kod-mn { max-width: 130px; font-size: 13.5px; }
+  .kod-av { width: 28px; height: 28px; font-size: 14px; }
+  .kod-hist { display: grid; }
+  .kod-card { aspect-ratio: 3 / 2; }
+  .kod-blab { display: block; }
+  .kod-stamp { opacity: .55; width: min(52%, 70px); }
+  .kod-bword { font-size: 12px; margin-top: 2px; }
+  .kod-keylab { font-size: 10px; }
+}
+@media (max-width: 899px) { .kod-keylab { display: none; } }
+@media (max-width: 560px) {
+  .kod-scols { grid-template-columns: 1fr; }
+  .kod-team { padding: 7px 8px; }
+  .kod-tname { font-size: 14px; }
+  .kod-mn { max-width: 58px; font-size: 11.5px; }
+  .kod-av { width: 22px; height: 22px; font-size: 11px; }
+  .kod-tab { height: 5px; top: -4px; }
+  .kod-clip { height: 13px; width: 6px; top: -4px; }
+  .kod-face { border-radius: 3px 6px 6px 6px; }
+  .kod-front { box-shadow: 0 2px 0 #8f6f30, 0 4px 8px rgba(0,0,0,.45); }
+  .kod-word { padding: 1px 2px; }
+  .kod-pav { width: 15px; height: 15px; font-size: 8.5px; }
+  .kod-cluebar { padding: 6px 10px; min-height: 52px; }
+  .kod-cn { width: 34px; height: 34px; font-size: 19px; }
+  .kod-gctl p { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kod-inner { transition-duration: .2s; }
+  .kod-card.prop .kod-front, .kod-timer.low { animation: none; }
+}

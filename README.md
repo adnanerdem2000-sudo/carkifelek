@@ -13,7 +13,14 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 |---|---|---|
 | 🎡 Çarkıfelek | 1–4 | Çark, bulmaca, ipucu marketi; 1.339 bulmaca |
 | 🐾 Patili Yarış | 1–6 | Sevimli hayvanlarla engelli koşu, güçler, market |
-| 🦎 Bukalemun Saklambaç | 2–6 | Şekil değiştir, kendini boya, ebe arasın |
+| 🦎 Bukalemun Saklambaç | 2–6 | Şekil değiştir, kendini boya, ebe arasın; 10 harita |
+| 🚨 Hain Kim? | 4–8 | Görev yap, dondurulanı bildir, haini toplantıda oyla; 2 harita |
+| 🏃 Kovalamaca | 2–8 | Ebelemece, Sıcak Patates, Dondurmaca; 3 arena |
+| 💣 Bomba Kelime | 2–8 | Heceyi içeren kelimeyi yaz, bombayı geçir |
+| 🕵️ Casus Kim? | 3–8 | Herkes mekânı bilir, casus bilmez |
+| 🗝️ Kelime Kodu | 4–8 | İki takım, kaptan tek kelimelik ipucu verir |
+| 😂 Komik Cevap | 3–8 | En komik cevabı yaz, oylansın |
+| 📞 Telefon Çiz | 3–8 | Cümle → çizim → tahmin zinciri, sonunda albüm |
 | ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
 | 🏠 Emlak Kralı | 2–4 | Zar, şehir, ev, kira |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |
@@ -28,7 +35,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🪢 Adam Asmaca Yarışı | 1–4 | Sırayla harf tahmini |
 | 🔤 Kelime Avı | 1–4 | 5 harfli gizli kelime, herkes aynı anda |
 
-Çoğu oyunda bilgisayar rakip vardır.
+Odalar en fazla 8 kişiliktir. Çoğu oyunda bilgisayar rakip vardır; Kelime Kodu ve Casus Kim? gerçek oyuncularla oynanır.
 
 ## Teknik
 Kurulum gerekmez; `index.html` dosyasını açmak yeterli. Online oyunda ayrı sunucu yoktur: oda kurucunun tarayıcısı oyunu yönetir, cihazlar herkese açık ücretsiz MQTT aracıları (broker.emqx.io, broker.hivemq.com, test.mosquitto.org) üzerinden WebSocket ile haberleşir. Gizli bilgiler (cevaplar, gemiler, eller) diğer cihazlara gönderilmez. Bağlantı koparsa cihazlar yeniden bağlanır, sayfayı yenileyen oyuncu koltuğuna döner, bağlantısı kopan oyuncunun sırası otomatik geçer.

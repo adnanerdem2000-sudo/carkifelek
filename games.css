@@ -108,3 +108,7 @@
   .gtop .room-chip .room-chip-code { display: none; }
   .gtop .room-chip { padding: 0 10px; }
 }
+
+/* gerçek zamanlı oyunlarda arka plan ışık animasyonlarını durdur: yavaş telefonlarda kare hızını yiyor */
+body:is([data-game="saklambac"], [data-game="kosu"], [data-game="hainkim"], [data-game="kovalamaca"], [data-game="telefoncis"], [data-game="cizbil"], [data-game="bomba"]) .beam { display: none; }
+body:is([data-game="saklambac"], [data-game="kosu"], [data-game="hainkim"], [data-game="kovalamaca"], [data-game="telefoncis"], [data-game="cizbil"], [data-game="bomba"]) .neon-grid { animation: none; }

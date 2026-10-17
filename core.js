@@ -227,8 +227,8 @@ function centerOf(el) { const r = el.getBoundingClientRect(); return [r.left + r
 
 /* ------------------------------------------------------------------ 6
    Ayarlar, ortak sabitler                                                  */
-const COLORS = ['#19e3d0', '#ff3fa4', '#ffe14a', '#ff8a00', '#5aa2ff', '#2bd96b'];
-const ROOM_MAX = 6;
+const COLORS = ['#19e3d0', '#ff3fa4', '#ffe14a', '#ff8a00', '#5aa2ff', '#2bd96b', '#b98bff', '#ff6b6b'];
+const ROOM_MAX = 8;
 const defaultSettings = { volume: 70, sound: true, music: true, anim: 'normal', rounds: 0, clueMode: 'auto' };
 const G = { settings: Object.assign({}, defaultSettings, store.get('cf.settings.v1', {})), spinning: false, final: false };
 const sess = {
@@ -702,7 +702,7 @@ const Room = {
   fast(obj) {
     if (this.mode !== 'host' && this.mode !== 'client') return;
     const g = this.mode === 'host' ? (this.game && this.game.token) : this.g;
-    Net.publishFast(Object.assign({ id: Net.myId, g, seat: UI.me }, obj));
+    Net.publishFast(Object.assign({}, obj, { id: Net.myId, g, seat: UI.me }));   // ayrılmış alanlar oyunun alanlarıyla ezilmesin
   },
 
   /* ---------- katılımcı ---------- */
