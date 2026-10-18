@@ -29,7 +29,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🚀 Uzay Ekibi | 2–8 | Ekranındaki komutu arkadaşına bağır, gemi düşmesin |
 | 📻 Dalga Boyu | 2–8 | Medyum ipucu verir, ekip kadranda gizli noktayı bulur |
 | ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
-| 🏠 Emlak Kralı | 2–4 | Zar, şehir, ev, kira |
+| 🏙️ Emlak Kralı | 2–6 | 40 kare, 3 tahta, 3D zar, açık artırma, takas, ipotek; Klasik/Hızlı/Mega/Kaos modları |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |
 | 🎲 Zar Turnuvası | 1–4 | Beş zar, 13 kategori |
 | 🟦 Kutu Kapmaca | 2–4 | Çizgi çek, kutu kap |
