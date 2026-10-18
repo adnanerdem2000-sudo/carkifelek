@@ -21,6 +21,13 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🗝️ Kelime Kodu | 4–8 | İki takım, kaptan tek kelimelik ipucu verir |
 | 😂 Komik Cevap | 3–8 | En komik cevabı yaz, oylansın |
 | 📞 Telefon Çiz | 3–8 | Cümle → çizim → tahmin zinciri, sonunda albüm |
+| 🎉 Parti Tahtası | 2–8 | Zar, anahtar, kupa, eşyalar; her tur sonunda 9 mini oyundan biri |
+| 🟪 Düşen Zemin | 2–8 | Bastığın altıgen düşer, en son ayakta kalan kazanır; 3 arena |
+| 🖌️ Boya Savaşı | 2–8 | Haritanın en çok yerini kendi renginle boya; tek ya da takım |
+| ☃️ Kar Topu Savaşı | 2–8 | Takım maçı, bayrak kapmaca, herkes tek; kardan duvarlar |
+| 👩‍🍳 Mutfak Kaosu | 1–6 | Birlikte döner, menemen, çorba, pide yetiştirin; 5 mutfak |
+| 🚀 Uzay Ekibi | 2–8 | Ekranındaki komutu arkadaşına bağır, gemi düşmesin |
+| 📻 Dalga Boyu | 2–8 | Medyum ipucu verir, ekip kadranda gizli noktayı bulur |
 | ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
 | 🏠 Emlak Kralı | 2–4 | Zar, şehir, ev, kira |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |

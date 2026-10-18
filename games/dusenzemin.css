@@ -1,0 +1,190 @@
+/* =========================================================================
+   DÜŞEN ZEMİN — neon stüdyoda üst üste altıgen katlar
+   ========================================================================= */
+.g-wrap.dz { grid-template-columns: minmax(0, 1fr); justify-items: stretch; width: 100%; gap: 10px; }
+
+/* ---------- üst bilgi ---------- */
+.dz-hud { display: grid; gap: 8px; min-width: 0; }
+.dz-players { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.dz-chip { padding: 4px 10px 4px 4px; gap: 6px; }
+.dz-chip.me { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.35); }
+.dz-chip b small { color: var(--ink-dim); font-weight: 700; }
+.dz-chip .g-num { font-size: 16px; min-width: 1.2em; text-align: right; }
+.dz-tag { font-size: 11.5px; font-weight: 900; padding: 3px 7px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--ink-dim); white-space: nowrap; }
+.dz-tag.fl.f0 { background: rgba(54,224,208,.22); color: #b9fff6; }
+.dz-tag.fl.f1 { background: rgba(255,95,176,.22); color: #ffd0ea; }
+.dz-tag.fl.f2 { background: rgba(255,201,61,.22); color: #fff0c2; }
+.dz-tag.out { background: rgba(255,59,92,.18); color: #ff8fa3; }
+.dz-tag.win { background: linear-gradient(90deg, var(--yellow), var(--gold)); color: #3a1500; }
+.dz-status { display: flex; justify-content: center; min-width: 0; }
+.dz-status .g-turn { font-size: 14.5px; line-height: 1.25; text-align: center; max-width: 100%; }
+.dz-status .g-turn.dz-live { font-size: 15px; color: #1b0030; background: linear-gradient(90deg, var(--yellow), #ffb627); box-shadow: 0 0 18px rgba(255,225,74,.45); }
+
+/* ---------- sahne ---------- */
+.dz-main { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 12px; align-items: start; min-width: 0; }
+.dz-stage { position: relative; height: 640px; min-width: 0; border-radius: 20px; overflow: hidden; background: #0c0426;
+  border: 3px solid rgba(255,95,176,.65); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 30px rgba(255,95,176,.28);
+  touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; cursor: grab; }
+.dz-stage:active { cursor: grabbing; }
+.dz[data-mode="renk"] .dz-stage { border-color: rgba(255,216,74,.7); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 30px rgba(255,216,74,.25); }
+.dz[data-mode="sumo"] .dz-stage { border-color: rgba(255,138,0,.7); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 30px rgba(255,138,0,.25); }
+.dz-cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+.dz-tl { position: absolute; left: 8px; top: 8px; display: grid; gap: 5px; justify-items: start; pointer-events: none; max-width: calc(100% - 110px); z-index: 2; }
+.dz-mode { padding: 4px 9px; border-radius: 10px; background: rgba(18,5,46,.7); border: 1px solid rgba(255,255,255,.14); font-weight: 900; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.dz-row { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+.dz-timer, .dz-alive { padding: 4px 10px; border-radius: 11px; background: rgba(18,5,46,.7); border: 1px solid rgba(255,255,255,.18); font-family: var(--font-display); font-size: 15px; white-space: nowrap; }
+.dz-alive { font-family: var(--font-body); font-weight: 900; font-size: 13.5px; }
+.dz-timer b { font-weight: 400; color: var(--yellow); font-variant-numeric: tabular-nums; }
+.dz-timer.urgent { border-color: var(--bad); animation: dzPulse .5s ease-in-out infinite alternate; }
+.dz-timer.urgent b { color: #ff8fa3; }
+@keyframes dzPulse { to { box-shadow: 0 0 16px rgba(255,59,92,.7); transform: scale(1.05); } }
+.dz-bar { width: 120px; height: 6px; border-radius: 99px; background: rgba(0,0,0,.45); overflow: hidden; }
+.dz-bar i { display: block; height: 100%; width: 100%; border-radius: inherit; background: linear-gradient(90deg, #36e0d0, #ff5fb0); transition: width .2s linear; }
+.dz-fx { display: flex; flex-wrap: wrap; gap: 4px; }
+.dz-fxc { padding: 3px 8px; border-radius: 999px; font-weight: 900; font-size: 12px; background: rgba(18,5,46,.75); border: 1px solid rgba(255,255,255,.2); white-space: nowrap; }
+.dz-fxc.zip { border-color: #6dff8a; }
+.dz-fxc.haf { border-color: #9fe8ff; }
+.dz-fxc.kal { border-color: #ffd34d; }
+
+.dz-mini { position: absolute; right: 8px; top: 8px; width: 92px; height: 186px; border-radius: 12px; background: rgba(12,4,38,.72); border: 1px solid rgba(255,255,255,.22); box-shadow: 0 4px 12px rgba(0,0,0,.45); pointer-events: none; z-index: 2; }
+
+/* renk anonsu */
+.dz-call { --cc: #fff; position: absolute; left: 50%; top: 10px; transform: translateX(-50%); z-index: 3; pointer-events: none; display: grid; grid-template-columns: auto auto; align-items: center; gap: 4px 8px;
+  padding: 7px 14px 8px; border-radius: 16px; background: rgba(18,5,46,.9); border: 3px solid var(--cc); box-shadow: 0 0 24px var(--cc); font-weight: 900; font-size: 15px; white-space: nowrap; animation: dzCall .5s ease-in-out infinite alternate; }
+.dz-call[hidden] { display: none; }
+.dz-call i { width: 22px; height: 22px; border-radius: 6px; background: var(--cc); box-shadow: 0 0 10px var(--cc); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.dz-call b { color: var(--cc); font-family: var(--font-display); font-weight: 400; letter-spacing: .04em; }
+.dz-call em { grid-column: 1 / -1; display: block; height: 5px; border-radius: 99px; background: rgba(255,255,255,.15); overflow: hidden; }
+.dz-call u { display: block; height: 100%; background: var(--cc); }
+.dz-call.gone { animation: none; opacity: .92; }
+@keyframes dzCall { to { transform: translateX(-50%) scale(1.06); } }
+
+/* yüzen joystick */
+.dz-joy { position: absolute; width: 104px; height: 104px; margin: -52px 0 0 -52px; border-radius: 50%; pointer-events: none; z-index: 3;
+  background: radial-gradient(circle, rgba(255,255,255,.14) 0 38%, rgba(255,255,255,.06) 39% 100%); border: 2px solid rgba(255,255,255,.45); box-shadow: 0 0 0 4px rgba(18,5,46,.3); }
+.dz-joy[hidden] { display: none; }
+.dz-joy i { position: absolute; left: 50%; top: 50%; width: 48px; height: 48px; margin: -24px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffe8f4, #ff8fc8 45%, #c2187a); box-shadow: 0 4px 10px rgba(0,0,0,.45); }
+.dz-joyhint { position: absolute; left: 16px; bottom: 16px; display: grid; justify-items: center; gap: 4px; pointer-events: none; opacity: .75; animation: dzHint 1.6s ease-in-out infinite; z-index: 2; }
+.dz-joyhint[hidden] { display: none; }
+.dz-joyhint i { width: 76px; height: 76px; border-radius: 50%; border: 2px dashed rgba(255,255,255,.55); background: radial-gradient(circle, rgba(255,95,176,.55) 0 30%, rgba(255,255,255,.05) 31%); }
+.dz-joyhint span { font-size: 11.5px; font-weight: 900; padding: 2px 8px; border-radius: 8px; background: rgba(18,5,46,.65); }
+@keyframes dzHint { 50% { transform: translateY(-4px); } }
+
+/* zıplama düğmesi */
+.dz-jump { position: absolute; right: 12px; bottom: 12px; width: 88px; height: 88px; border-radius: 50%; border: 4px solid #d6fff9; cursor: pointer; z-index: 4; padding: 0;
+  display: grid; place-items: center; align-content: center; gap: 0; color: #053a35; touch-action: manipulation;
+  background: radial-gradient(circle at 40% 30%, #e6fffb, #36e0d0 50%, #0f8a80); box-shadow: 0 6px 0 #0a5a53, 0 0 26px rgba(54,224,208,.55); }
+.dz-jump svg { width: 34px; height: 34px; display: block; }
+.dz-jump span { font-family: var(--font-display); font-size: 12px; line-height: 1; margin-top: 1px; }
+.dz-jump:active:not(:disabled), .dz-jump.hit { transform: translateY(4px) scale(.96); box-shadow: 0 2px 0 #0a5a53, 0 0 30px rgba(54,224,208,.8); }
+.dz-jump.hit { animation: dzHit .25s ease-out; }
+@keyframes dzHit { 0% { transform: translateY(4px) scale(.92); } 100% { transform: none; } }
+.dz-jump:disabled { filter: grayscale(.8) brightness(.6); cursor: default; opacity: .75; }
+.dz-jump[hidden] { display: none; }
+
+.dz-pop { position: absolute; left: 50%; top: 36%; transform: translate(-50%, -50%) scale(.6); opacity: 0; pointer-events: none; z-index: 5; font-family: var(--font-display); font-size: clamp(24px, 6vw, 44px); color: var(--yellow);
+  text-shadow: 0 3px 0 #7a2a00, 0 0 18px rgba(255,200,0,.6); white-space: nowrap; text-align: center; }
+.dz-pop.show { animation: dzPop 1.25s ease-out forwards; }
+.dz-pop.good { color: var(--good); text-shadow: 0 3px 0 #04502a, 0 0 18px rgba(43,255,136,.6); }
+.dz-pop.bad { color: #ff7a90; text-shadow: 0 3px 0 #4a0010, 0 0 18px rgba(255,59,92,.7); }
+.dz-pop.pink { color: #ffd6ee; text-shadow: 0 3px 0 #6d0b4c, 0 0 18px var(--pink); }
+@keyframes dzPop { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.6); } 18% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } 30% { transform: translate(-50%, -50%) scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -75%) scale(.95); } }
+.dz-toast { position: absolute; left: 50%; bottom: 112px; transform: translate(-50%, 10px); opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none; z-index: 5; max-width: 78%;
+  padding: 8px 14px; border-radius: 14px; background: rgba(18,5,46,.92); border: 2px solid var(--teal); font-weight: 900; font-size: 14px; text-align: center; }
+.dz-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.dz-toast.bad { border-color: var(--bad); }
+.dz-toast.ok { border-color: var(--good); }
+
+/* izleyici kartı */
+.dz-spec { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 4; display: flex; align-items: center; gap: 6px; padding: 5px; border-radius: 18px; width: min(340px, calc(100% - 24px));
+  background: rgba(18,5,46,.9); border: 2px solid var(--pink); box-shadow: 0 0 22px rgba(255,63,164,.4); max-width: calc(100% - 24px); }
+.dz-spec[hidden] { display: none; }
+.dz-spec-b { display: grid; text-align: center; min-width: 0; padding: 0 4px; flex: 1 1 auto; }
+.dz-spec-t { font-family: var(--font-display); font-size: 15px; color: #ffd6ee; white-space: nowrap; }
+.dz-spec-t b { font-weight: 400; color: var(--yellow); }
+.dz-spec-n { font-size: 12.5px; font-weight: 800; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dz-sb { width: 44px; height: 44px; flex: none; border-radius: 14px; border: 2px solid rgba(255,255,255,.3); background: rgba(255,255,255,.08); color: #fff; font-size: 16px; cursor: pointer; }
+.dz-sb:active { transform: scale(.94); }
+
+/* geri sayım ve tur sonu kartları */
+.dz-count, .dz-end { position: absolute; inset: 0; display: grid; place-items: center; padding: 12px; z-index: 6; pointer-events: none; }
+.dz-count { background: radial-gradient(circle, rgba(30,8,70,.3), rgba(8,2,22,.5)); }
+.dz-end { background: radial-gradient(circle, rgba(30,8,70,.45), rgba(8,2,22,.62)); overflow-y: auto; }
+.dz-count[hidden], .dz-end[hidden] { display: none; }
+.dz-ccard, .dz-ecard { width: min(360px, 94%); text-align: center; padding: 14px 16px; border-radius: 22px; background: linear-gradient(170deg, #3b1385, #1a0b3d); border: 3px solid var(--pink); box-shadow: 0 0 34px rgba(255,63,164,.45); animation: dzCard .45s cubic-bezier(.2,1.5,.4,1) both; }
+.dz-ecard { border-color: var(--yellow); box-shadow: 0 0 34px rgba(255,225,74,.45); }
+@keyframes dzCard { 0% { transform: scale(.6) rotate(-4deg); } 100% { transform: none; } }
+.dz-ccard small, .dz-ecard small { font-family: var(--font-display); color: var(--teal); letter-spacing: .14em; font-size: 11.5px; }
+.dz-ccard h3, .dz-ecard h3 { margin: 2px 0 4px; font-family: var(--font-display); font-weight: 400; font-size: 24px; color: var(--yellow); line-height: 1.15; }
+.dz-ctip { margin: 0; font-weight: 800; color: var(--ink); }
+.dz-cnum { display: block; font-family: var(--font-display); font-weight: 400; font-size: 64px; line-height: 1.05; color: #fff; text-shadow: 0 0 22px var(--pink), 0 4px 0 #6d0b4c; font-variant-numeric: tabular-nums; animation: dzBeat 1s ease-in-out infinite; }
+@keyframes dzBeat { 0% { transform: scale(1.2); } 30% { transform: scale(1); } }
+.dz-chint { margin: 0; font-size: 12.5px; font-weight: 800; color: var(--ink-dim); }
+.dz-esub { margin: 0 0 8px; font-weight: 800; color: var(--ink-dim); }
+.dz-enext { margin: 8px 0 0; font-weight: 800; color: var(--ink-dim); font-size: 13px; }
+.dz-res { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; text-align: left; }
+.dz-res li { display: flex; align-items: center; gap: 8px; padding: 6px 9px; border-radius: 13px; background: rgba(0,0,0,.3); border: 2px solid color-mix(in srgb, var(--pc) 45%, transparent); }
+.dz-res li.win { background: linear-gradient(90deg, rgba(255,225,74,.18), rgba(0,0,0,.3)); border-color: var(--yellow); }
+.dz-res li.out { opacity: .7; }
+.dz-res .av { width: 28px; height: 28px; font-size: 13px; }
+.dz-pl { font-family: var(--font-display); color: var(--yellow); font-size: 15px; min-width: 1.6em; }
+.dz-rn { display: grid; min-width: 0; flex: 1; }
+.dz-rn b { font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dz-rn small { font-size: 11.5px; color: var(--ink-dim); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dz-pts { font-family: var(--font-display); color: var(--good); font-size: 16px; white-space: nowrap; }
+
+/* ---------- yan panel ---------- */
+.dz-side { display: grid; gap: 10px; align-content: start; max-height: 800px; overflow-y: auto; overscroll-behavior: contain; }
+.dz-h { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 19px; color: var(--yellow); }
+.dz-sub { margin: 0; color: var(--ink-dim); font-weight: 700; font-size: 13px; }
+.dz-rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; font-size: 13.5px; line-height: 1.35; }
+.dz-rules li { padding: 6px 10px; border-radius: 10px; background: rgba(0,0,0,.22); }
+.dz-legend { display: grid; gap: 4px; }
+.dz-lh { font-size: 12px; font-weight: 900; color: var(--ink-dim); letter-spacing: .06em; text-transform: uppercase; }
+.dz-li { display: flex; align-items: center; gap: 8px; padding: 3px 6px; border-radius: 10px; background: rgba(0,0,0,.18); }
+.dz-li canvas { width: 32px; height: 32px; flex: none; }
+.dz-li span { display: grid; min-width: 0; }
+.dz-li b { font-size: 13px; }
+.dz-li small { font-size: 11.5px; color: var(--ink-dim); font-weight: 700; }
+.dz-keys { margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--ink-dim); padding: 7px 10px; border-radius: 12px; background: rgba(0,0,0,.25); border-left: 3px solid var(--pink); }
+.dz-board { display: grid; gap: 5px; }
+
+body[data-game="dusenzemin"] .gtop .top-actions { flex: none; }
+body[data-game="dusenzemin"] .gtop .gtitle { flex: 1 1 auto; min-width: 0; }
+
+@media (max-width: 980px) {
+  .dz-main { grid-template-columns: minmax(0, 1fr); }
+  .dz-side { max-height: none; overflow: visible; }
+}
+@media (max-width: 760px) {
+  .g-wrap.dz { gap: 6px; }
+  .dz-stage { border-radius: 16px; border-width: 2px; }
+  .dz-mini { width: 66px; height: 138px; border-radius: 10px; }
+  .dz-tl { max-width: calc(100% - 84px); }
+  .dz-timer { font-size: 13.5px; padding: 3px 8px; }
+  .dz-alive { font-size: 12.5px; padding: 3px 8px; }
+  .dz-bar { width: 92px; }
+  .dz-jump { width: 82px; height: 82px; right: 10px; bottom: 10px; }
+  .dz-toast { bottom: 104px; font-size: 13px; }
+  .dz-call { top: auto; bottom: 104px; font-size: 13.5px; padding: 6px 11px 7px; }
+  .dz-spec { bottom: 100px; }
+}
+@media (max-width: 560px) {
+  .dz-hud { gap: 5px; }
+  .dz-players { gap: 4px; }
+  .dz-chip { padding: 3px 7px 3px 3px; gap: 4px; border-radius: 12px; }
+  .dz-chip .av { width: 22px; height: 22px; font-size: 11px; }
+  .dz-chip b { font-size: 12px; max-width: 58px; }
+  .dz-chip b small { display: none; }
+  .dz-chip .g-num { font-size: 13px; }
+  .dz-tag { font-size: 10px; padding: 2px 5px; }
+  .dz-status .g-turn { font-size: 12.5px; padding: 6px 10px; }
+  .dz-status .g-turn.dz-live { font-size: 12.5px; }
+  .dz-ccard h3, .dz-ecard h3 { font-size: 20px; }
+  .dz-cnum { font-size: 54px; }
+  .dz-mode { font-size: 11px; }
+  .dz-players.compact .dz-chip:not(.me) b { display: none; }
+  .dz-players.compact .dz-chip { padding-right: 8px; }
+  .dz-spec-t { font-size: 13.5px; }
+}
