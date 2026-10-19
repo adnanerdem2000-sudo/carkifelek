@@ -30,6 +30,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 📻 Dalga Boyu | 2–8 | Medyum ipucu verir, ekip kadranda gizli noktayı bulur |
 | 🔠 Kelime Kare | 1–8 | Harf tablosunda parmağını kaydırarak kelime bul; 4×4 / 5×5 |
 | 🏰 Karo Diyarı | 2–6 | Carcassonne tarzı karo yerleştir, figür koy; nehir ve çiftçi seçenekleri |
+| 🐔 Geçit Koşusu | 1–8 | Yolu, rayı, nehri zıplayarak geç; Yarış / Hayatta Kal / Puan Avı |
 | ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
 | 🏙️ Emlak Kralı | 2–6 | 40 kare, 3 tahta, 3D zar, açık artırma, takas, ipotek; Klasik/Hızlı/Mega/Kaos modları |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |
