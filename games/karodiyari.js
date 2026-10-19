@@ -1,0 +1,1 @@
+/* karodiyari — yer tutucu */

@@ -1,0 +1,1 @@
+/* kalekur — yer tutucu */

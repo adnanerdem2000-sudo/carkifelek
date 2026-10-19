@@ -1,0 +1,1 @@
+/* gecit — yer tutucu */

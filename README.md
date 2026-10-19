@@ -28,6 +28,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 👩‍🍳 Mutfak Kaosu | 1–6 | Birlikte döner, menemen, çorba, pide yetiştirin; 5 mutfak |
 | 🚀 Uzay Ekibi | 2–8 | Ekranındaki komutu arkadaşına bağır, gemi düşmesin |
 | 📻 Dalga Boyu | 2–8 | Medyum ipucu verir, ekip kadranda gizli noktayı bulur |
+| 🔠 Kelime Kare | 1–8 | Harf tablosunda parmağını kaydırarak kelime bul; 4×4 / 5×5 |
 | ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
 | 🏙️ Emlak Kralı | 2–6 | 40 kare, 3 tahta, 3D zar, açık artırma, takas, ipotek; Klasik/Hızlı/Mega/Kaos modları |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |
