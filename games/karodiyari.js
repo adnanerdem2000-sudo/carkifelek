@@ -389,7 +389,7 @@ function placeTile(st, ctx, pi, x, y, r) {
 
 let DEF = null;
 DEF = {
-  id: 'karodiyari', name: 'Karo Diyarı', icon: '🏰', color: '#7cc35a', min: 2, max: 6, hotseat: true, bot: true, localMin: 1,
+  id: 'karodiyari', name: 'Karo Diyarı', icon: '🗺️', color: '#7cc35a', min: 2, max: 6, hotseat: true, bot: true, localMin: 1,
   tagline: 'Karo döşe, şehir kur, Kahya’larınla puan topla',
   rules: 'Sırayla torbadan karo çek, döndür ve tüm kenarları uyacak biçimde haritaya ekle; sonra istersen 7 Kahya’ndan birini o karodaki kimsenin tutmadığı bir yola, şehre, kervansaraya ya da tarlaya koy. Tamamlanan yol (karo başına 1), şehir (karo ve sancak başına 2) ve etrafı tamamen çevrili kervansaray (9) hemen puan verir ve Kahya geri döner; en çok Kahya’sı olan alır, eşitlikte herkes tam puan alır. Torba bitince yarım kalanlar yarım sayılır; Çiftçiler açıksa tarlada yatan Kahya’lar o tarlanın değdiği her tamamlanmış şehir için 3 puan alır.',
   options: [
