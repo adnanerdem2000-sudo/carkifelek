@@ -147,7 +147,7 @@ const Sound = {
     src.start(t);
   },
   // Çark tıkırtısı: hız arttıkça hafif tiz, yavaşladıkça daha tok ve belirgin
-  tick(speed) {
+  tick(speed = .5) {
     if (!this.ok('tick', 16)) return;
     const s = clamp(speed, 0, 1);
     this.noise(.03, { freq: 1800 + s * 1800, q: 4, gain: .55 - s * .2 });
