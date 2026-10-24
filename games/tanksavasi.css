@@ -1,1 +1,174 @@
-/* tanksavasi — yer tutucu */
+/* =========================================================================
+   TANK SAVAŞI — neon stüdyoda yandan görünüşlü topçu savaşı
+   ========================================================================= */
+.g-wrap.tks { grid-template-columns: minmax(0, 1fr); justify-items: stretch; width: 100%; gap: 10px; }
+
+/* ---------- üst bilgi ---------- */
+.tks-hud { display: grid; gap: 8px; min-width: 0; }
+.tks-players { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-width: 0; }
+.tks-chip { padding: 4px 9px 4px 4px; gap: 7px; }
+.tks-chip .av { width: 26px; height: 26px; font-size: 13px; flex: none; }
+.tks-chip.dead { opacity: .55; filter: grayscale(.6); }
+.tks-cn { display: grid; gap: 3px; min-width: 0; }
+.tks-cn b { font-size: 13px; max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.1; }
+.tks-cn b small { color: var(--ink-dim); font-weight: 800; font-size: 10.5px; }
+.tks-hp { display: block; width: 64px; height: 6px; border-radius: 99px; background: rgba(0,0,0,.5); overflow: hidden; }
+.tks-hp i { display: block; height: 100%; border-radius: inherit; background: var(--hc, var(--good)); transition: width .35s ease-out; }
+.tks-hpn { font-family: var(--font-display); color: var(--yellow); font-size: 15px; font-variant-numeric: tabular-nums; min-width: 1.7em; text-align: right; }
+.tks-hpn small { font-size: 11px; margin-left: 1px; }
+.tks-team { font-family: var(--font-display); font-size: 11px; line-height: 1; padding: 4px 6px; border-radius: 7px; color: #12052e; }
+.tks-team.t0 { background: #ffb627; }
+.tks-team.t1 { background: #19e3d0; }
+.tks-status { min-height: 40px; }
+.tks-status .g-turn { font-size: 14.5px; line-height: 1.25; text-align: center; max-width: 100%; padding: 8px 14px; }
+.tks-status .g-turn b { font-weight: 900; }
+
+/* ---------- yerleşim ---------- */
+.tks-main { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 12px; align-items: start; min-width: 0; }
+.tks-col { display: grid; gap: 10px; min-width: 0; }
+
+/* ---------- sahne ---------- */
+.tks-stage { position: relative; height: 580px; min-width: 0; border-radius: 20px; overflow: hidden; background: #1a0b3d;
+  border: 3px solid rgba(255,122,47,.7); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 30px rgba(255,122,47,.3);
+  touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; cursor: grab; }
+.tks-stage:active { cursor: grabbing; }
+.tks-cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+.tks-tl { position: absolute; left: 8px; top: 8px; pointer-events: none; }
+.tks-timer { display: inline-block; padding: 4px 10px; border-radius: 11px; background: rgba(18,5,46,.72); border: 1px solid rgba(255,255,255,.2); font-family: var(--font-display); font-size: 16px; }
+.tks-timer b { font-weight: 400; color: var(--yellow); font-variant-numeric: tabular-nums; }
+.tks-timer.urgent { border-color: var(--bad); animation: tksPulse .5s ease-in-out infinite alternate; }
+.tks-timer.urgent b { color: #ff8fa3; }
+@keyframes tksPulse { to { box-shadow: 0 0 16px rgba(255,59,92,.75); transform: scale(1.06); } }
+
+.tks-wind { --wk: 0; position: absolute; left: 50%; top: 8px; transform: translateX(-50%); display: grid; justify-items: center; gap: 0; pointer-events: none;
+  padding: 3px 12px 5px; border-radius: 12px; background: rgba(18,5,46,.72); border: 1px solid rgba(255,255,255,.2); min-width: 92px; }
+.tks-wind small { font-size: 9.5px; font-weight: 900; letter-spacing: .14em; color: var(--teal); }
+.tks-wind b { font-family: var(--font-display); font-weight: 400; font-size: 16px; line-height: 1.1; white-space: nowrap; }
+.tks-wind b i { font-style: normal; color: color-mix(in srgb, var(--yellow) calc((1 - var(--wk)) * 100%), #ff5a3c); letter-spacing: -2px; }
+.tks-wind b em { font-style: normal; font-size: 13px; color: var(--ink-dim); }
+
+.tks-tr { position: absolute; right: 8px; top: 8px; pointer-events: none; max-width: 40%; }
+.tks-map { display: inline-block; padding: 4px 9px; border-radius: 10px; background: rgba(18,5,46,.72); border: 1px solid rgba(255,255,255,.16); font-weight: 900; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+
+.tks-tools { position: absolute; right: 8px; bottom: 8px; display: flex; gap: 6px; z-index: 3; }
+.tks-tool { width: 44px; height: 44px; border-radius: 14px; border: 1px solid rgba(255,255,255,.3); background: rgba(18,5,46,.72); font-size: 19px; display: grid; place-items: center; padding: 0; }
+.tks-tool:active { transform: scale(.94); }
+
+.tks-toast { position: absolute; left: 50%; bottom: 60px; transform: translate(-50%, 10px); opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none; z-index: 5; max-width: 86%;
+  padding: 8px 14px; border-radius: 14px; background: rgba(18,5,46,.94); border: 2px solid var(--yellow); font-weight: 900; font-size: 14px; text-align: center; }
+.tks-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.tks-hint { position: absolute; left: 50%; top: 58px; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 14px; pointer-events: none; z-index: 4;
+  background: rgba(18,5,46,.88); border: 2px dashed rgba(255,225,74,.8); font-weight: 900; font-size: 13px; white-space: nowrap; animation: tksHint 1.4s ease-in-out infinite; }
+.tks-hint i { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle, var(--yellow) 0 35%, transparent 40%); border: 2px solid var(--yellow); }
+@keyframes tksHint { 50% { transform: translate(-50%, -4px); } }
+
+/* silah seçimi (alt sayfa) */
+.tks-sheet { position: absolute; inset: 0; z-index: 6; display: grid; align-items: end; background: rgba(8,2,22,.55); cursor: default; }
+.tks-sheet-in { max-height: 92%; overflow-y: auto; overscroll-behavior: contain; padding: 10px 10px 12px; border-radius: 20px 20px 0 0; background: linear-gradient(170deg, #3b1385, #1a0b3d); border-top: 3px solid #ff7a2f;
+  animation: tksUp .25s cubic-bezier(.2,1.2,.4,1); }
+@keyframes tksUp { from { transform: translateY(40%); opacity: .4; } }
+.tks-sheet-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.tks-sheet-h b { font-family: var(--font-display); font-weight: 400; color: var(--yellow); font-size: 17px; }
+.tks-x { width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); font-size: 18px; }
+.tks-wgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.tks-w { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 6px; min-height: 48px; padding: 5px 9px 5px 6px; text-align: left;
+  border-radius: 13px; border: 2px solid rgba(255,255,255,.12); background: rgba(0,0,0,.28); transition: border-color .2s, background .2s; }
+.tks-w:hover:not(:disabled) { border-color: rgba(255,122,47,.7); }
+.tks-w.on { border-color: var(--yellow); background: linear-gradient(90deg, rgba(255,225,74,.2), rgba(0,0,0,.25)); box-shadow: 0 0 14px rgba(255,225,74,.3); }
+.tks-w:disabled { opacity: .4; cursor: default; }
+.tks-wi { font-size: 21px; line-height: 1; text-align: center; }
+.tks-wn { display: grid; min-width: 0; }
+.tks-wn b { font-size: 13px; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tks-wn small { font-size: 10.5px; color: var(--ink-dim); font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tks-wa { font-family: var(--font-display); color: var(--yellow); font-size: 13px; }
+
+/* ---------- kontroller ---------- */
+.tks-ctrl { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; justify-content: center; padding: 8px; border-radius: 18px; background: var(--panel); border: 1px solid rgba(255,255,255,.1); transition: opacity .25s; }
+.tks-ctrl.off { opacity: .55; }
+.tks-r1, .tks-r2, .tks-r3 { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.tks-btn { min-height: 48px; min-width: 48px; border-radius: 14px; border: 0; padding: 0 10px; font-weight: 900; font-size: 18px; color: #fff;
+  background: linear-gradient(180deg, #5a35b8, #2f1680); box-shadow: 0 4px 0 #150836, inset 0 1px 0 rgba(255,255,255,.3); transition: transform .08s, filter .2s; touch-action: none; -webkit-user-select: none; user-select: none; }
+.tks-btn:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 #150836; }
+.tks-btn:disabled { filter: grayscale(.7) brightness(.65); cursor: default; }
+.tks-mv { width: 54px; font-size: 20px; background: linear-gradient(180deg, #3fe7ff, #2f7bff); box-shadow: 0 4px 0 #173c96, inset 0 2px 0 rgba(255,255,255,.4); }
+.tks-mv:active:not(:disabled) { box-shadow: 0 1px 0 #173c96; }
+.tks-fuel { position: relative; width: 120px; height: 30px; border-radius: 12px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.18); overflow: hidden; }
+.tks-fuel i { position: absolute; inset: 0 auto 0 0; width: 100%; background: linear-gradient(90deg, #2bd96b, #ffe14a); transition: width .15s linear; }
+.tks-fuel span { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; font-size: 12.5px; color: #12052e; text-shadow: 0 1px 0 rgba(255,255,255,.4); }
+.tks-wbtn { display: flex; align-items: center; gap: 6px; font-size: 14px; padding: 0 12px 0 8px; background: linear-gradient(180deg, #ff6ec4, #c4148a); box-shadow: 0 4px 0 #6d0b4c, inset 0 2px 0 rgba(255,255,255,.4); max-width: 190px; }
+.tks-wbtn:active:not(:disabled) { box-shadow: 0 1px 0 #6d0b4c; }
+.tks-wbtn b { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.tks-wbtn small { font-family: var(--font-display); font-weight: 400; font-size: 12px; color: var(--yellow); }
+.tks-wbtn i { font-style: normal; font-size: 12px; opacity: .8; }
+.tks-adj { display: flex; align-items: center; gap: 4px; padding: 3px; border-radius: 16px; background: rgba(0,0,0,.3); }
+.tks-adj .tks-btn { width: 46px; padding: 0; font-size: 20px; }
+.tks-val { display: grid; justify-items: center; min-width: 62px; }
+.tks-val small { font-size: 9.5px; font-weight: 900; letter-spacing: .12em; color: var(--teal); }
+.tks-val b { font-family: var(--font-display); font-weight: 400; font-size: 17px; line-height: 1.1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tks-pass { font-size: 14px; padding: 0 14px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); box-shadow: none; }
+.tks-fire { min-width: 150px; font-family: var(--font-display); font-weight: 400; font-size: 20px; letter-spacing: .04em; color: #3a1500;
+  background: linear-gradient(180deg, #ffd34a, #ff7a1a); box-shadow: 0 5px 0 #9a3a00, 0 0 22px rgba(255,140,0,.5), inset 0 2px 0 #fff3b0; }
+.tks-fire:active:not(:disabled) { box-shadow: 0 1px 0 #9a3a00; }
+.tks-fire.util { background: linear-gradient(180deg, #8ff7d0, #19b88a); box-shadow: 0 5px 0 #0a5a42, inset 0 2px 0 rgba(255,255,255,.5); color: #032a1e; }
+.tks-ctrl:not(.off) .tks-fire:not(:disabled) { animation: tksFire 1.6s ease-in-out infinite; }
+@keyframes tksFire { 50% { filter: brightness(1.15); box-shadow: 0 5px 0 #9a3a00, 0 0 34px rgba(255,140,0,.8), inset 0 2px 0 #fff3b0; } }
+
+/* ---------- yan panel ---------- */
+.tks-side { display: grid; gap: 10px; align-content: start; max-height: 760px; overflow-y: auto; overscroll-behavior: contain; }
+.tks-h { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 18px; color: var(--yellow); }
+.tks-side .tks-wgrid { grid-template-columns: 1fr; gap: 5px; }
+.tks-side .tks-w { min-height: 44px; }
+.tks-sinfo { margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-dim); line-height: 1.4; }
+.tks-sinfo b { color: var(--ink); }
+.tks-keys { margin: 0; font-size: 12.5px; line-height: 1.45; color: var(--ink-dim); padding: 7px 10px; border-radius: 12px; background: rgba(0,0,0,.25); border-left: 3px solid #ff7a2f; }
+.tks-keys b { color: var(--ink); }
+
+/* Uzun oyun adı + oda çipi telefonda sağdaki düğmeleri taşırmasın */
+body[data-game="tanksavasi"] .gtop .top-actions { flex: none; }
+body[data-game="tanksavasi"] .gtop .gtitle { flex: 1 1 auto; min-width: 0; }
+
+@media (min-width: 981px) {
+  .tks-wbtn { display: none; }
+}
+@media (max-width: 980px) {
+  .tks-main { grid-template-columns: minmax(0, 1fr); }
+  .tks-side { max-height: none; overflow: visible; }
+  .tks-side .tks-h, .tks-side .tks-side-w { display: none; }
+}
+@media (max-width: 760px) {
+  .g-wrap.tks { gap: 6px; }
+  .tks-players { gap: 4px; }
+  .tks-chip { padding: 3px 6px 3px 3px; gap: 5px; border-radius: 12px; }
+  .tks-chip .av { width: 22px; height: 22px; font-size: 11px; }
+  .tks-cn b { font-size: 11.5px; max-width: 58px; }
+  .tks-cn b small { display: none; }
+  .tks-hp { width: 46px; height: 5px; }
+  .tks-hpn { font-size: 13px; }
+  .tks-status { min-height: 34px; }
+  .tks-status .g-turn { font-size: 13.5px; padding: 6px 12px; }
+  .tks-stage { height: clamp(320px, calc(100svh - 372px), 560px); border-radius: 16px; border-width: 2px; }
+  .tks-map { font-size: 11px; padding: 3px 7px; }
+  .tks-wind { min-width: 80px; padding: 2px 10px 4px; }
+  .tks-wind b { font-size: 14px; }
+  .tks-timer { font-size: 14px; padding: 3px 8px; }
+  .tks-tr { max-width: 34%; }
+  .tks-ctrl { display: grid; grid-template-columns: minmax(0, 1fr); gap: 7px; padding: 7px; border-radius: 16px; }
+  .tks-r1 { display: grid; grid-template-columns: 50px 50px minmax(0, 1fr) minmax(0, 1.25fr); gap: 6px; }
+  .tks-r1 .tks-mv { width: auto; }
+  .tks-fuel { width: auto; height: 30px; }
+  .tks-wbtn { max-width: none; justify-content: center; padding: 0 6px; font-size: 13px; min-width: 0; }
+  .tks-r2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .tks-adj { justify-content: space-between; gap: 2px; }
+  .tks-adj .tks-btn { width: 44px; min-width: 44px; }
+  .tks-val { min-width: 0; }
+  .tks-val b { font-size: 15px; }
+  .tks-r3 { display: grid; grid-template-columns: auto 1fr; gap: 6px; }
+  .tks-fire { min-width: 0; }
+  .tks-wgrid { grid-template-columns: 1fr 1fr; gap: 5px; }
+  .tks-w { grid-template-columns: 24px minmax(0, 1fr) auto; padding: 4px 7px 4px 4px; gap: 4px; }
+  .tks-wi { font-size: 18px; }
+  .tks-wn b { font-size: 12px; }
+  .tks-wn small { font-size: 9.5px; }
+  .tks-keys { display: none; }
+}

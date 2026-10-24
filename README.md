@@ -37,6 +37,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | ⚽ Kafa Topu | 2–8 | Haxball tarzı fizik futbolu, 1v1–4v4; Klasik / Kafa Kafaya / Çılgın Top |
 | 🧨 Bomba Labirent | 2–8 | Bomberman tarzı; Klasik / Takım / Altın Avı, 4 arena |
 | 🚂 Bilet Yolu | 2–5 | Türkiye haritasında tren hatları kur, biletleri tamamla; feribot ve tünel |
+| 💥 Tank Savaşı | 2–8 | Worms tarzı: açı, güç, rüzgâr; kırılan arazi, 11 silah, 4 harita |
 | ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
 | 🏙️ Emlak Kralı | 2–6 | 40 kare, 3 tahta, 3D zar, açık artırma, takas, ipotek; Klasik/Hızlı/Mega/Kaos modları |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |
