@@ -33,6 +33,8 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🐔 Geçit Koşusu | 1–8 | Yolu, rayı, nehri zıplayarak geç; Yarış / Hayatta Kal / Puan Avı |
 | 🏰 Kale Kur | 2–6 | Catan tarzı kaynak topla, yol/köy/kale kur, takas yap; Haydut ve gelişim kartları |
 | ⚔️ Arena Ustası | 1–8 | Gladyatör RPG: kariyer, düello, turnuva; nefes, seyirci coşkusu, zamanlama vuruşu |
+| 🟤 Tavla | 2 | Klasik, Gülbara, Tapa; mars, 3D zar, bilgisayar rakip |
+| ⚽ Kafa Topu | 2–8 | Haxball tarzı fizik futbolu, 1v1–4v4; Klasik / Kafa Kafaya / Çılgın Top |
 | ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
 | 🏙️ Emlak Kralı | 2–6 | 40 kare, 3 tahta, 3D zar, açık artırma, takas, ipotek; Klasik/Hızlı/Mega/Kaos modları |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |

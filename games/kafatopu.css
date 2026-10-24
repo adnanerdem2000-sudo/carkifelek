@@ -1,0 +1,188 @@
+/* =========================================================================
+   KAFA TOPU — neon stüdyoda üstten görünümlü disk futbolu
+   ========================================================================= */
+.g-wrap.ft { grid-template-columns: minmax(0, 1fr); justify-items: stretch; width: 100%; gap: 8px; --ft-r: #ff3b5c; --ft-b: #2f7bff; }
+
+/* ---------- skor çubuğu ---------- */
+.ft-score { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 0; border-radius: 16px; overflow: hidden; min-width: 0;
+  background: rgba(10,4,30,.75); border: 2px solid rgba(255,255,255,.14); box-shadow: 0 6px 20px rgba(0,0,0,.35); }
+.ft-team { display: flex; align-items: center; gap: 10px; padding: 6px 14px; min-width: 0; }
+.ft-team span { font-family: var(--font-display); font-size: 14px; letter-spacing: .06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ft-team b { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; min-width: 1.1em; text-align: center; }
+.ft-s0 { background: linear-gradient(90deg, #a3122e, var(--ft-r)); justify-content: space-between; }
+.ft-s1 { background: linear-gradient(270deg, #123c9c, var(--ft-b)); justify-content: space-between; }
+.ft-s0 b, .ft-s1 b { color: #fff; text-shadow: 0 2px 0 rgba(0,0,0,.35); }
+.ft-clock { display: grid; justify-items: center; align-content: center; padding: 4px 14px; background: #12062e; min-width: 92px; }
+.ft-clock b { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1; color: var(--yellow); font-variant-numeric: tabular-nums; }
+.ft-clock small { font-size: 10px; font-weight: 900; letter-spacing: .12em; color: var(--ink-dim); margin-top: 2px; }
+.ft-clock.urgent b { color: #ff8fa3; animation: ftPulse .5s ease-in-out infinite alternate; }
+.ft-score.ot .ft-clock { background: linear-gradient(180deg, #5a3a00, #2a1400); }
+.ft-score.ot .ft-clock small { color: var(--gold); }
+@keyframes ftPulse { to { transform: scale(1.08); } }
+.ft-status { min-height: 22px; text-align: center; font-weight: 800; font-size: 13.5px; color: var(--ink-dim); line-height: 1.35; padding: 0 4px; }
+.ft-status b { color: var(--ink); }
+
+/* ---------- ana yerleşim ---------- */
+.ft-main { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 12px; align-items: start; min-width: 0; }
+.ft-play { display: grid; gap: 8px; min-width: 0; position: relative; }
+.ft-stage { position: relative; height: 520px; min-width: 0; border-radius: 18px; overflow: hidden; background: #0a2a1b;
+  border: 3px solid rgba(43,217,107,.6); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 28px rgba(43,217,107,.25);
+  touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.ft-stage.goalflash.t0 { animation: ftFlashR 1.2s ease-out; }
+.ft-stage.goalflash.t1 { animation: ftFlashB 1.2s ease-out; }
+@keyframes ftFlashR { 0%, 40% { border-color: var(--ft-r); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 50px var(--ft-r); } }
+@keyframes ftFlashB { 0%, 40% { border-color: var(--ft-b); box-shadow: 0 0 0 3px rgba(10,3,30,.85), 0 0 50px var(--ft-b); } }
+.ft-cv { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+/* geri sayım, GOL yazısı, bildirim */
+.ft-count { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 6px; pointer-events: none; z-index: 4; }
+.ft-count[hidden] { display: none; }
+.ft-count b { font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 12vw, 92px); line-height: 1; color: var(--yellow); text-shadow: 0 4px 0 #7a2a00, 0 0 30px rgba(255,225,74,.6); }
+.ft-count small { font-weight: 900; font-size: 14px; padding: 4px 12px; border-radius: 10px; background: rgba(10,4,30,.7); }
+.ft-count.pop b { animation: ftCount .6s cubic-bezier(.2,1.6,.4,1); }
+@keyframes ftCount { from { transform: scale(.4); opacity: 0; } }
+.ft-pop { position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%) scale(.6); opacity: 0; pointer-events: none; z-index: 5; display: grid; justify-items: center; gap: 4px; text-align: center; width: max-content; max-width: 94%; }
+.ft-pop.show { animation: ftPop 1.6s ease-out forwards; }
+.ft-pop.goal.show { animation: ftPopGoal 3s ease-out forwards; }
+.ft-pop b { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 10vw, 76px); line-height: 1; color: #fff; letter-spacing: .02em; text-shadow: 0 4px 0 rgba(0,0,0,.45), 0 0 30px rgba(255,255,255,.4); }
+.ft-pop.goal.t0 b { color: #ffd1da; text-shadow: 0 4px 0 #6a0016, 0 0 34px var(--ft-r), 0 0 70px var(--ft-r); }
+.ft-pop.goal.t1 b { color: #d6e5ff; text-shadow: 0 4px 0 #071d5a, 0 0 34px var(--ft-b), 0 0 70px var(--ft-b); }
+.ft-pop small { font-weight: 900; font-size: 15px; padding: 4px 12px; border-radius: 10px; background: rgba(10,4,30,.75); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ft-pop em { font-style: normal; font-family: var(--font-display); font-size: 26px; color: var(--yellow); text-shadow: 0 3px 0 #5a2a00; }
+.ft-pop.ot b, .ft-pop.end b { color: var(--yellow); text-shadow: 0 4px 0 #7a2a00, 0 0 30px rgba(255,225,74,.55); font-size: clamp(30px, 8vw, 60px); }
+@keyframes ftPop { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.5); } 15% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); } 25% { transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -60%) scale(1); } }
+@keyframes ftPopGoal { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.3) rotate(-8deg); } 10% { opacity: 1; transform: translate(-50%, -50%) scale(1.15) rotate(3deg); } 18% { transform: translate(-50%, -50%) scale(1) rotate(0); } 30% { transform: translate(-50%, -50%) scale(1.05); } 42% { transform: translate(-50%, -50%) scale(1); } 85% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.1); } }
+.ft-toast { position: absolute; left: 50%; bottom: 12px; transform: translate(-50%, 20px); opacity: 0; transition: .25s; pointer-events: none; z-index: 5;
+  padding: 7px 14px; border-radius: 12px; background: rgba(10,4,30,.85); border: 1px solid rgba(255,255,255,.2); font-weight: 900; font-size: 13.5px; white-space: nowrap; max-width: 92%; overflow: hidden; text-overflow: ellipsis; }
+.ft-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- takım ekranı ---------- */
+.ft-teams { position: absolute; inset: 0; z-index: 6; display: grid; place-items: center; padding: 12px; background: rgba(8,3,26,.55); backdrop-filter: blur(2px); overflow-y: auto; }
+.ft-teams[hidden] { display: none; }
+.ft-tcard { width: min(100%, 560px); display: grid; gap: 10px; padding: 14px; border-radius: 18px; background: rgba(22,8,56,.94); border: 2px solid rgba(255,255,255,.15); box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+.ft-tcard h3 { margin: 0; text-align: center; font-family: var(--font-display); font-weight: 400; font-size: 22px; color: var(--yellow); }
+.ft-tsub { margin: 0; text-align: center; color: var(--ink-dim); font-weight: 800; font-size: 13px; }
+.ft-tcols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-width: 0; }
+.ft-tcol { display: grid; gap: 6px; align-content: start; padding: 8px; border-radius: 14px; min-width: 0; }
+.ft-tcol.t0 { background: rgba(255,59,92,.14); border: 2px solid rgba(255,59,92,.5); }
+.ft-tcol.t1 { background: rgba(47,123,255,.14); border: 2px solid rgba(47,123,255,.5); }
+.ft-tcol h4 { margin: 0; display: flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 400; font-size: 15px; }
+.ft-tcol h4 i { width: 12px; height: 12px; border-radius: 50%; }
+.ft-tcol h4 span { margin-left: auto; color: var(--ink-dim); font-size: 13px; }
+.ft-tlist { display: grid; gap: 6px; }
+.ft-trow { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 4px 8px 4px 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: rgba(0,0,0,.3); color: var(--ink); cursor: pointer; text-align: left; min-width: 0; font: inherit; }
+.ft-trow:disabled { cursor: default; opacity: 1; }
+.ft-trow:not(:disabled):hover { border-color: rgba(255,255,255,.4); }
+.ft-trow b { flex: 1; min-width: 0; font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ft-trow b small { color: var(--yellow); }
+.ft-sw { font-weight: 900; color: var(--ink-dim); font-size: 16px; }
+.ft-dot { --tc: #888; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-size: 13px; color: #fff;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--tc) 50%, #fff), var(--tc) 55%, color-mix(in srgb, var(--tc) 60%, #000)); border: 2px solid #140a24; text-shadow: 0 1px 0 rgba(0,0,0,.4); }
+.ft-empty { margin: 0; color: var(--ink-dim); font-weight: 800; font-size: 13px; text-align: center; padding: 10px 0; }
+.ft-botbtns { display: flex; gap: 6px; }
+.ft-mini { flex: 1; min-height: 40px; border-radius: 10px; border: 1px dashed rgba(255,255,255,.35); background: rgba(255,255,255,.05); color: var(--ink); font-weight: 900; font-size: 13px; cursor: pointer; font-family: inherit; }
+.ft-mini:disabled { opacity: .35; cursor: default; }
+.ft-tbtns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.ft-tbtns .btn { min-height: 48px; }
+.ft-start { flex: 1 1 220px; }
+.ft-wait { margin: 0; text-align: center; font-weight: 900; color: var(--yellow); animation: ftBlink 1.4s ease-in-out infinite; }
+@keyframes ftBlink { 50% { opacity: .5; } }
+
+/* ---------- MVP kartı ---------- */
+.ft-mvp { position: absolute; inset: 0; z-index: 6; display: grid; place-items: center; padding: 12px; background: rgba(8,3,26,.45); pointer-events: none; }
+.ft-mvp[hidden] { display: none; }
+.ft-mvpcard { --tc: #ffe14a; display: grid; justify-items: center; gap: 6px; padding: 16px 26px 18px; border-radius: 22px; text-align: center; max-width: 92%;
+  background: linear-gradient(170deg, rgba(40,14,90,.96), rgba(16,6,40,.96)); border: 3px solid var(--gold); box-shadow: 0 0 0 4px rgba(10,3,30,.8), 0 0 40px rgba(255,182,39,.45); animation: ftCard .7s cubic-bezier(.2,1.5,.4,1); }
+@keyframes ftCard { from { transform: scale(.5) rotate(-6deg); opacity: 0; } }
+.ft-mvpcard > small { font-weight: 900; letter-spacing: .1em; color: var(--ink-dim); font-size: 12px; }
+.ft-fs { font-family: var(--font-display); font-size: 34px; line-height: 1; color: #fff; }
+.ft-fs .t0 { color: #ff8fa3; } .ft-fs .t1 { color: #8fbaff; }
+.ft-mvpbadge { font-family: var(--font-display); font-size: 15px; padding: 3px 12px; border-radius: 999px; background: linear-gradient(90deg, var(--yellow), var(--gold)); color: #3a1500; }
+.ft-mvpdisc { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-size: 28px; color: #fff; border: 3px solid #fff;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--tc) 45%, #fff), var(--tc) 55%, color-mix(in srgb, var(--tc) 60%, #000)); box-shadow: 0 0 24px var(--tc); }
+.ft-mvpcard b { font-size: 20px; font-weight: 900; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ft-mvpcard p { margin: 0; font-weight: 800; color: var(--ink-dim); font-size: 14px; }
+
+/* ---------- dokunmatik kontrol şeridi ---------- */
+.ft-pad { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; height: 124px; }
+.ft-pad[hidden] { display: none; }
+.ft-jz { position: relative; height: 100%; border-radius: 18px; background: rgba(255,255,255,.04); border: 2px dashed rgba(255,255,255,.14); touch-action: none; overflow: hidden; }
+.ft-joy { position: absolute; width: 100px; height: 100px; margin: -50px 0 0 -50px; border-radius: 50%; pointer-events: none; z-index: 2;
+  background: radial-gradient(circle, rgba(255,255,255,.14) 0 38%, rgba(255,255,255,.05) 39% 100%); border: 2px solid rgba(255,255,255,.45); }
+.ft-joy[hidden] { display: none; }
+.ft-joy i { position: absolute; left: 50%; top: 50%; width: 46px; height: 46px; margin: -23px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #eafff0, #5be38c 45%, #138a43); box-shadow: 0 4px 10px rgba(0,0,0,.45); }
+.ft-joyhint { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 4px; pointer-events: none; opacity: .7; }
+.ft-joyhint[hidden] { display: none; }
+.ft-joyhint i { width: 60px; height: 60px; border-radius: 50%; border: 2px dashed rgba(255,255,255,.5); background: radial-gradient(circle, rgba(91,227,140,.5) 0 30%, transparent 31%); animation: ftHint 1.6s ease-in-out infinite; }
+.ft-joyhint span { font-size: 12px; font-weight: 900; }
+@keyframes ftHint { 50% { transform: translateX(10px); } }
+.ft-kick { --ch: 0; position: relative; width: 112px; height: 112px; border-radius: 50%; border: 4px solid #fff; cursor: pointer; padding: 0; touch-action: none; -webkit-user-select: none; user-select: none;
+  display: grid; place-content: center; justify-items: center; color: #2a0a00; font-family: var(--font-display);
+  background: conic-gradient(#ffe14a calc(var(--ch) * 360deg), transparent 0) border-box, radial-gradient(circle at 40% 30%, #fff6b0, #ffb627 45%, #ff6a1a);
+  box-shadow: 0 6px 0 #8a3200, 0 0 24px rgba(255,170,0,.5); }
+.ft-kick::before { content: ''; position: absolute; inset: 7px; border-radius: 50%; background: radial-gradient(circle at 40% 30%, #fff6b0, #ffb627 45%, #ff6a1a); }
+.ft-kick span, .ft-kick b { position: relative; }
+.ft-kick span { font-size: 30px; line-height: 1; }
+.ft-kick b { font-weight: 400; font-size: 17px; line-height: 1.1; }
+.ft-kick.on { transform: translateY(4px) scale(.97); box-shadow: 0 2px 0 #8a3200, 0 0 34px rgba(255,225,74,.8); }
+.ft-kick:disabled { filter: grayscale(.8) brightness(.65); }
+
+/* ---------- yan panel ---------- */
+.ft-side { display: grid; gap: 10px; font-size: 13.5px; }
+.ft-rosters { display: grid; gap: 8px; }
+.ft-roster h4 { margin: 0 0 4px; display: flex; align-items: center; gap: 6px; font-family: var(--font-display); font-weight: 400; font-size: 14px; }
+.ft-roster h4 i { width: 12px; height: 12px; border-radius: 50%; }
+.ft-roster h4 span { margin-left: auto; color: var(--yellow); font-size: 18px; }
+.ft-roster ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.ft-roster li { display: flex; align-items: center; gap: 7px; padding: 3px 6px 3px 3px; border-radius: 10px; background: rgba(0,0,0,.25); min-width: 0; }
+.ft-roster li.me { background: rgba(255,225,74,.12); box-shadow: inset 0 0 0 1px rgba(255,225,74,.45); }
+.ft-roster li.off { opacity: .6; }
+.ft-roster li .ft-dot { width: 26px; height: 26px; font-size: 11px; }
+.ft-roster li b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+.ft-roster li b small { color: var(--ink-dim); font-weight: 800; }
+.ft-st { font-weight: 900; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ft-st small { color: var(--ink-dim); }
+.ft-glob { display: flex; flex-wrap: wrap; gap: 6px; }
+.ft-chip { padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); font-weight: 900; font-size: 12px; }
+.ft-goals { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; font-weight: 800; font-size: 12.5px; }
+.ft-goals li { display: flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ft-goals li i { flex: none; width: 8px; height: 8px; border-radius: 50%; }
+.ft-goals small { color: var(--ink-dim); }
+.ft-help { margin: 0; color: var(--ink-dim); font-weight: 700; font-size: 12.5px; line-height: 1.4; }
+.ft-help b { color: var(--yellow); }
+.ft-meta { margin: 0; color: var(--ink-dim); font-weight: 800; font-size: 12px; }
+
+/* ---------- ekran boyutları ---------- */
+@media (max-width: 980px) {
+  .ft-main { grid-template-columns: minmax(0, 1fr); }
+  .ft-rosters { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .g-wrap.ft { gap: 6px; }
+  .ft-team { padding: 4px 10px; gap: 6px; }
+  .ft-team span { font-size: 11px; }
+  .ft-team b { font-size: 26px; }
+  .ft-clock { min-width: 76px; padding: 3px 8px; }
+  .ft-clock b { font-size: 20px; }
+  .ft-status { font-size: 12.5px; min-height: 18px; }
+  .ft-stage { border-radius: 14px; border-width: 2px; }
+  .ft-tcard { padding: 10px; gap: 8px; }
+  .ft-tcols { gap: 6px; }
+  .ft-tcol { padding: 6px; }
+  .ft-trow b { font-size: 12.5px; }
+  .ft-dot { width: 26px; height: 26px; font-size: 11px; }
+}
+@media (max-width: 400px) {
+  .ft-team span { display: none; }
+  .ft-s0 { justify-content: center; } .ft-s1 { justify-content: center; }
+  .ft-rosters { grid-template-columns: 1fr; }
+}
+/* yatay telefon: kontroller sahanın üstünde yüzer */
+@media (orientation: landscape) and (max-height: 500px) {
+  .ft-main { grid-template-columns: minmax(0, 1fr); }
+  .ft-status { display: none; }
+  .ft-pad { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; padding: 0 10px 10px; pointer-events: none; z-index: 7; }
+  .ft-jz { pointer-events: auto; background: transparent; border: 0; max-width: 46%; }
+  .ft-kick { pointer-events: auto; width: 96px; height: 96px; opacity: .92; }
+  .ft-joyhint { display: none; }
+}
