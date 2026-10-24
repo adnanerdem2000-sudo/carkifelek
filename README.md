@@ -13,7 +13,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 |---|---|---|
 | 🎡 Çarkıfelek | 1–4 | Çark, bulmaca, ipucu marketi; 1.339 bulmaca |
 | 🐾 Patili Yarış | 1–6 | Sevimli hayvanlarla engelli koşu, güçler, market |
-| 🦎 Bukalemun Saklambaç | 2–6 | Şekil değiştir, kendini boya, ebe arasın; 10 harita |
+| 🦎 Bukalemun Saklambaç | 2–6 | Şekil değiştir, kendini boya, ebe arasın; 12 harita, harita olayları, radar ve tıkırtı |
 | 🚨 Hain Kim? | 4–8 | Görev yap, dondurulanı bildir, haini toplantıda oyla; 2 harita |
 | 🏃 Kovalamaca | 2–8 | Ebelemece, Sıcak Patates, Dondurmaca; 3 arena |
 | 💣 Bomba Kelime | 2–8 | Heceyi içeren kelimeyi yaz, bombayı geçir |

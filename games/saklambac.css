@@ -257,3 +257,28 @@ body[data-game="saklambac"] .gtop .gtitle { flex: 1 1 auto; min-width: 0; }
   .sk-meters { flex-wrap: nowrap; margin-left: auto; }
   .sk-bar { height: 6px; }
 }
+
+/* ---------- harita olayları (v4) ---------- */
+.sk-evchip { padding: 4px 10px; border-radius: 10px; background: rgba(18,5,46,.72); border: 1px solid rgba(255,255,255,.2); font-weight: 900; font-size: 12.5px; white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; backdrop-filter: blur(3px); }
+.sk-evchip[hidden] { display: none; }
+.sk-evchip b { font-family: var(--font-display); font-weight: 400; color: var(--yellow); margin-left: 3px; }
+.sk-evchip.on { border-color: var(--pink); box-shadow: 0 0 14px rgba(255,63,164,.45); }
+.sk-evchip.warn { border-color: var(--yellow); animation: skPulse .6s ease-in-out infinite alternate; }
+.sk-radbtn, .sk-swbtn { display: flex; align-items: center; gap: 4px; min-height: 44px; padding: 4px 12px; border-radius: 999px; border: 2px solid rgba(255,255,255,.45); color: #fff; font-size: 18px; cursor: pointer; }
+.sk-radbtn { background: linear-gradient(90deg, rgba(20,140,130,.9), rgba(43,217,192,.9)); }
+.sk-radbtn small, .sk-swbtn small { font-weight: 900; font-size: 12px; }
+.sk-radbtn b { font-family: var(--font-display); font-weight: 400; color: #fff6b0; margin-left: 2px; }
+.sk-radbtn:disabled { filter: grayscale(.85) brightness(.6); cursor: default; }
+.sk-radbtn[hidden], .sk-swbtn[hidden] { display: none; }
+.sk-swbtn { background: linear-gradient(90deg, #ffb627, #ffe14a); color: #3a1500; border-color: #fff3b0; animation: skPulse .6s ease-in-out infinite alternate; }
+.sk-fbtn.noise { background: linear-gradient(180deg, #7fe8ff, #2b9fd9); color: #062033; box-shadow: 0 4px 0 #145a80, 0 0 18px rgba(127,232,255,.45); }
+.sk-evlist { display: grid; gap: 4px; padding: 8px 10px; border-radius: 12px; background: rgba(0,0,0,.25); border: 1px solid rgba(255,255,255,.1); }
+.sk-evlist > span { font-size: 12.5px; font-weight: 900; color: var(--teal); }
+.sk-evlist ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.sk-evlist li { font-size: 12.5px; line-height: 1.3; font-weight: 700; color: var(--ink); }
+.sk-evoff { margin: 0; font-size: 12px; color: var(--ink-dim); font-weight: 800; }
+@media (max-width: 860px) {
+  .sk-radbtn, .sk-swbtn { min-height: 44px; padding: 4px 10px; font-size: 16px; }
+  .sk-evchip { font-size: 11.5px; padding: 3px 8px; }
+  .sk-fab .sk-fbtn { padding: 6px 12px; font-size: 13.5px; }
+}
