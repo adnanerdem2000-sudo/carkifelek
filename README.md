@@ -17,7 +17,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🚨 Hain Kim? | 4–8 | Görev yap, dondurulanı bildir, haini toplantıda oyla; 2 harita |
 | 🏃 Kovalamaca | 2–8 | Ebelemece, Sıcak Patates, Dondurmaca; 3 arena |
 | 💣 Bomba Kelime | 2–8 | Heceyi içeren kelimeyi yaz, bombayı geçir |
-| 🕵️ Casus Kim? | 3–8 | Herkes mekânı bilir, casus bilmez |
+| 🕵️ Casus Kim? | 3–8 | Herkes kelimeyi bilir, sahtekâr sadece ipucunu; 554 kelime, elden ele ya da online. Klasik mekân modu da var |
 | 🗝️ Kelime Kodu | 4–8 | İki takım, kaptan tek kelimelik ipucu verir |
 | 😂 Komik Cevap | 3–8 | En komik cevabı yaz, oylansın |
 | 📞 Telefon Çiz | 3–8 | Cümle → çizim → tahmin zinciri, sonunda albüm |
@@ -52,7 +52,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🪢 Adam Asmaca Yarışı | 1–4 | Sırayla harf tahmini |
 | 🔤 Kelime Avı | 1–4 | 5 harfli gizli kelime, herkes aynı anda |
 
-Odalar en fazla 8 kişiliktir. Çoğu oyunda bilgisayar rakip vardır; Kelime Kodu ve Casus Kim? gerçek oyuncularla oynanır.
+Odalar en fazla 8 kişiliktir. Çoğu oyunda bilgisayar rakip vardır; Kelime Kodu gerçek oyuncularla oynanır.
 
 ## Teknik
 Kurulum gerekmez; `index.html` dosyasını açmak yeterli. Online oyunda ayrı sunucu yoktur: oda kurucunun tarayıcısı oyunu yönetir, cihazlar herkese açık ücretsiz MQTT aracıları (broker.emqx.io, broker.hivemq.com, test.mosquitto.org) üzerinden WebSocket ile haberleşir. Gizli bilgiler (cevaplar, gemiler, eller) diğer cihazlara gönderilmez. Bağlantı koparsa cihazlar yeniden bağlanır, sayfayı yenileyen oyuncu koltuğuna döner, bağlantısı kopan oyuncunun sırası otomatik geçer.

@@ -1024,7 +1024,12 @@ function bindCore() {
   $('localSetup').addEventListener('click', e => {
     const L = UI.localState, b = e.target.closest('button'); if (!b) return;
     const keep = () => { document.querySelectorAll('#localSetup input[id^=lname]').forEach((inp, i) => { const n = store.get('cf.localNames', ['Ayşe', 'Mehmet', 'Zeynep', 'Can']); n[i] = inp.value; store.set('cf.localNames', n); }); };
-    if (b.dataset.hum) { keep(); L.humans = +b.dataset.hum; UI.renderLocal(); }
+    if (b.dataset.hum) {
+      keep(); const def = Games.byId[L.gameId]; const nh = +b.dataset.hum;
+      // otomatik eklenen (zorunlu) bilgisayar sayısı, insan sayısı değişince yeniden hesaplansın
+      if (def && def.bot && L.bots === Math.max(0, def.min - L.humans)) L.bots = Math.max(0, def.min - nh);
+      L.humans = nh; UI.renderLocal();
+    }
     else if (b.dataset.bot != null && b.dataset.bot !== undefined && b.hasAttribute('data-bot')) { keep(); L.bots = +b.dataset.bot; UI.renderLocal(); }
     else if (b.dataset.lopt) { keep(); L.opts[b.dataset.lopt] = b.dataset.v; UI.renderLocal(); }
     else if (b.id === 'btnLocalStart') UI.startLocalFromMenu();
