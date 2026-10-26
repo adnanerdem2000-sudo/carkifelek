@@ -20,7 +20,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🕵️ Casus Kim? | 3–8 | Herkes kelimeyi bilir, sahtekâr sadece ipucunu; 554 kelime, elden ele ya da online. Klasik mekân modu da var |
 | 🗝️ Kelime Kodu | 4–8 | İki takım, kaptan tek kelimelik ipucu verir |
 | 😂 Komik Cevap | 3–8 | En komik cevabı yaz, oylansın |
-| 📞 Telefon Çiz | 3–8 | Cümle → çizim → tahmin zinciri, sonunda albüm |
+| 📞 Telefon Çiz | 3–8 | Cümle → çizim → tahmin zinciri; Klasik, Hızlı, Gizli Başlangıç, Animasyon |
 | 🎉 Parti Tahtası | 2–8 | Zar, anahtar, kupa, eşyalar; her tur sonunda 9 mini oyundan biri |
 | 🟪 Düşen Zemin | 2–8 | Bastığın altıgen düşer, en son ayakta kalan kazanır; 3 arena |
 | 🖌️ Boya Savaşı | 2–8 | Haritanın en çok yerini kendi renginle boya; tek ya da takım |
@@ -38,7 +38,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | 🧨 Bomba Labirent | 2–8 | Bomberman tarzı; Klasik / Takım / Altın Avı, 4 arena |
 | 🚂 Bilet Yolu | 2–5 | Türkiye haritasında tren hatları kur, biletleri tamamla; feribot ve tünel |
 | 💥 Tank Savaşı | 2–8 | Worms tarzı: açı, güç, rüzgâr; kırılan arazi, 11 silah, 4 harita |
-| ✏️ Çiz Bil | 2–6 | Biri çizer, diğerleri tahmin eder |
+| ✏️ Çiz Bil | 2–8 | Biri çizer, diğerleri tahmin eder; 635 kelime, kategoriler, desenler, kova, geri al |
 | 🏙️ Emlak Kralı | 2–6 | 40 kare, 3 tahta, 3D zar, açık artırma, takas, ipotek; Klasik/Hızlı/Mega/Kaos modları |
 | 🚢 Amiral Battı | 2 | Gemi yerleştir, sırayla ateş et |
 | 🎲 Zar Turnuvası | 1–4 | Beş zar, 13 kategori |
