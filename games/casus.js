@@ -824,599 +824,600 @@ const M = {
 return Object.assign(M, { mount, render, onEvent, unmount, log: addLog, h: { LOCS, dat, acc, cleanTx, mmss } });
 })();
 
-/* ---------- Kelime bankası: Kelime|ipucu1,ipucu2,ipucu3|ilgili1,...  ---------- */
+/* ---------- Kelime bankası: Kelime|yakın1,yakın2,yakın3|ilgili1,...,ilgili5|uzak1,uzak2,uzak3 ----------
+   yakın = belirgin ipuçları (eski set), uzak = gevşek çağrışımlar (varsayılan): bağlam, zaman, his, mekân. */
 const CATS = [
 ['yiyecek', 'Yiyecek & İçecek', '🍔', '#ff8a00', '#ff3fa4', `
-Pizza|Fırın,Dilim,Hamur|peynir,sucuk,mantar,kutu,salam
-Hamburger|Köfte,Ekmek arası,Fast food|patates,ketçap,turşu,marul,kola
-Döner|Şiş,Dürüm,Usta bıçağı|lavaş,ayran,et,tavuk,soğan
-Lahmacun|İnce hamur,Kıyma,Limon|maydanoz,dürüm,ayran,fırın,acı
-Mantı|Yoğurt,Hamur,Kayseri|sarımsak,kıyma,sos,pul biber,haşlama
-Simit|Susam,Çay,Halka|fırın,kahvaltı,vapur,peynir,martı
-Börek|Yufka,Fırın,Tepsi|peynir,ıspanak,kıyma,çay,kahvaltı
-Baklava|Şerbet,Fıstık,Bayram|tatlı,yufka,tepsi,Gaziantep,şeker
-Künefe|Sıcak tatlı,Peynir,Hatay|peynir,şerbet,fıstık,dondurma,tava
-Lokum|Gül,Pudra şekeri,Kahve yanı|bayram,ikram,fıstık,kutu,yumuşak
-Dondurma|Külah,Yaz,Soğuk|çikolata,vanilya,kaşık,çubuk,Maraş
-Çikolata|Kakao,Tatlı,Paket|fındık,süt,bitter,şeker,gofret
-Kek|Fırın,Yumurta,Un|çay,dilim,kakao,vanilya,kalıp
-Pasta|Doğum günü,Mum,Krema|dilim,çilek,kutlama,tabak,fırın
-Çorba|Kaşık,Kase,Sıcak|mercimek,ekmek,limon,tuz,kepçe
-Pilav|Tereyağı,Tencere,Beyaz|tavuk,nohut,kuru fasulye,tabak,şehriye
-Makarna|Çatal,Sos,Haşlama|peynir,domates,spagetti,tencere,süzgeç
-Kebap|Mangal,Şiş,Kömür|et,lavaş,közlenmiş biber,ayran,Adana
-Köfte|Kıyma,Izgara,Ekmek arası|piyaz,soğan,maydanoz,mangal,sucuk
-Omlet|Tava,Kahvaltı,Sarı|yumurta,peynir,tereyağı,çatal,sabah
-Menemen|Tava,Kahvaltı,Biber|yumurta,domates,ekmek,soğan,sıcak
-Sucuk|Kayseri,Baharat,Tava|yumurta,kahvaltı,et,mangal,pastırma
-Peynir|Kahvaltı,Beyaz,Süt ürünü|zeytin,tost,ekmek,kaşar,domates
-Zeytin|Kahvaltı,Siyah,Çekirdek|yağ,peynir,ağaç,Ege,salamura
-Bal|Arı,Petek,Tatlı|kahvaltı,kaymak,çiçek,kavanoz,ekmek
-Reçel|Kavanoz,Kahvaltı,Meyve|çilek,vişne,ekmek,şeker,tereyağı
-Tost|Kaşar,Makine,Ekmek|sucuk,ayran,çay,karışık,kantin
-Ayran|Köpük,Tuzlu,Bardak|yoğurt,kebap,döner,serin,yayık
-Çay|Bardak,Demlik,Sıcak|şeker,simit,kahvaltı,Rize,tavşan kanı
-Kahve|Fincan,Telve,Kafein|köpük,fal,lokum,sabah,cezve
-Limonata|Ekşi,Yaz,Sürahi|şeker,buz,nane,serin,bardak
-Su|Şişe,Bardak,Musluk|içmek,serin,damacana,buz,pet
-Kola|Gazlı,Kutu,Buz|şişe,pipet,hamburger,şeker,köpük
-Gözleme|Sac,Yufka,Köy kahvaltısı|ıspanak,patates,ayran,peynir,tereyağı
+Pizza|Fırın,Dilim,Hamur|peynir,sucuk,mantar,kutu,salam|Cuma akşamı,Paylaşmak,Maç gecesi
+Hamburger|Köfte,Ekmek arası,Fast food|patates,ketçap,turşu,marul,kola|Acele,Alışveriş merkezi,Gençlik
+Döner|Şiş,Dürüm,Usta bıçağı|lavaş,ayran,et,tavuk,soğan|Öğle arası,Gece yarısı,Köşe başı
+Lahmacun|İnce hamur,Kıyma,Limon|maydanoz,dürüm,ayran,fırın,acı|Güneydoğu,Paket servis,Öğle arası
+Mantı|Yoğurt,Hamur,Kayseri|sarımsak,kıyma,sos,pul biber,haşlama|Emek,Orta Anadolu,Aile yemeği
+Simit|Susam,Çay,Halka|fırın,kahvaltı,vapur,peynir,martı|Sabah,Yolda,Tezgâh
+Börek|Yufka,Fırın,Tepsi|peynir,ıspanak,kıyma,çay,kahvaltı|Misafir,Ev yapımı,Kahvaltı sofrası
+Baklava|Şerbet,Fıstık,Bayram|tatlı,yufka,tepsi,Gaziantep,şeker|Ziyaret,Kalori,Özel gün
+Künefe|Sıcak tatlı,Peynir,Hatay|peynir,şerbet,fıstık,dondurma,tava|Yemek sonrası,Güney,Kalabalık masa
+Lokum|Gül,Pudra şekeri,Kahve yanı|bayram,ikram,fıstık,kutu,yumuşak|Misafir,Eski İstanbul,Hediyelik
+Dondurma|Külah,Yaz,Soğuk|çikolata,vanilya,kaşık,çubuk,Maraş|Sahil yürüyüşü,Çocukluk,Öğleden sonra
+Çikolata|Kakao,Tatlı,Paket|fındık,süt,bitter,şeker,gofret|Market kasası,Mutluluk,Sevgiliye
+Kek|Fırın,Yumurta,Un|çay,dilim,kakao,vanilya,kalıp|Çay saati,Ev kokusu,Okul dönüşü
+Pasta|Doğum günü,Mum,Krema|dilim,çilek,kutlama,tabak,fırın|Sürpriz,Fotoğraf,Kalabalık masa
+Çorba|Kaşık,Kase,Sıcak|mercimek,ekmek,limon,tuz,kepçe|Kış akşamı,Hastalık,Başlangıç
+Pilav|Tereyağı,Tencere,Beyaz|tavuk,nohut,kuru fasulye,tabak,şehriye|Esnaf lokantası,Asker,Düğün yemeği
+Makarna|Çatal,Sos,Haşlama|peynir,domates,spagetti,tencere,süzgeç|Öğrenci evi,Pratik,Ucuz
+Kebap|Mangal,Şiş,Kömür|et,lavaş,közlenmiş biber,ayran,Adana|Ziyafet,Duman,Usta
+Köfte|Kıyma,Izgara,Ekmek arası|piyaz,soğan,maydanoz,mangal,sucuk|Piknik,Lokanta,Ev yemeği
+Omlet|Tava,Kahvaltı,Sarı|yumurta,peynir,tereyağı,çatal,sabah|Pratik,Hafta sonu,Öğrenci evi
+Menemen|Tava,Kahvaltı,Biber|yumurta,domates,ekmek,soğan,sıcak|Pazar sabahı,Banmak,Ev hâli
+Sucuk|Kayseri,Baharat,Tava|yumurta,kahvaltı,et,mangal,pastırma|Kış hazırlığı,Kokulu,Kasap vitrini
+Peynir|Kahvaltı,Beyaz,Süt ürünü|zeytin,tost,ekmek,kaşar,domates|Her sabah,Köy,Saklama kabı
+Zeytin|Kahvaltı,Siyah,Çekirdek|yağ,peynir,ağaç,Ege,salamura|Akdeniz,Küçük,Sofra
+Bal|Arı,Petek,Tatlı|kahvaltı,kaymak,çiçek,kavanoz,ekmek|Doğal,Altın rengi,Sağlık
+Reçel|Kavanoz,Kahvaltı,Meyve|çilek,vişne,ekmek,şeker,tereyağı|Yaz sonu,Anneanne,Raf
+Tost|Kaşar,Makine,Ekmek|sucuk,ayran,çay,karışık,kantin|Pratik,Öğle arası,Gece atıştırması
+Ayran|Köpük,Tuzlu,Bardak|yoğurt,kebap,döner,serin,yayık|Yaz sıcağı,Lokanta,Hafif
+Çay|Bardak,Demlik,Sıcak|şeker,simit,kahvaltı,Rize,tavşan kanı|Sohbet,Her saat,Mola
+Kahve|Fincan,Telve,Kafein|köpük,fal,lokum,sabah,cezve|Uyanmak,Ofis,Sohbet
+Limonata|Ekşi,Yaz,Sürahi|şeker,buz,nane,serin,bardak|Sıcak gün,Ev yapımı,Bahçe
+Su|Şişe,Bardak,Musluk|içmek,serin,damacana,buz,pet|Her gün,Sağlık,Spor sonrası
+Kola|Gazlı,Kutu,Buz|şişe,pipet,hamburger,şeker,köpük|Sinema,Parti,Maç gecesi
+Gözleme|Sac,Yufka,Köy kahvaltısı|ıspanak,patates,ayran,peynir,tereyağı|Yol üstü,Pazar yeri,Teyze
 `],
 ['meyve', 'Meyve & Sebze', '🍎', '#2bd96b', '#ffe14a', `
-Elma|Kırmızı,Ağaç,Isırık|yeşil,armut,meyve,turta,Amasya
-Armut|Ağaç,Sulu,Sarı|elma,ayva,meyve,çekirdek,sap
-Muz|Sarı,Kabuk,Maymun|tropik,meyve,süt,koli,Anamur
-Portakal|Turuncu,Vitamin,Sıkmak|mandalina,kış,meyve suyu,kabuk,narenciye
-Mandalina|Kabuk,Kış,Dilim|portakal,turuncu,soba,narenciye,çekirdek
-Limon|Ekşi,Sarı,Sıkmak|çay,salata,balık,kolonya,vitamin
-Çilek|Kırmızı,Reçel,Krema|tarla,pasta,dondurma,yaprak,yaz
-Karpuz|Yaz,Çekirdek,Diyarbakır|kavun,peynir,yeşil,kırmızı,soğuk
-Kavun|Yaz,Sarı,Dilim|karpuz,peynir,tatlı,bostan,soğuk
-Üzüm|Salkım,Bağ,Pekmez|asma,yaprak,sarma,kuru,çekirdek
-Kiraz|Sap,Çift,Kırmızı|vişne,çekirdek,küpe,yaz,ağaç
-Vişne|Ekşi,Reçel,Şerbet|kiraz,çekirdek,koyu kırmızı,ağaç,turta
-Şeftali|Tüylü,Sulu,Yaz|kayısı,nektarin,çekirdek,Bursa,ağaç
-Kayısı|Kuru,Turuncu,Çekirdek|şeftali,çekirdek,ağaç,yaz,reçel
-İncir|Ege,Kuru,Tatlı|ağaç,yaprak,Aydın,süt,mor
-Nar|Kırmızı,Taneler,Ekşi|pekmez,kabuk,kış,Hatay,şerbet
-Ananas|Tropik,Dikenli kabuk,Sarı|hindistan cevizi,meyve,konserve,yaprak,tatlı
-Kivi|Tüylü,Yeşil,Kahverengi|vitamin,ekşi,dilim,çekirdek,meyve
-Domates|Kırmızı,Salata,Salça|biber,salatalık,çoban salatası,menemen,bahçe
-Salatalık|Yeşil,Çıtır,Turşu|domates,cacık,yaz,serin,yoğurt
-Biber|Acı,Yeşil,Dolma|domates,pul,sivri,közleme,salata
-Patlıcan|Mor,Közleme,Kızartma|kebap,imam bayıldı,yağ,biber,yaz
-Patates|Kızartma,Toprak altı,Fırın|ketçap,haşlama,cips,püre,soğan
-Soğan|Gözyaşı,Kabuk,Halka|sarımsak,kuru,yeşil,doğramak,salata
-Sarımsak|Koku,Diş,Cacık|soğan,yoğurt,mantı,beyaz,vampir
-Havuç|Turuncu,Tavşan,Göz sağlığı|sebze,salata,kök,rende,şalgam
-Ispanak|Yeşil,Yaprak,Demir|yoğurt,börek,sebze,yumurta,güç
-Mısır|Patlamış,Sarı,Tarla|haşlama,tane,tarla,sinema,yağ
-Kabak|Tatlı,Yeşil,Çekirdek|çiçek,dolma,sebze,turuncu,çekirdek
-Lahana|Sarma,Turşu,Kış|yaprak,kırmızı,sebze,salata,Karadeniz
-Marul|Yeşil,Salata,Yaprak|hamburger,limon,tavşan,bahçe,çıtır
-Fasulye|Kuru,Pilav yanı,Taze|nohut,tencere,zeytinyağı,sebze,piyaz
+Elma|Kırmızı,Ağaç,Isırık|yeşil,armut,meyve,turta,Amasya|Sonbahar,Bahçe,Sağlık
+Armut|Ağaç,Sulu,Sarı|elma,ayva,meyve,çekirdek,sap|Sonbahar,Meyve tabağı,Yumuşak
+Muz|Sarı,Kabuk,Maymun|tropik,meyve,süt,koli,Anamur|Enerji,Spor sonrası,Çocuk
+Portakal|Turuncu,Vitamin,Sıkmak|mandalina,kış,meyve suyu,kabuk,narenciye|Soğuk günler,Kahvaltı,Pazar tezgâhı
+Mandalina|Kabuk,Kış,Dilim|portakal,turuncu,soba,narenciye,çekirdek|Okul çantası,Soba başı,Kokusu
+Limon|Ekşi,Sarı,Sıkmak|çay,salata,balık,kolonya,vitamin|Mutfak,Ferahlık,Akdeniz
+Çilek|Kırmızı,Reçel,Krema|tarla,pasta,dondurma,yaprak,yaz|İlkbahar,Romantik,Küçük
+Karpuz|Yaz,Çekirdek,Diyarbakır|kavun,peynir,yeşil,kırmızı,soğuk|Ağustos,Bahçe partisi,Ağır
+Kavun|Yaz,Sarı,Dilim|karpuz,peynir,tatlı,bostan,soğuk|Ağustos,Akşam sofrası,Koku
+Üzüm|Salkım,Bağ,Pekmez|asma,yaprak,sarma,kuru,çekirdek|Sonbahar,Ege,Köy evi
+Kiraz|Sap,Çift,Kırmızı|vişne,çekirdek,küpe,yaz,ağaç|Haziran,Çocukluk,Kısa sezon
+Vişne|Ekşi,Reçel,Şerbet|kiraz,çekirdek,koyu kırmızı,ağaç,turta|Komşu bahçesi,Yaz başı,Serinletici
+Şeftali|Tüylü,Sulu,Yaz|kayısı,nektarin,çekirdek,Bursa,ağaç|Temmuz,Yumuşak,Pazar tezgâhı
+Kayısı|Kuru,Turuncu,Çekirdek|şeftali,çekirdek,ağaç,yaz,reçel|Doğu Anadolu,Atıştırmalık,Sağlık
+İncir|Ege,Kuru,Tatlı|ağaç,yaprak,Aydın,süt,mor|Yaz sonu,Atıştırmalık,Köy evi
+Nar|Kırmızı,Taneler,Ekşi|pekmez,kabuk,kış,Hatay,şerbet|Bereket,Sabır,Yılbaşı
+Ananas|Tropik,Dikenli kabuk,Sarı|hindistan cevizi,meyve,konserve,yaprak,tatlı|Uzak ülke,Tatil,Kokteyl
+Kivi|Tüylü,Yeşil,Kahverengi|vitamin,ekşi,dilim,çekirdek,meyve|Uzak ülke,Kaşık,Küçük
+Domates|Kırmızı,Salata,Salça|biber,salatalık,çoban salatası,menemen,bahçe|Köy pazarı,Mutfak,Sandviç
+Salatalık|Yeşil,Çıtır,Turşu|domates,cacık,yaz,serin,yoğurt|Bahçe,Kahvaltı,Serinlik
+Biber|Acı,Yeşil,Dolma|domates,pul,sivri,közleme,salata|Bahçe,Mutfak,Pazar tezgâhı
+Patlıcan|Mor,Közleme,Kızartma|kebap,imam bayıldı,yağ,biber,yaz|Yaz yemeği,Ev yemeği,Usta
+Patates|Kızartma,Toprak altı,Fırın|ketçap,haşlama,cips,püre,soğan|Her mevsim,Çuval,Ucuz
+Soğan|Gözyaşı,Kabuk,Halka|sarımsak,kuru,yeşil,doğramak,salata|Çuval,Mutfak,Ucuz
+Sarımsak|Koku,Diş,Cacık|soğan,yoğurt,mantı,beyaz,vampir|Sağlık,Kış,Ertesi gün
+Havuç|Turuncu,Tavşan,Göz sağlığı|sebze,salata,kök,rende,şalgam|Diyet,Çocuk,Atıştırmalık
+Ispanak|Yeşil,Yaprak,Demir|yoğurt,börek,sebze,yumurta,güç|Kış,Sağlık,Ev yemeği
+Mısır|Patlamış,Sarı,Tarla|haşlama,tane,tarla,sinema,yağ|Sahil,Seyyar satıcı,Yaz akşamı
+Kabak|Tatlı,Yeşil,Çekirdek|çiçek,dolma,sebze,turuncu,çekirdek|Bahçe,Yaz yemeği,Büyük
+Lahana|Sarma,Turşu,Kış|yaprak,kırmızı,sebze,salata,Karadeniz|Soğuk günler,Bereket,Ev yemeği
+Marul|Yeşil,Salata,Yaprak|hamburger,limon,tavşan,bahçe,çıtır|Diyet,Hafif,Taze
+Fasulye|Kuru,Pilav yanı,Taze|nohut,tencere,zeytinyağı,sebze,piyaz|Lokanta,Kış,Klasik
 `],
 ['hayvan', 'Hayvanlar', '🐾', '#ffb627', '#2bd96b', `
-Kedi|Evcil,Bıyık,Pati|kum kabı,yumak,fare,süt,tüy
-Köpek|Sadık,Kulübe,Tasma|kemik,havlamak,kuyruk,yürüyüş,mama
-Kuş|Kanat,Kafes,Yuva|tüy,uçmak,ötmek,yem,ağaç
-Balık|Akvaryum,Su,Pul|deniz,olta,yüzgeç,solungaç,göl
-At|Nal,Yele,Yarış|eyer,binici,çiftlik,koşmak,ahır
-İnek|Süt,Çiftlik,Ahır|buzağı,ot,boynuz,çayır,peynir
-Koyun|Yün,Sürü,Çoban|kuzu,çayır,meleme,kırpmak,çit
-Keçi|Dağ,Sakal,Boynuz|süt,peynir,çoban,kaya,ot
-Tavuk|Yumurta,Kümes,Gıdaklamak|horoz,civciv,çiftlik,yem,kanat
-Horoz|Sabah,Kümes,Şafak|tavuk,ötmek,civciv,çiftlik,şafak
-Ördek|Göl,Vak vak,Gaga|yüzmek,tüy,kanat,yavru,park
-Aslan|Yele,Kral,Kükreme|orman,savana,Afrika,kaplan,pençe
-Kaplan|Çizgili,Pençe,Asya|kedi,orman,turuncu,avcı,aslan
-Fil|Kocaman,Afrika,Gri|kulak,gri,hafıza,sirk,savana
-Zürafa|Benekli,Ağaç tepesi,Afrika|Afrika,savana,sarı,yaprak,uzun
-Maymun|Muz,Ağaç,Taklit|orman,kuyruk,şempanze,dal,hayvanat bahçesi
-Ayı|Bal,Kış uykusu,Pençe|orman,kahverengi,kutup,yavru,mağara
-Kurt|Uluma,Sürü,Dolunay|orman,diş,gece,masal,köpek
-Tilki|Kurnaz,Kızıl,Kuyruk|orman,masal,kümes,tavuk,in
-Tavşan|Havuç,Uzun kulak,Zıplama|kafes,beyaz,hızlı,yavru,tüy
-Kaplumbağa|Kabuk,Sürüngen,Uzun ömür|deniz,yumurta,sürüngen,kum,yeşil
-Yılan|Sürünmek,Zehir,Tıslama|deri,dil,çöl,orman,kobra
-Timsah|Nehir,Diş,Gözyaşı|sürüngen,ağız,bataklık,deri,yeşil
-Penguen|Buz,Paytak,Siyah beyaz|kutup,balık,kar,soğuk,kuş
-Yunus|Zeki,Deniz,Gösteri|balina,yüzgeç,su,sıçramak,mavi
-Köpekbalığı|Yüzgeç,Diş,Okyanus|deniz,korku,gri,film,av
-Balina|Okyanus,Dev,Fıskiye|deniz,yunus,mavi,su,büyük
-Arı|Bal,Çiçek,Sarı siyah|çiçek,iğne,kraliçe,petek,sarı
-Kelebek|Kanat,Renkli,Bahar|çiçek,bahar,uçmak,koza,bahçe
-Karınca|Çalışkan,Yuva,Minik|şeker,sıra,kraliçe,toprak,taşımak
-Baykuş|Gece,Bilge,Büyük göz|ağaç,dal,kuş,orman,uğultu
-Papağan|Renkli,Kafes,Tropik|kuş,taklit,tüy,korsan,gaga
-Deve|Çöl,Kervan,Su deposu|kum,kervan,sarı,sıcak,yük
+Kedi|Evcil,Bıyık,Pati|kum kabı,yumak,fare,süt,tüy|Ev,Uyku,Sessiz
+Köpek|Sadık,Kulübe,Tasma|kemik,havlamak,kuyruk,yürüyüş,mama|Sabah yürüyüşü,Bahçe,Dostluk
+Kuş|Kanat,Kafes,Yuva|tüy,uçmak,ötmek,yem,ağaç|Pencere,Özgürlük,Erken saat
+Balık|Akvaryum,Su,Pul|deniz,olta,yüzgeç,solungaç,göl|Sessiz,Mavi,Akşam yemeği
+At|Nal,Yele,Yarış|eyer,binici,çiftlik,koşmak,ahır|Hız,Asalet,Kır
+İnek|Süt,Çiftlik,Ahır|buzağı,ot,boynuz,çayır,peynir|Köy,Sakin,Sabah erken
+Koyun|Yün,Sürü,Çoban|kuzu,çayır,meleme,kırpmak,çit|Bayram,Yayla,Uykusuzluk
+Keçi|Dağ,Sakal,Boynuz|süt,peynir,çoban,kaya,ot|İnatçı,Yayla,Tırmanmak
+Tavuk|Yumurta,Kümes,Gıdaklamak|horoz,civciv,çiftlik,yem,kanat|Köy,Avlu,Telaş
+Horoz|Sabah,Kümes,Şafak|tavuk,ötmek,civciv,çiftlik,şafak|Köy,Gurur,Uyanmak
+Ördek|Göl,Vak vak,Gaga|yüzmek,tüy,kanat,yavru,park|Su kenarı,Aile,Ekmek kırıntısı
+Aslan|Yele,Kral,Kükreme|orman,savana,Afrika,kaplan,pençe|Güç,Belgesel,Cesaret
+Kaplan|Çizgili,Pençe,Asya|kedi,orman,turuncu,avcı,aslan|Belgesel,Sinsi,Yalnız
+Fil|Kocaman,Afrika,Gri|kulak,gri,hafıza,sirk,savana|Belgesel,Ağır,Aile
+Zürafa|Benekli,Ağaç tepesi,Afrika|Afrika,savana,sarı,yaprak,uzun|Belgesel,Sakin,Zarif
+Maymun|Muz,Ağaç,Taklit|orman,kuyruk,şempanze,dal,hayvanat bahçesi|Şakacı,Gürültü,Belgesel
+Ayı|Bal,Kış uykusu,Pençe|orman,kahverengi,kutup,yavru,mağara|Dağ,Kocaman,Masal
+Kurt|Uluma,Sürü,Dolunay|orman,diş,gece,masal,köpek|Yalnızlık,Dağ,Efsane
+Tilki|Kurnaz,Kızıl,Kuyruk|orman,masal,kümes,tavuk,in|Gece,Sinsi,Akıllı
+Tavşan|Havuç,Uzun kulak,Zıplama|kafes,beyaz,hızlı,yavru,tüy|Çocuk,Ürkek,Bahar
+Kaplumbağa|Kabuk,Sürüngen,Uzun ömür|deniz,yumurta,sürüngen,kum,yeşil|Sabır,Sahil,Yaşlı
+Yılan|Sürünmek,Zehir,Tıslama|deri,dil,çöl,orman,kobra|Tehlike,Sıcak,Sessiz
+Timsah|Nehir,Diş,Gözyaşı|sürüngen,ağız,bataklık,deri,yeşil|Tehlike,Sıcak ülke,Pusu
+Penguen|Buz,Paytak,Siyah beyaz|kutup,balık,kar,soğuk,kuş|Kalabalık,Yürüyüş,Uzak diyar
+Yunus|Zeki,Deniz,Gösteri|balina,yüzgeç,su,sıçramak,mavi|Neşe,Tatil,Dostluk
+Köpekbalığı|Yüzgeç,Diş,Okyanus|deniz,korku,gri,film,av|Tehlike,Açık deniz,Sessiz
+Balina|Okyanus,Dev,Fıskiye|deniz,yunus,mavi,su,büyük|Açık deniz,Sakin,Şarkı
+Arı|Bal,Çiçek,Sarı siyah|çiçek,iğne,kraliçe,petek,sarı|Bahar,Çalışkan,Telaş
+Kelebek|Kanat,Renkli,Bahar|çiçek,bahar,uçmak,koza,bahçe|Kısa ömür,Özgürlük,Değişim
+Karınca|Çalışkan,Yuva,Minik|şeker,sıra,kraliçe,toprak,taşımak|Yaz,Düzen,Kalabalık
+Baykuş|Gece,Bilge,Büyük göz|ağaç,dal,kuş,orman,uğultu|Sessiz,Gizem,Karanlık
+Papağan|Renkli,Kafes,Tropik|kuş,taklit,tüy,korsan,gaga|Ev,Uzun ömür,Şakacı
+Deve|Çöl,Kervan,Su deposu|kum,kervan,sarı,sıcak,yük|Dayanıklı,Sıcak ülke,Uzun yol
 `],
 ['meslek', 'Meslekler', '👩‍⚕️', '#5aa2ff', '#19e3d0', `
-Doktor|Beyaz önlük,Reçete,Muayene|hastane,stetoskop,hasta,ilaç,hemşire
-Öğretmen|Tahta,Sınıf,Not|okul,müdür,ders,tebeşir,karne
-Polis|Üniforma,Düdük,Karakol|kelepçe,suç,devriye,siren,hırsız
-İtfaiyeci|Hortum,Merdiven,Kırmızı araç|yangın,su,kask,kurtarma,alarm
-Aşçı|Mutfak,Bıçak,Önlük|yemek,tencere,lokanta,tarif,şef
-Pilot|Kokpit,Uçuş,Kaptan|uçak,havalimanı,gökyüzü,üniforma,kanat
-Berber|Makas,Tıraş,Ayna|saç,sakal,koltuk,ustura,fön
-Terzi|İğne,Makas,Ölçü|kumaş,dikiş,iplik,elbise,makine
-Fırıncı|Sabah erken,Un,Ekmek|simit,hamur,somun,sıcak,önlük
-Kasap|Bıçak,Et,Önlük|kıyma,pirzola,dükkan,tezgah,kemik
-Çiftçi|Tarla,Traktör,Hasat|buğday,toprak,köy,inek,tohum
-Balıkçı|Tekne,Ağ,Sabah erken|olta,deniz,liman,martı,yem
-Diş hekimi|Koltuk,Matkap,Ağız|dolgu,fırça,çürük,ağrı,beyaz
-Hemşire|İğne,Hastane,Nöbet|serum,doktor,hasta,beyaz,ateş
-Avukat|Mahkeme,Dava,Cübbe|hakim,savunma,kanun,müvekkil,adalet
-Hakim|Tokmak,Karar,Mahkeme|cübbe,dava,kanun,ceza,adalet
-Mühendis|Proje,Hesap,Baret|inşaat,plan,makine,köprü,bilgisayar
-Mimar|Çizim,Bina,Maket|proje,plan,ev,cetvel,tasarım
-Garson|Tepsi,Sipariş,Bahşiş|restoran,masa,menü,hesap,servis
-Kuaför|Fön,Boya,Makas|saç,ayna,koltuk,şampuan,gelin
-Postacı|Mektup,Çanta,Kapı|kargo,zarf,pul,adres,bisiklet
-Şoför|Direksiyon,Yol,Ehliyet|otobüs,taksi,araba,trafik,korna
-Ressam|Fırça,Tuval,Boya|tablo,palet,sergi,resim,atölye
-Şarkıcı|Mikrofon,Sahne,Albüm|konser,ses,nota,hayran,müzik
-Futbolcu|Forma,Krampon,Gol|top,saha,takım,maç,antrenör
-Astronot|Roket,Kask,Yerçekimi|ay,yerçekimi,istasyon,yıldız,gezegen
-Veteriner|Hayvan,Klinik,Aşı|kedi,köpek,hasta,çiftlik,iğne
-Kasiyer|Market,Para üstü,Barkod|fiş,kasa,poşet,sıra,indirim
-Gazeteci|Haber,Röportaj,Mikrofon|manşet,muhabir,kamera,yazı,gündem
+Doktor|Beyaz önlük,Reçete,Muayene|hastane,stetoskop,hasta,ilaç,hemşire|Bekleme salonu,Ciddi,Uzun yıllar
+Öğretmen|Tahta,Sınıf,Not|okul,müdür,ders,tebeşir,karne|Eylül,Sabır,Emek
+Polis|Üniforma,Düdük,Karakol|kelepçe,suç,devriye,siren,hırsız|Güven,Sokak,Gece
+İtfaiyeci|Hortum,Merdiven,Kırmızı araç|yangın,su,kask,kurtarma,alarm|Cesaret,Acele,Kahraman
+Aşçı|Mutfak,Bıçak,Önlük|yemek,tencere,lokanta,tarif,şef|Sıcak,Lezzet,Ayakta
+Pilot|Kokpit,Uçuş,Kaptan|uçak,havalimanı,gökyüzü,üniforma,kanat|Yolculuk,Disiplin,Saat farkı
+Berber|Makas,Tıraş,Ayna|saç,sakal,koltuk,ustura,fön|Sohbet,Mahalle,Cumartesi
+Terzi|İğne,Makas,Ölçü|kumaş,dikiş,iplik,elbise,makine|Sabır,Dükkân,Düğün öncesi
+Fırıncı|Sabah erken,Un,Ekmek|simit,hamur,somun,sıcak,önlük|Gece vardiyası,Mahalle,Koku
+Kasap|Bıçak,Et,Önlük|kıyma,pirzola,dükkan,tezgah,kemik|Bayram,Mahalle,Soğuk oda
+Çiftçi|Tarla,Traktör,Hasat|buğday,toprak,köy,inek,tohum|Güneş,Emek,Yağmur duası
+Balıkçı|Tekne,Ağ,Sabah erken|olta,deniz,liman,martı,yem|Hava durumu,Rüzgâr,Kahvehane
+Diş hekimi|Koltuk,Matkap,Ağız|dolgu,fırça,çürük,ağrı,beyaz|Korku,Randevu,Bekleme
+Hemşire|İğne,Hastane,Nöbet|serum,doktor,hasta,beyaz,ateş|Gece vardiyası,Şefkat,Yorgunluk
+Avukat|Mahkeme,Dava,Cübbe|hakim,savunma,kanun,müvekkil,adalet|Takım elbise,Konuşma,Evrak
+Hakim|Tokmak,Karar,Mahkeme|cübbe,dava,kanun,ceza,adalet|Ciddi,Sessizlik,Son söz
+Mühendis|Proje,Hesap,Baret|inşaat,plan,makine,köprü,bilgisayar|Şantiye,Matematik,Ofis
+Mimar|Çizim,Bina,Maket|proje,plan,ev,cetvel,tasarım|Şehir,Hayal,Ofis
+Garson|Tepsi,Sipariş,Bahşiş|restoran,masa,menü,hesap,servis|Ayakta,Akşam,Gülümseme
+Kuaför|Fön,Boya,Makas|saç,ayna,koltuk,şampuan,gelin|Sohbet,Düğün öncesi,Randevu
+Postacı|Mektup,Çanta,Kapı|kargo,zarf,pul,adres,bisiklet|Sabah,Mahalle,Yürümek
+Şoför|Direksiyon,Yol,Ehliyet|otobüs,taksi,araba,trafik,korna|Uzun saat,Gece,Mola
+Ressam|Fırça,Tuval,Boya|tablo,palet,sergi,resim,atölye|Sessizlik,Hayal,Işık
+Şarkıcı|Mikrofon,Sahne,Albüm|konser,ses,nota,hayran,müzik|Şöhret,Kalabalık,Gece hayatı
+Futbolcu|Forma,Krampon,Gol|top,saha,takım,maç,antrenör|Pazar,Ter,Şöhret
+Astronot|Roket,Kask,Yerçekimi|ay,yerçekimi,istasyon,yıldız,gezegen|Cesaret,Hayal,Uzak
+Veteriner|Hayvan,Klinik,Aşı|kedi,köpek,hasta,çiftlik,iğne|Şefkat,Bekleme salonu,Telaşlı sahip
+Kasiyer|Market,Para üstü,Barkod|fiş,kasa,poşet,sıra,indirim|Kuyruk,Hız,Ayakta
+Gazeteci|Haber,Röportaj,Mikrofon|manşet,muhabir,kamera,yazı,gündem|Sabah,Merak,Telaş
 `],
 ['ev', 'Ev Eşyaları', '🛋️', '#b98bff', '#ff3fa4', `
-Koltuk|Oturmak,Salon,Yastık|kanepe,televizyon,minder,sehpa,rahat
-Yatak|Uyku,Yorgan,Çarşaf|yastık,gece,oda,şilte,rüya
-Yastık|Baş,Kılıf,Yumuşak|yatak,uyku,tüy,yorgan,gece
-Yorgan|Kış,Sıcak,Nevresim|yatak,yastık,uyku,battaniye,pamuk
-Halı|Desen,Zemin,Süpürge|kilim,salon,yün,toz,yumuşak
-Perde|Pencere,Kumaş,Güneş|tül,korniş,oda,açmak,salon
-Ayna|Yansıma,Duvar,Cam|banyo,makyaj,saç,gülümseme,kırık
-Saat|Duvar,Akrep,Zaman|yelkovan,dakika,alarm,pil,tik tak
-Lamba|Işık,Ampul,Düğme|abajur,gece,elektrik,oda,priz
-Dolap|Kapak,Raf,Elbise|askı,çekmece,yatak odası,ahşap,ayna
-Masa|Sandalye,Dört ayak,Yemek|tabak,örtü,ahşap,ders,oturmak
-Sandalye|Oturmak,Arkalık,Masa|ayak,ahşap,minder,mutfak,sınıf
-Buzdolabı|Soğuk,Mutfak,Kapak|süt,dondurucu,meyve,buz,magnet
-Çamaşır makinesi|Deterjan,Banyo,Dönmek|kirli,sıkma,yıkamak,kıyafet,su
-Bulaşık makinesi|Tabak,Mutfak,Deterjan|bardak,temiz,su,tuz,çatal
-Süpürge|Toz,Halı,Gürültü|elektrik,temizlik,hortum,fırça,kablo
-Ütü|Buhar,Kırışık,Gömlek|masa,sıcak,çamaşır,priz,düz
-Televizyon|Kumanda,Kanal,Ekran|dizi,haber,koltuk,film,anten
-Kumanda|Pil,Düğme,Koltuk|televizyon,kanal,ses,uzaktan,kayıp
-Vazo|Çiçek,Cam,Sehpa|su,süs,porselen,kırılmak,masa
-Kilit|Anahtar,Kapı,Güvenlik|şifre,açmak,demir,çilingir,kapamak
-Anahtar|Kapı,Kilit,Cep|ev,araba,kayıp,açmak,halka
-Kapı|Zil,Kol,Giriş|anahtar,kilit,eşik,menteşe,açmak
-Pencere|Cam,Manzara,Perde|açmak,hava,balkon,pervaz,güneş
-Merdiven|Basamak,Kat,Tırmanmak|asansör,yukarı,trabzan,apartman,inmek
-Battaniye|Pike,Kış,Koltuk|yorgan,sıcak,örtü,yün,uyku
-Sehpa|Salon,Koltuk önü,Çay bardağı|masa,dergi,vazo,fincan,ahşap
-Klima|Serin,Uzaktan kumanda,Yaz|sıcak,soğuk,üfleme,duvar,filtre
-Kalorifer|Petek,Kış,Sıcak|kombi,ısınmak,oda,radyatör,soba
+Koltuk|Oturmak,Salon,Yastık|kanepe,televizyon,minder,sehpa,rahat|İş dönüşü,Tembellik,Misafir
+Yatak|Uyku,Yorgan,Çarşaf|yastık,gece,oda,şilte,rüya|Pazar sabahı,Dinlenmek,Hasta
+Yastık|Baş,Kılıf,Yumuşak|yatak,uyku,tüy,yorgan,gece|Dinlenmek,Kavga,Hafif
+Yorgan|Kış,Sıcak,Nevresim|yatak,yastık,uyku,battaniye,pamuk|Soğuk,Anneanne,Ağır
+Halı|Desen,Zemin,Süpürge|kilim,salon,yün,toz,yumuşak|Bayram temizliği,Pazarlık,Ayak altı
+Perde|Pencere,Kumaş,Güneş|tül,korniş,oda,açmak,salon|Mahremiyet,Bayram temizliği,Komşu gözü
+Ayna|Yansıma,Duvar,Cam|banyo,makyaj,saç,gülümseme,kırık|Hazırlanmak,Kendin,Sabah rutini
+Saat|Duvar,Akrep,Zaman|yelkovan,dakika,alarm,pil,tik tak|Acele,Geç kalmak,Sessizlik
+Lamba|Işık,Ampul,Düğme|abajur,gece,elektrik,oda,priz|Kitap okumak,Akşam,Köşe
+Dolap|Kapak,Raf,Elbise|askı,çekmece,yatak odası,ahşap,ayna|Düzen,Taşınma,Saklamak
+Masa|Sandalye,Dört ayak,Yemek|tabak,örtü,ahşap,ders,oturmak|Toplanmak,Aile,Ortada
+Sandalye|Oturmak,Arkalık,Masa|ayak,ahşap,minder,mutfak,sınıf|Bekleme,Akşam yemeği,Balkon
+Buzdolabı|Soğuk,Mutfak,Kapak|süt,dondurucu,meyve,buz,magnet|Gece yarısı,Market dönüşü,Büyük
+Çamaşır makinesi|Deterjan,Banyo,Dönmek|kirli,sıkma,yıkamak,kıyafet,su|Pazar,Gürültü,Hafta sonu
+Bulaşık makinesi|Tabak,Mutfak,Deterjan|bardak,temiz,su,tuz,çatal|Yemek sonrası,Kavga,Uğultu
+Süpürge|Toz,Halı,Gürültü|elektrik,temizlik,hortum,fırça,kablo|Cumartesi,Düzen,Bayram temizliği
+Ütü|Buhar,Kırışık,Gömlek|masa,sıcak,çamaşır,priz,düz|Pazar akşamı,Düzen,Sabır
+Televizyon|Kumanda,Kanal,Ekran|dizi,haber,koltuk,film,anten|Akşam,Aile,Reklam
+Kumanda|Pil,Düğme,Koltuk|televizyon,kanal,ses,uzaktan,kayıp|Kavga,Tembellik,Dizi gecesi
+Vazo|Çiçek,Cam,Sehpa|su,süs,porselen,kırılmak,masa|Misafir,Bahar,Kırılgan
+Kilit|Anahtar,Kapı,Güvenlik|şifre,açmak,demir,çilingir,kapamak|Gece,Emniyet,Kuşku
+Anahtar|Kapı,Kilit,Cep|ev,araba,kayıp,açmak,halka|Çıkarken,Çanta,Unutmak
+Kapı|Zil,Kol,Giriş|anahtar,kilit,eşik,menteşe,açmak|Veda,Hoş geldin,Akşam
+Pencere|Cam,Manzara,Perde|açmak,hava,balkon,pervaz,güneş|Komşu,Ferahlık,Sabah
+Merdiven|Basamak,Kat,Tırmanmak|asansör,yukarı,trabzan,apartman,inmek|Nefes nefese,Taşınma,Spor
+Battaniye|Pike,Kış,Koltuk|yorgan,sıcak,örtü,yün,uyku|Dizi gecesi,Hasta,Sarılmak
+Sehpa|Salon,Koltuk önü,Çay bardağı|masa,dergi,vazo,fincan,ahşap|Misafir,Kenarda,Kitap
+Klima|Serin,Uzaktan kumanda,Yaz|sıcak,soğuk,üfleme,duvar,filtre|Ofis,Ağustos,Fatura
+Kalorifer|Petek,Kış,Sıcak|kombi,ısınmak,oda,radyatör,soba|Kasım,Apartman,Fatura
 `],
 ['mutfak', 'Mutfak', '🍳', '#ff6b6b', '#ffb627', `
-Tencere|Kapak,Ocak,Yemek|tava,kepçe,çorba,düdüklü,pişirmek
-Tava|Sap,Yağ,Ocak|yumurta,omlet,kızartma,teflon,tencere
-Çaydanlık|Ocak,Buhar,Kahvaltı|çay,su,kaynamak,bardak,kahvaltı
-Kepçe|Çorba,Tencere,Uzun sap|kaşık,servis,kase,yemek,çukur
-Bıçak|Kesmek,Keskin,Sap|çatal,doğramak,tahta,ekmek,bileme
-Çatal|Dişler,Masa,Kaşık yanı|bıçak,kaşık,makarna,tabak,yemek
-Kaşık|Çorba,Tatlı,Yemek|çatal,bıçak,çay,şeker,kase
-Tabak|Porselen,Servis,Yemek|çatal,masa,bulaşık,kırılmak,yuvarlak
-Bardak|Cam,Su,İçmek|çay,kupa,tepsi,kırılmak,şeffaf
-Fincan|Kahve,Tabak,Kulp|çay,porselen,fal,telve,ikram
-Tepsi|Taşımak,Servis,Börek|çay,bardak,garson,metal,kenar
-Fırın|Sıcak,Tepsi,Kek|pişirmek,ekmek,ızgara,kapak,derece
-Ocak|Ateş,Tencere,Düğme|gaz,mutfak,çaydanlık,yemek,alev
-Mikrodalga|Isıtmak,Hızlı,Dönen tabla|mutfak,fırın,düğme,patlamış mısır,elektrik
-Tuzluk|Delikler,Masa,Biberlik|yemek,beyaz,cam,serpmek,sofra
-Rende|Havuç,Peynir,Delikli|mutfak,salata,ince,kabak,keskin
-Oklava|Yufka,Hamur,Uzun|börek,un,tahta,mantı,açmak
-Cezve|Köpük,Ocak,Bakır|fincan,telve,bakır,kaynamak,şeker
-Termos|Sıcak tutmak,Piknik,Çay|kahve,çorba,kapak,yolculuk,soğuk
-Süzgeç|Makarna,Delikli,Su|lavabo,sebze,haşlama,çay,metal
-Önlük|Mutfak,Leke,Bağcık|aşçı,yemek,cep,kumaş,temizlik
-Mikser|Çırpmak,Kek,Elektrik|hamur,yumurta,krema,mutfak,dönmek
-Blender|Smoothie,Bıçaklar,Elektrik|meyve,çorba,karıştırmak,süt,buz
-Kesme tahtası|Bıçak,Doğramak,Ahşap|sebze,soğan,mutfak,et,tezgah
-Sürahi|Su,Cam,Masa|bardak,limonata,doldurmak,soğuk,kulp
-Kavanoz|Kapak,Reçel,Cam|turşu,bal,saklamak,kiler,raf
-Kibrit|Çöp,Kutu,Ateş|ocak,mum,yakmak,kükürt,alev
-Peçete|Kağıt,Ağız,Masa|silmek,yemek,beyaz,restoran,kutu
+Tencere|Kapak,Ocak,Yemek|tava,kepçe,çorba,düdüklü,pişirmek|Akşam,Anne,Büyük
+Tava|Sap,Yağ,Ocak|yumurta,omlet,kızartma,teflon,tencere|Hızlı,Cızırtı,Hafta sonu
+Çaydanlık|Ocak,Buhar,Kahvaltı|çay,su,kaynamak,bardak,kahvaltı|Sabah,Sohbet,Ses
+Kepçe|Çorba,Tencere,Uzun sap|kaşık,servis,kase,yemek,çukur|Paylaştırmak,Kalabalık,Anne
+Bıçak|Kesmek,Keskin,Sap|çatal,doğramak,tahta,ekmek,bileme|Dikkat,Hazırlık,Usta
+Çatal|Dişler,Masa,Kaşık yanı|bıçak,kaşık,makarna,tabak,yemek|Sofra,Gümüş,Lokanta
+Kaşık|Çorba,Tatlı,Yemek|çatal,bıçak,çay,şeker,kase|Sofra,Bebek,Gümüş
+Tabak|Porselen,Servis,Yemek|çatal,masa,bulaşık,kırılmak,yuvarlak|Sofra,Çeyiz,Yığın
+Bardak|Cam,Su,İçmek|çay,kupa,tepsi,kırılmak,şeffaf|Raf,Kırılgan,Susamak
+Fincan|Kahve,Tabak,Kulp|çay,porselen,fal,telve,ikram|Çeyiz,Eski dost,Misafir
+Tepsi|Taşımak,Servis,Börek|çay,bardak,garson,metal,kenar|Bayram,Kalabalık,Ağır
+Fırın|Sıcak,Tepsi,Kek|pişirmek,ekmek,ızgara,kapak,derece|Koku,Bekleme,Sabırsızlık
+Ocak|Ateş,Tencere,Düğme|gaz,mutfak,çaydanlık,yemek,alev|Dikkat,Yemek saati,Yanık
+Mikrodalga|Isıtmak,Hızlı,Dönen tabla|mutfak,fırın,düğme,patlamış mısır,elektrik|Ofis,Acele,Gece yarısı
+Tuzluk|Delikler,Masa,Biberlik|yemek,beyaz,cam,serpmek,sofra|Küçük,Lokanta,Eksik bir şey
+Rende|Havuç,Peynir,Delikli|mutfak,salata,ince,kabak,keskin|Hazırlık,Dikkat,Kırıntı
+Oklava|Yufka,Hamur,Uzun|börek,un,tahta,mantı,açmak|Anneanne,Emek,Mutfak
+Cezve|Köpük,Ocak,Bakır|fincan,telve,bakır,kaynamak,şeker|Eski usul,Erken saat,Küçük
+Termos|Sıcak tutmak,Piknik,Çay|kahve,çorba,kapak,yolculuk,soğuk|Kış,Kamp,Uzun yol
+Süzgeç|Makarna,Delikli,Su|lavabo,sebze,haşlama,çay,metal|Akşam yemeği,Acele,Buhar
+Önlük|Mutfak,Leke,Bağcık|aşçı,yemek,cep,kumaş,temizlik|Usta,Hazırlık,Ayakta
+Mikser|Çırpmak,Kek,Elektrik|hamur,yumurta,krema,mutfak,dönmek|Gürültü,Pasta günü,Hafta sonu
+Blender|Smoothie,Bıçaklar,Elektrik|meyve,çorba,karıştırmak,süt,buz|Sabah,Diyet,Spor sonrası
+Kesme tahtası|Bıçak,Doğramak,Ahşap|sebze,soğan,mutfak,et,tezgah|Hazırlık,Çizik,Ev yemeği
+Sürahi|Su,Cam,Masa|bardak,limonata,doldurmak,soğuk,kulp|Sofra,Sıcak gün,Dolu
+Kavanoz|Kapak,Reçel,Cam|turşu,bal,saklamak,kiler,raf|Yaz sonu,Anneanne,Kış hazırlığı
+Kibrit|Çöp,Kutu,Ateş|ocak,mum,yakmak,kükürt,alev|Elektrik kesintisi,Kamp,Eski usul
+Peçete|Kağıt,Ağız,Masa|silmek,yemek,beyaz,restoran,kutu|Lokanta,Sofra,Temizlik
 `],
 ['mekan', 'Mekânlar', '🏙️', '#19e3d0', '#5aa2ff', `
-Hastane|Ambulans,Nöbet,Ameliyat|doktor,hemşire,yatak,acil,ilaç
-Okul|Zil,Teneffüs,Sınıf|öğretmen,öğrenci,ders,kantin,bahçe
-Market|Kasa,Reyon,Sepet|alışveriş,poşet,raf,indirim,kasiyer
-Kütüphane|Sessizlik,Raf,Ödünç|kitap,okumak,masa,öğrenci,kart
-Sinema|Patlamış mısır,Perde,Bilet|film,koltuk,karanlık,salon,fragman
-Müze|Sergi,Tarih,Bilet|tablo,heykel,rehber,eski,cam vitrin
-Park|Salıncak,Bank,Ağaç|kaydırak,çocuk,yürüyüş,çimen,güvercin
-Restoran|Menü,Garson,Rezervasyon|masa,yemek,hesap,şef,tabak
-Kafe|Kahve,Masa,Sohbet|tatlı,barista,çay,wifi,kurabiye
-Banka|Para,Kasa,Sıra numarası|kredi,kart,hesap,veznedar,faiz
-Eczane|İlaç,Reçete,Nöbetçi|vitamin,ağrı kesici,kasa,şurup,sağlık
-Postane|Mektup,Kargo,Pul|zarf,paket,gişe,adres,sıra
-Havalimanı|Uçak,Bagaj,Pasaport|uçuş,bilet,pist,kontrol,bekleme salonu
-Otogar|Otobüs,Bilet,Peron|bavul,yolcu,muavin,şehirlerarası,bekleme
-Stadyum|Tribün,Maç,Taraftar|futbol,gol,saha,bilet,skor
-Hamam|Kese,Buhar,Köpük|köpük,sıcak,peştamal,buhar,tellak
-Cami|Kubbe,Halı,Cuma|namaz,halı,şadırvan,cemaat,cuma
-Otel|Resepsiyon,Oda anahtarı,Tatil|havuz,kahvaltı,yatak,bavul,rezervasyon
-Pazar|Tezgah,File,Sebze|meyve,satıcı,kalabalık,ucuz,poşet
-Lunapark|Eğlence,Bilet,Işıklar|eğlence,pamuk şeker,çocuk,ışık,kuyruk
-Hayvanat bahçesi|Kafes,Ziyaretçi,Bakıcı|aslan,maymun,fil,zürafa,yem
-Karakol|Polis,İfade,Şikayet|komiser,nezarethane,tutanak,suç,kelepçe
-Spor salonu|Ağırlık,Koşu bandı,Antrenör|ter,kas,dambıl,soyunma odası,üyelik
-Kuyumcu|Altın,Vitrin,Yüzük|bilezik,gümüş,pırlanta,kolye,takı
-Benzinlik|Pompa,Depo,Akaryakıt|mazot,araç,kasa,yol,market
-Tiyatro|Sahne,Perde,Alkış|oyuncu,kostüm,bilet,dram,salon
-Çay bahçesi|Semaver,Tavla,Gölge|simit,sohbet,emekli,bardak,ağaç
-Fabrika|Makine,İşçi,Vardiya|üretim,baca,bant,mesai,depo
-Hapishane|Parmaklık,Gardiyan,Mahkum|hücre,ceza,koğuş,firar,duvar
+Hastane|Ambulans,Nöbet,Ameliyat|doktor,hemşire,yatak,acil,ilaç|Bekleme,Endişe,Gece vardiyası
+Okul|Zil,Teneffüs,Sınıf|öğretmen,öğrenci,ders,kantin,bahçe|Eylül,Arkadaşlık,Erken kalkmak
+Market|Kasa,Reyon,Sepet|alışveriş,poşet,raf,indirim,kasiyer|Liste,Kuyruk,İş dönüşü
+Kütüphane|Sessizlik,Raf,Ödünç|kitap,okumak,masa,öğrenci,kart|Sınav dönemi,Saatlerce,Huzur
+Sinema|Patlamış mısır,Perde,Bilet|film,koltuk,karanlık,salon,fragman|Hafta sonu,Randevu,Fısıltı
+Müze|Sergi,Tarih,Bilet|tablo,heykel,rehber,eski,cam vitrin|Okul gezisi,Yağmurlu gün,Yavaş adım
+Park|Salıncak,Bank,Ağaç|kaydırak,çocuk,yürüyüş,çimen,güvercin|Pazar,Akşam üstü,Köpek
+Restoran|Menü,Garson,Rezervasyon|masa,yemek,hesap,şef,tabak|Özel gün,Şık,Akşam
+Kafe|Kahve,Masa,Sohbet|tatlı,barista,çay,wifi,kurabiye|Arkadaş,Öğleden sonra,Buluşma
+Banka|Para,Kasa,Sıra numarası|kredi,kart,hesap,veznedar,faiz|Bekleme,Ciddi,Öğle arası
+Eczane|İlaç,Reçete,Nöbetçi|vitamin,ağrı kesici,kasa,şurup,sağlık|Gece,Hastalık,Köşe başı
+Postane|Mektup,Kargo,Pul|zarf,paket,gişe,adres,sıra|Kuyruk,Eski usul,Uzaktaki biri
+Havalimanı|Uçak,Bagaj,Pasaport|uçuş,bilet,pist,kontrol,bekleme salonu|Veda,Erken kalkmak,Kalabalık
+Otogar|Otobüs,Bilet,Peron|bavul,yolcu,muavin,şehirlerarası,bekleme|Veda,Gece yarısı,Memleket
+Stadyum|Tribün,Maç,Taraftar|futbol,gol,saha,bilet,skor|Pazar,Bağırmak,Coşku
+Hamam|Kese,Buhar,Köpük|köpük,sıcak,peştamal,buhar,tellak|Cumartesi,Eski,Rahatlamak
+Cami|Kubbe,Halı,Cuma|namaz,halı,şadırvan,cemaat,cuma|Huzur,Bayram sabahı,Sessizlik
+Otel|Resepsiyon,Oda anahtarı,Tatil|havuz,kahvaltı,yatak,bavul,rezervasyon|Yolculuk,Yabancı,Uzak şehir
+Pazar|Tezgah,File,Sebze|meyve,satıcı,kalabalık,ucuz,poşet|Hafta sonu,Gürültü,Mahalle
+Lunapark|Eğlence,Bilet,Işıklar|eğlence,pamuk şeker,çocuk,ışık,kuyruk|Çığlık,Çocukluk,Işıltı
+Hayvanat bahçesi|Kafes,Ziyaretçi,Bakıcı|aslan,maymun,fil,zürafa,yem|Okul gezisi,Pazar,Çocukluk
+Karakol|Polis,İfade,Şikayet|komiser,nezarethane,tutanak,suç,kelepçe|Ciddi,Bekleme,Gece
+Spor salonu|Ağırlık,Koşu bandı,Antrenör|ter,kas,dambıl,soyunma odası,üyelik|Yeni yıl kararı,Ayna,İş çıkışı
+Kuyumcu|Altın,Vitrin,Yüzük|bilezik,gümüş,pırlanta,kolye,takı|Düğün öncesi,Pazarlık,Parıltı
+Benzinlik|Pompa,Depo,Akaryakıt|mazot,araç,kasa,yol,market|Yolculuk,Mola,Gece geç saat
+Tiyatro|Sahne,Perde,Alkış|oyuncu,kostüm,bilet,dram,salon|Karanlık,Sessizlik,Şık
+Çay bahçesi|Semaver,Tavla,Gölge|simit,sohbet,emekli,bardak,ağaç|Öğleden sonra,Mahalle,Huzur
+Fabrika|Makine,İşçi,Vardiya|üretim,baca,bant,mesai,depo|Sabah erken,Gürültü,Şehir dışı
+Hapishane|Parmaklık,Gardiyan,Mahkum|hücre,ceza,koğuş,firar,duvar|Pişmanlık,Yalnızlık,Uzun yıllar
 `],
 ['ulasim', 'Ulaşım', '🚗', '#ff3b5c', '#ff8a00', `
-Araba|Direksiyon,Benzin,Ehliyet|tekerlek,yol,trafik,park,korna
-Otobüs|Durak,Şoför,Bilet|yolcu,koltuk,hat,muavin,sefer
-Tren|Ray,İstasyon,Vagon|makinist,bilet,lokomotif,düdük,yolcu
-Uçak|Kanat,Pilot,Bulut|havalimanı,bilet,kemer,yolculuk,pist
-Gemi|Kaptan,Liman,Dalga|deniz,çapa,güverte,yolcu,kamara
-Vapur|Martı,Simit,İskele|Boğaz,çay,deniz,yolcu,İstanbul
-Bisiklet|Pedal,Zil,Kask|tekerlek,zincir,sele,park,yokuş
-Motosiklet|Kask,Hız,İki teker|kurye,egzoz,gidon,benzin,deri ceket
-Taksi|Sarı,Ücret,El kaldırmak|şoför,durak,gece,korna,adres
-Metro|Yeraltı,Kart,Peron|istasyon,tünel,ray,kalabalık,turnike
-Tramvay|Ray,Şehir içi,Zil|durak,kablo,yolcu,cadde,elektrik
-Kamyon|Yük,Dorse,Uzun yol|şoför,tır,kasa,lastik,nakliyat
-Ambulans|Siren,Acil,Sedye|hastane,doktor,kaza,hız,beyaz
-Helikopter|Pervane,Gürültü,Havada asılı|pilot,kurtarma,havalanmak,çatı,gökyüzü
-Roket|Uzay,Fırlatma,Yakıt|astronot,ay,geri sayım,ateş,hız
-Kayık|Kürek,Göl,Ahşap|balıkçı,deniz,iskele,sandal,su
-Yelkenli|Rüzgar,Direk,Deniz|tekne,halat,dalga,yarış,mavi
-Paten|Tekerlek,Denge,Kaymak|buz,dizlik,kask,park,hız
-Kaykay|Tahta,Tekerlek,Rampa|paten,park,genç,atlamak,denge
-Teleferik|Kablo,Dağ,Kabin|kayak,manzara,yüksek,Uludağ,yolcu
-Dolmuş|İnecek var,Hat,Şoför|minibüs,durak,para üstü,kalabalık,yolcu
-Traktör|Tarla,Çiftçi,Römork|köy,tekerlek,toprak,saman,hasat
-Denizaltı|Periskop,Derin,Sonar|torpido,kaptan,su altı,gizli,okyanus
-Köprü|Boğaz,Geçiş,Halat|nehir,araba,ayak,trafik,İstanbul
-Trafik ışığı|Kırmızı,Yeşil,Kavşak|sarı,yaya,dur,araba,polis
-Karavan|Kamp,Ev gibi,Römork|tatil,yol,doğa,mutfak,yatak
-Asansör|Düğme,Kat,Kabin|merdiven,bina,yukarı,aşağı,kapı
-Feribot|Araba taşır,İskele,Deniz|gemi,yolcu,bilet,ada,liman
+Araba|Direksiyon,Benzin,Ehliyet|tekerlek,yol,trafik,park,korna|Yolculuk,Aile,Bayram tatili
+Otobüs|Durak,Şoför,Bilet|yolcu,koltuk,hat,muavin,sefer|İşe gidiş,Ayakta,Sıkış tepiş
+Tren|Ray,İstasyon,Vagon|makinist,bilet,lokomotif,düdük,yolcu|Manzara,Uzun yol,Kitap okumak
+Uçak|Kanat,Pilot,Bulut|havalimanı,bilet,kemer,yolculuk,pist|Tatil,Veda,Yükseklik
+Gemi|Kaptan,Liman,Dalga|deniz,çapa,güverte,yolcu,kamara|Mavi,Ufuk,Ayrılık
+Vapur|Martı,Simit,İskele|Boğaz,çay,deniz,yolcu,İstanbul|Sabah işe gidiş,Dalga,Manzara
+Bisiklet|Pedal,Zil,Kask|tekerlek,zincir,sele,park,yokuş|Pazar,Çocukluk,Sahil
+Motosiklet|Kask,Hız,İki teker|kurye,egzoz,gidon,benzin,deri ceket|Özgürlük,Rüzgâr,Gürültü
+Taksi|Sarı,Ücret,El kaldırmak|şoför,durak,gece,korna,adres|Acele,Yağmurlu gün,Pazarlık
+Metro|Yeraltı,Kart,Peron|istasyon,tünel,ray,kalabalık,turnike|İşe gidiş,Karanlık,Sıkış tepiş
+Tramvay|Ray,Şehir içi,Zil|durak,kablo,yolcu,cadde,elektrik|Turist,Yavaş,Nostalji
+Kamyon|Yük,Dorse,Uzun yol|şoför,tır,kasa,lastik,nakliyat|Otoyol,Ağır,Mola yeri
+Ambulans|Siren,Acil,Sedye|hastane,doktor,kaza,hız,beyaz|Telaş,Endişe,Gece yarısı
+Helikopter|Pervane,Gürültü,Havada asılı|pilot,kurtarma,havalanmak,çatı,gökyüzü|Haber,Tepeden,Telaş
+Roket|Uzay,Fırlatma,Yakıt|astronot,ay,geri sayım,ateş,hız|Hayal,Bilim,Gelecek
+Kayık|Kürek,Göl,Ahşap|balıkçı,deniz,iskele,sandal,su|Sakin,Sabah sisi,Kıyı köyü
+Yelkenli|Rüzgar,Direk,Deniz|tekne,halat,dalga,yarış,mavi|Özgürlük,Tatil,Beyaz
+Paten|Tekerlek,Denge,Kaymak|buz,dizlik,kask,park,hız|Çocukluk,Düşmek,Sahil
+Kaykay|Tahta,Tekerlek,Rampa|paten,park,genç,atlamak,denge|Gençlik,Düşmek,Sokak
+Teleferik|Kablo,Dağ,Kabin|kayak,manzara,yüksek,Uludağ,yolcu|Yükseklik,Kış,Sallanmak
+Dolmuş|İnecek var,Hat,Şoför|minibüs,durak,para üstü,kalabalık,yolcu|İşe gidiş,Bozuk para,Sıkışmak
+Traktör|Tarla,Çiftçi,Römork|köy,tekerlek,toprak,saman,hasat|Yavaş,Toprak yol,Sabah erken
+Denizaltı|Periskop,Derin,Sonar|torpido,kaptan,su altı,gizli,okyanus|Karanlık,Sessizlik,Sır
+Köprü|Boğaz,Geçiş,Halat|nehir,araba,ayak,trafik,İstanbul|Akşam üstü,Manzara,İki yaka
+Trafik ışığı|Kırmızı,Yeşil,Kavşak|sarı,yaya,dur,araba,polis|Sabır,Köşe,Kural
+Karavan|Kamp,Ev gibi,Römork|tatil,yol,doğa,mutfak,yatak|Özgürlük,Yaz,Uzun yol
+Asansör|Düğme,Kat,Kabin|merdiven,bina,yukarı,aşağı,kapı|Apartman,Ayna,Sıkıcı müzik
+Feribot|Araba taşır,İskele,Deniz|gemi,yolcu,bilet,ada,liman|Tatil,Kuyruk,Yaz başı
 `],
 ['spor', 'Spor', '⚽', '#2bd96b', '#19e3d0', `
-Futbol|Gol,Kaleci,Penaltı|top,saha,hakem,forma,derbi
-Basketbol|Smaç,Üçlük,Uzun boy|top,parke,ribaund,turnike,uzun boy
-Voleybol|File,Smaç,Pasör|top,sahil,blok,servis,manşet
-Tenis|Raket,Kort,Servis|top,file,set,maç,sarı top
-Masa tenisi|Raket,Küçük top,File|servis,smaç,turuncu top,hızlı,ping
-Yüzme|Havuz,Kulaç,Bone|gözlük,deniz,dalış,mayo,serbest stil
-Koşu|Ter,Bitiş çizgisi,Parkur|ayakkabı,hız,nefes,madalya,maraton
-Boks|Eldiven,Ring,Nakavt|yumruk,hakem,raunt,kask,köşe
-Güreş|Minder,Yağlı,Tuş|pehlivan,kispet,tuş,yaz,er
-Kayak|Kar,Pist,Baton|dağ,teleferik,kış,eldiven,gözlük
-Satranç|Tahta,Hamle,Strateji|piyon,at,kale,mat,hamle
-Golf|Sopa,Delik,Çim|top,bayrak,saha,vuruş,sessizlik
-Okçuluk|Yay,Hedef,Nişan|nişancı,on puan,olimpiyat,sadak,kiriş
-Halter|Ağırlık,Kaldırmak,Kas|olimpiyat,bar,güç,disk,ter
-Jimnastik|Esneklik,Takla,Denge aleti|minder,olimpiyat,kurdele,paralel,hareket
-Karate|Kuşak,Tekme,Dojo|dövüş,beyaz,Japon,hamle,selam
-Dalış|Tüp,Derinlik,Palet|mercan,deniz,maske,balık,oksijen
-Sörf|Dalga,Tahta,Okyanus|plaj,rüzgar,denge,kumsal,yaz
-Buz pateni|Kış,Pist,Piruet|dans,soğuk,bıçak,kostüm,zarif
-Bowling|Ayakkabı,Pist,Devirmek|top,salon,pist,devirmek,skor
-Bilardo|Yeşil masa,Delik,Tebeşir|top,tebeşir,salon,vuruş,çubuk
-Hentbol|Kale,El,Atış|top,saha,kaleci,pas,takım
-Dart|Hedef tahtası,Ok,İsabet|oyun,duvar,puan,bar,atmak
-Paraşüt|Uçak,Atlama,Rüzgar|gökyüzü,iniş,kask,serbest düşüş,ip
-Eskrim|Kılıç,Maske,Beyaz kıyafet|düello,hamle,olimpiyat,teke tek,metal
-Binicilik|At,Engel,Eyer|nal,yarış,çizme,ahır,atlama
-Dağcılık|Zirve,Halat,Kamp|tırmanış,kar,çadır,oksijen,Everest
-Kano|Kürek,Nehir,Dar tekne|su,yarış,denge,akıntı,can yeleği
+Futbol|Gol,Kaleci,Penaltı|top,saha,hakem,forma,derbi|Kahvehane,Bağırmak,Rekabet
+Basketbol|Smaç,Üçlük,Uzun boy|top,parke,ribaund,turnike,uzun boy|Kapalı salon,Gece maçı,Ayakkabı
+Voleybol|File,Smaç,Pasör|top,sahil,blok,servis,manşet|Yaz,Takım,Kapalı salon
+Tenis|Raket,Kort,Servis|top,file,set,maç,sarı top|Beyaz,İkili,Kulüp
+Masa tenisi|Raket,Küçük top,File|servis,smaç,turuncu top,hızlı,ping|Yurt odası,Refleks,Okul
+Yüzme|Havuz,Kulaç,Bone|gözlük,deniz,dalış,mayo,serbest stil|Nefes,Sabah erken,Yaz
+Koşu|Ter,Bitiş çizgisi,Parkur|ayakkabı,hız,nefes,madalya,maraton|Sahil,Kulaklık,Erken saat
+Boks|Eldiven,Ring,Nakavt|yumruk,hakem,raunt,kask,köşe|Güç,Cesaret,Gece maçı
+Güreş|Minder,Yağlı,Tuş|pehlivan,kispet,tuş,yaz,er|Güç,Köy,Ter
+Kayak|Kar,Pist,Baton|dağ,teleferik,kış,eldiven,gözlük|Ocak,Tatil,Hız
+Satranç|Tahta,Hamle,Strateji|piyon,at,kale,mat,hamle|Akıl,Uzun düşünmek,Rekabet
+Golf|Sopa,Delik,Çim|top,bayrak,saha,vuruş,sessizlik|Zengin,Sakin,Yeşil
+Okçuluk|Yay,Hedef,Nişan|nişancı,on puan,olimpiyat,sadak,kiriş|Odak,Nefes tutmak,Eski zaman
+Halter|Ağırlık,Kaldırmak,Kas|olimpiyat,bar,güç,disk,ter|Bağırmak,Nefes tutmak,Rekor
+Jimnastik|Esneklik,Takla,Denge aleti|minder,olimpiyat,kurdele,paralel,hareket|Zarif,Disiplin,Küçük yaş
+Karate|Kuşak,Tekme,Dojo|dövüş,beyaz,Japon,hamle,selam|Disiplin,Film,Kurs
+Dalış|Tüp,Derinlik,Palet|mercan,deniz,maske,balık,oksijen|Mavi,Nefes,Sessiz dünya
+Sörf|Dalga,Tahta,Okyanus|plaj,rüzgar,denge,kumsal,yaz|Özgürlük,Uzak ülke,Cesaret
+Buz pateni|Kış,Pist,Piruet|dans,soğuk,bıçak,kostüm,zarif|Ocak,Düşmek,Müzik
+Bowling|Ayakkabı,Pist,Devirmek|top,salon,pist,devirmek,skor|Arkadaş,Alışveriş merkezi,Gülmek
+Bilardo|Yeşil masa,Delik,Tebeşir|top,tebeşir,salon,vuruş,çubuk|Arkadaş,Duman,Gece geç saat
+Hentbol|Kale,El,Atış|top,saha,kaleci,pas,takım|Kapalı salon,Okul,Ter
+Dart|Hedef tahtası,Ok,İsabet|oyun,duvar,puan,bar,atmak|Odak,Arkadaş,Oda köşesi
+Paraşüt|Uçak,Atlama,Rüzgar|gökyüzü,iniş,kask,serbest düşüş,ip|Cesaret,Yükseklik,Heyecan
+Eskrim|Kılıç,Maske,Beyaz kıyafet|düello,hamle,olimpiyat,teke tek,metal|Zarif,Hız,Eski zaman
+Binicilik|At,Engel,Eyer|nal,yarış,çizme,ahır,atlama|Zengin,Kır,Asalet
+Dağcılık|Zirve,Halat,Kamp|tırmanış,kar,çadır,oksijen,Everest|Nefes,Azim,Ayaz
+Kano|Kürek,Nehir,Dar tekne|su,yarış,denge,akıntı,can yeleği|Yaz,Kol gücü,Takım
 `],
 ['doga', 'Doğa & Hava', '🌦️', '#5aa2ff', '#2bd96b', `
-Güneş|Sıcak,Sabah,Sarı|ışık,yaz,gökyüzü,doğmak,gözlük
-Ay|Gece,Evre,Gökyüzü|kurt,dolunay,uzay,ışık,yıldız
-Yıldız|Gece,Parıltı,Gökyüzü|ay,dilek,kayan,uzay,ışık
-Bulut|Gri,Yağmur öncesi,Pamuk gibi|gökyüzü,gölge,beyaz,rüzgar,şimşek
-Yağmur|Şemsiye,Islak,Damla|bulut,çizme,su birikintisi,gök gürültüsü,sonbahar
-Kar|Kış,Beyaz,Soğuk|kızak,eldiven,buz,tipi,ayaz
-Rüzgar|Esinti,Uçurtma,Yel değirmeni|fırtına,hava,yaprak,serin,saç
-Gökkuşağı|Renkler,Yağmur sonrası,Yay|yedi renk,güneş,gökyüzü,masal,ışık
-Şimşek|Fırtına,Işık,Gök gürültüsü|yıldırım,bulut,yağmur,elektrik,gece
-Deniz|Dalga,Tuzlu,Mavi|kumsal,gemi,balık,yüzmek,ufuk
-Göl|Durgun,Ördek,Kıyı|su,sazlık,kayık,balık,sakin
-Nehir|Akıntı,Köprü,Kıyı|su,balık,kayık,dere,şelale
-Dağ|Zirve,Kar,Tırmanış|tepe,kaya,yüksek,orman,vadi
-Orman|Ağaçlar,Yeşil,Kamp|kuş,yaprak,mantar,patika,ayı
-Ağaç|Yaprak,Gövde,Kök|dal,orman,gölge,meyve,oduncu
-Çiçek|Bahçe,Koku,Arı|gül,papatya,vazo,bahar,yaprak
-Gül|Diken,Kırmızı,Sevgililer|çiçek,koku,bahçe,yaprak,buket
-Papatya|Beyaz,Seviyor sevmiyor,Çayır|çiçek,sarı,bahar,yaprak,çay
-Volkan|Lav,Patlama,Kül|dağ,ateş,krater,duman,sıcak
-Deprem|Sarsıntı,Fay,Çanta|bina,korku,şiddet,ölçek,artçı
-Çöl|Kum,Kaktüs,Sıcak|deve,vaha,serap,susuzluk,güneş
-Ada|Deniz,Etrafı su,Vapur|plaj,tekne,iskele,yaz,palmiye
-Şelale|Yükseklik,Su sesi,Kaya|nehir,orman,akıntı,doğa,serin
-Mağara|Karanlık,Yarasa,Sarkıt|kaya,dağ,yankı,taş,keşif
-Kum|Plaj,Sıcak,Kale|deniz,çöl,tane,saat,kova
-Toprak|Kahverengi,Bahçe,Solucan|tohum,çiçek,çamur,tarla,saksı
-Sis|Görüş,Sabah,Gri|bulut,nem,far,deniz,puslu
-Fırtına|Rüzgar,Dalga,Gök gürültüsü|yağmur,şimşek,deniz,kasırga,karanlık
-Yaprak|Sonbahar,Yeşil,Ağaç|dal,rüzgar,sarı,kuru,hışırtı
+Güneş|Sıcak,Sabah,Sarı|ışık,yaz,gökyüzü,doğmak,gözlük|Öğle,Enerji,Uyanmak
+Ay|Gece,Evre,Gökyüzü|kurt,dolunay,uzay,ışık,yıldız|Romantik,Uykusuzluk,Deniz kenarı
+Yıldız|Gece,Parıltı,Gökyüzü|ay,dilek,kayan,uzay,ışık|Kamp,Romantik,Şehir dışı
+Bulut|Gri,Yağmur öncesi,Pamuk gibi|gökyüzü,gölge,beyaz,rüzgar,şimşek|Hayal,Hafif,Sonbahar
+Yağmur|Şemsiye,Islak,Damla|bulut,çizme,su birikintisi,gök gürültüsü,sonbahar|Ev hâli,Kasvet,Toprak kokusu
+Kar|Kış,Beyaz,Soğuk|kızak,eldiven,buz,tipi,ayaz|Okul tatili,Sükûnet,Pencere önü
+Rüzgar|Esinti,Uçurtma,Yel değirmeni|fırtına,hava,yaprak,serin,saç|Sahil,Sonbahar,Kapı çarpması
+Gökkuşağı|Renkler,Yağmur sonrası,Yay|yedi renk,güneş,gökyüzü,masal,ışık|Umut,Çocuk,Nadir
+Şimşek|Fırtına,Işık,Gök gürültüsü|yıldırım,bulut,yağmur,elektrik,gece|Korku,Kasvet,Ani
+Deniz|Dalga,Tuzlu,Mavi|kumsal,gemi,balık,yüzmek,ufuk|Huzur,Yaz,Uçsuz bucaksız
+Göl|Durgun,Ördek,Kıyı|su,sazlık,kayık,balık,sakin|Huzur,Piknik,Ayna gibi
+Nehir|Akıntı,Köprü,Kıyı|su,balık,kayık,dere,şelale|Piknik,Ses,Yol
+Dağ|Zirve,Kar,Tırmanış|tepe,kaya,yüksek,orman,vadi|Yürüyüş,Uzak,Temiz hava
+Orman|Ağaçlar,Yeşil,Kamp|kuş,yaprak,mantar,patika,ayı|Yürüyüş,Serin,Kaybolmak
+Ağaç|Yaprak,Gövde,Kök|dal,orman,gölge,meyve,oduncu|Yaşlı,Huzur,Bahar
+Çiçek|Bahçe,Koku,Arı|gül,papatya,vazo,bahar,yaprak|Sevgi,Hediye,Pencere önü
+Gül|Diken,Kırmızı,Sevgililer|çiçek,koku,bahçe,yaprak,buket|Romantik,Dikkat,Özür dilemek
+Papatya|Beyaz,Seviyor sevmiyor,Çayır|çiçek,sarı,bahar,yaprak,çay|Kır,Sade,Tarla kenarı
+Volkan|Lav,Patlama,Kül|dağ,ateş,krater,duman,sıcak|Tehlike,Uzak ada,Belgesel
+Deprem|Sarsıntı,Fay,Çanta|bina,korku,şiddet,ölçek,artçı|Hazırlık,Kaygı,Ani
+Çöl|Kum,Kaktüs,Sıcak|deve,vaha,serap,susuzluk,güneş|Uzak ülke,Yalnızlık,Bitmeyen yol
+Ada|Deniz,Etrafı su,Vapur|plaj,tekne,iskele,yaz,palmiye|Uzaklık,Yaz tatili,Kaçış
+Şelale|Yükseklik,Su sesi,Kaya|nehir,orman,akıntı,doğa,serin|Doğa yürüyüşü,Fotoğraf,Serinlik
+Mağara|Karanlık,Yarasa,Sarkıt|kaya,dağ,yankı,taş,keşif|Serin,Gizem,Macera
+Kum|Plaj,Sıcak,Kale|deniz,çöl,tane,saat,kova|Ayak,Her yerde,Rüzgâr
+Toprak|Kahverengi,Bahçe,Solucan|tohum,çiçek,çamur,tarla,saksı|Emek,Bahar,Kirlenmek
+Sis|Görüş,Sabah,Gri|bulut,nem,far,deniz,puslu|Kasvet,Gizem,Yavaş
+Fırtına|Rüzgar,Dalga,Gök gürültüsü|yağmur,şimşek,deniz,kasırga,karanlık|Korku,Gece yarısı,Ev hâli
+Yaprak|Sonbahar,Yeşil,Ağaç|dal,rüzgar,sarı,kuru,hışırtı|Hafif,Değişim,Kasım
 `],
 ['giyim', 'Giyim & Aksesuar', '👕', '#ff3fa4', '#b98bff', `
-Tişört|Kısa kollu,Yaz,Pamuk|baskı,beden,kot,dolap,renk
-Gömlek|Düğme,Yaka,Ütü|kravat,ofis,kol,takım elbise,beyaz
-Pantolon|Kemer,Paça,Cep|kot,bacak,ütü,beden,fermuar
-Kot|Mavi,Kumaş,Yırtık moda|pantolon,ceket,cep,denim,dikiş
-Etek|Pileli,Kısa,Uzun|elbise,bluz,mini,beden,bel
-Elbise|Düğün,Uzun,Askı|abiye,etek,kumaş,davet,şık
-Mont|Kış,Fermuar,Kapüşon|ceket,sıcak,kaban,yağmur,kaz tüyü
-Kazak|Yün,Örgü,Kış|hırka,boğazlı,sıcak,şiş,kaşıntı
-Ayakkabı|Bağcık,Numara,Topuk|çorap,terlik,çizme,yürümek,boya
-Terlik|Ev,Banyo,Parmak arası|ayak,yaz,plaj,rahat,kapı önü
-Çorap|Ayak,Çift,Delik|ayakkabı,yün,kışlık,renkli,çamaşır
-Şapka|Güneş,Kafa,Siperlik|kep,yaz,hasır,bere,plaj
-Bere|Kış,Yün,Kulak|atkı,eldiven,kafa,ponpon,soğuk
-Atkı|Boyun,Kış,Örgü|bere,eldiven,yün,takım renkleri,rüzgar
-Eldiven|Parmak,Kış,El|bere,atkı,yün,deri,kar
-Kemer|Toka,Pantolon,Deri|delik,bel,kot,siyah,emniyet
-Kravat|Düğüm,Gömlek,Takım|boyun,ofis,çizgili,düğün,yaka
-Gözlük|Cam,Çerçeve,Görmek|lens,miyop,güneş,burun,okumak
-Çanta|Sırt,Fermuar,Askı|cüzdan,okul,omuz,deri,el
-Cüzdan|Para,Kart,Cep|kimlik,deri,çanta,fiş,bozuk para
-Yüzük|Parmak,Nişan,Altın|alyans,taş,evlilik,kuyumcu,gümüş
-Kolye|Boyun,Zincir,Takı|altın,inci,madalyon,gümüş,hediye
-Küpe|Kulak,Delik,Takı|altın,halka,gümüş,çift,inci
-Pijama|Gece,Uyku,Rahat|yatak,takım,pazar,ev,yumuşak
-Mayo|Plaj,Havuz,Islak|bikini,deniz,yüzme,güneş,yaz
-Şort|Yaz,Kısa,Bacak|yazlık,plaj,spor,sıcak,terlik
-Yelek|Kolsuz,Düğme,Takım|ceket,gömlek,kazak,şık,örgü
-Ceket|Yaka,Düğme,İş|takım,gömlek,omuz,cep,blazer
-Çizme|Yağmur,Diz boyu,Kış|ayakkabı,çamur,deri,kar,bot
+Tişört|Kısa kollu,Yaz,Pamuk|baskı,beden,kot,dolap,renk|Her gün,Rahat,Spor
+Gömlek|Düğme,Yaka,Ütü|kravat,ofis,kol,takım elbise,beyaz|İş,Ciddi,Toplantı
+Pantolon|Kemer,Paça,Cep|kot,bacak,ütü,beden,fermuar|Her gün,İş,Ölçü
+Kot|Mavi,Kumaş,Yırtık moda|pantolon,ceket,cep,denim,dikiş|Gençlik,Rahat,Her gün
+Etek|Pileli,Kısa,Uzun|elbise,bluz,mini,beden,bel|Rüzgâr,Zarif,Ofis
+Elbise|Düğün,Uzun,Askı|abiye,etek,kumaş,davet,şık|Özel gün,Zarif,Ayna
+Mont|Kış,Fermuar,Kapüşon|ceket,sıcak,kaban,yağmur,kaz tüyü|Soğuk,Okul yolu,Askı
+Kazak|Yün,Örgü,Kış|hırka,boğazlı,sıcak,şiş,kaşıntı|Anneanne,Soğuk,Rahat
+Ayakkabı|Bağcık,Numara,Topuk|çorap,terlik,çizme,yürümek,boya|Kapı önü,Yürüyüş,Mağaza
+Terlik|Ev,Banyo,Parmak arası|ayak,yaz,plaj,rahat,kapı önü|Tembellik,Akşam keyfi,Anne
+Çorap|Ayak,Çift,Delik|ayakkabı,yün,kışlık,renkli,çamaşır|Hediye,Kaybolmak,Soğuk
+Şapka|Güneş,Kafa,Siperlik|kep,yaz,hasır,bere,plaj|Öğle,Moda,Tatil fotoğrafı
+Bere|Kış,Yün,Kulak|atkı,eldiven,kafa,ponpon,soğuk|Okul yolu,Örgü,Anneanne
+Atkı|Boyun,Kış,Örgü|bere,eldiven,yün,takım renkleri,rüzgar|Soğuk,Stadyum,Hediye
+Eldiven|Parmak,Kış,El|bere,atkı,yün,deri,kar|Soğuk,Kaybolmak,Kayak
+Kemer|Toka,Pantolon,Deri|delik,bel,kot,siyah,emniyet|Bayram yemeği,Ayar,Kilo
+Kravat|Düğüm,Gömlek,Takım|boyun,ofis,çizgili,düğün,yaka|İş görüşmesi,Ciddi,Hediye
+Gözlük|Cam,Çerçeve,Görmek|lens,miyop,güneş,burun,okumak|Kitap okumak,Yaş,Ayna
+Çanta|Sırt,Fermuar,Askı|cüzdan,okul,omuz,deri,el|Kadın,Sabah telaşı,Dağınık
+Cüzdan|Para,Kart,Cep|kimlik,deri,çanta,fiş,bozuk para|Alışveriş,Kaybolmak,Ay sonu
+Yüzük|Parmak,Nişan,Altın|alyans,taş,evlilik,kuyumcu,gümüş|Söz,Sevgi,Parıltı
+Kolye|Boyun,Zincir,Takı|altın,inci,madalyon,gümüş,hediye|Parıltı,Özel gün,Doğum günü
+Küpe|Kulak,Delik,Takı|altın,halka,gümüş,çift,inci|Parıltı,Ayna,Kız çocuğu
+Pijama|Gece,Uyku,Rahat|yatak,takım,pazar,ev,yumuşak|Pazar sabahı,Tembellik,Yatma saati
+Mayo|Plaj,Havuz,Islak|bikini,deniz,yüzme,güneş,yaz|Ağustos,Güneş yanığı,Diyet
+Şort|Yaz,Kısa,Bacak|yazlık,plaj,spor,sıcak,terlik|Rahat,Sıcak gün,Bahçe işi
+Yelek|Kolsuz,Düğme,Takım|ceket,gömlek,kazak,şık,örgü|Düğün,Eski moda,Katman
+Ceket|Yaka,Düğme,İş|takım,gömlek,omuz,cep,blazer|Sonbahar,Askı,Resmî
+Çizme|Yağmur,Diz boyu,Kış|ayakkabı,çamur,deri,kar,bot|Su birikintisi,Kasım,Köy yolu
 `],
 ['okul', 'Okul & Ofis', '✏️', '#ffe14a', '#ff8a00', `
-Kalem|Yazmak,Uç,Kağıt|silgi,defter,kurşun,mürekkep,tükenmez
-Silgi|Hata,Pembe,Kırıntı|defter,kurşun,yanlış,temizlemek,okul
-Defter|Sayfa,Çizgili,Not|kalem,ders,ödev,kapak,okul
-Kitap|Sayfa,Kapak,Yazar|okumak,kütüphane,roman,hikaye,raf
-Cetvel|Ölçmek,Düz çizgi,Santim|kalem,geometri,plastik,uzunluk,çizim
-Makas|Kesmek,Kağıt,Sivri|iki ağız,kuaför,kumaş,el işi,terzi
-Yapıştırıcı|El işi,Kuruma,Tüp|kağıt,kolaj,etiket,sıvı,stick
-Tahta|Tebeşir,Sınıf,Silmek|öğretmen,yazı,kalem,yeşil,ders
-Tebeşir|Tahta,Beyaz,Toz|öğretmen,yazı,silgi,sınıf,kırılmak
-Kalemtıraş|Uç,Talaş,Açmak|kurşun,çöp,metal,keskin,küçük
-Sıra|Oturmak,Sınıf,Arkadaş|okul,masa,tahta,öğrenci,ders
-Karne|Not,Yaz tatili,Takdir|okul,dönem,teşekkür,veli,öğretmen
-Sınav|Soru,Kopya,Puan|test,ders çalışmak,heyecan,öğretmen,sonuç
-Ödev|Ev,Teslim,Öğretmen|defter,ders,proje,akşam,kitap
-Teneffüs|Zil,Bahçe,Kısa ara|okul,oyun,kantin,öğrenci,eğlence
-Kantin|Tost,Teneffüs,Kuyruk|okul,ayran,simit,öğrenci,para
-Harita|Ülke,Yön,Atlas|dünya,kıta,ölçek,pusula,coğrafya
-Küre|Dünya,Dönmek,Sınıf|harita,kıta,okyanus,coğrafya,yuvarlak
-Hesap makinesi|Sayılar,Tuşlar,Matematik|toplama,çarpma,pil,ekran,öğrenci
-Zımba|Kağıt,Tel,Ofis|delgeç,dosya,bastırmak,metal,masa
-Dosya|Klasör,Evrak,Ofis|kağıt,belge,raf,arşiv,bilgisayar
-Toplantı|Masa,Patron,Sunum|ofis,saat,konuşma,proje,kahve
-Yazıcı|Kağıt,Mürekkep,Ofis|kartuş,çıktı,bilgisayar,fotokopi,tarayıcı
-Mezuniyet|Kep,Diploma,Tören|okul,üniversite,cübbe,fotoğraf,sevinç
-Ajanda|Takvim,Not,Randevu|tarih,kalem,toplantı,plan,gün
-Mikroskop|Laboratuvar,Hücre,Büyütmek|bilim,cam,mercek,deney,biyoloji
-Pergel|Daire,Sivri uç,Geometri|cetvel,ölçü,kalem,çizim,matematik
-Boya kalemi|Renkler,Resim dersi,Kutu|resim,çizim,çocuk,kağıt,renkli
+Kalem|Yazmak,Uç,Kağıt|silgi,defter,kurşun,mürekkep,tükenmez|Ders,Masa,Not almak
+Silgi|Hata,Pembe,Kırıntı|defter,kurşun,yanlış,temizlemek,okul|Sınav,Küçük,Pişmanlık
+Defter|Sayfa,Çizgili,Not|kalem,ders,ödev,kapak,okul|Eylül,Çanta,Karalamak
+Kitap|Sayfa,Kapak,Yazar|okumak,kütüphane,roman,hikaye,raf|Yolculuk,Yatmadan önce,Sessiz köşe
+Cetvel|Ölçmek,Düz çizgi,Santim|kalem,geometri,plastik,uzunluk,çizim|Ders,Çanta,Dikkat
+Makas|Kesmek,Kağıt,Sivri|iki ağız,kuaför,kumaş,el işi,terzi|Dikkat,Çekmece,Hobi
+Yapıştırıcı|El işi,Kuruma,Tüp|kağıt,kolaj,etiket,sıvı,stick|Hobi,Çocuk,Kırık
+Tahta|Tebeşir,Sınıf,Silmek|öğretmen,yazı,kalem,yeşil,ders|Ön sıra,Kalkmak,Utanmak
+Tebeşir|Tahta,Beyaz,Toz|öğretmen,yazı,silgi,sınıf,kırılmak|Eski usul,Gıcırtı,Kaldırım
+Kalemtıraş|Uç,Talaş,Açmak|kurşun,çöp,metal,keskin,küçük|Çanta,Çekmece,Ders
+Sıra|Oturmak,Sınıf,Arkadaş|okul,masa,tahta,öğrenci,ders|Fısıltı,Yazılar,Kazımak
+Karne|Not,Yaz tatili,Takdir|okul,dönem,teşekkür,veli,öğretmen|Haziran,Heyecan,Aile
+Sınav|Soru,Kopya,Puan|test,ders çalışmak,heyecan,öğretmen,sonuç|Stres,Uykusuz gece,Haziran
+Ödev|Ev,Teslim,Öğretmen|defter,ders,proje,akşam,kitap|Stres,Pazar akşamı,Mutfak masası
+Teneffüs|Zil,Bahçe,Kısa ara|okul,oyun,kantin,öğrenci,eğlence|Koşmak,Neşe,Nefes almak
+Kantin|Tost,Teneffüs,Kuyruk|okul,ayran,simit,öğrenci,para|Harçlık,Uğultu,Acıkmak
+Harita|Ülke,Yön,Atlas|dünya,kıta,ölçek,pusula,coğrafya|Yolculuk,Duvar,Merak
+Küre|Dünya,Dönmek,Sınıf|harita,kıta,okyanus,coğrafya,yuvarlak|Merak,Masa,Rafta
+Hesap makinesi|Sayılar,Tuşlar,Matematik|toplama,çarpma,pil,ekran,öğrenci|Fatura,Çanta,Esnaf
+Zımba|Kağıt,Tel,Ofis|delgeç,dosya,bastırmak,metal,masa|Çekmece,Düzen,Sekreter
+Dosya|Klasör,Evrak,Ofis|kağıt,belge,raf,arşiv,bilgisayar|Düzen,Resmî daire,Kalın
+Toplantı|Masa,Patron,Sunum|ofis,saat,konuşma,proje,kahve|Sıkıcı,Pazartesi,Uykulu
+Yazıcı|Kağıt,Mürekkep,Ofis|kartuş,çıktı,bilgisayar,fotokopi,tarayıcı|Son dakika,Uğultu,Sinir
+Mezuniyet|Kep,Diploma,Tören|okul,üniversite,cübbe,fotoğraf,sevinç|Veda,Gurur,Haziran
+Ajanda|Takvim,Not,Randevu|tarih,kalem,toplantı,plan,gün|Yeni yıl,Çanta,Unutkanlık
+Mikroskop|Laboratuvar,Hücre,Büyütmek|bilim,cam,mercek,deney,biyoloji|Merak,Ders,Küçük dünya
+Pergel|Daire,Sivri uç,Geometri|cetvel,ölçü,kalem,çizim,matematik|Batmak,Kalem kutusu,Sınav
+Boya kalemi|Renkler,Resim dersi,Kutu|resim,çizim,çocuk,kağıt,renkli|Hayal,Anaokulu,Yağmurlu gün
 `],
 ['teknoloji', 'Teknoloji', '💻', '#19e3d0', '#b98bff', `
-Telefon|Arama,Şarj,Ekran|mesaj,uygulama,kulaklık,kamera,numara
-Bilgisayar|Klavye,Fare,Ekran|internet,oyun,kasa,program,masaüstü
-Tablet|Dokunmatik,Ekran,Büyük|uygulama,şarj,oyun,kalem,çizim
-Kulaklık|Müzik,Kablo,Ses|telefon,şarkı,bluetooth,mikrofon,gürültü
-Şarj aleti|Kablo,Priz,Batarya|telefon,pil,adaptör,elektrik,yüzde
-Klavye|Tuşlar,Yazmak,Harfler|bilgisayar,fare,ekran,mesaj,tıkırtı
-Fare|Tıklamak,İmleç,Tekerlek|bilgisayar,klavye,kablosuz,ekran,altlık
-İnternet|Wifi,Modem,Bağlantı|site,arama,hız,kablo,çevrimiçi
-Kamera|Fotoğraf,Lens,Kayıt|video,çekim,tripod,flaş,anı
-Drone|Pervane,Havadan çekim,Kumanda|kamera,uçmak,pil,gökyüzü,video
-Robot|Metal,Yapay zeka,Makine|bilim kurgu,kol,programlamak,film,pil
-Oyun konsolu|Joystick,Televizyon,Disk|kumanda,ekran,eğlence,yarış,arkadaş
-Akıllı saat|Bilek,Adım,Bildirim|nabız,şarj,telefon,spor,ekran
-E-posta|Adres,Ek dosya,Konu|mesaj,konu,spam,gönder,şifre
-Mesaj|Telefon,Yazmak,Bildirim|emoji,sohbet,cevap,grup,okundu
-Uygulama|Telefon,İndirmek,Simge|mağaza,güncelleme,oyun,ekran,bildirim
-Sosyal medya|Beğeni,Takipçi,Paylaşım|fotoğraf,yorum,hikaye,profil,video
-Şifre|Gizli,Hesap,Giriş|kullanıcı adı,güvenlik,karakter,unutmak,kilit
-Uydu|Uzay,Yörünge,Çanak|anten,televizyon,sinyal,dünya,konum
-Hoparlör|Ses,Bas,Müzik|kablo,parti,bluetooth,yüksek,amfi
-Mikrofon|Ses,Sahne,Konuşmak|şarkıcı,kayıt,kablo,karaoke,sunucu
-Ampul|Işık,Fikir,Tavan|lamba,elektrik,duy,yanmak,tavan
-Pil|Enerji,Kumanda,Şarj|artı eksi,oyuncak,saat,elektrik,değiştirmek
-USB bellek|Takmak,Dosya,Küçük|bilgisayar,veri,yedek,kapasite,flash
-Navigasyon|Harita,Yol tarifi,Uydu|araba,sesli,yön,trafik,adres
-Emoji|Gülen yüz,Mesaj,Kalp|telefon,ifade,sarı,çıkartma,mutlu
-Kod|Yazılım,Bilgisayar,Hata|programcı,satır,algoritma,ekran,uygulama
-Video|Kamera,İzlemek,Kayıt|film,süre,izlenme,çekim,montaj
+Telefon|Arama,Şarj,Ekran|mesaj,uygulama,kulaklık,kamera,numara|Her an,Cep,Bağımlılık
+Bilgisayar|Klavye,Fare,Ekran|internet,oyun,kasa,program,masaüstü|İş,Masa,Uzun saat
+Tablet|Dokunmatik,Ekran,Büyük|uygulama,şarj,oyun,kalem,çizim|Çocuk,Yatak,Uzun yol
+Kulaklık|Müzik,Kablo,Ses|telefon,şarkı,bluetooth,mikrofon,gürültü|Yalnızlık,Otobüs,Kendi dünyası
+Şarj aleti|Kablo,Priz,Batarya|telefon,pil,adaptör,elektrik,yüzde|Unutmak,Yatak başı,Panik
+Klavye|Tuşlar,Yazmak,Harfler|bilgisayar,fare,ekran,mesaj,tıkırtı|Masa,Gece mesaisi,Hızlı
+Fare|Tıklamak,İmleç,Tekerlek|bilgisayar,klavye,kablosuz,ekran,altlık|Masa,Sağ el,Kayma
+İnternet|Wifi,Modem,Bağlantı|site,arama,hız,kablo,çevrimiçi|Her an,Ev,Kopmak
+Kamera|Fotoğraf,Lens,Kayıt|video,çekim,tripod,flaş,anı|Hatıra,Düğün,Gülümsemek
+Drone|Pervane,Havadan çekim,Kumanda|kamera,uçmak,pil,gökyüzü,video|Düğün,Yükseklik,Manzara
+Robot|Metal,Yapay zeka,Makine|bilim kurgu,kol,programlamak,film,pil|Gelecek,Bilim,Duygusuz
+Oyun konsolu|Joystick,Televizyon,Disk|kumanda,ekran,eğlence,yarış,arkadaş|Kavga,Uykusuz gece,Tatil günü
+Akıllı saat|Bilek,Adım,Bildirim|nabız,şarj,telefon,spor,ekran|Hediye,Yürüyüş,Spor sonrası
+E-posta|Adres,Ek dosya,Konu|mesaj,konu,spam,gönder,şifre|İş,Resmî,Pazartesi
+Mesaj|Telefon,Yazmak,Bildirim|emoji,sohbet,cevap,grup,okundu|Gece geç saat,Heyecan,Cevapsız
+Uygulama|Telefon,İndirmek,Simge|mağaza,güncelleme,oyun,ekran,bildirim|Her an,Cep,Yeni
+Sosyal medya|Beğeni,Takipçi,Paylaşım|fotoğraf,yorum,hikaye,profil,video|Zaman kaybı,Merak,Kıskançlık
+Şifre|Gizli,Hesap,Giriş|kullanıcı adı,güvenlik,karakter,unutmak,kilit|Sır,Güven,Unutkanlık
+Uydu|Uzay,Yörünge,Çanak|anten,televizyon,sinyal,dünya,konum|Uzak,Hava durumu,Görünmez
+Hoparlör|Ses,Bas,Müzik|kablo,parti,bluetooth,yüksek,amfi|Komşu,Yaz akşamı,Titreşim
+Mikrofon|Ses,Sahne,Konuşmak|şarkıcı,kayıt,kablo,karaoke,sunucu|Heyecan,Toplantı,Titreyen el
+Ampul|Işık,Fikir,Tavan|lamba,elektrik,duy,yanmak,tavan|Değiştirmek,Karanlık oda,Tasarruf
+Pil|Enerji,Kumanda,Şarj|artı eksi,oyuncak,saat,elektrik,değiştirmek|Çekmece,Bitmek,Yedek
+USB bellek|Takmak,Dosya,Küçük|bilgisayar,veri,yedek,kapasite,flash|Çekmece,Sunum,Kaybolmak
+Navigasyon|Harita,Yol tarifi,Uydu|araba,sesli,yön,trafik,adres|Kaybolmak,Şehir,Yabancı yer
+Emoji|Gülen yüz,Mesaj,Kalp|telefon,ifade,sarı,çıkartma,mutlu|Gülmek,Gençlik,Duygu
+Kod|Yazılım,Bilgisayar,Hata|programcı,satır,algoritma,ekran,uygulama|Gece mesaisi,Mantık,Kulaklık
+Video|Kamera,İzlemek,Kayıt|film,süre,izlenme,çekim,montaj|Hatıra,Telefon,Paylaşmak
 `],
 ['muzik', 'Müzik & Aletler', '🎸', '#ff3fa4', '#ffe14a', `
-Gitar|Tel,Akor,Kamp ateşi|şarkı,akustik,elektro,kamp ateşi,sap
-Piyano|Tuşlar,Siyah beyaz,Pedal|nota,konser,klasik,org,kuyruklu
-Davul|Baget,Ritim,Gürültü|zurna,ramazan,bateri,tokmak,düğün
-Bağlama|Türkü,Tel,Halk müziği|mızrap,tezene,perde,Anadolu,ozan
-Keman|Yay,Çene,Tel|orkestra,klasik,nota,senfoni,ince ses
-Flüt|Nefes,Delikler,İnce ses|nota,okul,üflemek,orkestra,metal
-Ney|Nefes,Kamış,Hüzün|tasavvuf,üflemek,hüzün,sema,ince
-Zurna|Davul,Düğün,Tiz ses|halay,üflemek,köy,şenlik,horon
-Darbuka|Ritim,Göbek,Elle çalmak|def,oryantal,deri,düğün,davul
-Ud|Armut gövde,Mızrap,Tel|klasik,fasıl,Ortadoğu,akor,şarkı
-Akordeon|Tuşlar,Sokak müzisyeni,Omuz|melodi,omuz,polka,çekmek,ses
-Trompet|Pirinç,Üflemek,Caz|orkestra,bando,nota,parlak,boru
-Saksafon|Caz,Üflemek,Kıvrık|nota,bar,gece,sarı,romantik
-Bateri|Baget,Zil,Rock|davul,ritim,pedal,gürültü,grup
-Arp|Teller,Melek,Büyük çerçeve|klasik,çalmak,parmak,orkestra,altın
-Tef|Zilli,Elle vurmak,Halka|ritim,şarkı,dans,düğün,sallamak
-Konser|Sahne,Bilet,Kalabalık|şarkıcı,ışık,alkış,müzik,hayran
-Nota|Müzik,Kağıt,Okumak|müzik,şarkı,piyano,okumak,melodi
-Karaoke|Mikrofon,Şarkı sözü,Ekran|eğlence,sahne,parti,bar,ses
-Orkestra|Şef,Senfoni,Keman|konser,nota,salon,müzisyen,alkış
-Plak|Siyah,Eski,Dönmek|müzik,iğne,albüm,dönmek,koleksiyon
-Radyo|Frekans,Spiker,Anten|şarkı,haber,araba,kanal,dinlemek
-Şarkı|Söz,Melodi,Nakarat|müzik,ses,albüm,radyo,dinlemek
-Dans|Ritim,Adım,Pist|müzik,salsa,tango,parti,halay
-Halay|Mendil,Düğün,El ele|davul,zurna,dans,halka,omuz
-Klip|Video,Şarkı,Çekim|müzik,şarkıcı,dans,televizyon,izlenme
-Kemençe|Yay,Yayla,Çalgı|tulum,yayla,çalgı,ince ses,Trabzon
-Sahne|Perde,Işıklar,Alkış|konser,tiyatro,oyuncu,mikrofon,seyirci
+Gitar|Tel,Akor,Kamp ateşi|şarkı,akustik,elektro,kamp ateşi,sap|Gençlik,Romantik,Sahil gecesi
+Piyano|Tuşlar,Siyah beyaz,Pedal|nota,konser,klasik,org,kuyruklu|Salon,Zarif,Zengin ev
+Davul|Baget,Ritim,Gürültü|zurna,ramazan,bateri,tokmak,düğün|Uyanmak,Bayram,Meydan
+Bağlama|Türkü,Tel,Halk müziği|mızrap,tezene,perde,Anadolu,ozan|Hüzün,Memleket,Gurbet
+Keman|Yay,Çene,Tel|orkestra,klasik,nota,senfoni,ince ses|Hüzün,Duygu,Konser salonu
+Flüt|Nefes,Delikler,İnce ses|nota,okul,üflemek,orkestra,metal|Hafif,Kır,Kuş cıvıltısı
+Ney|Nefes,Kamış,Hüzün|tasavvuf,üflemek,hüzün,sema,ince|Eski,Derin,Gece sessizliği
+Zurna|Davul,Düğün,Tiz ses|halay,üflemek,köy,şenlik,horon|Meydan,Kulak tıkamak,Coşku
+Darbuka|Ritim,Göbek,Elle çalmak|def,oryantal,deri,düğün,davul|Eğlence,Gece hayatı,Kadınlar
+Ud|Armut gövde,Mızrap,Tel|klasik,fasıl,Ortadoğu,akor,şarkı|Eski,Hüzün,Meyhane
+Akordeon|Tuşlar,Sokak müzisyeni,Omuz|melodi,omuz,polka,çekmek,ses|Meydan,Avrupa,Nostalji
+Trompet|Pirinç,Üflemek,Caz|orkestra,bando,nota,parlak,boru|Tören,Asker,Uyanmak
+Saksafon|Caz,Üflemek,Kıvrık|nota,bar,gece,sarı,romantik|Duman,Gece hayatı,Hüzün
+Bateri|Baget,Zil,Rock|davul,ritim,pedal,gürültü,grup|Gençlik,Garaj,Komşu
+Arp|Teller,Melek,Büyük çerçeve|klasik,çalmak,parmak,orkestra,altın|Masal,Saray,Yumuşak
+Tef|Zilli,Elle vurmak,Halka|ritim,şarkı,dans,düğün,sallamak|Eğlence,Kadınlar,Neşe
+Konser|Sahne,Bilet,Kalabalık|şarkıcı,ışık,alkış,müzik,hayran|Yaz akşamı,Coşku,Kuyruk
+Nota|Müzik,Kağıt,Okumak|müzik,şarkı,piyano,okumak,melodi|Disiplin,Yabancı dil,Kurallar
+Karaoke|Mikrofon,Şarkı sözü,Ekran|eğlence,sahne,parti,bar,ses|Utanmak,Gece geç saat,Kahkaha
+Orkestra|Şef,Senfoni,Keman|konser,nota,salon,müzisyen,alkış|Takım,Uyum,Şık
+Plak|Siyah,Eski,Dönmek|müzik,iğne,albüm,dönmek,koleksiyon|Nostalji,Raf,Sahaf
+Radyo|Frekans,Spiker,Anten|şarkı,haber,araba,kanal,dinlemek|Nostalji,Trafik,Dede
+Şarkı|Söz,Melodi,Nakarat|müzik,ses,albüm,radyo,dinlemek|Hatıra,Duygu,Mırıldanmak
+Dans|Ritim,Adım,Pist|müzik,salsa,tango,parti,halay|Neşe,Düğün,Ter
+Halay|Mendil,Düğün,El ele|davul,zurna,dans,halka,omuz|Neşe,Memleket,Meydan
+Klip|Video,Şarkı,Çekim|müzik,şarkıcı,dans,televizyon,izlenme|Telefon,Renk,Yeni çıktı
+Kemençe|Yay,Yayla,Çalgı|tulum,yayla,çalgı,ince ses,Trabzon|Yağmur,Yeşil,Hızlı tempo
+Sahne|Perde,Işıklar,Alkış|konser,tiyatro,oyuncu,mikrofon,seyirci|Heyecan,Göz önü,Prova
 `],
 ['vucut', 'Vücut', '💪', '#ff8a00', '#ff6b6b', `
-Göz|Kirpik,Bakmak,Kaş|ağlamak,bakış,lens,renk,uyku
-Kulak|Duymak,Küpe,Ses|işitmek,müzik,fısıltı,iki tane,kepçe
-Burun|Koku,Hapşırmak,Nefes|mendil,yüz,gözlük,soğuk algınlığı,delik
-Ağız|Dudak,Dil,Konuşmak|diş,yemek,gülümseme,öpücük,yüz
-Diş|Fırça,Beyaz,Çiğnemek|macun,çürük,gülümseme,ağız,süt
-Dil|Tat,Ağız,Konuşmak|lezzet,acı,uzatmak,pembe,tükürük
-Saç|Tarak,Kuaför,Uzun|şampuan,örgü,fön,kel,kepek
-Sakal|Tıraş,Yüz,Berber|bıyık,jilet,kıl,erkek,uzatmak
-El|Parmak,Avuç,Tutmak|tırnak,sağ,sol,alkış,tokalaşma
-Ayak|Topuk,Parmak,Yürümek|çorap,koşmak,terlik,bilek,taban
-Kalp|Atış,Sevgi,Nabız|aşk,kırmızı,göğüs,kan,doktor
-Beyin|Düşünmek,Kafatası,Zeka|akıl,hafıza,sinir,fikir,kafa
-Mide|Açlık,Yemek,Gurultu|karın,sindirim,ağrı,doymak,yemek borusu
-Diz|Bacak,Bükmek,Kapak|ağrı,çökmek,yara,koşu,eklem
-Omuz|Kol,Çanta,Silkmek|boyun,sırt,ağrı,masaj,taşımak
-Parmak|El,Tırnak,Yüzük|beş,işaret,baş,ayak,saymak
-Tırnak|Makas,Oje,Uzamak|parmak,el,manikür,kesmek,yemek
-Yanak|Allık,Gamze,Yüz|öpücük,pembe,kızarmak,gülümseme,makyaj
-Bıyık|Dudak üstü,Kıl,Berber|sakal,erkek,tıraş,burma,yüz
-Kemik|İskelet,Kalsiyum,Kırık|köpek,röntgen,süt,kol,sert
-Kan|Kırmızı,Damar,Bağış|yara,kalp,hastane,hücre,doktor
-Kas|Güç,Spor salonu,Pazı|kol,ağırlık,protein,kramp,antrenman
-Boyun|Baş,Atkı,Kolye|omuz,kravat,ağrı,zürafa,dönmek
-Göbek|Karın,Bebek,Dans|delik,kemer,orta,oryantal,yağ
-Sırt|Çanta,Omurga,Masaj|bel,omuz,ağrı,arka,kambur
-Yüz|Göz,Burun,Ayna|makyaj,gülümseme,yanak,ifade,tıraş
-Dudak|Ruj,Öpücük,Ağız|gülümseme,yanak,dil,kırmızı,konuşmak
-Bilek|Saat,El,Burkulmak|kol,nabız,ağrı,eklem,ince
+Göz|Kirpik,Bakmak,Kaş|ağlamak,bakış,lens,renk,uyku|Ayna,Duygu,Yorgunluk
+Kulak|Duymak,Küpe,Ses|işitmek,müzik,fısıltı,iki tane,kepçe|Telefon,Dedikodu,Soğuk rüzgâr
+Burun|Koku,Hapşırmak,Nefes|mendil,yüz,gözlük,soğuk algınlığı,delik|Bahar,Parfüm,Grip
+Ağız|Dudak,Dil,Konuşmak|diş,yemek,gülümseme,öpücük,yüz|Söz,Sır,Lezzet
+Diş|Fırça,Beyaz,Çiğnemek|macun,çürük,gülümseme,ağız,süt|Korku,Yatmadan önce,Gülümsemek
+Dil|Tat,Ağız,Konuşmak|lezzet,acı,uzatmak,pembe,tükürük|Kavga,Sır,Okul
+Saç|Tarak,Kuaför,Uzun|şampuan,örgü,fön,kel,kepek|Rüzgâr,Banyo,Düğün öncesi
+Sakal|Tıraş,Yüz,Berber|bıyık,jilet,kıl,erkek,uzatmak|Zaman,Olgunluk,Kaşıntı
+El|Parmak,Avuç,Tutmak|tırnak,sağ,sol,alkış,tokalaşma|Selam,İş,Yardım
+Ayak|Topuk,Parmak,Yürümek|çorap,koşmak,terlik,bilek,taban|Yorgunluk,Kapı önü,Koku
+Kalp|Atış,Sevgi,Nabız|aşk,kırmızı,göğüs,kan,doktor|Heyecan,Romantik,Korku
+Beyin|Düşünmek,Kafatası,Zeka|akıl,hafıza,sinir,fikir,kafa|Sınav,Yorgunluk,Merak
+Mide|Açlık,Yemek,Gurultu|karın,sindirim,ağrı,doymak,yemek borusu|Öğle,Stres,Ziyafet
+Diz|Bacak,Bükmek,Kapak|ağrı,çökmek,yara,koşu,eklem|Yaşlılık,Futbol,Merdiven
+Omuz|Kol,Çanta,Silkmek|boyun,sırt,ağrı,masaj,taşımak|Yorgunluk,Arkadaş,Yük
+Parmak|El,Tırnak,Yüzük|beş,işaret,baş,ayak,saymak|Sayı,Telefon,Dokunmak
+Tırnak|Makas,Oje,Uzamak|parmak,el,manikür,kesmek,yemek|Bakım,Stres,Kemirmek
+Yanak|Allık,Gamze,Yüz|öpücük,pembe,kızarmak,gülümseme,makyaj|Utanmak,Bebek,Teyze
+Bıyık|Dudak üstü,Kıl,Berber|sakal,erkek,tıraş,burma,yüz|Eski fotoğraf,Dede,Ciddiyet
+Kemik|İskelet,Kalsiyum,Kırık|köpek,röntgen,süt,kol,sert|Düşmek,Yaşlılık,Beyaz
+Kan|Kırmızı,Damar,Bağış|yara,kalp,hastane,hücre,doktor|Korku,Hayat,Sıcak
+Kas|Güç,Spor salonu,Pazı|kol,ağırlık,protein,kramp,antrenman|Disiplin,Yaz öncesi,Gösteriş
+Boyun|Baş,Atkı,Kolye|omuz,kravat,ağrı,zürafa,dönmek|Uzun yol,Masa başı,Tutulmak
+Göbek|Karın,Bebek,Dans|delik,kemer,orta,oryantal,yağ|Bayram yemeği,Gülmek,Orta yaş
+Sırt|Çanta,Omurga,Masaj|bel,omuz,ağrı,arka,kambur|Masa başı,Yük,Destek
+Yüz|Göz,Burun,Ayna|makyaj,gülümseme,yanak,ifade,tıraş|İlk izlenim,Kimlik,Uykulu
+Dudak|Ruj,Öpücük,Ağız|gülümseme,yanak,dil,kırmızı,konuşmak|Çatlak,Sevgili,Fısıltı
+Bilek|Saat,El,Burkulmak|kol,nabız,ağrı,eklem,ince|Spor,Hediye,Masa başı
 `],
 ['bayram', 'Bayram & Gelenek', '🎉', '#ffe14a', '#ff3fa4', `
-Şeker Bayramı|El öpmek,Harçlık,Akraba ziyareti|lokum,ramazan,çikolata,üç gün,yeni kıyafet
-Kurban Bayramı|Koç,Et paylaşmak,Dört gün|hayvan,kasap,mangal,dua,akraba
-Düğün|Gelin,Damat,Halay|nikah,takı,salon,davetli,pasta
-Nişan|Yüzük,Kurdele,Söz|kız isteme,aile,tepsi,kahve,çift
-Kına gecesi|Türkü,Gelin,Hüzün|hüzün,tepsi,mum,eğlence,el
-Sünnet|Davul,Çocuk,Hediye|çocuk,mevlit,düğün,şölen,hediye
-Doğum günü|Pasta,Mum,Hediye|parti,balon,şarkı,yaş,sürpriz
-Yılbaşı|Çam ağacı,Geri sayım,Hediye|kutlama,Noel Baba,havai fişek,piyango,aralık
-Kız isteme|Çiçek,Çikolata,Aile|aile,damat adayı,söz,tepsi,heyecan
-Nazar boncuğu|Mavi,Göz,Kötülük|uğur,kapı,muska,cam,şans
-Hıdırellez|Dilek,Gül ağacı,Bahar|mayıs,ateş,atlamak,kağıt,şenlik
-Nevruz|Bahar,Ateş,Atlamak|mart,yeşil,yumurta,şenlik,yeni gün
-İftar|Ramazan,Akşam,Top atışı|oruç,hurma,pide,sofra,ezan
-Sahur|Gece,Davulcu,Oruç|ramazan,yemek,uyanmak,imsak,su
-Bayramlık|Yeni kıyafet,Yastık başı,Ayakkabı|elbise,çocuk,mağaza,sevinç,şeker
-Asker uğurlama|Davul,Bayrak,Konvoy|veda,korna,aile,dua,mendil
-Mangal|Kömür,Piknik,Pazar|et,köfte,ateş,yelpaze,bahçe
-Piknik|Örtü,Sepet,Çimen|mangal,park,orman,termos,hafta sonu
-Kahve falı|Fincan,Telve,Gelecek|falcı,şekil,yol,kısmet,tabak
-Ramazan|Oruç,İftar,Pide|sahur,davulcu,on bir ay,hurma,teravih
-Bayrak|Ay yıldız,Kırmızı,Direk|rüzgar,gönder,millî,stadyum,tören
-Cumhuriyet Bayramı|Fener alayı,Tören,Marş|Atatürk,okul,marş,kutlama,gurur
-23 Nisan|Çocuklar,Tören,Gösteri|bayram,okul,şiir,bayrak,egemenlik
-Anneler Günü|Çiçek,Hediye,Mayıs|kart,kahvaltı,sevgi,sarılmak,teşekkür
-Sevgililer Günü|Kalp,Gül,Akşam yemeği|aşk,çikolata,hediye,kırmızı,akşam yemeği
-Hediye|Paket,Kurdele,Sürpriz|doğum günü,kutu,kart,teşekkür,mutluluk
-Havai fişek|Gökyüzü,Patlama,Renkler|yılbaşı,gece,kutlama,ışık,gürültü
-Balon|Şişirmek,Parti,Patlamak|doğum günü,renkli,ip,hava,uçmak
+Şeker Bayramı|El öpmek,Harçlık,Akraba ziyareti|lokum,ramazan,çikolata,üç gün,yeni kıyafet|Sevinç,Kapı kapı,Büyükler
+Kurban Bayramı|Koç,Et paylaşmak,Dört gün|hayvan,kasap,mangal,dua,akraba|Bereket,Sabah erken,Komşuluk
+Düğün|Gelin,Damat,Halay|nikah,takı,salon,davetli,pasta|Masraf,Akraba,Gözyaşı
+Nişan|Yüzük,Kurdele,Söz|kız isteme,aile,tepsi,kahve,çift|Akraba,Fotoğraf,Gelecek
+Kına gecesi|Türkü,Gelin,Hüzün|hüzün,tepsi,mum,eğlence,el|Kadınlar,Veda,Gözyaşı
+Sünnet|Davul,Çocuk,Hediye|çocuk,mevlit,düğün,şölen,hediye|Yaz tatili,Gurur,Akraba
+Doğum günü|Pasta,Mum,Hediye|parti,balon,şarkı,yaş,sürpriz|Yaşlanmak,Takvim,Dilek
+Yılbaşı|Çam ağacı,Geri sayım,Hediye|kutlama,Noel Baba,havai fişek,piyango,aralık|Umut,Yeni başlangıç,Kış gecesi
+Kız isteme|Çiçek,Çikolata,Aile|aile,damat adayı,söz,tepsi,heyecan|Gelecek,Gerginlik,Akraba
+Nazar boncuğu|Mavi,Göz,Kötülük|uğur,kapı,muska,cam,şans|Kıskançlık,Bebek,Eski inanç
+Hıdırellez|Dilek,Gül ağacı,Bahar|mayıs,ateş,atlamak,kağıt,şenlik|Umut,Eski inanç,Açık hava
+Nevruz|Bahar,Ateş,Atlamak|mart,yeşil,yumurta,şenlik,yeni gün|Yeni başlangıç,Umut,Coşku
+İftar|Ramazan,Akşam,Top atışı|oruç,hurma,pide,sofra,ezan|Sabırsızlık,Paylaşmak,Kalabalık masa
+Sahur|Gece,Davulcu,Oruç|ramazan,yemek,uyanmak,imsak,su|Uykusuzluk,Karanlık,Sabaha karşı
+Bayramlık|Yeni kıyafet,Yastık başı,Ayakkabı|elbise,çocuk,mağaza,sevinç,şeker|Alışveriş,Gösteriş,Arife
+Asker uğurlama|Davul,Bayrak,Konvoy|veda,korna,aile,dua,mendil|Gurur,Gözyaşı,Memleket
+Mangal|Kömür,Piknik,Pazar|et,köfte,ateş,yelpaze,bahçe|Duman,Balkon,Yaz akşamı
+Piknik|Örtü,Sepet,Çimen|mangal,park,orman,termos,hafta sonu|Güneşli gün,Akraba,Top oynamak
+Kahve falı|Fincan,Telve,Gelecek|falcı,şekil,yol,kısmet,tabak|Sohbet,Kadınlar,Yemek sonrası
+Ramazan|Oruç,İftar,Pide|sahur,davulcu,on bir ay,hurma,teravih|Bereket,Otuz gün,Komşuluk
+Bayrak|Ay yıldız,Kırmızı,Direk|rüzgar,gönder,millî,stadyum,tören|Gurur,Okul,Balkon
+Cumhuriyet Bayramı|Fener alayı,Tören,Marş|Atatürk,okul,marş,kutlama,gurur|Ekim,Coşku,Tatil günü
+23 Nisan|Çocuklar,Tören,Gösteri|bayram,okul,şiir,bayrak,egemenlik|Neşe,Kostüm,Tatil günü
+Anneler Günü|Çiçek,Hediye,Mayıs|kart,kahvaltı,sevgi,sarılmak,teşekkür|Duygu,Telefon,Özlem
+Sevgililer Günü|Kalp,Gül,Akşam yemeği|aşk,çikolata,hediye,kırmızı,akşam yemeği|Şubat,Pahalı,Rezervasyon
+Hediye|Paket,Kurdele,Sürpriz|doğum günü,kutu,kart,teşekkür,mutluluk|Sevinç,Özel gün,Düşünceli
+Havai fişek|Gökyüzü,Patlama,Renkler|yılbaşı,gece,kutlama,ışık,gürültü|Coşku,Balkon,Yeni başlangıç
+Balon|Şişirmek,Parti,Patlamak|doğum günü,renkli,ip,hava,uçmak|Sevinç,Uçup gitmek,Süsleme
 `],
 ['unlu', 'Ünlü Yerler', '🗺️', '#5aa2ff', '#ff3fa4', `
-Galata Kulesi|İstanbul,Martı,Seyir terası|Beyoğlu,taş,manzara,Karaköy,Hezarfen
-Kız Kulesi|Boğaz,Üsküdar,Efsane|deniz,kayık,ışık,İstanbul,yılan
-Ayasofya|Kubbe,Sultanahmet,Bizans|müze,cami,mozaik,minare,tarih
-Kapadokya|Balon,Mağara,Kaya|mağara,Ürgüp,at,kaya,gün doğumu
-Pamukkale|Beyaz,Termal,Antik|termal,havuz,kireç,antik,turist
-Efes|Antik kent,Kütüphane,İzmir|tiyatro,sütun,tarih,Selçuk,turist
-Anıtkabir|Ankara,Tören,Saygı|Atatürk,saygı,mozole,ziyaret,asker
-Truva|Antik,Destan,Savaş|antik,savaş,Homeros,film,kent
-Nemrut Dağı|Dev heykeller,Gün doğumu,Zirve|baş,zirve,kral,taş,tarih
-Sümela Manastırı|Trabzon,Kayalık,Orman|Maçka,dağ,tarih,sis,fresk
-Eyfel Kulesi|Demir,Işıklar,Avrupa|Fransa,turist,yüksek,romantik,fotoğraf
-Piramitler|Çöl,Taş,Antik|mumya,taş,sfenks,üçgen,deve
-Çin Seddi|Uzun duvar,Asya,Taş|Pekin,tarih,gözetleme,dağ,turist
-Özgürlük Heykeli|Meşale,Yeşil,Liman|Amerika,ada,taç,turist,liman
-Pisa Kulesi|İtalya,Fotoğraf pozu,Beyaz|turist,beyaz,yamuk,çan,itmek
-Kolezyum|Antik,Arena,Aslan|İtalya,antik,aslan,taş,turist
-Big Ben|Saat,Çan,Avrupa|İngiltere,kule,parlamento,turist,zaman
-Tac Mahal|Hindistan,Beyaz mermer,Aşk|kubbe,saray,türbe,turist,havuz
-Venedik|Gondol,Kanallar,İtalya|köprü,karnaval,maske,tekne,su
-İstanbul|Boğaz,Vapur,Martı|köprü,simit,Galata,kalabalık,trafik
-Ankara|Başkent,Anıtkabir,Kızılay|meclis,devlet,memur,Kocatepe,üniversite
-İzmir|Kordon,Saat Kulesi,Ege|boyoz,gevrek,deniz,körfez,Konak
-Trabzon|Karadeniz,Yayla,Çay|yayla,kemençe,çay,yağmur,horon
-Antalya|Tatil,Plaj,Turizm|otel,güneş,deniz,Kaleiçi,yaz
-Kapalıçarşı|İstanbul,Dükkanlar,Kuyumcu|halı,turist,pazarlık,kemer,tarihi
-Dolmabahçe Sarayı|Boğaz,Saat,Avize|padişah,Atatürk,müze,bahçe,kristal
-Paris|Moda,Romantik,Sanat|kruvasan,moda,müze,sanat,bere
-Londra|Kraliyet,Yağmur,Kırmızı otobüs|İngiltere,çay saati,metro,sis,saray
-Uludağ|Kayak,Kar,Teleferik|kar,otel,kış,zirve,mangal
+Galata Kulesi|İstanbul,Martı,Seyir terası|Beyoğlu,taş,manzara,Karaköy,Hezarfen|Turist,Fotoğraf,Yokuş
+Kız Kulesi|Boğaz,Üsküdar,Efsane|deniz,kayık,ışık,İstanbul,yılan|Manzara,Fotoğraf,Akşam üstü
+Ayasofya|Kubbe,Sultanahmet,Bizans|müze,cami,mozaik,minare,tarih|Turist,Eski şehir,Yüzyıllar
+Kapadokya|Balon,Mağara,Kaya|mağara,Ürgüp,at,kaya,gün doğumu|Sabah erken,Turist,Fotoğraf
+Pamukkale|Beyaz,Termal,Antik|termal,havuz,kireç,antik,turist|Çıplak ayak,Ege,Gün batımı
+Efes|Antik kent,Kütüphane,İzmir|tiyatro,sütun,tarih,Selçuk,turist|Eski zaman,Rehber,Sıcak
+Anıtkabir|Ankara,Tören,Saygı|Atatürk,saygı,mozole,ziyaret,asker|Kasım,Okul gezisi,Duygu
+Truva|Antik,Destan,Savaş|antik,savaş,Homeros,film,kent|Efsane,Eski zaman,Ege
+Nemrut Dağı|Dev heykeller,Gün doğumu,Zirve|baş,zirve,kral,taş,tarih|Uzak,Eski zaman,Erken kalkmak
+Sümela Manastırı|Trabzon,Kayalık,Orman|Maçka,dağ,tarih,sis,fresk|Yeşil,Yükseklik,Yüzyıllar
+Eyfel Kulesi|Demir,Işıklar,Avrupa|Fransa,turist,yüksek,romantik,fotoğraf|Yurt dışı,Balayı,Kartpostal
+Piramitler|Çöl,Taş,Antik|mumya,taş,sfenks,üçgen,deve|Gizem,Sıcak ülke,Eski zaman
+Çin Seddi|Uzun duvar,Asya,Taş|Pekin,tarih,gözetleme,dağ,turist|Uzak ülke,Yürüyüş,Yüzyıllar
+Özgürlük Heykeli|Meşale,Yeşil,Liman|Amerika,ada,taç,turist,liman|Yurt dışı,Umut,Göçmen
+Pisa Kulesi|İtalya,Fotoğraf pozu,Beyaz|turist,beyaz,yamuk,çan,itmek|Komik,Yurt dışı,Mühendislik
+Kolezyum|Antik,Arena,Aslan|İtalya,antik,aslan,taş,turist|Eski şehir,Gösteri,Avrupa
+Big Ben|Saat,Çan,Avrupa|İngiltere,kule,parlamento,turist,zaman|Yağmur,Dakiklik,Kasvet
+Tac Mahal|Hindistan,Beyaz mermer,Aşk|kubbe,saray,türbe,turist,havuz|Uzak ülke,Sevgi,Hüzünlü hikâye
+Venedik|Gondol,Kanallar,İtalya|köprü,karnaval,maske,tekne,su|Balayı,Yurt dışı,Sel
+İstanbul|Boğaz,Vapur,Martı|köprü,simit,Galata,kalabalık,trafik|Telaş,Tarih,Göç
+Ankara|Başkent,Anıtkabir,Kızılay|meclis,devlet,memur,Kocatepe,üniversite|Merkez,Resmî daire,Bozkır
+İzmir|Kordon,Saat Kulesi,Ege|boyoz,gevrek,deniz,körfez,Konak|Akşam üstü,Rahat,Sıcak
+Trabzon|Karadeniz,Yayla,Çay|yayla,kemençe,çay,yağmur,horon|Yeşil,Futbol,Uzak
+Antalya|Tatil,Plaj,Turizm|otel,güneş,deniz,Kaleiçi,yaz|Ağustos,Yabancı,Güneş yanığı
+Kapalıçarşı|İstanbul,Dükkanlar,Kuyumcu|halı,turist,pazarlık,kemer,tarihi|Hediyelik,Labirent,Eski şehir
+Dolmabahçe Sarayı|Boğaz,Saat,Avize|padişah,Atatürk,müze,bahçe,kristal|Kasım,Tarih,Görkem
+Paris|Moda,Romantik,Sanat|kruvasan,moda,müze,sanat,bere|Yurt dışı,Balayı,Şık
+Londra|Kraliyet,Yağmur,Kırmızı otobüs|İngiltere,çay saati,metro,sis,saray|Yurt dışı,Kasvet,Pahalı
+Uludağ|Kayak,Kar,Teleferik|kar,otel,kış,zirve,mangal|Ocak,Yarıyıl tatili,Ayaz
 `],
 ['oyun', 'Oyuncak & Oyun', '🧸', '#b98bff', '#19e3d0', `
-Top|Yuvarlak,Tekme,Zıplamak|futbol,park,çocuk,oyun,kale
-Bebek|Oyuncak,Saç,Elbise|biberon,tarak,oyun evi,kıyafet,uyku
-Oyuncak ayı|Pelüş,Yumuşak,Sarılmak|uyku,yatak,çocuk,kahverengi,hediye
-Yapboz|Parçalar,Resim,Sabır|köşe,kenar,masa,bin parça,çerçeve
-Uçurtma|İp,Rüzgar,Gökyüzü|kuyruk,bahar,kağıt,koşmak,çıta
-Salıncak|Park,Zincir,İleri geri|çocuk,kaydırak,bahçe,itmek,oturak
-Kaydırak|Park,Merdiven,Kaymak|çocuk,salıncak,havuz,su parkı,inmek
-Saklambaç|Ebe,Gizlenmek,Saymak|saymak,çocuk,oyun,arama,kapı arkası
-Körebe|Ebe,El yordamı,Mendil|çocuk,yakalamak,oyun,mendil,kahkaha
-Yakan top|İki takım,Vurulmak,Kaçmak|okul bahçesi,çocuk,ortada,can,teneffüs
-İp atlama|Zıplamak,Tekerleme,Çevirmek|çocuk,teneffüs,saymak,bahçe,ritim
-Seksek|Tebeşir,Kareler,Tek ayak|taş,zıplamak,kaldırım,çocuk,numara
-Misket|Cam,Renkli,Toprak|çocuk,çukur,nişan,torba,yuvarlak
-Tavla|Zar,Pul,Kahvehane|şeşbeş,kahvehane,tahta,düşeş,çay
-Okey|Taş,Istaka,Dört kişi|gösterge,çifte,kahvehane,masa,joker
-Domino|Taşlar,Noktalar,Devrilme|sıra,oyun,masa,siyah beyaz,zincir
-İskambil|Kupa,Maça,Deste|joker,papaz,kız,karıştırmak,masa
-Zar|Altı yüz,Atmak,Şans|tavla,nokta,küp,çift,kutu oyunu
-Yo-yo|İp,Aşağı yukarı,Plastik|oyuncak,çocuk,hüner,parmak,dönmek
-Topaç|Dönmek,Çevirmek,İp|oyuncak,denge,yere atmak,hız,çocuk
-Oyuncak araba|Tekerlek,Pil,Yarış|çocuk,kumanda,pist,hız,koleksiyon
-Oyun hamuru|Şekil vermek,Renkli,Yoğurmak|çocuk,kalıp,yumuşak,el,heykel
-Tombala|Numara,Kartlar,Torba|yılbaşı,çinko,şans,aile,kese
-Bilmece|Soru,Cevap,Akıl|tahmin,bulmaca,çocuk,zeka,eğlence
-Bulmaca|Kare,Kelime,Gazete|kalem,çözmek,soru,harf,boşluk
-Kukla|İp,Sahne,Perde|tiyatro,el,çocuk,oyuncu,hikaye
-Karagöz|Perde,Deri tasvir,Bursa|Hacivat,ışık,Bursa,hikaye,şaka
-Çember|Bel,Döndürmek,Plastik halka|spor,dans,kalça,denge,renkli
-Su tabancası|Yaz,Islanmak,Tetik|oyuncak,çocuk,bahçe,şaka,plastik
+Top|Yuvarlak,Tekme,Zıplamak|futbol,park,çocuk,oyun,kale|Sokak,Cam kırmak,Okul bahçesi
+Bebek|Oyuncak,Saç,Elbise|biberon,tarak,oyun evi,kıyafet,uyku|Kız çocuğu,Oda,Annelik
+Oyuncak ayı|Pelüş,Yumuşak,Sarılmak|uyku,yatak,çocuk,kahverengi,hediye|Yatak başı,Sevgi,Teselli
+Yapboz|Parçalar,Resim,Sabır|köşe,kenar,masa,bin parça,çerçeve|Sessiz akşam,Uzun uğraş,Yağmurlu gün
+Uçurtma|İp,Rüzgar,Gökyüzü|kuyruk,bahar,kağıt,koşmak,çıta|Tepe,Mart ayı,Dede
+Salıncak|Park,Zincir,İleri geri|çocuk,kaydırak,bahçe,itmek,oturak|Akşam üstü,Sıra beklemek,Hafiflik
+Kaydırak|Park,Merdiven,Kaymak|çocuk,salıncak,havuz,su parkı,inmek|Kahkaha,Sıra beklemek,Kum havuzu
+Saklambaç|Ebe,Gizlenmek,Saymak|saymak,çocuk,oyun,arama,kapı arkası|Sokak,Akşam üstü,Nefes tutmak
+Körebe|Ebe,El yordamı,Mendil|çocuk,yakalamak,oyun,mendil,kahkaha|Gülmek,Çığlık,Doğum günü
+Yakan top|İki takım,Vurulmak,Kaçmak|okul bahçesi,çocuk,ortada,can,teneffüs|Sokak,Okul,Kavga
+İp atlama|Zıplamak,Tekerleme,Çevirmek|çocuk,teneffüs,saymak,bahçe,ritim|Kız çocukları,Spor,Nefes nefese
+Seksek|Tebeşir,Kareler,Tek ayak|taş,zıplamak,kaldırım,çocuk,numara|Kız çocukları,Eski oyun,Denge
+Misket|Cam,Renkli,Toprak|çocuk,çukur,nişan,torba,yuvarlak|Erkek çocukları,Cep,Eski oyun
+Tavla|Zar,Pul,Kahvehane|şeşbeş,kahvehane,tahta,düşeş,çay|Yaz akşamı,Rekabet,Balkon
+Okey|Taş,Istaka,Dört kişi|gösterge,çifte,kahvehane,masa,joker|Kış akşamı,Rekabet,Emekli
+Domino|Taşlar,Noktalar,Devrilme|sıra,oyun,masa,siyah beyaz,zincir|Kış akşamı,Uzun uğraş,Tık sesi
+İskambil|Kupa,Maça,Deste|joker,papaz,kız,karıştırmak,masa|Kış akşamı,Hile,Sihirbaz
+Zar|Altı yüz,Atmak,Şans|tavla,nokta,küp,çift,kutu oyunu|Rekabet,Kader,Tıkırtı
+Yo-yo|İp,Aşağı yukarı,Plastik|oyuncak,çocuk,hüner,parmak,dönmek|Eski moda,Okul bahçesi,Cep
+Topaç|Dönmek,Çevirmek,İp|oyuncak,denge,yere atmak,hız,çocuk|Eski moda,Rekabet,Dede
+Oyuncak araba|Tekerlek,Pil,Yarış|çocuk,kumanda,pist,hız,koleksiyon|Erkek çocukları,Halı,Doğum günü
+Oyun hamuru|Şekil vermek,Renkli,Yoğurmak|çocuk,kalıp,yumuşak,el,heykel|Yağmurlu gün,Anaokulu,Koku
+Tombala|Numara,Kartlar,Torba|yılbaşı,çinko,şans,aile,kese|Kış akşamı,Akraba,Bağırmak
+Bilmece|Soru,Cevap,Akıl|tahmin,bulmaca,çocuk,zeka,eğlence|Düşünmek,Masal,Kahkaha
+Bulmaca|Kare,Kelime,Gazete|kalem,çözmek,soru,harf,boşluk|Düşünmek,Emekli,Kahvaltı sonrası
+Kukla|İp,Sahne,Perde|tiyatro,el,çocuk,oyuncu,hikaye|Masal,Gülmek,Ses taklidi
+Karagöz|Perde,Deri tasvir,Bursa|Hacivat,ışık,Bursa,hikaye,şaka|Gece eğlencesi,Atışma,Eski İstanbul
+Çember|Bel,Döndürmek,Plastik halka|spor,dans,kalça,denge,renkli|Eski moda,Okul bahçesi,Kıvrak
+Su tabancası|Yaz,Islanmak,Tetik|oyuncak,çocuk,bahçe,şaka,plastik|Sıcak gün,Kahkaha,Kovalamaca
 `],
 ['tatil', 'Tatil & Plaj', '🏖️', '#19e3d0', '#ffe14a', `
-Plaj|Kum,Şezlong,Dalga|havlu,güneş kremi,deniz,şemsiye,yaz
-Şezlong|Uzanmak,Havuz kenarı,Güneş|plaj,şemsiye,havlu,kitap,dinlenmek
-Güneş kremi|Koruma,Faktör,Losyon|plaj,yanmak,cilt,şişe,yaz
-Havlu|Kurulanmak,Banyo,Pamuklu|plaj,el,yüz,ıslak,bornoz
-Kova|Kum,Kürek,Çocuk|plaj,su,sap,plastik,doldurmak
-Kumdan kale|Kova,Kule,Dalga|plaj,çocuk,kürek,inşa,hendek
-Bavul|Tekerlek,Bagaj,Hazırlamak|kıyafet,yolculuk,kilit,etiket,havalimanı
-Pasaport|Yurt dışı,Vize,Gümrük|kimlik,havalimanı,mühür,fotoğraf,bordo
-Kamp|Çadır,Ateş,Uyku tulumu|orman,fener,doğa,yıldızlar,çakı
-Çadır|Kazık,Kamp,Uyku tulumu|orman,fermuar,yağmur,doğa,fener
-Havuz|Mayo,Dalış,Klor|yüzmek,su,otel,cankurtaran,şezlong
-Cankurtaran|Düdük,Kırmızı şort,Yüzme|plaj,havuz,dalga,nöbet,koşmak
-Şişme yatak|Pompa,Havuz,Yüzmek|deniz,plastik,uzanmak,hava,renkli
-Deniz kabuğu|Sahil,Spiral,Kulağa dayamak|kum,midye,koleksiyon,inci,dalga
-Fotoğraf|Poz,Çekmek,Hatıra|kamera,albüm,selfie,gülümse,çerçeve
-Kartpostal|Pul,Manzara,Göndermek|mektup,tatil,posta,hatıra,yazı
-Magnet|Buzdolabı,Hatıra,Turist|şehir,yapışmak,koleksiyon,süs,hediye
-Tekne turu|Koy,Mavi,Yüzme molası|deniz,kaptan,ada,mayo,öğle yemeği
-Şnorkel|Maske,Balıklar,Su altı|deniz,yüzgeç,mercan,su altı,dalış
-Tatil köyü|Her şey dahil,Animatör,Havuz|otel,plaj,açık büfe,yaz,eğlence
-Açık büfe|Tabak,Sıra,Sınırsız|kahvaltı,otel,tatlı,salata,doymak
-Yazlık|Site,Balkon,Bahçe|tatil,deniz,komşu,mangal,sivrisinek
-Sivrisinek|Vızıltı,Kaşıntı,Yaz gecesi|ısırık,sprey,cibinlik,kan,kulak
-Dalga|Köpük,Sörf,Kıyı|deniz,okyanus,rüzgar,kum,ses
-Martı|Simit,Kanat,Vapur|kuş,deniz,çığlık,iskele,beyaz
-Midye|Limon,Kabuk,Dolma|sokak,deniz,pilav,tava,siyah
-Jet ski|Hız,Deniz,Motor|dalga,gürültü,kiralık,can yeleği,turist
-Bornoz|Banyo,Kemer,Kapüşon|havlu,otel,duş,yumuşak,beyaz
+Plaj|Kum,Şezlong,Dalga|havlu,güneş kremi,deniz,şemsiye,yaz|Ağustos,Dinlenmek,Güneş yanığı
+Şezlong|Uzanmak,Havuz kenarı,Güneş|plaj,şemsiye,havlu,kitap,dinlenmek|Tembellik,Öğle,Otel
+Güneş kremi|Koruma,Faktör,Losyon|plaj,yanmak,cilt,şişe,yaz|Koku,Öğle,Yağlı
+Havlu|Kurulanmak,Banyo,Pamuklu|plaj,el,yüz,ıslak,bornoz|Islanmak,Yer kapmak,Otel
+Kova|Kum,Kürek,Çocuk|plaj,su,sap,plastik,doldurmak|Oyun,Küçük eller,Yaz tatili
+Kumdan kale|Kova,Kule,Dalga|plaj,çocuk,kürek,inşa,hendek|Küçük eller,Emek,Geçici
+Bavul|Tekerlek,Bagaj,Hazırlamak|kıyafet,yolculuk,kilit,etiket,havalimanı|Kapı önü,Liste,Son dakika
+Pasaport|Yurt dışı,Vize,Gümrük|kimlik,havalimanı,mühür,fotoğraf,bordo|Kuyruk,Çekmece,Resmî daire
+Kamp|Çadır,Ateş,Uyku tulumu|orman,fener,doğa,yıldızlar,çakı|Macera,Arkadaş grubu,Doğa yürüyüşü
+Çadır|Kazık,Kamp,Uyku tulumu|orman,fermuar,yağmur,doğa,fener|Macera,Rüzgâr,Sabah serinliği
+Havuz|Mayo,Dalış,Klor|yüzmek,su,otel,cankurtaran,şezlong|Bağırış,Site,Yaz tatili
+Cankurtaran|Düdük,Kırmızı şort,Yüzme|plaj,havuz,dalga,nöbet,koşmak|Güneş,Kahraman,Göz kulak
+Şişme yatak|Pompa,Havuz,Yüzmek|deniz,plastik,uzanmak,hava,renkli|Tembellik,Nefes nefese,Yaz tatili
+Deniz kabuğu|Sahil,Spiral,Kulağa dayamak|kum,midye,koleksiyon,inci,dalga|Hatıra,Raf,Toplamak
+Fotoğraf|Poz,Çekmek,Hatıra|kamera,albüm,selfie,gülümse,çerçeve|Duvar,Gülümsemek,Geçmiş
+Kartpostal|Pul,Manzara,Göndermek|mektup,tatil,posta,hatıra,yazı|Eski usul,Uzaktan,Sevgi
+Magnet|Buzdolabı,Hatıra,Turist|şehir,yapışmak,koleksiyon,süs,hediye|Seyahat,Ucuz,Hediyelik
+Tekne turu|Koy,Mavi,Yüzme molası|deniz,kaptan,ada,mayo,öğle yemeği|Müzik,Güneş yanığı,Arkadaş grubu
+Şnorkel|Maske,Balıklar,Su altı|deniz,yüzgeç,mercan,su altı,dalış|Sığ,Keşif,Nefes
+Tatil köyü|Her şey dahil,Animatör,Havuz|otel,plaj,açık büfe,yaz,eğlence|Bileklik,Gece eğlencesi,Yemek
+Açık büfe|Tabak,Sıra,Sınırsız|kahvaltı,otel,tatlı,salata,doymak|Fazlası,İsraf,Kilo
+Yazlık|Site,Balkon,Bahçe|tatil,deniz,komşu,mangal,sivrisinek|Sakin,Emekli,Uzun tatil
+Sivrisinek|Vızıltı,Kaşıntı,Yaz gecesi|ısırık,sprey,cibinlik,kan,kulak|Uykusuzluk,Sinir,Göl kenarı
+Dalga|Köpük,Sörf,Kıyı|deniz,okyanus,rüzgar,kum,ses|Uyku,Fırtına,Ninni
+Martı|Simit,Kanat,Vapur|kuş,deniz,çığlık,iskele,beyaz|Liman,Ekmek kırıntısı,Erken saat
+Midye|Limon,Kabuk,Dolma|sokak,deniz,pilav,tava,siyah|Seyyar satıcı,Gece hayatı,Risk
+Jet ski|Hız,Deniz,Motor|dalga,gürültü,kiralık,can yeleği,turist|Pahalı,Gösteriş,Adrenalin
+Bornoz|Banyo,Kemer,Kapüşon|havlu,otel,duş,yumuşak,beyaz|Rahat,Sıcacık,Pazar sabahı
 `]
 ];
 
@@ -1430,9 +1431,9 @@ CATS.forEach(([id, name, emo, c1, c2, txt], ci) => {
   const c = { id, name, emo, c1, c2, words: [] };
   CAT.push(c); CAT_BY[id] = ci;
   txt.trim().split('\n').forEach(line => {
-    const [w, h, r] = line.split('|');
+    const [w, h, r, u] = line.split('|'), list = x => (x || '').split(',').map(s => s.trim()).filter(Boolean);
     c.words.push(WORDS.length);
-    WORDS.push({ w: w.trim(), c: ci, h: h.split(',').map(s => s.trim()), r: r.split(',').map(s => s.trim()) });
+    WORDS.push({ w: w.trim(), c: ci, h: list(h), r: list(r), u: list(u) });   // h = yakın, u = uzak ipuçları
   });
 });
 const GROUPS = [
@@ -1443,6 +1444,12 @@ const GROUPS = [
   ['eglence', 'Eğlence & Spor', ['spor', 'muzik', 'oyun']],
   ['insan', 'İnsan & Gelenek', ['meslek', 'vucut', 'bayram']]
 ];
+// "Sahtekâra ipucu" seçeneği: uzak (varsayılan) / yakin / yok — eski değerler: '1' (açık) → uzak, '0' (kapalı) → yok
+function hintSetOf(v) {
+  const s = String(v ?? 'uzak');
+  return s === 'yakin' ? 'yakin' : (s === 'yok' || s === '0') ? 'yok' : 'uzak';
+}
+const hintList = (W, set) => (set === 'yakin' || !W.u || W.u.length < 2 ? W.h : W.u);
 function poolFor(opt) {
   const s = String(opt || 'all');
   let ids = null;
@@ -1525,8 +1532,10 @@ function candidates(st, pi) {
   const hint = st.hintOn ? st.hints[pi] : null, f = hint ? fold(hint) : '';
   let base = st.catOn ? CAT[WORDS[st.w].c].words : st.pool;
   if (f) {
-    const m = WORDS.map((_, i) => i).filter(i => WORDS[i].h.concat(WORDS[i].r).some(x => fold(x) === f) && (!st.catOn || WORDS[i].c === WORDS[st.w].c));
-    if (m.length) base = m;
+    // uzak ipuçları bankada birkaç kelimede ortak → aday kümesi doğal olarak birkaç kelime olur
+    const m = base.filter(i => WORDS[i].h.concat(WORDS[i].u, WORDS[i].r).some(x => fold(x) === f));
+    // uzak ipucunda bot da emin olamaz: eşleşenlere kategoriden birkaç rastgele kelime karışır
+    if (m.length) base = st.hintSet === 'yakin' ? m : m.concat(shuffle(base.filter(i => !m.includes(i))).slice(0, 4));
   }
   return base;
 }
@@ -1548,7 +1557,7 @@ function kStartRound(st, ctx) {
   let imps = shuffle(st.pl.map((_, i) => i)).slice(0, cnt).sort((a, b) => a - b);
   if (st.lastImps && imps.join() === st.lastImps.join() && n > cnt) imps = shuffle(st.pl.map((_, i) => i)).slice(0, cnt).sort((a, b) => a - b);
   st.imps = imps; st.lastImps = imps.slice();
-  const hs = shuffle(WORDS[st.w].h);
+  const hs = shuffle(hintList(WORDS[st.w], st.hintSet));
   st.hints = {}; imps.forEach((i, k) => { st.hints[i] = hs[k % hs.length]; });
   st.sugg = {}; st.pl.forEach((_, i) => { st.sugg[i] = makeSugg(st, i); });
   st.clues = []; st.order = []; st.cRound = 0; st.cIdx = 0; st.starter = -1;
@@ -1754,12 +1763,12 @@ function botClue(st, pi) {
 }
 function suspicion(st, by) {
   const W = WORDS[st.w];
-  const R = new Set(W.r.concat(W.h).map(fold));
+  const R = new Set(W.r.concat(W.h).map(fold)), F = new Set(W.u.map(fold));
   const fits = w => { const f = fold(w); if (R.has(f)) return true; for (const x of R) if (x.length >= 4 && f.length >= 4 && (x.includes(f) || f.includes(x))) return true; return false; };
   return st.pl.map((_, j) => {
     if (j === by) return -99;
     let s = Math.random() * 0.9;
-    st.clues.filter(c => c.pi === j && c.w).forEach(c => { s += fits(c.w) ? -1 : 1.3; });
+    st.clues.filter(c => c.pi === j && c.w).forEach(c => { s += fits(c.w) ? -1 : F.has(fold(c.w)) ? 0.2 : 1.3; });
     return s;
   });
 }
@@ -1783,6 +1792,7 @@ function botGuess(st, pi) {
     const W = WORDS.find(x => x.w === w);
     let s = Math.random() * 2.6 + (cand.has(w) ? 1 : 0);              // bilerek biraz şaşkın
     if (h && W && W.h.concat(W.r).some(x => fold(x) === h)) s += 0.6;
+    else if (h && W && W.u.some(x => fold(x) === h)) s += 0.3;
     if (s > bs) { bs = s; best = k; }
   });
   return best;
@@ -1799,7 +1809,7 @@ const KEL = {
       local, solo: local && hum.length === 1, hum,
       rounds: [3, 5, 7].includes(+opts.rounds) ? +opts.rounds : 5,
       impOpt: String(opts.imp) === '2' ? 2 : 1,
-      hintOn: String(opts.hint ?? '1') !== '0', catOn: String(opts.showcat ?? '1') !== '0',
+      hintSet: hintSetOf(opts.hint), hintOn: hintSetOf(opts.hint) !== 'yok', catOn: String(opts.showcat ?? '1') !== '0',
       catsOpt: String(opts.cats || 'all'), pool: poolFor(opts.cats),
       timeMs: ({ 2: 2, 3: 3, 5: 5, 0: 0 }[String(opts.time ?? '3')] ?? 3) * 60000,
       clueRounds: ({ 0: 0, 1: 1, 2: 2 }[String(opts.clue ?? '1')] ?? 1),
@@ -1874,7 +1884,7 @@ const KEL = {
     if (all && st.solo) { all = false; seat = st.hum[0]; }
     const ph = st.phase, W = WORDS[st.w], open = ph === 'score' || ph === 'end';
     const card = i => (st.imps.includes(i)
-      ? { imp: true, hint: st.hintOn ? st.hints[i] : null, cat: st.catOn ? catInfo(W.c) : null, two: st.imps.length > 1 }
+      ? { imp: true, hint: st.hintOn ? st.hints[i] : null, far: st.hintOn && st.hintSet === 'uzak', cat: st.catOn ? catInfo(W.c) : null, two: st.imps.length > 1 }
       : { imp: false, word: W.w, cat: catInfo(W.c) });
     let res = null;
     if (st.res && (ph === 'reveal' || ph === 'guess' || open)) {
@@ -1886,7 +1896,7 @@ const KEL = {
     return {
       mode: 'kelime', notice: st.notice, phase: ph, round: st.round, rounds: st.rounds, local: st.local, solo: st.solo, hotseat: all,
       you: all ? -2 : seat, hum: st.hum.slice(), impCount: st.imps.length,
-      hintOn: st.hintOn, catOn: st.catOn, writeOn: st.writeOn, voteStyle: st.voteStyle, quick: !!st.quick, clueRounds: st.clueRounds, timeMs: st.timeMs,
+      hintOn: st.hintOn, hintSet: st.hintSet || (st.hintOn ? 'yakin' : 'yok'), catOn: st.catOn, writeOn: st.writeOn, voteStyle: st.voteStyle, quick: !!st.quick, clueRounds: st.clueRounds, timeMs: st.timeMs,
       players: st.pl.map((p, i) => ({ name: p.name, color: p.color, bot: p.bot, score: st.score[i], on: onK(st, i) })),
       cat: st.catOn || open ? catInfo(W.c) : null,
       dealIdx: st.dealIdx, ready: Object.keys(st.ready).map(Number), starter: st.starter, order: st.order.slice(), cRound: st.cRound, cIdx: st.cIdx,
@@ -1948,7 +1958,7 @@ function faceHTML(c) {
   if (!c) return '<div class="cs-w-face watch"><div class="cs-w-emo">👀</div><b class="cs-w-word">İzleyici</b></div>';
   if (c.imp) {
     return `<div class="cs-w-face imp"><div class="cs-w-emo">😈</div><p class="cs-w-cap">Gizli rolün</p><b class="cs-w-word">SAHTEKÂRSIN!</b>
-      ${c.hint ? `<p class="cs-w-hint">İpucun: <b>${esc(c.hint)}</b></p>` : '<p class="cs-w-hint">İpucun yok · kulağını dört aç!</p>'}
+      ${c.hint ? `<p class="cs-w-hint">İpucun: <b>${esc(c.hint)}</b>${c.far ? '<small class="cs-w-far">uzak bir çağrışım · kelimeyi tam tarif etmez</small>' : ''}</p>` : '<p class="cs-w-hint">İpucun yok · kulağını dört aç!</p>'}
       ${c.cat ? `<p class="cs-w-cat">${c.cat.emo} ${esc(c.cat.name)}</p>` : ''}
       ${c.two ? '<p class="cs-w-cat two">Bu turda 2 sahtekâr var</p>' : ''}
       <p class="cs-w-tip">Belli etme, uydur, kelimeyi yakala!</p></div>`;
@@ -2440,7 +2450,7 @@ CFX.registerGame({
   options: [
     { key: 'mode', label: 'Mod', def: 'kelime', choices: [{ v: 'kelime', label: 'Kelime' }, { v: 'mekan', label: 'Mekân (klasik)' }] },
     { key: 'imp', label: 'Sahtekâr sayısı', def: '1', choices: [{ v: '1', label: '1' }, { v: '2', label: '2 (5+ kişide)' }] },
-    { key: 'hint', label: 'Sahtekâra ipucu', def: '1', choices: [{ v: '1', label: 'Açık' }, { v: '0', label: 'Kapalı' }] },
+    { key: 'hint', label: 'Sahtekâra ipucu', def: 'uzak', choices: [{ v: 'uzak', label: 'Uzak' }, { v: 'yakin', label: 'Yakın' }, { v: 'yok', label: 'Yok' }] },
     { key: 'showcat', label: 'Kategori gösterilsin', def: '1', choices: [{ v: '1', label: 'Açık' }, { v: '0', label: 'Kapalı' }] },
     { key: 'cats', label: 'Kategoriler', def: 'all', choices: [{ v: 'all', label: `Hepsi (${WORDS.length} kelime)` }]
       .concat(GROUPS.map(g => ({ v: 'g:' + g[0], label: `${g[1]} (${poolFor('g:' + g[0]).length})` })))
