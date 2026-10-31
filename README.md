@@ -1,4 +1,4 @@
-# Oyun Salonu — Çarkıfelek ve arkadaşları
+# Oyun Salonu
 
 Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan Türkçe oyun salonu.
 

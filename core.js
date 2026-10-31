@@ -768,6 +768,20 @@ const Room = {
 /* ------------------------------------------------------------------ 11
    Salon arayüzü: menü, lobi, oyun ekranı, sonuçlar                          */
 const isPhone = () => innerWidth < 760;
+/* Menü/lobi kataloğu: kategori eşlemesi (oyun dosyalarına dokunmadan, id'ye göre) */
+const CATS = [['all', 'Tümü'], ['kelime', 'Kelime & Bilgi'], ['parti', 'Parti'], ['aksiyon', 'Aksiyon'], ['strateji', 'Strateji & Kutu'], ['klasik', 'Klasik'], ['cizim', 'Çizim']];
+const GAME_CATS = {
+  carkifelek: 'kelime', adamasmaca: 'kelime', kelimeavi: 'kelime', kelimekare: 'kelime', kelimekodu: 'kelime parti', bomba: 'kelime parti', bilgi: 'kelime parti',
+  casus: 'parti', komikcevap: 'parti', telefoncis: 'parti cizim', dalgaboyu: 'parti', hainkim: 'parti aksiyon', partitahtasi: 'parti strateji', uzayekibi: 'parti aksiyon', mutfak: 'aksiyon parti',
+  cizbil: 'cizim parti',
+  saklambac: 'aksiyon', kosu: 'aksiyon', kovalamaca: 'aksiyon', dusenzemin: 'aksiyon', boyasavasi: 'aksiyon', kartopu: 'aksiyon', gecit: 'aksiyon', arena: 'aksiyon', kafatopu: 'aksiyon', tanksavasi: 'aksiyon', bombalabirent: 'aksiyon',
+  emlak: 'strateji', kalekur: 'strateji', karodiyari: 'strateji', biletyolu: 'strateji', amiral: 'strateji klasik', zar: 'klasik strateji', kizma: 'klasik strateji',
+  tavla: 'klasik', dama: 'klasik', mangala: 'klasik', dorttas: 'klasik', tersyuz: 'klasik', kutu: 'klasik'
+};
+const gameCats = id => (GAME_CATS[id] || '').split(' ').filter(Boolean);
+const catLabel = id => { const c = gameCats(id)[0]; const e = CATS.find(x => x[0] === c); return e ? e[1] : ''; };
+const foldTR = t => String(t || '').toLocaleLowerCase(TR).replace(/[çğıöşüâîû]/g, ch => ({ ç: 'c', ğ: 'g', ı: 'i', ö: 'o', ş: 's', ü: 'u', â: 'a', î: 'i', û: 'u' })[ch]);
+const ICON = n => `<svg class="ic" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const UI = {
   def: null, token: null, view: null, me: -1, rm: null, menuGame: null, mounted: false,
   api() {
@@ -867,12 +881,32 @@ const UI = {
     $('tabOnline').hidden = t !== 'online'; $('tabLocal').hidden = t !== 'local';
     $('tabBtnOnline').classList.toggle('on', t === 'online'); $('tabBtnLocal').classList.toggle('on', t === 'local');
     if (t === 'local') this.renderLocal();
-    $('poolInfo').textContent = `${Games.list.length} oyun · Çarkıfelek havuzunda ${fmt(Pool.list.length)} bulmaca`;
+    $('poolInfo').textContent = `${Games.list.length} oyun · Kurulum yok, doğrudan tarayıcıda oynanır`;
+    const sc = $('onShowcase'); if (sc && !sc.childElementCount) sc.innerHTML = Games.list.map(d => `<span class="sc-ic" style="--gc:${d.color}" title="${esc(d.name)}">${d.icon}</span>`).join('');
+  },
+  /* ---------- katalog: arama ve kategori süzgeci ---------- */
+  cat: { localGames: { q: '', c: 'all' }, lobbyGames: { q: '', c: 'all' } },
+  initCatalog(grid, search, chips) {
+    const st = this.cat[grid];
+    const counts = c => c === 'all' ? Games.list.length : Games.list.filter(d => gameCats(d.id).includes(c)).length;
+    $(chips).innerHTML = CATS.filter(([c]) => counts(c) > 0).map(([c, l]) => `<button type="button" class="chip ${c === st.c ? 'on' : ''}" data-cat="${c}" aria-pressed="${c === st.c}">${esc(l)}<small>${counts(c)}</small></button>`).join('');
+    $(chips).addEventListener('click', e => { const b = e.target.closest('[data-cat]'); if (!b) return; st.c = b.dataset.cat; $(chips).querySelectorAll('.chip').forEach(x => { x.classList.toggle('on', x === b); x.setAttribute('aria-pressed', x === b); }); this.applyFilter(grid); });
+    $(search).addEventListener('input', e => { st.q = e.target.value; this.applyFilter(grid); });
+  },
+  applyFilter(grid) {
+    const st = this.cat[grid], q = foldTR(st.q.trim()); let n = 0;
+    $(grid).querySelectorAll('.gcard').forEach(b => {
+      const d = Games.byId[b.dataset.gid]; if (!d) return;
+      const okQ = !q || foldTR(`${d.name} ${d.tagline} ${d.id} ${catLabel(d.id)}`).includes(q);
+      const okC = st.c === 'all' || gameCats(d.id).includes(st.c);
+      b.hidden = !(okQ && okC); if (!b.hidden) n++;
+    });
+    const em = $(grid + 'Empty'); if (em) em.hidden = n > 0;
   },
   gameCards(sel, clickable, filter) {
-    return Games.list.filter(filter || (() => true)).map(d => `<button type="button" class="gcard ${d.id === sel ? 'on' : ''}" style="--gc:${d.color}" data-gid="${d.id}" ${clickable ? '' : 'disabled'}>
-      <span class="gc-icon">${d.icon}</span><span class="gc-txt"><b>${esc(d.name)}</b><small>${esc(d.tagline)}</small></span>
-      <span class="gc-pl">${d.min === d.max ? d.min : `${d.min}–${d.max}`} kişi</span></button>`).join('');
+    return Games.list.filter(filter || (() => true)).map(d => `<button type="button" class="gcard ${d.id === sel ? 'on' : ''}" style="--gc:${d.color}" data-gid="${d.id}" aria-pressed="${d.id === sel}" ${clickable ? '' : 'disabled'}>
+      <span class="gc-icon" aria-hidden="true">${d.icon}</span><span class="gc-txt"><b>${esc(d.name)}</b><small>${esc(d.tagline)}</small></span>
+      <span class="gc-meta"><span class="gc-pl">${ICON('users')}${d.min === d.max ? d.min : `${d.min}–${d.max}`} kişi</span><span class="gc-cat">${esc(catLabel(d.id))}</span></span></button>`).join('');
   },
   optionRows(def, opts, editable, prefix) {
     return (def.options || []).map(o => {
@@ -884,21 +918,26 @@ const UI = {
   localState: { gameId: store.get('cf.localGame', 'carkifelek'), humans: 2, bots: 0, opts: {} },
   renderLocal() {
     const L = this.localState; const def = Games.byId[L.gameId] || Games.list[0]; L.gameId = def.id;
-    $('localGames').innerHTML = this.gameCards(L.gameId, true);
+    $('localGames').innerHTML = this.gameCards(L.gameId, true); this.applyFilter('localGames');
     const maxH = def.hotseat ? def.max : 1;
     L.humans = clamp(L.humans, def.localMin, maxH);
     const maxBots = def.bot ? Math.max(0, def.max - L.humans) : 0;
     L.bots = clamp(L.bots, (L.humans < def.min && def.bot) ? def.min - L.humans : 0, maxBots);
     const names = store.get('cf.localNames', ['Ayşe', 'Mehmet', 'Zeynep', 'Can']);
-    let h = `<div class="ls-head"><span class="gc-icon">${def.icon}</span><div><b>${esc(def.name)}</b><p>${esc(def.rules || def.tagline)}</p></div></div>`;
+    let h = this.gameHead(def, true);
     if (maxH > 1 || def.localMin < maxH) h += `<div class="opt-row"><span>Bu cihazda oynayan</span><div class="seg small">${Array.from({ length: maxH - def.localMin + 1 }, (_, k) => k + def.localMin).map(n => `<button type="button" data-hum="${n}" class="${n === L.humans ? 'on' : ''}">${n} kişi</button>`).join('')}</div></div>`;
     if (def.bot) h += `<div class="opt-row"><span>Bilgisayar rakip</span><div class="seg small">${Array.from({ length: maxBots + 1 }, (_, k) => k).filter(n => L.humans + n >= def.min).map(n => `<button type="button" data-bot="${n}" class="${n === L.bots ? 'on' : ''}">${n === 0 ? 'Yok' : n}</button>`).join('')}</div></div>`;
     h += this.optionRows(def, L.opts, true, 'l');
-    h += `<div class="names">${Array.from({ length: L.humans }, (_, i) => `<label><span class="dot" style="background:${COLORS[i]}"></span><input id="lname${i}" maxlength="16" value="${esc(names[i] || '')}" aria-label="${i + 1}. oyuncunun adı"></label>`).join('')}</div>`;
+    h += `<p class="ls-label">Oyuncu adları</p><div class="names">${Array.from({ length: L.humans }, (_, i) => `<label><span class="dot" style="background:${COLORS[i]}"></span><input id="lname${i}" maxlength="16" value="${esc(names[i] || '')}" aria-label="${i + 1}. oyuncunun adı"></label>`).join('')}</div>`;
     const ok = L.humans + L.bots >= def.min;
-    h += `<button class="btn btn-spin ls-start" id="btnLocalStart" type="button" ${ok ? '' : 'disabled'}>▶ ${esc(def.name).toLocaleUpperCase(TR)} BAŞLAT</button>`;
+    h += `<button class="btn btn-spin ls-start" id="btnLocalStart" type="button" ${ok ? '' : 'disabled'}>${ICON('play')}<span>${esc(def.name)} · Başlat</span></button>`;
     if (!ok) h += `<p class="muted">Bu oyun en az ${def.min} kişiyle oynanır.</p>`;
     $('localSetup').innerHTML = h;
+  },
+  gameHead(def, local) {
+    const pl = def.min === def.max ? `${def.min} kişi` : `${def.min}–${def.max} kişi`;
+    const tags = [pl, catLabel(def.id), local && def.bot ? 'Bilgisayar rakip' : '', local && def.hotseat && def.max > 1 ? 'Sırayla tek cihaz' : ''].filter(Boolean);
+    return `<div class="ls-head" style="--gc:${def.color}"><span class="gc-icon" aria-hidden="true">${def.icon}</span><div><b>${esc(def.name)}</b><span class="ls-tags">${tags.map(t => `<i>${esc(t)}</i>`).join('')}</span></div></div><p class="lg-rules">${esc(def.rules || def.tagline)}</p>`;
   },
   startLocalFromMenu() {
     const L = this.localState, def = Games.byId[L.gameId];
@@ -923,13 +962,13 @@ const UI = {
       const role = !m.online ? 'bağlantı yok' : playing.has(i) ? 'oynuyor' : 'izliyor';
       return `<button type="button" class="lp ${playing.has(i) ? '' : 'spect'}" style="--pc:${COLORS[i % COLORS.length]}" data-seat="${i}" ${host ? '' : 'disabled'}><span class="av" style="--pc:${COLORS[i % COLORS.length]}">${initial(m.name)}</span><b>${esc(m.name)}</b>${i === 0 ? '<span class="tagx">kurucu</span>' : ''}${i === rm.you ? '<span class="tagx me">sen</span>' : ''}<span class="role">${role}</span></button>`;
     }).join('');
-    $('lobbyGames').innerHTML = this.gameCards(def.id, host);
-    $('lobbyOpts').innerHTML = `<p class="lg-rules"><b>${def.icon} ${esc(def.name)}:</b> ${esc(def.rules || def.tagline)}</p>` + this.optionRows(def, rm.opts || {}, host, 'r');
+    $('lobbyGames').innerHTML = this.gameCards(def.id, host); this.applyFilter('lobbyGames');
+    $('lobbyOpts').innerHTML = this.gameHead(def, false) + this.optionRows(def, rm.opts || {}, host, 'r');
     const n = Math.min(seatedIdx.length, def.max);
     const btn = $('btnLobbyStart');
     btn.hidden = !host; $('lobbyWait').hidden = host;
     btn.disabled = n < def.min;
-    btn.textContent = n < def.min ? `${def.name} için en az ${def.min} oyuncu gerekli` : `▶ ${def.name.toLocaleUpperCase(TR)} BAŞLAT (${n} kişi)`;
+    btn.textContent = n < def.min ? `${def.name} için en az ${def.min} oyuncu gerekli` : `${def.name} · Başlat (${n} kişi)`;
     $('lobbyHint').textContent = host ? (seatedIdx.length > def.max ? `Bu oyun en fazla ${def.max} kişilik; fazla olanlar izler. Oyuncuya dokunarak oynayacak/izleyecek seçebilirsin.` : 'Oyuncuya dokunarak izleyici yapabilirsin.') : '';
     if (!host) $('lobbyWait').textContent = `Kurucu ${def.name} oyununu seçti. Başlatması bekleniyor…`;
   }
@@ -964,7 +1003,7 @@ async function joinRoom(codeIn, hint) {
 }
 async function shareInvite() {
   const url = Net.shareLink(), text = `Oyun Salonu'nda benim odama gel! Oda kodu: ${Net.code}`;
-  if (navigator.share) { try { await navigator.share({ title: 'Çarkıfelek Oyun Salonu', text, url }); return; } catch { /* iptal */ } }
+  if (navigator.share) { try { await navigator.share({ title: 'Oyun Salonu', text, url }); return; } catch { /* iptal */ } }
   copyInvite();
 }
 async function copyInvite() {
@@ -976,7 +1015,7 @@ function applySettings() {
   const s = G.settings;
   document.body.classList.toggle('anim-low', s.anim === 'low');
   Sound.setVolume(s.volume / 100); Sound.musicOn = s.music; Sound.setEnabled(s.sound);
-  document.querySelectorAll('.btn-sound').forEach(b => { b.textContent = s.sound ? '🔊' : '🔇'; });
+  document.querySelectorAll('.btn-sound').forEach(b => { b.innerHTML = ICON(s.sound ? 'sound' : 'mute'); b.classList.toggle('off', !s.sound); });
   store.set('cf.settings.v1', s);
 }
 function openSettings() {
@@ -1020,6 +1059,7 @@ function bindCore() {
   // menü
   $('tabBtnOnline').addEventListener('click', () => UI.showMenu('online'));
   $('tabBtnLocal').addEventListener('click', () => UI.showMenu('local'));
+  $('scLocal').addEventListener('click', () => { UI.showMenu('local'); scrollTo(0, 0); });
   $('localGames').addEventListener('click', e => { const b = e.target.closest('[data-gid]'); if (!b) return; UI.localState.gameId = b.dataset.gid; UI.localState.opts = {}; store.set('cf.localGame', b.dataset.gid); UI.renderLocal(); if (isPhone()) $('localSetup').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
   $('localSetup').addEventListener('click', e => {
     const L = UI.localState, b = e.target.closest('button'); if (!b) return;
@@ -1044,6 +1084,8 @@ function bindCore() {
   $('lobbyOpts').addEventListener('change', e => { const s = e.target.closest('select[data-ropt]'); if (s) Room.setOpt(s.dataset.ropt, s.value); });
   $('localSetup').addEventListener('change', e => { const s = e.target.closest('select[data-lopt]'); if (s) { UI.localState.opts[s.dataset.lopt] = s.value; } });
   $('lobbyPlayers').addEventListener('click', e => { const b = e.target.closest('[data-seat]'); if (b && !b.disabled) Room.toggleSeat(+b.dataset.seat); });
+  UI.initCatalog('localGames', 'localSearch', 'localCats');
+  UI.initCatalog('lobbyGames', 'lobbySearch', 'lobbyCats');
   $('btnLobbyStart').addEventListener('click', () => { Sound.init(); Room.startOnline(); });
   $('btnLeave').addEventListener('click', async () => { if (Room.mode !== 'host' || Room.members.length < 2 || await confirmBox('Odayı kapat', 'Oda kapanacak ve arkadaşların çıkarılacak.')) Room.leave(); });
   $('btnShare').addEventListener('click', shareInvite);

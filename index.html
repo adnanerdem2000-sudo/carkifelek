@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Çarkıfelek Oyun Salonu</title>
+<title>Oyun Salonu</title>
+<meta name="description" content="Oyun Salonu: arkadaşlarınla online ya da aynı cihazda oynayabileceğin 40 tarayıcı oyunu.">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="theme-color" content="#1a0b3d">
+<meta name="theme-color" content="#0e131d">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@500;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700;800&family=Nunito:wght@500;700;800;900&display=swap">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="games.css">
 <link rel="stylesheet" href="games/emlak.css">
@@ -53,10 +54,26 @@
 <link rel="stylesheet" href="games/biletyolu.css">
 </head>
 <body>
-<div class="studio-bg" aria-hidden="true">
-  <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
-  <div class="neon-grid"></div>
-</div>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="g-logo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#93acff"/><stop offset="1" stop-color="#5ccfbf"/></linearGradient>
+    <symbol id="i-logo" viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="url(#g-logo)"/><rect x="9" y="9" width="9.6" height="9.6" rx="3" fill="#0e1424"/><rect x="21.4" y="9" width="9.6" height="9.6" rx="3" fill="#0e1424" opacity=".45"/><rect x="9" y="21.4" width="9.6" height="9.6" rx="3" fill="#0e1424" opacity=".45"/><circle cx="26.2" cy="26.2" r="5" fill="#0e1424"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m16 9.5 5 5m0-5-5 5"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+    <symbol id="i-device" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-enter" viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="m10 16 4-4-4-4"/><path d="M14 12H4"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7.5 7.5 4.5-4.5 4.5 4.5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2c2 .9 3.4 3 3.5 5.8"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></symbol>
+    <symbol id="i-exit" viewBox="0 0 24 24"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="m15 16 4-4-4-4"/><path d="M19 12H9"/></symbol>
+  </defs>
+</svg>
 <div class="marquee-lights" aria-hidden="true"></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 
@@ -74,9 +91,9 @@
     </div>
     <div class="top-actions">
       <button class="room-chip" type="button" hidden aria-label="Davet linkini kopyala"><i class="net-dot"></i><span class="room-chip-code">-----</span></button>
-      <button class="icon-btn btn-sound" type="button" aria-label="Sesi aç/kapat" title="Ses">🔊</button>
-      <button class="icon-btn btn-settings" type="button" aria-label="Ayarlar" title="Ayarlar">⚙️</button>
-      <button class="icon-btn btn-menu" type="button" aria-label="Ana menü" title="Ana menü">☰</button>
+      <button class="icon-btn btn-sound" type="button" aria-label="Sesi aç/kapat" title="Ses"><svg class="ic"><use href="#i-sound"/></svg></button>
+      <button class="icon-btn btn-settings" type="button" aria-label="Ayarlar" title="Ayarlar"><svg class="ic"><use href="#i-sliders"/></svg></button>
+      <button class="icon-btn btn-menu" type="button" aria-label="Ana menü" title="Ana menü"><svg class="ic"><use href="#i-home"/></svg></button>
     </div>
   </header>
 
@@ -150,17 +167,17 @@
 <!-- GENEL OYUN EKRANI (Çarkıfelek dışındaki oyunlar) -->
 <div id="gameScreen" hidden>
   <header class="topbar gtop">
-    <div class="gtitle"><span class="gicon" id="gIcon">🎲</span><b id="gName">Oyun</b></div>
+    <div class="gtitle"><span class="gicon" id="gIcon">🎲</span><span class="gname-wrap"><small class="gkicker">Oyun Salonu</small><b id="gName">Oyun</b></span></div>
     <div class="top-actions">
       <button class="room-chip" type="button" hidden aria-label="Davet linkini kopyala"><i class="net-dot"></i><span class="room-chip-code">-----</span></button>
-      <button class="icon-btn btn-sound" type="button" aria-label="Sesi aç/kapat">🔊</button>
-      <button class="icon-btn btn-settings" type="button" aria-label="Ayarlar">⚙️</button>
-      <button class="icon-btn btn-menu" type="button" aria-label="Ana menü">☰</button>
+      <button class="icon-btn btn-sound" type="button" aria-label="Sesi aç/kapat" title="Ses"><svg class="ic"><use href="#i-sound"/></svg></button>
+      <button class="icon-btn btn-settings" type="button" aria-label="Ayarlar" title="Ayarlar"><svg class="ic"><use href="#i-sliders"/></svg></button>
+      <button class="icon-btn btn-menu" type="button" aria-label="Ana menü" title="Ana menü"><svg class="ic"><use href="#i-home"/></svg></button>
     </div>
   </header>
   <main id="gameRoot"></main>
   <section class="log-zone panel" aria-label="Oyun günlüğü">
-    <h2 class="panel-title">OYUN GÜNLÜĞÜ</h2>
+    <h2 class="panel-title">Oyun günlüğü</h2>
     <ol class="log" id="gLog"></ol>
   </section>
 </div>
@@ -172,58 +189,114 @@
 <div class="banner" id="banner" aria-live="assertive"></div>
 
 <!-- MENÜ -->
-<div class="overlay" id="menu">
+<div class="overlay page" id="menu">
   <div class="modal menu-modal">
-    <div class="menu-logo"><span class="logo-main big">OYUN SALONU</span><span class="logo-sub">ÇARKIFELEK VE ARKADAŞLARI</span></div>
-    <div class="mode-tabs" role="tablist">
-      <button type="button" role="tab" data-tab="online" id="tabBtnOnline">🌐 Arkadaşlarla online</button>
-      <button type="button" role="tab" data-tab="local" id="tabBtnLocal">📱 Bu cihazda</button>
-    </div>
+    <header class="hub-head">
+      <div class="brand" aria-label="Oyun Salonu"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand-txt"><b>Oyun Salonu</b><small>Arkadaşlarınla online oyna</small></span></div>
+      <div class="mode-tabs" role="tablist" aria-label="Oyun şekli">
+        <button type="button" role="tab" data-tab="online" id="tabBtnOnline"><svg class="ic"><use href="#i-globe"/></svg><span>Online</span></button>
+        <button type="button" role="tab" data-tab="local" id="tabBtnLocal"><svg class="ic"><use href="#i-device"/></svg><span>Bu cihazda</span></button>
+      </div>
+      <button class="icon-btn btn-settings hub-settings" type="button" aria-label="Ayarlar" title="Ayarlar"><svg class="ic"><use href="#i-sliders"/></svg></button>
+    </header>
 
     <section id="tabOnline" class="tab-pane">
-      <label class="field"><span>Adın</span><input id="onName" maxlength="16" autocomplete="nickname" placeholder="Örn. Adnan"></label>
-      <div class="online-grid">
-        <div class="on-card host">
-          <h3>Oda kur</h3>
-          <p>Bir oda kodu alırsın. Arkadaşların katılınca lobiden istediğin oyunu seçip başlatırsın.</p>
-          <button class="btn btn-spin" id="btnHost" type="button">🎙 ODA KUR</button>
+      <div class="pane-head"><h1>Arkadaşlarınla oyna</h1><p>Bir oda kur, davet linkini paylaş, lobiden 40 oyundan birini seç. Kayıt ya da kurulum gerekmez.</p></div>
+      <div class="online-layout">
+      <div class="online-wrap">
+        <label class="field"><span>Adın</span><input id="onName" maxlength="16" autocomplete="nickname" placeholder="Örn. Adnan"></label>
+        <div class="online-grid">
+          <div class="on-card host">
+            <span class="on-ic" aria-hidden="true"><svg class="ic"><use href="#i-plus"/></svg></span>
+            <h3>Oda kur</h3>
+            <p>Bir oda kodu alırsın. Arkadaşların katılınca lobiden oyunu seçip başlatırsın.</p>
+            <button class="btn btn-spin" id="btnHost" type="button">Oda kur</button>
+          </div>
+          <div class="on-card join">
+            <span class="on-ic" aria-hidden="true"><svg class="ic"><use href="#i-enter"/></svg></span>
+            <h3>Odaya katıl</h3>
+            <p>Arkadaşının paylaştığı 5 karakterlik kodu yaz.</p>
+            <div class="join-row">
+              <input id="joinCode" class="code-input" maxlength="5" placeholder="KOD" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-label="Oda kodu">
+              <button class="btn btn-ghost" id="btnJoin" type="button">Katıl</button>
+            </div>
+          </div>
         </div>
-        <div class="on-card join">
-          <h3>Odaya katıl</h3>
-          <input id="joinCode" class="code-input" maxlength="5" placeholder="KOD" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-label="Oda kodu">
-          <button class="btn btn-solve" id="btnJoin" type="button">🚪 KATIL</button>
-        </div>
+        <p class="net-msg" id="netMsg" role="status"></p>
+        <ol class="how" aria-label="Nasıl çalışır">
+          <li><b>1</b><span><strong>Oda kur</strong>Sana özel bir kod oluşur.</span></li>
+          <li><b>2</b><span><strong>Linki paylaş</strong>Arkadaşların telefonundan katılır.</span></li>
+          <li><b>3</b><span><strong>Oyunu seç</strong>Lobiden seç, herkes aynı anda başlar.</span></li>
+        </ol>
       </div>
-      <p class="net-msg" id="netMsg" role="status"></p>
+      <aside class="showcase" aria-label="Oyun kataloğu">
+        <p class="lobby-k">Lobide seni bekleyenler</p>
+        <div class="sc-grid" id="onShowcase"></div>
+        <p class="sc-txt">Kelime, parti, aksiyon, strateji ve klasik masa oyunları — 1'den 8 kişiye kadar.</p>
+        <button class="btn btn-ghost btn-sm" type="button" id="scLocal">Oyunlara göz at</button>
+      </aside>
+      </div>
     </section>
 
     <section id="tabLocal" class="tab-pane" hidden>
-      <div class="ggrid" id="localGames"></div>
-      <div class="local-setup" id="localSetup"></div>
+      <div class="pane-head"><h1>Bu cihazda oyna</h1><p>Aynı ekranda sırayla oynayın ya da bilgisayara karşı tek başına oyna.</p></div>
+      <div class="local-layout">
+        <div class="catalog">
+          <div class="catalog-bar">
+            <label class="search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><input id="localSearch" type="search" placeholder="Oyun ara…" autocomplete="off" spellcheck="false" aria-label="Oyun ara" enterkeyhint="search"></label>
+            <div class="chips" id="localCats" role="group" aria-label="Kategori"></div>
+          </div>
+          <div class="ggrid" id="localGames"></div>
+          <p class="cat-empty" id="localGamesEmpty" hidden>Aramana uyan oyun bulunamadı.</p>
+        </div>
+        <div class="local-setup" id="localSetup"></div>
+      </div>
     </section>
     <p class="menu-foot" id="poolInfo"></p>
   </div>
 </div>
 
 <!-- ONLINE LOBİ -->
-<div class="overlay" id="lobby" hidden>
+<div class="overlay page" id="lobby" hidden>
   <div class="modal lobby-modal">
-    <p class="lobby-k">ODA KODU</p>
-    <div class="room-code" id="roomCode">-----</div>
-    <div class="share-row">
-      <input id="shareLink" readonly aria-label="Davet linki">
-      <button class="btn btn-vowel" id="btnShare" type="button">📤 Paylaş</button>
-      <button class="btn btn-ghost" id="btnCopy" type="button">Kopyala</button>
+    <header class="hub-head">
+      <div class="brand" aria-label="Oyun Salonu"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><use href="#i-logo"/></svg><span class="brand-txt"><b>Oyun Salonu</b><small>Arkadaşlarınla online oyna</small></span></div>
+      <button class="btn btn-ghost btn-sm" id="btnLeave" type="button"><svg class="ic" aria-hidden="true"><use href="#i-exit"/></svg><span>Odadan çık</span></button>
+    </header>
+    <div class="lobby-layout">
+      <section class="lb-sec lb-room">
+        <div class="room-top">
+          <div><p class="lobby-k">Oda kodu</p><div class="room-code" id="roomCode">-----</div></div>
+          <div class="room-btns">
+            <button class="btn btn-spin btn-sm" id="btnShare" type="button"><svg class="ic" aria-hidden="true"><use href="#i-share"/></svg><span>Paylaş</span></button>
+            <button class="btn btn-ghost btn-sm" id="btnCopy" type="button">Kopyala</button>
+          </div>
+        </div>
+        <div class="share-row"><svg class="ic" aria-hidden="true"><use href="#i-link"/></svg><input id="shareLink" readonly aria-label="Davet linki"></div>
+      </section>
+      <section class="lb-sec lb-players">
+        <h3 class="lobby-h">Odadakiler <span id="lobbyCount">1/6</span></h3>
+        <div class="lobby-players" id="lobbyPlayers"></div>
+        <p class="lobby-hint" id="lobbyHint"></p>
+      </section>
+      <section class="lb-sec lb-opts">
+        <h3 class="lobby-h">Seçili oyun</h3>
+        <div class="lobby-opts" id="lobbyOpts"></div>
+      </section>
+      <section class="lb-sec lb-games">
+        <h3 class="lobby-h">Oyun seç</h3>
+        <div class="catalog-bar">
+          <label class="search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><input id="lobbySearch" type="search" placeholder="Oyun ara…" autocomplete="off" spellcheck="false" aria-label="Oyun ara" enterkeyhint="search"></label>
+          <div class="chips" id="lobbyCats" role="group" aria-label="Kategori"></div>
+        </div>
+        <div class="ggrid" id="lobbyGames"></div>
+        <p class="cat-empty" id="lobbyGamesEmpty" hidden>Aramana uyan oyun bulunamadı.</p>
+      </section>
+      <div class="lb-start">
+        <button class="btn btn-spin lobby-start" id="btnLobbyStart" type="button">Başlat</button>
+        <p class="lobby-wait" id="lobbyWait">Kurucunun oyunu başlatması bekleniyor…</p>
+      </div>
     </div>
-    <h3 class="lobby-h">ODADAKİLER <span id="lobbyCount">1/6</span></h3>
-    <div class="lobby-players" id="lobbyPlayers"></div>
-    <p class="lobby-hint" id="lobbyHint"></p>
-    <h3 class="lobby-h">OYUN</h3>
-    <div class="ggrid" id="lobbyGames"></div>
-    <div class="lobby-opts" id="lobbyOpts"></div>
-    <button class="btn btn-spin lobby-start" id="btnLobbyStart" type="button">▶ BAŞLAT</button>
-    <p class="lobby-wait" id="lobbyWait">Kurucunun oyunu başlatması bekleniyor…</p>
-    <div class="modal-actions"><button class="btn btn-ghost" id="btnLeave" type="button">Odadan çık</button></div>
   </div>
 </div>
 
@@ -231,29 +304,32 @@
 <div class="overlay" id="results" hidden>
   <div class="modal results-modal">
     <div class="res-icon" id="resIcon">🏆</div>
+    <p class="res-k">Oyun bitti</p>
     <h2 class="modal-title" id="resTitle">Oyun bitti</h2>
     <div id="resBody"></div>
     <p class="muted" id="resWait" hidden>Oda kurucusu yeni oyunu seçecek…</p>
     <div class="modal-actions wrap">
       <button class="btn btn-ghost" id="resLeave" type="button" hidden>Odadan çık</button>
       <button class="btn btn-ghost" id="resLobby" type="button">Oyun seçimine dön</button>
-      <button class="btn btn-spin" id="resAgain" type="button">↻ Tekrar oyna</button>
+      <button class="btn btn-spin" id="resAgain" type="button">Tekrar oyna</button>
     </div>
   </div>
 </div>
 
 <!-- AYARLAR -->
 <div class="overlay" id="settings" hidden>
-  <div class="modal">
-    <h2 class="modal-title">AYARLAR</h2>
+  <div class="modal settings-modal">
+    <h2 class="modal-title">Ayarlar</h2>
+    <h3 class="set-h">Ses ve görünüm</h3>
     <div class="set-row"><label for="setVolume">Ses seviyesi</label><input type="range" id="setVolume" min="0" max="100" value="70"></div>
-    <div class="set-row"><label for="setSound">Ses efektleri</label><input type="checkbox" id="setSound" checked></div>
-    <div class="set-row"><label for="setMusic">Stüdyo müziği</label><input type="checkbox" id="setMusic" checked></div>
+    <div class="set-row"><label for="setSound">Ses efektleri</label><input type="checkbox" class="switch" id="setSound" checked></div>
+    <div class="set-row"><label for="setMusic">Arka plan müziği</label><input type="checkbox" class="switch" id="setMusic" checked></div>
     <div class="set-row"><label for="setAnim">Animasyon yoğunluğu</label>
       <select id="setAnim"><option value="low">Düşük</option><option value="normal" selected>Normal</option><option value="high">Yüksek</option></select></div>
-    <div class="set-row"><label for="setRounds">Çarkıfelek tur sayısı</label>
+    <h3 class="set-h">Çarkıfelek</h3>
+    <div class="set-row"><label for="setRounds">Tur sayısı</label>
       <select id="setRounds"><option value="0">Mod varsayılanı</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select></div>
-    <div class="set-row"><label for="setClueMode">Çarkıfelek ipuçları</label>
+    <div class="set-row"><label for="setClueMode">İpuçları</label>
       <select id="setClueMode"><option value="auto">Sonraki bulmacada otomatik açılır</option><option value="manual">Saklanır, oyuncu sırası gelince açar</option></select></div>
     <div class="set-row stack"><span>Bulmaca geçmişi</span><span class="muted" id="historyInfo"></span></div>
     <div class="modal-actions wrap">
