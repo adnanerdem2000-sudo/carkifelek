@@ -157,9 +157,52 @@ function gridHTML(cls) {
   }
   return h + '<div class="am-radar" style="grid-area:2/2/12/12" aria-hidden="true"></div></div>';
 }
+/* ---- gemi çizimleri (üstten görünüş, SVG) ----
+   Yatay çizilir: genişlik len*100, yükseklik 100; pruva sağda. Dikeyde döndürülür (pruva aşağıda). */
+const turret = (x, y, r, dir = 1) => `<g class="gun"><rect x="${dir > 0 ? x : x - r * 2.3}" y="${y - r * .22}" width="${r * 2.3}" height="${r * .44}" rx="${r * .2}"/><circle cx="${x}" cy="${y}" r="${r}"/><circle class="hi" cx="${x - r * .25}" cy="${y - r * .3}" r="${r * .35}"/></g>`;
+const plane = (x, y, k = 1) => `<path class="plane" transform="translate(${x} ${y}) scale(${k})" d="M14 0 L4 -2 L-2 -12 L-6 -12 L-3 -2 L-10 -2 L-13 -6 L-15 -6 L-14 0 L-15 6 L-13 6 L-10 2 L-3 2 L-6 12 L-2 12 L4 2 Z"/>`;
+function shipArt(id, len) {
+  const W = len * 100;
+  let hull, deck = '', det = '';
+  if (id === 'ucak') {
+    hull = `M10 20 L${W - 70} 12 Q${W - 14} 18 ${W - 6} 50 Q${W - 14} 82 ${W - 70} 88 L10 80 Q4 50 10 20 Z`;
+    deck = `<path class="deck" d="M18 26 L${W - 74} 19 Q${W - 26} 24 ${W - 18} 50 Q${W - 26} 76 ${W - 74} 81 L18 74 Z"/>`;
+    det = `<path class="mark" d="M30 50 H${W - 40}" stroke-dasharray="16 12"/><path class="mark thin" d="M40 70 L${W * .55} 30"/>`
+      + `<rect class="sup" x="${W * .56}" y="12" width="${W * .13}" height="16" rx="4"/><rect class="sup2" x="${W * .6}" y="15" width="${W * .05}" height="10" rx="2"/>`
+      + plane(W * .2, 40, 1) + plane(W * .34, 61, 1) + plane(W * .74, 62, .9) + plane(W * .45, 41, .9);
+  } else if (id === 'denizalti') {
+    hull = `M14 50 Q14 30 60 30 L${W - 60} 30 Q${W - 6} 32 ${W - 6} 50 Q${W - 6} 68 ${W - 60} 70 L60 70 Q14 70 14 50 Z`;
+    det = `<path class="fin" d="M18 50 L4 36 L10 50 L4 64 Z"/><rect class="sup" x="${W * .52}" y="38" width="${W * .2}" height="24" rx="12"/><circle class="win" cx="${W * .67}" cy="50" r="3.5"/>`
+      + `<path class="mark thin" d="M60 50 H${W * .48}" stroke-dasharray="6 8"/><path class="fin" d="M${W * .58} 38 L${W * .6} 30 L${W * .64} 38 Z M${W * .58} 62 L${W * .6} 70 L${W * .64} 62 Z"/>`;
+  } else if (id === 'hucumbot') {
+    hull = `M10 30 L${W - 60} 26 Q${W - 10} 34 ${W - 6} 50 Q${W - 10} 66 ${W - 60} 74 L10 70 Q6 50 10 30 Z`;
+    deck = `<path class="deck" d="M18 35 L${W - 64} 32 Q${W - 24} 38 ${W - 20} 50 Q${W - 24} 62 ${W - 64} 68 L18 65 Z"/>`;
+    det = `<rect class="sup" x="${W * .3}" y="36" width="${W * .26}" height="28" rx="7"/><rect class="win" x="${W * .5}" y="40" width="7" height="20" rx="2"/>` + turret(W * .72, 50, 9) + `<rect class="sup2" x="${W * .12}" y="42" width="${W * .1}" height="16" rx="3"/>`;
+  } else {   // muhrip / kruvazor: savaş gemisi
+    const big = id === 'muhrip';
+    hull = `M12 28 L${W - 90} 22 Q${W - 18} 30 ${W - 5} 50 Q${W - 18} 70 ${W - 90} 78 L12 72 Q5 50 12 28 Z`;
+    deck = `<path class="deck" d="M20 33 L${W - 94} 28 Q${W - 30} 35 ${W - 18} 50 Q${W - 30} 65 ${W - 94} 72 L20 67 Z"/>`;
+    const bx = big ? W * .4 : W * .36, bw = big ? W * .2 : W * .24;
+    det = `<rect class="sup" x="${bx}" y="34" width="${bw}" height="32" rx="6"/><rect class="sup2" x="${bx + bw * .55}" y="39" width="${bw * .32}" height="22" rx="4"/>`
+      + `<rect class="win" x="${bx + bw * .9}" y="40" width="4" height="20" rx="2"/><ellipse class="stack" cx="${bx + bw * .25}" cy="50" rx="${big ? 13 : 11}" ry="8"/><ellipse class="stack-in" cx="${bx + bw * .25}" cy="50" rx="${big ? 8 : 6}" ry="4"/>`
+      + turret(W - (big ? 120 : 92), 50, big ? 12 : 11) + (big ? turret(W - 168, 50, 11) : '') + turret(big ? 62 : 46, 50, 11, -1)
+      + `<circle class="radar" cx="${bx + bw * .7}" cy="50" r="5"/>`;
+  }
+  const k = id === 'ucak' ? 1 : id === 'denizalti' ? 1.3 : 1.22;      // ince gövdeleri biraz dolgunlaştır
+  return `<g transform="translate(0 50) scale(1 ${k}) translate(0 -50)"><path class="hull" d="${hull}"/>${deck}${det}<path class="rim" d="${hull}"/></g>`;
+}
+function shipSVG(id, len, dir) {
+  const W = len * 100, art = shipArt(id, len);
+  return dir === 'v'
+    ? `<svg viewBox="0 0 100 ${W}" preserveAspectRatio="none" aria-hidden="true"><g transform="rotate(90) translate(0,-100)">${art}</g></svg>`
+    : `<svg viewBox="0 0 ${W} 100" preserveAspectRatio="none" aria-hidden="true">${art}</svg>`;
+}
+const shipIcon = (id, len) => `<i class="am-sicon t-${id}" style="--len:${len}">${shipSVG(id, len, 'h')}</i>`;
 function shipEl(s, cls) {
   const d = document.createElement('div');
-  d.className = `am-ship ${s.dir} ${cls || ''}`;
+  const id = s.id || (FLEET.find(f => f.len === s.len) || FLEET[0]).id;
+  d.className = `am-ship ${s.dir} t-${id} ${cls || ''}`;
+  d.innerHTML = shipSVG(id, s.len, s.dir);
   d.style.gridArea = s.dir === 'v' ? `${s.y + 2} / ${s.x + 2} / span ${s.len} / span 1` : `${s.y + 2} / ${s.x + 2} / span 1 / span ${s.len}`;
   return d;
 }
@@ -199,7 +242,7 @@ function renderPlace(v) {
   drawShips(grid, list);
   const placedIds = new Set(ready ? serverShips.map(s => s.id) : Object.keys(draft.layout));
   q('.am-shiplist').innerHTML = FLEET.map(f => `<button type="button" class="am-sitem ${placedIds.has(f.id) ? 'placed' : ''} ${!ready && draft.sel === f.id ? 'on' : ''}" data-ship="${f.id}" ${ready ? 'disabled' : ''}>
-      <span class="am-sname">${esc(f.name)}</span>${pips(f.len, 0, false)}<span class="am-sok">${placedIds.has(f.id) ? '✓' : f.len}</span></button>`).join('');
+      ${shipIcon(f.id, f.len)}<span class="am-sname">${esc(f.name)}</span><span class="am-sok">${placedIds.has(f.id) ? '✓' : f.len}</span></button>`).join('');
   const all = placedIds.size === FLEET.length;
   const rot = q('[data-act="rot"]'); rot.textContent = draft.dir === 'h' ? '↔ Yatay' : '↕ Dikey'; rot.disabled = ready;
   q('[data-act="rand"]').disabled = ready; q('[data-act="clear"]').disabled = ready || !placedIds.size;
@@ -265,7 +308,7 @@ function updateGrid(grid, board, o) {
 function fleetHTML(title, board, own, cls) {
   const ships = board.fleet;
   const left = ships.filter(s => !s.sunk).length;
-  return `<div class="am-fleet ${cls}"><h4>${esc(title)} <small>${left}/${ships.length}</small></h4><ul>${ships.map(s => `<li class="${s.sunk ? 'sunk' : ''}"><span>${esc(s.name)}</span>${pips(s.len, own ? s.hits : 0, s.sunk)}</li>`).join('')}</ul></div>`;
+  return `<div class="am-fleet ${cls}"><h4>${esc(title)} <small>${left}/${ships.length}</small></h4><ul>${ships.map(s => `<li class="${s.sunk ? 'sunk' : ''}">${shipIcon(s.id, s.len)}<span>${esc(s.name)}</span>${pips(s.len, own ? s.hits : 0, s.sunk)}</li>`).join('')}</ul></div>`;
 }
 function renderBattle(v) {
   const me = ui.me, spect = me !== 0 && me !== 1;
