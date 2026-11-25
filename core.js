@@ -318,7 +318,9 @@ class MiniMQTT {
 
 /* ------------------------------------------------------------------ 8
    Ağ katmanı: oda kur, katıl, mesaj yönlendirme, yeniden bağlanma          */
-const DEFAULT_BROKERS = ['wss://broker.emqx.io:8084/mqtt', 'wss://broker.hivemq.com:8884/mqtt', 'wss://test.mosquitto.org:8081/mqtt'];
+// Sıra önemli: oda kurucusu önce ilkine bağlanır. broker.emqx.io kalıcı (retained) mesajları artık teslim etmediği için sona alındı;
+// yine de katılımcı 'probe' gönderip kurucudan canlı oda bilgisi istediği için her üç aracıda da oda bulunabilir.
+const DEFAULT_BROKERS = ['wss://broker.hivemq.com:8884/mqtt', 'wss://test.mosquitto.org:8081/mqtt', 'wss://broker.emqx.io:8084/mqtt'];
 const NS = 'carkifelek-studyo/v1/';
 const CODE_ABC = 'ABCDEFGHJKLMNPRSTUVYZ23456789';
 const Net = {
@@ -365,6 +367,9 @@ const Net = {
         try { const info = JSON.parse(payload); if (info && info.host) { clearTimeout(t); this.hostId = info.host; res(true); } } catch { /* */ }
       });
       mq.subscribe(this.base + 'i', 1);
+      // Aracı kalıcı mesajı vermezse kurucudan oda bilgisini canlı iste
+      const ask = () => mq.publish(this.base + 'h', JSON.stringify({ t: 'probe', id: this.myId }));
+      setTimeout(ask, 300); setTimeout(ask, 1500); setTimeout(ask, 3000);
     }));
     if (!r) throw new Error(`"${code}" kodlu oda bulunamadı. Kodu kontrol et ya da kurucudan yeni link iste.`);
     this.idx = r.i; this.role = 'client'; this.topics = [this.base + 'i']; this.wire(r.mq);
@@ -598,6 +603,7 @@ const Room = {
   hostMsg(m) {
     if (!m || typeof m.id !== 'string' || m.id === Net.myId) return;
     const now = Date.now();
+    if (m.t === 'probe') { if (now - (this.probeAt || 0) > 250) { this.probeAt = now; this.publishInfo(); } return; }
     let k = this.members.findIndex(x => x.cid === m.id);
     if (m.t === 'hello') {
       const name = cleanName(m.name) || 'Misafir';

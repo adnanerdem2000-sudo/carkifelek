@@ -55,7 +55,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 Odalar en fazla 8 kişiliktir. Çoğu oyunda bilgisayar rakip vardır; Kelime Kodu gerçek oyuncularla oynanır.
 
 ## Teknik
-Kurulum gerekmez; `index.html` dosyasını açmak yeterli. Online oyunda ayrı sunucu yoktur: oda kurucunun tarayıcısı oyunu yönetir, cihazlar herkese açık ücretsiz MQTT aracıları (broker.emqx.io, broker.hivemq.com, test.mosquitto.org) üzerinden WebSocket ile haberleşir. Gizli bilgiler (cevaplar, gemiler, eller) diğer cihazlara gönderilmez. Bağlantı koparsa cihazlar yeniden bağlanır, sayfayı yenileyen oyuncu koltuğuna döner, bağlantısı kopan oyuncunun sırası otomatik geçer.
+Kurulum gerekmez; `index.html` dosyasını açmak yeterli. Online oyunda ayrı sunucu yoktur: oda kurucunun tarayıcısı oyunu yönetir, cihazlar herkese açık ücretsiz MQTT aracıları (broker.hivemq.com, test.mosquitto.org, broker.emqx.io) üzerinden WebSocket ile haberleşir. Gizli bilgiler (cevaplar, gemiler, eller) diğer cihazlara gönderilmez. Bağlantı koparsa cihazlar yeniden bağlanır, sayfayı yenileyen oyuncu koltuğuna döner, bağlantısı kopan oyuncunun sırası otomatik geçer.
 
 - `core.js`: oda sistemi, online bağlantı, menü/lobi, ortak sonuç ekranı
 - `games/*.js`: her oyun ayrı modül (`CFX.registerGame`)
