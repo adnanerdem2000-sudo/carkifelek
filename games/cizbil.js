@@ -1090,20 +1090,27 @@ function syncModel(v) {
   if (isLocal()) return;
   if (v.rev !== M.rev) adopt(v);
 }
+let resyncAt = 0;
+function lost() {                                  // olay kaçtı: kurucudan güncel çizimi iste (sık değil)
+  M.rev = -9;
+  const now = Date.now();
+  if (ui && ui.resync && now - resyncAt > 800) { resyncAt = now; ui.resync(); }
+  setTimeout(() => { if (M.rev === -9 && root && V && !amDrawer()) lost(); }, 1600);   // istek de kaybolursa yeniden dene
+}
 function commitLiveLocal() { if (M.live) { const l = M.live; M.live = null; P.live = []; delete l.e; P.push(l); } }
 function applyEv(e) {
-  if (e.rev !== M.rev + 1) { M.rev = -9; return; }        // sıra dışı: bir sonraki görünümde düzelir
+  if (e.rev !== M.rev + 1) { lost(); return; }        // sıra dışı: kurucudan güncel görünüm istenir
   M.rev = e.rev;
   if (e.t === 'pts') {
     let lv = M.live;
     if (!lv || lv.i !== e.s) {
       commitLiveLocal();
-      if (e.o !== 0) { M.rev = -9; return; }
+      if (e.o !== 0) { lost(); return; }
       lv = PK.unpack(Object.assign({}, e.m, { i: e.s, t: 's', p: e.p })); if (!lv) return;
       M.live = lv; P.live = [lv];
     } else {
       const add = PK.dec(e.p), have = lv.p.length;
-      if (e.o > have) { M.rev = -9; return; }
+      if (e.o > have) { lost(); return; }
       for (let j = have - e.o; j < add.length; j++) lv.p.push(clamp(add[j], 0, 1000));
     }
     if (e.e) commitLiveLocal(); else P.show();

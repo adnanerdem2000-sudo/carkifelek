@@ -627,6 +627,11 @@ const Room = {
     }
     this.members[k].lastSeen = now;
     if (!this.members[k].online) this.presence(k, true);
+    if (m.t === 'resync') {                       // katılımcı bir olayı kaçırdı: yalnızca ona güncel görünümü gönder
+      const mem = this.members[k];
+      if (this.game && now - (mem.resyncAt || 0) > 700) { mem.resyncAt = now; const seat = this.game.players.findIndex(p => p.cid === m.id); Net.sendTo(m.id, { t: 'view', v: this.viewFor(seat) }); }
+      return;
+    }
     if (m.t === 'act' && m.a && this.game) {
       const seat = this.game.players.findIndex(p => p.cid === m.id);
       if (seat >= 0) this.act(seat, m.a);
@@ -800,6 +805,7 @@ const UI = {
       get players() { return self.rm && self.rm.active ? self.rm.active.players : []; },
       log: (t, c) => self.log(t, c),
       fast: obj => Room.fast(obj),
+      resync: () => { if (Room.mode === 'client') Net.sendToHost({ t: 'resync', id: Net.myId }); },
       hostNow: () => Date.now() + (Room.isRunner() ? 0 : (self.clockOff || 0)),
       root: null
     };
