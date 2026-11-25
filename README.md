@@ -50,7 +50,7 @@ Telefonda ve bilgisayarda tarayıcıda çalışan, arkadaşlarla online oynanan 
 | ♟️ Türk Daması | 2 | Resmî kurallar |
 | 🧠 Bilgi Yarışması | 1–6 | 591 soru, herkes aynı anda |
 | 🪢 Adam Asmaca Yarışı | 1–4 | Sırayla harf tahmini |
-| 🔤 Kelime Avı | 1–4 | 5 harfli gizli kelime, herkes aynı anda |
+| 🔤 Kelime Avı | 1–8 | 5 harfli gizli kelime, herkes aynı anda |
 
 Odalar en fazla 8 kişiliktir. Çoğu oyunda bilgisayar rakip vardır; Kelime Kodu gerçek oyuncularla oynanır.
 

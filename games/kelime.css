@@ -12,6 +12,7 @@
 .ka-players[data-n="2"] { --n: 2; }
 .ka-players[data-n="3"] { --n: 3; --sq: 8px; }
 .ka-players[data-n="4"] { --n: 4; --sq: 7px; }
+.ka-players[data-n="5"], .ka-players[data-n="6"], .ka-players[data-n="7"], .ka-players[data-n="8"] { --n: 4; --sq: 7px; gap: 5px; }
 .ka-pc { --pc: var(--teal); min-width: 0; padding: 6px 8px; border-radius: 14px; background: rgba(0, 0, 0, .35); border: 2px solid color-mix(in srgb, var(--pc) 35%, transparent); display: grid; gap: 4px; transition: border-color .3s, box-shadow .3s, opacity .3s; }
 .ka-pc.me { border-color: var(--pc); box-shadow: 0 0 14px color-mix(in srgb, var(--pc) 55%, transparent); }
 .ka-pc.won { background: linear-gradient(160deg, rgba(31, 211, 106, .22), rgba(0, 0, 0, .35)); }

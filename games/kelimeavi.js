@@ -2,7 +2,7 @@
    OYUN SALONU — KELİME AVI
    Herkes aynı anda, aynı gizli 5 harfli kelimeyi 6 denemede bulmaya çalışır.
    Yeşil: harf doğru yerde · Sarı: kelimede var, başka yerde · Gri: yok.
-   1–4 kişi online (herkes kendi telefonundan) ya da tek cihazda tek kişilik
+   1–8 kişi online (herkes kendi telefonundan) ya da tek cihazda tek kişilik
    alıştırma. Gizlilik: gizli kelime tur bitene kadar hiçbir görüntüde yok;
    başkalarının harfleri hiç gönderilmez, yalnızca renkleri gösterilir.
    ========================================================================= */
@@ -376,7 +376,7 @@ function onEvent(e) {
 }
 
 CFX.registerGame({
-  id: 'kelimeavi', name: 'Kelime Avı', icon: '🔤', color: '#2bd96b', min: 1, max: 4, hotseat: false, bot: false, localMin: 1,
+  id: 'kelimeavi', name: 'Kelime Avı', icon: '🔤', color: '#2bd96b', min: 1, max: 8, hotseat: false, bot: false, localMin: 1,
   tagline: 'Gizli kelimeyi herkesten önce bul',
   rules: 'Herkes aynı anda aynı gizli 5 harfli kelimeyi 6 denemede bulmaya çalışır. Yeşil harf doğru yerde, sarı harf kelimede ama başka yerde, gri harf kelimede yok. Az denemede ve ilk bulan daha çok puan alır; rakiplerin yalnızca renklerini görürsün.',
   options: [
